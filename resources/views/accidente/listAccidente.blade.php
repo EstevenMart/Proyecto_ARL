@@ -1,3 +1,14 @@
+@extends('layout')
+@section('title' , 'Accidentes')
+@section('h1' , 'Accidentes')
+@section('content')
+
+@if(Session::has('message'))
+    <p class="text-danger">{{ Session::get('message') }}</p>
+@endif
+@if(Session::has('messa'))
+    <p class="text-primary">{{ Session::get('messa') }}</p>
+@endif
 
 <table class="table table-striped table-hover">
     <thead>
@@ -39,11 +50,11 @@
                 <td>{{$accidente->causaMuerte}}</td>
                 <td>{{$accidente->descripcion}}</td>
                 <td>
-                    {{-- <a href="{{ route('product.form', ['id'=> $product->id]) }}" class="btn btn-warning">Editar</a>
-                    <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
+                     <a href="{{ route('accidente.form', ['idAccidente'=> $accidente->idAccidente]) }}" class="btn btn-warning">Editar</a>
+                   {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
-
+@endsection

@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
 
+Route::get('/accidente/form/{id?}', [AccidenteController::class, 'form'])->name('accidente.form');
+
+Route::post('/accidente/save', [AccidenteController::class, 'save'])->name('accidente.save');

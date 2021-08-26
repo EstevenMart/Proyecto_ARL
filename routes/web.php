@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AccidenteController;
+use App\Http\Controllers\AgentAcciController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +21,12 @@ Route::get('/', function () {
 });
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
+
+Route::get('/agentAcci' , [AgentAcciController::class , "show"]);
+
+Route::get('/agentAcci/delete/{id}', [AgentAcciController::class, 'delete'])->name('agentAcci.delete');
+
+Route::get('/agentAcci/formagentAcci/{id?}', [AgentAcciController::class, 'form'])->name('agentAcci.form');
+
+Route::post('/agentAcci/save', [AgentAcciController::class, 'save'])->name('agentAcci.save');
 

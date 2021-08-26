@@ -22,11 +22,6 @@ Route::get('/', function () {
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
 
-Route::get('/agentAcci' , [AgentAcciController::class , "show"]);
+Route::get('/accidente/form/{id?}', [AccidenteController::class, 'form'])->name('accidente.form');
 
-Route::get('/agentAcci/delete/{id}', [AgentAcciController::class, 'delete'])->name('agentAcci.delete');
-
-Route::get('/agentAcci/formagentAcci/{id?}', [AgentAcciController::class, 'form'])->name('agentAcci.form');
-
-Route::post('/agentAcci/save', [AgentAcciController::class, 'save'])->name('agentAcci.save');
-
+Route::post('/accidente/save', [AccidenteController::class, 'save'])->name('accidente.save');

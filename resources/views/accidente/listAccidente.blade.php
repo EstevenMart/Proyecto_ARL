@@ -3,6 +3,9 @@
 @section('h1' , 'Accidentes')
 @section('content')
 
+<a href=" {{route('accidente.formAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
+
+
 @if(Session::has('message'))
     <p class="text-danger">{{ Session::get('message') }}</p>
 @endif
@@ -50,7 +53,7 @@
                 <td>{{$accidente->causaMuerte}}</td>
                 <td>{{$accidente->descripcion}}</td>
                 <td>
-                     <a href="{{ route('accidente.form', ['idAccidente'=> $accidente->idAccidente]) }}" class="btn btn-warning">Editar</a>
+                     <a href="{{ route('accidente.formAccidente', ['idAccidente'=> $accidente->idAccidente]) }}" class="btn btn-warning">Editar</a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                 </td>
             </tr>

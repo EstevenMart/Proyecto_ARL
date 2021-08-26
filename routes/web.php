@@ -21,7 +21,12 @@ Route::get('/', function () {
 });
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
+Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete');
+Route::get('/accidente/formAccidente/{id?}', [AccidenteController::class, 'form'])->name('accidente.formAccidente');
+Route::post('/accidente/saveAccidente', [AccidenteController::class, 'save'])->name('accidente.saveAccidente');
 
-Route::get('/accidente/form/{id?}', [AccidenteController::class, 'form'])->name('accidente.form');
 
-Route::post('/accidente/save', [AccidenteController::class, 'save'])->name('accidente.save');
+Route::get('/agentAccis' , [AgentAcciController::class , "show"]);
+Route::get('/agentAcci/delete/{id}', [AgentAcciController::class, 'delete'])->name('agentAcci.delete');
+Route::get('/agentAcci/formagentAcci/{id?}', [AgentAcciController::class, 'form'])->name('agentAcci.form');
+Route::post('/agentAcci/save', [AgentAcciController::class, 'save'])->name('agentAcci.save');

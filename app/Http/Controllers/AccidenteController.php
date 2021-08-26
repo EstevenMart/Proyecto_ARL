@@ -18,12 +18,20 @@ class AccidenteController extends Controller
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }
 
+    /* function delete($id){
+        //Product::destroy($id);
+
+        $accidente = Accidente::findOrFail($idAccidente );
+        $accidente->delete();
+        return redirect('/accidentes')->with('message' , 'El producto fue borrado');
+    } */
+
     function form ($idAccidente  = null){
         $accidente = new Accidente();
         if ($idAccidente  != null ) {
             $accidente = Accidente::findOrFail($idAccidente );
         }
-        return view('accidente/form', ['accidente' => $accidente]);
+        return view('accidente/formAccidente', ['accidente' => $accidente]);
     }
     function save(Request $request /* , $idAccidente */){
 
@@ -33,7 +41,7 @@ class AccidenteController extends Controller
             'idMecanismo' => 'required|max:50',
             'idSitio' => 'required|max:50',
             'tipoaccidente' => 'required|max:50',
-            'fechaHora' => 'required|date',
+            'fechaHora' => 'required|max:50',
             'dia' => 'required|max:50',
             'jornada' => 'required|max:50',
             'laborHabitual' => 'required|max:50',
@@ -42,7 +50,7 @@ class AccidenteController extends Controller
             'cantMinutos' => 'required|max:50',
             'empresa' => 'required|max:50',
             'causaMuerte' => 'required|max:50',
-            'descripcion' => 'required|max:50',
+            'descripcion' => 'required|max:50'
         ]);
 
         $accidente = new Accidente();

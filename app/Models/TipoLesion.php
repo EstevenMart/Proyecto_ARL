@@ -9,8 +9,8 @@ class TipoLesion extends Model
 {
     use HasFactory;
     protected $table = "tipolesion";
-    function tipoLesion(){
+    /* function tipoLesion(){
         return $this->hasMany(TipoLesion::class);
-    }
+    } */
 
 }

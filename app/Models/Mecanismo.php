@@ -9,8 +9,8 @@ class Mecanismo extends Model
 {
     use HasFactory;
     protected $table = "mecanismo";
-    function mecanismo(){
+   /*  function mecanismo(){
         return $this->hasMany(Mecanismo::class);
-    }
+    } */
 
 }

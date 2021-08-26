@@ -9,8 +9,8 @@ class AgentAcci extends Model
 {
     use HasFactory;
     protected $table = "agenteaccidente";
-    function agentAcci(){
+    /* function agentAcci(){
         return $this->hasMany(AgentAcci::class);
-    }
- 
+    } */
+
 }

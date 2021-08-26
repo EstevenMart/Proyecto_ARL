@@ -10,7 +10,7 @@ class Accidente extends Model
     use HasFactory;
 
     protected $table = "accidente";
-    function agentAcci(){
+    /* function agentAcci(){
         return $this->belongsTo(AgentAcci::class);
     }
 
@@ -26,7 +26,7 @@ class Accidente extends Model
     }
     function tipoLesion(){
         return $this->belongsTo(TipoLesion::class);
-    }
+    } */
 
 
 }

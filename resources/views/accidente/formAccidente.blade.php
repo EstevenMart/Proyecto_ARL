@@ -1,14 +1,14 @@
 @extends('layout')
 
-@section('title',$accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
-@section('h1' , $accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
+@section('title',$accidente->idAccidente ? 'Editar Accidente' : 'Nuevo Accidente')
+@section('h1' , $accidente->idAccidente ? 'Editar Accidente' : 'Nuevo Accidente')
 
 @section('content')
 
-<form action="{{ route('accidente.save') }}" method="POST">
+<form action="{{ route('accidente.saveAccidente') }}" method="POST">
     @csrf
 
-    <input type="hidden" name="id" value="{{ $accidente->id }}">
+    <input type="hidden" name="idAccidente" value="{{ $accidente->idAccidente }}">
 
     <div class="mb-3 row">
         <label for="idParteCuerpo" class="col-sm-2 col-form-label">Parte del Cuerpo</label>

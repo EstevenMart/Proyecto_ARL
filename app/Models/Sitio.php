@@ -9,9 +9,9 @@ class Sitio extends Model
 {
     use HasFactory;
     protected $table = "sitio";
-    function sitio(){
+   /*  function sitio(){
         return $this->hasMany(Sitio::class);
-    }
+    } */
 
 }
 

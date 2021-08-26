@@ -26,10 +26,10 @@ class AccidenteController extends Controller
         return redirect('/accidentes')->with('message' , 'El producto fue borrado');
     } */
 
-    function form ($idAccidente  = null){
+    function form ($idAccidente = null){
         $accidente = new Accidente();
         if ($idAccidente  != null ) {
-            $accidente = Accidente::findOrFail($idAccidente );
+            $accidente = Accidente::findOrFail($idAccidente);
         }
         return view('accidente/formAccidente', ['accidente' => $accidente]);
     }

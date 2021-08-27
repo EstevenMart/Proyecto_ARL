@@ -22,6 +22,7 @@ class AccidenteController extends Controller
         $categorie->delete();
         return redirect('/categories')->with('message' , 'Categoria borrada');
     } */
+
     function form ($id = null){
         $accidente = new Accidente();
         if ($id != null ) {
@@ -29,6 +30,7 @@ class AccidenteController extends Controller
         }
         return view('accidente/formAccidente', ['accidente' => $accidente]);
     }
+
     function save(Request $request){
 
         $request->validate([

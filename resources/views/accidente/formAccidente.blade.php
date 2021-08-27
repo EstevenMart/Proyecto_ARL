@@ -159,11 +159,11 @@
             <input type="text" class="form-control" id="mecanismo_id " name='mecanismo_id '
             value="{{ @old('mecanismo_id ') ? @old('mecanismo_id ') : $accidente->mecanismo_id}}">
         </div>
-         @error('mecanismo_id')
+        {{--  @error('mecanismo_id')
             <p class="text-danger">
                 {{ $message }}
             </p>
-        @enderror
+        @enderror --}}
     </div>
 
     <div class="mb-3 row">

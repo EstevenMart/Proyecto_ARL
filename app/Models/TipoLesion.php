@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TipoLesion extends Model
 {
     use HasFactory;
-    protected $table = "tipolesion";
-    /* function tipoLesion(){
-        return $this->hasMany(TipoLesion::class);
-    } */
+
+    function acciTipoLesions(){
+        return $this->hasMany(AcciTipoLesion::class);
+    }
+
 
 }

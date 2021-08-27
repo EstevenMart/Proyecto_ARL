@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Mecanismo extends Model
 {
     use HasFactory;
-    protected $table = "mecanismo";
-   /*  function mecanismo(){
-        return $this->hasMany(Mecanismo::class);
-    } */
 
+    function accidentes(){
+        return $this->hasMany(Accidente::class);
+    }
 }

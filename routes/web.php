@@ -35,3 +35,7 @@ Route::get('/mecanismos' , [MecanismoController::class , "show"]);
 /* Route::get('/agentAcci/delete/{id}', [AgentAcciController::class, 'delete'])->name('agentAcci.delete'); */
 Route::get('/mecanismo/formMecanismo/{id?}', [MecanismoController::class, 'form'])->name('mecanismo.formMecanismo');
 Route::post('/mecanismo/saveMecanismo', [MecanismoController::class, 'save'])->name('mecanismo.saveMecanismo');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

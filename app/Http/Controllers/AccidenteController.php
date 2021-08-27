@@ -8,36 +8,31 @@ use Illuminate\Http\Request;
 class AccidenteController extends Controller
 {
 
-    /* function __construct()
-    {
+    /* function __construct(){
         $this->middleware('auth');
-    }
- */
-        function show(){
+    } */
+
+    function show(){
         $accidenteList = Accidente::all();
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }
 
-    /* function delete($id){
-        //Product::destroy($id);
-
-        $accidente = Accidente::findOrFail($idAccidente );
-        $accidente->delete();
-        return redirect('/accidentes')->with('message' , 'El producto fue borrado');
+     /* function delete($id){
+        $categorie = Category::findOrFail($id);
+        $categorie->delete();
+        return redirect('/categories')->with('message' , 'Categoria borrada');
     } */
-
-     function form ($id = null){
+    function form ($id = null){
         $accidente = new Accidente();
-        if ($id  != null ) {
+        if ($id != null ) {
             $accidente = Accidente::findOrFail($id);
         }
         return view('accidente/formAccidente', ['accidente' => $accidente]);
     }
-
-      function save(Request $request  /* , $idAccidente */ ){
+    function save(Request $request){
 
         $request->validate([
-            'tipoaccidente' => 'required|max:50',/* unique:table,column,'. $idAccidente */ /* colocar unico */
+            'tipoaccidente' => 'required|max:50',
             'fechaHora' => 'required|date',
             'dia' => 'required|max:50',
             'jornada' => 'required|max:50',
@@ -48,18 +43,17 @@ class AccidenteController extends Controller
             'empresa' => 'required|max:50',
             'causaMuerte' => 'required|max:50',
             'descripcion' => 'required|max:500',
-            'mecanismo_id ' => 'required|max:50',
-            'agenteAcci_id ' => 'required|max:50',
-            'sitio_id ' => 'required|max:50'
-
+            'mecanismo_id' => 'required|max:50',
+            'agenteAcci_id' => 'required|max:50',
+            'sitio_id' => 'required|max:50'
         ]);
 
         $accidente = new Accidente();
-        $message = 'Se ha creado un nuevo Accidente';
+        $message = 'Se ha creado una nueva accidente';
 
         if (intval($request->id)>0){
             $accidente = Accidente::findOrFail($request->id);
-            $message = 'Se ha Editado un Accidente';
+            $message = 'Se ha Editado el accidente';
         }
 
         $accidente->tipoaccidente = $request->tipoaccidente;

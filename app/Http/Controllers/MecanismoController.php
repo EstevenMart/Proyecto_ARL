@@ -7,16 +7,24 @@ use App\Models\Mecanismo;
 use Illuminate\Http\Request;
 class MecanismoController extends Controller
 {
+
+
+    /* function __construct()
+    {
+        $this->middleware('auth');
+    }
+ */
+
     function show(){
         $mecanismoList = Mecanismo::all();
         return view('mecanismo/listMecanismo' , ['listMecanismo' =>$mecanismoList]);
     }
 
-    function delete($id){
+    /* function delete($id){
         $mecanismo = Mecanismo::findOrFail($id);
         $mecanismo->delete();
         return redirect('/mecanismos')->with('message' , 'Mecanismo borrada');
-    }
+    } */
 
     function form($id=null){
         $mecanismo = new Mecanismo();
@@ -28,21 +36,22 @@ class MecanismoController extends Controller
 
     function save(Request $request){
         $request->validate([
-            'mecanismo' =>'required|max:50',
+            'denominacionMecanismo' =>'required|max:50'
         ]);
 
         $mecanismo = new Mecanismo();
-        $message_new = "Nueva Marca";
+        $message = "Nuevo Mecanismo";
+
         if(intval($request->id)>0){
             $mecanismo = Mecanismo::findOrFail($request->id);
-            $message_new = "Edit complete";
+            $message = "Edit complete";
         }
 
-        $mecanismo->mecanismo = $request->mecanismo;
+        $mecanismo->denominacionMecanismo = $request->denominacionMecanismo;
 
 
         $mecanismo->save();
-        return redirect('/mecanismos')->with('message_new' , $message_new);
+        return redirect('/mecanismos')->with('messa' , $message);
 
     }
 }

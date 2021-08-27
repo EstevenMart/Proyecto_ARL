@@ -154,12 +154,12 @@
     </div>
 
     <div class="mb-3 row">
-        <label for="mecanismo_id" class="col-sm-2 col-form-label">Mecanismo</label>
+        <label for="mecanismo_id " class="col-sm-2 col-form-label">Mecanismo</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="mecanismo_id" name='mecanismo_id'
-            value="{{ @old('mecanismo_id') ? @old('mecanismo_id') : $accidente->mecanismo_id}}">
+            <input type="text" class="form-control" id="mecanismo_id " name='mecanismo_id '
+            value="{{ @old('mecanismo_id ') ? @old('mecanismo_id ') : $accidente->mecanismo_id}}">
         </div>
-        @error('mecanismo_id')
+         @error('mecanismo_id')
             <p class="text-danger">
                 {{ $message }}
             </p>
@@ -167,7 +167,7 @@
     </div>
 
     <div class="mb-3 row">
-        <label for="agenteAcci_id" class="col-sm-2 col-form-label">Agente Accidente</label>
+        <label for="agenteAcci_id " class="col-sm-2 col-form-label">Agente Accidente</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="agenteAcci_id" name='agenteAcci_id'
             value="{{ @old('agenteAcci_id') ? @old('agenteAcci_id') : $accidente->agenteAcci_id}}">
@@ -180,7 +180,7 @@
     </div>
 
     <div class="mb-3 row">
-        <label for="sitio_id" class="col-sm-2 col-form-label">Sitio</label>
+        <label for="sitio_id " class="col-sm-2 col-form-label">Sitio</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="sitio_id" name='sitio_id'
             value="{{ @old('sitio_id') ? @old('sitio_id') : $accidente->sitio_id}}">

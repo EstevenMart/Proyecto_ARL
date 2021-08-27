@@ -21,8 +21,8 @@ class CreateAcciTipoLesionsTable extends Migration
 
             $table->timestamps();
 
-            /* $table->foreign('accidente_id')->references('id')->on('accidentes');
-            $table->foreign('tipoLesion_id')->references('id')->on('tipo_lesions'); */
+            $table->foreign('accidente_id')->references('id')->on('accidentes');
+            $table->foreign('tipoLesion_id')->references('id')->on('tipo_lesions');
         });
     }
 

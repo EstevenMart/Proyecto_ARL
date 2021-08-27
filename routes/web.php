@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
 /* Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete'); */
-Route::get('/accidente/formAccidente/{idAccidente?}', [AccidenteController::class, 'form'])->name('accidente.formAccidente');
+Route::get('/accidente/formAccidente/{id?}', [AccidenteController::class, 'form'])->name('accidente.formAccidente');
 Route::post('/accidente/saveAccidente', [AccidenteController::class, 'save'])->name('accidente.saveAccidente');
 
 

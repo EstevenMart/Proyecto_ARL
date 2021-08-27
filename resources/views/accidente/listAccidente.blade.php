@@ -16,10 +16,6 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <th>Parte del Cuerpo</th>
-            <th>Tipo Lesion</th>
-            <th>Mecanismo</th>
-            <th>Sitio</th>
             <th>Tipo Accidente</th>
             <th>Fecha Hora</th>
             <th>Dia</th>
@@ -31,16 +27,16 @@
             <th>Empresa</th>
             <th>Causa de Muerte</th>
             <th>Descripcion</th>
+            <th>Mecanismo</th>
+            <th>Agente Accidente</th>
+            <th>Sitio</th>
+            <th>Acciones</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach ( $listAccidente as $accidente )
             <tr>
-                <td>{{$accidente->idParteCuerpo}}</td>
-                <td>{{$accidente->idTipoLesion}}</td>
-                <td>{{$accidente->idMecanismo}}</td>
-                <td>{{$accidente->idSitio}}</td>
                 <td>{{$accidente->tipoaccidente}}</td>
                 <td>{{$accidente->fechaHora}}</td>
                 <td>{{$accidente->dia}}</td>
@@ -52,8 +48,11 @@
                 <td>{{$accidente->empresa}}</td>
                 <td>{{$accidente->causaMuerte}}</td>
                 <td>{{$accidente->descripcion}}</td>
+                <td>{{$accidente->mecanismo_id}}</td>
+                <td>{{$accidente->agenteAcci_id}}</td>
+                <td>{{$accidente->sitio_id}}</td>
                 <td>
-                     <a href="{{ route('accidente.formAccidente', ['idAccidente'=> $accidente->idAccidente]) }}" class="btn btn-warning">Editar</a>
+                     <a href="{{ route('accidente.formAccidente', ['id'=> $accidente->id]) }}" class="btn btn-warning">Editar</a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                 </td>
             </tr>

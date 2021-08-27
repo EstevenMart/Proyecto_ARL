@@ -21,8 +21,8 @@ class CreateAcciParteCuerposTable extends Migration
 
             $table->timestamps();
 
-            /* $table->foreign('accidente_id')->references('id')->on('accidentes');
-            $table->foreign('parteCuerpo_id')->references('id')->on('parte_cuerpos'); */
+            $table->foreign('accidente_id')->references('id')->on('accidentes');
+            $table->foreign('parteCuerpo_id')->references('id')->on('parte_cuerpos');
         });
     }
 

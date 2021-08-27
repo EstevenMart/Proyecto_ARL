@@ -1,66 +1,14 @@
 @extends('layout')
 
-@section('title',$accidente->idAccidente ? 'Editar Accidente' : 'Nuevo Accidente')
-@section('h1' , $accidente->idAccidente ? 'Editar Accidente' : 'Nuevo Accidente')
+@section('title',$accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
+@section('h1' , $accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
 
 @section('content')
 
 <form action="{{ route('accidente.saveAccidente') }}" method="POST">
     @csrf
 
-    <input type="hidden" name="idAccidente" value="{{ $accidente->idAccidente }}">
-
-    <div class="mb-3 row">
-        <label for="idParteCuerpo" class="col-sm-2 col-form-label">Parte del Cuerpo</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="idParteCuerpo" name='idParteCuerpo'
-            value="{{ @old('idParteCuerpo') ? @old('idParteCuerpo') : $accidente->idParteCuerpo}}">
-        </div>
-        @error('idParteCuerpo')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="idTipoLesion" class="col-sm-2 col-form-label">Tipo Lesion</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="idTipoLesion" name='idTipoLesion'
-            value="{{ @old('idTipoLesion') ? @old('idTipoLesion') : $accidente->idTipoLesion}}">
-        </div>
-        @error('idTipoLesion')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="idMecanismo" class="col-sm-2 col-form-label">Mecanismo</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="idMecanismo" name='idMecanismo'
-            value="{{ @old('idMecanismo') ? @old('idMecanismo') : $accidente->idMecanismo}}">
-        </div>
-        @error('idMecanismo')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="idSitio" class="col-sm-2 col-form-label">Sitio</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="idSitio" name='idSitio'
-            value="{{ @old('idSitio') ? @old('idSitio') : $accidente->idSitio}}">
-        </div>
-        @error('idSitio')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
+    <input type="hidden" name="id" value="{{ $accidente->id }}">
 
     <div class="mb-3 row">
         <label for="tipoaccidente" class="col-sm-2 col-form-label">Tipo Accidente</label>
@@ -91,7 +39,7 @@
     <div class="mb-3 row">
         <label for="dia" class="col-sm-2 col-form-label">Dia</label>
         <div class="col-sm-10">
-            <input type="date" class="form-control" id="dia" name='dia'
+            <input type="text" class="form-control" id="dia" name='dia'
             value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
         </div>
         @error('dia')
@@ -130,7 +78,7 @@
     <div class="mb-3 row">
         <label for="tiempoPA" class="col-sm-2 col-form-label">Tiempo PA</label>
         <div class="col-sm-10">
-            <input type="time" class="form-control" id="tiempoPA" name='tiempoPA'
+            <input type="text" class="form-control" id="tiempoPA" name='tiempoPA'
             value="{{ @old('tiempoPA') ? @old('tiempoPA') : $accidente->tiempoPA}}">
         </div>
         @error('tiempoPA')
@@ -143,7 +91,7 @@
     <div class="mb-3 row">
         <label for="cantHoras" class="col-sm-2 col-form-label">Cantidad de Horas</label>
         <div class="col-sm-10">
-            <input type="time" class="form-control" id="cantHoras" name='cantHoras'
+            <input type="numeric" class="form-control" id="cantHoras" name='cantHoras'
             value="{{ @old('cantHoras') ? @old('cantHoras') : $accidente->cantHoras}}">
         </div>
         @error('cantHoras')
@@ -156,7 +104,7 @@
     <div class="mb-3 row">
         <label for="cantMinutos" class="col-sm-2 col-form-label">Cantidad de Minuto</label>
         <div class="col-sm-10">
-            <input type="time" class="form-control" id="cantMinutos" name='cantMinutos'
+            <input type="numeric" class="form-control" id="cantMinutos" name='cantMinutos'
             value="{{ @old('cantMinutos') ? @old('cantMinutos') : $accidente->cantMinutos}}">
         </div>
         @error('cantMinutos')
@@ -199,6 +147,45 @@
             value="{{ @old('descripcion') ? @old('descripcion') : $accidente->descripcion}}">
         </div>
         @error('descripcion')
+            <p class="text-danger">
+                {{ $message }}
+            </p>
+        @enderror
+    </div>
+
+    <div class="mb-3 row">
+        <label for="mecanismo_id" class="col-sm-2 col-form-label">Mecanismo</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="mecanismo_id" name='mecanismo_id'
+            value="{{ @old('mecanismo_id') ? @old('mecanismo_id') : $accidente->mecanismo_id}}">
+        </div>
+        @error('mecanismo_id')
+            <p class="text-danger">
+                {{ $message }}
+            </p>
+        @enderror
+    </div>
+
+    <div class="mb-3 row">
+        <label for="agenteAcci_id" class="col-sm-2 col-form-label">Agente Accidente</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="agenteAcci_id" name='agenteAcci_id'
+            value="{{ @old('agenteAcci_id') ? @old('agenteAcci_id') : $accidente->agenteAcci_id}}">
+        </div>
+        @error('agenteAcci_id')
+            <p class="text-danger">
+                {{ $message }}
+            </p>
+        @enderror
+    </div>
+
+    <div class="mb-3 row">
+        <label for="sitio_id" class="col-sm-2 col-form-label">Sitio</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="sitio_id" name='sitio_id'
+            value="{{ @old('sitio_id') ? @old('sitio_id') : $accidente->sitio_id}}">
+        </div>
+        @error('sitio_id')
             <p class="text-danger">
                 {{ $message }}
             </p>

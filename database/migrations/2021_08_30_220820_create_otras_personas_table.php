@@ -21,7 +21,7 @@ class CreateOtrasPersonasTable extends Migration
             $table->unsignedBigInteger('accidente_id');
             $table->timestamps();
 
-            /* $table->foreign('accidente_id')->references('id')->on('accidentes'); */
+            $table->foreign('accidente_id')->references('id')->on('accidentes');
         });
     }
 

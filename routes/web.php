@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\AccidenteController;
 use App\Http\Controllers\AgentAcciController;
+use App\Http\Controllers\SitioController;
+use App\Http\Controllers\OtraPersonaController;
+
+
+
 use App\Http\Controllers\MecanismoController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +32,15 @@ Route::post('/accidente/saveAccidente', [AccidenteController::class, 'save'])->n
 
 
 Route::get('/agentAccis' , [AgentAcciController::class , "show"]);
+
+
+Route::get('/sitios' , [SitioController::class , "show"]);
+Route::get('/sitio/formSitio/{id?}', [SitioController::class, 'form'])->name('sitio.formSitio');
+Route::post('/sitio/saveSitio', [SitioController::class, 'save'])->name('sitio.saveSitio');
+
+Route::get('/otrasPersonas' , [OtraPersonaController::class , "show"]);
+Route::get('/otrasPersona/formOtrasPersona/{id?}', [OtraPersonaController::class, 'form'])->name('otraPersona.formOtrasPersona');
+Route::post('/otrasPersona/saveOtrasPersona', [OtraPersonaController::class, 'save'])->name('otraPersona.saveOtraPersona');
 /* Route::get('/agentAcci/delete/{id}', [AgentAcciController::class, 'delete'])->name('agentAcci.delete'); */
 Route::get('/agentAcci/formAgentAcci/{id?}', [AgentAcciController::class, 'form'])->name('agentAcci.formAgentAcci');
 Route::post('/agentAcci/saveAgentAcci', [AgentAcciController::class, 'save'])->name('agentAcci.saveAgentAcci');

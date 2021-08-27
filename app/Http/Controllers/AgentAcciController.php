@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\AgentAcci;
+use App\Models\AgenteAccidente;
 use Illuminate\Http\Request;
 class AgentAcciController extends Controller
 {
@@ -11,42 +11,42 @@ class AgentAcciController extends Controller
     }
  */
     function show(){
-        $agentAcciList = AgentAcci::all();
+        $agentAcciList = AgenteAccidente::all();
         return view('agentAcci/listAgentAcci' , ['listAgentAcci' =>$agentAcciList]);
     }
 
-    function delete($id){
-        $agentAcci = AgentAcci::findOrFail($id);
+    /* function delete($id){
+        $agentAcci = AgenteAccidente::findOrFail($id);
         $agentAcci->delete();
-        return redirect('/agentAccis')->with('message' , 'Marca borrada');
-    }
+        return redirect('/agentAccis')->with('message' , 'Marca borrada'); */
+
 
     function form($id=null){
-        $agentAcci = new AgentAcci();
+        $agentAcci = new AgenteAccidente();
         if($id != null){
-            $agentAcci = AgentAcci::findOrFail($id);
+            $agentAcci = AgenteAccidente::findOrFail($id);
         }
         return view('agentAcci/formAgentAcci', ['agentAcci' => $agentAcci]);
     }
 
     function save(Request $request){
         $request->validate([
-            'agentAcci' =>'required|max:50',
+            'denominacionAgenteAccidente' =>'required|max:50'
         ]);
 
-        $agentAcci = new AgentAcci();
-        $message_new = "Nueva Marca";
+        $agentAcci = new AgenteAccidente();
+        $message = "Nuevo Agente Accidente";
+
         if(intval($request->id)>0){
-            $agentAcci = AgentAcci::findOrFail($request->id);
-            $message_new = "Edit complete";
+            $agentAcci = AgenteAccidente::findOrFail($request->id);
+            $message = "Se ha Editado un Agente Accidente";
         }
 
-        $agentAcci->agentAcci = $request->agentAcci;
+        $agentAcci->denominacionAgenteAccidente = $request->denominacionAgenteAccidente;
 
 
         $agentAcci->save();
-        return redirect('/agentAccis')->with('message_new' , $message_new);
+        return redirect('/agentAccis')->with('messa' , $message);
 
     }
-
 }

@@ -5,7 +5,7 @@
 
 @section('content')
 
-<form action="{{ route('accidente.saveAccidente') }}" method="POST">
+<form action="{{ route('accidente.save') }}" method="POST">
     @csrf
 
     <input type="hidden" name="id" value="{{ $accidente->id }}">

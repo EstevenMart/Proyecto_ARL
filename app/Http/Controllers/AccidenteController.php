@@ -8,23 +8,11 @@ use Illuminate\Http\Request;
 class AccidenteController extends Controller
 {
 
-    /* function __construct()
-    {
-        $this->middleware('auth');
-    }
- */
         function show(){
         $accidenteList = Accidente::all();
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }
 
-    /* function delete($id){
-        //Product::destroy($id);
-
-        $accidente = Accidente::findOrFail($idAccidente );
-        $accidente->delete();
-        return redirect('/accidentes')->with('message' , 'El producto fue borrado');
-    } */
 
      function form ($id = null){
         $accidente = new Accidente();
@@ -34,10 +22,10 @@ class AccidenteController extends Controller
         return view('accidente/formAccidente', ['accidente' => $accidente]);
     }
 
-      function save(Request $request  /* , $idAccidente */ ){
+      function save(Request $request){
 
         $request->validate([
-            'tipoaccidente' => 'required|max:50',/* unique:table,column,'. $idAccidente */ /* colocar unico */
+            'tipoaccidente' => 'required|max:50',
             'fechaHora' => 'required|date',
             'dia' => 'required|max:50',
             'jornada' => 'required|max:50',
@@ -57,7 +45,7 @@ class AccidenteController extends Controller
         $accidente = new Accidente();
         $message = 'Se ha creado un nuevo Accidente';
 
-        if (intval($request->id)>0){
+        if(intval($request->id)>0){
             $accidente = Accidente::findOrFail($request->id);
             $message = 'Se ha Editado un Accidente';
         }
@@ -78,7 +66,7 @@ class AccidenteController extends Controller
         $accidente->sitio_id  = $request->sitio_id ;
 
         $accidente->save();
-        return redirect('/accidentes')->with('messa' , $message);
+        return redirect('/accidentes')->with('message' , $message);
 
     }
 

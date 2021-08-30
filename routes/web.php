@@ -8,6 +8,7 @@ use App\Http\Controllers\OtraPersonaController;
 
 
 use App\Http\Controllers\MecanismoController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,9 @@ Route::get('/', function () {
 Route::get('/accidentes', [AccidenteController::class , "show"] );
 /* Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete'); */
 Route::get('/accidente/formAccidente/{id?}', [AccidenteController::class, 'form'])->name('accidente.formAccidente');
+Route::get('/accidente/infoAccidente/{id?}', [AccidenteController::class, 'find'])->name('accidente.findAccidente');
 Route::post('/accidente/saveAccidente', [AccidenteController::class, 'save'])->name('accidente.saveAccidente');
+
 
 
 Route::get('/agentAccis' , [AgentAcciController::class , "show"]);

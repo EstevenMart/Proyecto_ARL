@@ -8,20 +8,17 @@ use Illuminate\Http\Request;
 class AccidenteController extends Controller
 {
 
-    /* function __construct(){
-        $this->middleware('auth');
-    } */
-
     function show(){
-        $accidenteList = Accidente::all();
+         $accidenteList = Accidente::with('sitio')->get();
+         $accidenteList = Accidente::with('mecanismo')->get();
+         $accidenteList = Accidente::with('agenteAccidente')->get();
+         $accidenteList = Accidente::with('otras_personas')->get();
+        $accidenteList = Accidente::with('acciParteCuerpos')->get();
+         $accidenteList = Accidente::with('acciTipoLesions')->get();
+     
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }
 
-     /* function delete($id){
-        $categorie = Category::findOrFail($id);
-        $categorie->delete();
-        return redirect('/categories')->with('message' , 'Categoria borrada');
-    } */
     function form ($id = null){
         $accidente = new Accidente();
         if ($id != null ) {
@@ -67,14 +64,20 @@ class AccidenteController extends Controller
         $accidente->empresa = $request->empresa;
         $accidente->causaMuerte = $request->causaMuerte;
         $accidente->descripcion = $request->descripcion;
-        $accidente->mecanismo_id  = $request->mecanismo_id ;
-        $accidente->agenteAcci_id  = $request->agenteAcci_id ;
+        $accidente->mecanismo_id  = $request->mecanismo_id;
+        $accidente->agenteAcci_id  = $request->agenteAcci_id;
         $accidente->sitio_id  = $request->sitio_id ;
 
         $accidente->save();
         return redirect('/accidentes')->with('messa' , $message);
 
     }
+
+    function find($id){
+$accidenteFind = Accidente::find($id);
+return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind]);
+    }
+    
 
 
 }

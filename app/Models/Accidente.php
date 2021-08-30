@@ -17,14 +17,17 @@ class Accidente extends Model
         return $this->hasMany(AcciTipoLesion::class);
     }
 
-    function mecanismos(){
+    function mecanismo(){
         return $this->belongsTo(Mecanismo::class);
     }
     function sitio(){
         return $this->belongsTo(Sitio::class);
     }
-    function agenteAccidentes(){
+    function agenteAccidente(){
         return $this->belongsTo(AgenteAccidente::class);
+    }
+    function otras_personas(){
+        return $this->hasMany(OtrasPersona::class);
     }
 
 }

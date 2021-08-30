@@ -9,6 +9,8 @@ class OtrasPersona extends Model
 {
     use HasFactory;
 
+    protected $table ="otras_personas";
+
     function accidentes(){
         return $this->hasMany(Accidente::class);
     }

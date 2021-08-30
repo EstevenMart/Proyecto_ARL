@@ -156,7 +156,7 @@
     <div class="mb-3 row">
         <label for="mecanismo_id " class="col-sm-2 col-form-label">Mecanismo</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="mecanismo_id " name='mecanismo_id '
+            <input type="text" class="form-control" id="mecanismo_id " name='mecanismo_id'
             value="{{ @old('mecanismo_id ') ? @old('mecanismo_id ') : $accidente->mecanismo_id}}">
         </div>
          @error('mecanismo_id')
@@ -182,8 +182,15 @@
     <div class="mb-3 row">
         <label for="sitio_id " class="col-sm-2 col-form-label">Sitio</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="sitio_id" name='sitio_id'
-            value="{{ @old('sitio_id') ? @old('sitio_id') : $accidente->sitio_id}}">
+            {{-- <select class="form-select" aria-label="Default select example" name="sitio_id">
+                <option value="0">Seleccione...</option>
+                @foreach ( $listSitio as $sitio )
+                <option value="{{$sitio->id}} ">{{$sitio->denominacionSitio}} </option>
+                @endforeach
+               
+            </select> --}}
+            {{-- <input type="text" class="form-control" id="sitio_id" name='sitio_id'
+            value="{{ @old('sitio_id') ? @old('sitio_id') : $accidente->sitio_id}}"> --}}
         </div>
         @error('sitio_id')
             <p class="text-danger">

@@ -9,6 +9,8 @@ class AcciTipoLesion extends Model
 {
     use HasFactory;
 
+    protected $table ="acci_tipo_lesions";
+
     function accidentes(){
         return $this->belongsTo(Accidente::class);
     }

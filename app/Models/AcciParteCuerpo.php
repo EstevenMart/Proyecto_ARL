@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AcciParteCuerpo extends Model
 {
     use HasFactory;
+    protected $table ="acci_parte_cuerpos";
 
     function accidentes(){
         return $this->belongsTo(Accidente::class);

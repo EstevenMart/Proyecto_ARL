@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ParteCuerpo extends Model
 {
     use HasFactory;
+    protected $table ="parte_cuerpos";
 
     function acciParteCuerpos(){
         return $this->hasMany(AcciParteCuerpo::class);
     }
-
 }

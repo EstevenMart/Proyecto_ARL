@@ -25,7 +25,7 @@ class CreateAccidentesTable extends Migration
             $table -> integer('cantMinutos');
             $table -> string('empresa',50);
             $table -> string('causaMuerte',50);
-            $table -> string('descripcion',500);
+            $table -> text('descripcion',500);
             $table->unsignedBigInteger('mecanismo_id');
             $table->unsignedBigInteger('agenteAcci_id');
             $table->unsignedBigInteger('sitio_id');

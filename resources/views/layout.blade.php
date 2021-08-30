@@ -9,7 +9,7 @@
     <title>@yield('title' , '2242762')</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
 
     <!-- Bootstrap core CSS -->

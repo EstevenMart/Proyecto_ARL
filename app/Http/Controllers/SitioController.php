@@ -10,6 +10,7 @@ class SitioController extends Controller
     function show(){
         $sitioList = Sitio::all();
         return view('sitio/listSitio',['listSitio'=>$sitioList]);
+        return view('accidente/formAccidente',['listSitio'=>$sitioList]);
     }
 
     function form ($id  = null){

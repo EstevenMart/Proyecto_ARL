@@ -9,12 +9,16 @@ class AccidenteController extends Controller
 {
 
     function show(){
-         $accidenteList = Accidente::with('sitio')->get();
-         $accidenteList = Accidente::with('mecanismo')->get();
-         $accidenteList = Accidente::with('agenteAccidente')->get();
-         $accidenteList = Accidente::with('otras_personas')->get();
-        $accidenteList = Accidente::with('acciParteCuerpos')->get();
-         $accidenteList = Accidente::with('acciTipoLesions')->get();
+          $accidenteList = Accidente::with('sitio')
+          ->with('mecanismo')
+          ->with('agenteAccidente')
+          ->with('otras_personas')
+          
+          ->with('acciTipoLesions')
+          ->get();
+        // $accidente = Accidente::find(1); 
+
+        // return dd($accidente->partes_cuerpo);
      
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }

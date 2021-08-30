@@ -53,9 +53,11 @@
                 <td>{{$infoAccidente->causaMuerte}}</td>
                 <td>{{$infoAccidente->descripcion}}</td>
                 <td>{{$infoAccidente->mecanismo->denominacionMecanismo}}</td>
-                <td>{{$infoAccidente->agenteAccidente}}</td>
+                <td>{{$infoAccidente->agente_accidentes->id}}</td>
                 <td>{{$infoAccidente->sitio->denominacionSitio}}</td>
-                <td>{{$infoAccidente->acciParteCuerpos}}</td>
+                <td>@foreach ($infoAccidente->partes_cuerpo as $parte_cuerpo)
+                   {{ $parte_cuerpo->denominacionParteCuerpo }} 
+                @endforeach </td>
 
                
                 <td>

@@ -13,4 +13,7 @@ class ParteCuerpo extends Model
     function acciParteCuerpos(){
         return $this->hasMany(AcciParteCuerpo::class);
     }
+    function accidentes(){
+        return $this->belongsToMany(Accidente::class,"acci_parte_cuerpos","parteCuerpo_id","accidente_id");
+    }
 }

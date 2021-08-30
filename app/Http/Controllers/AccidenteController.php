@@ -34,7 +34,7 @@ class AccidenteController extends Controller
     function save(Request $request){
 
         $request->validate([
-            'tipoaccidente' => 'required|max:50',
+            'tipoaccidente' => 'required|max:50' ,
             'fechaHora' => 'required|date',
             'dia' => 'required|max:50',
             'jornada' => 'required|max:50',

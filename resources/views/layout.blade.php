@@ -86,6 +86,20 @@
                    Mecanismo
                   </a>
                 </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sitios">
+                <span data-feather="file"></span>
+               Sitio
+              </a>
+            </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/otrasPersonas">
+            <span data-feather="file"></span>
+           Otras Personas
+          </a>
+        </li>
               </ul>
             </div>
           </nav>

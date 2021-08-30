@@ -30,10 +30,6 @@ Route::get('/accidentes', [AccidenteController::class , "show"] );
 Route::get('/accidente/formAccidente/{id?}', [AccidenteController::class, 'form'])->name('accidente.formAccidente');
 Route::post('/accidente/saveAccidente', [AccidenteController::class, 'save'])->name('accidente.saveAccidente');
 
-
-Route::get('/agentAccis' , [AgentAcciController::class , "show"]);
-
-
 Route::get('/sitios' , [SitioController::class , "show"]);
 Route::get('/sitio/formSitio/{id?}', [SitioController::class, 'form'])->name('sitio.formSitio');
 Route::post('/sitio/saveSitio', [SitioController::class, 'save'])->name('sitio.saveSitio');
@@ -41,6 +37,8 @@ Route::post('/sitio/saveSitio', [SitioController::class, 'save'])->name('sitio.s
 Route::get('/otrasPersonas' , [OtraPersonaController::class , "show"]);
 Route::get('/otrasPersona/formOtrasPersona/{id?}', [OtraPersonaController::class, 'form'])->name('otraPersona.formOtrasPersona');
 Route::post('/otrasPersona/saveOtrasPersona', [OtraPersonaController::class, 'save'])->name('otraPersona.saveOtraPersona');
+
+Route::get('/agentAccis' , [AgentAcciController::class , "show"]);
 /* Route::get('/agentAcci/delete/{id}', [AgentAcciController::class, 'delete'])->name('agentAcci.delete'); */
 Route::get('/agentAcci/formAgentAcci/{id?}', [AgentAcciController::class, 'form'])->name('agentAcci.formAgentAcci');
 Route::post('/agentAcci/saveAgentAcci', [AgentAcciController::class, 'save'])->name('agentAcci.saveAgentAcci');

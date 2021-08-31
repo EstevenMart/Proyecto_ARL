@@ -31,6 +31,7 @@
             <th>Agente Accidente</th>
             <th>Sitio</th>
             <th>parte cuerpo</th>
+            <th>Tipo Lesion</th>
             <th>Acciones</th>
 
             
@@ -53,11 +54,14 @@
                 <td>{{$infoAccidente->causaMuerte}}</td>
                 <td>{{$infoAccidente->descripcion}}</td>
                 <td>{{$infoAccidente->mecanismo->denominacionMecanismo}}</td>
-                <td>{{$infoAccidente->agente_accidentes}}</td>
+                <td>{{$infoAccidente->agente->denominacionAgente}}</td>
                 <td>{{$infoAccidente->sitio->denominacionSitio}}</td>
                 <td>@foreach ($infoAccidente->partes_cuerpo as $parte_cuerpo)
                    {{ $parte_cuerpo->denominacionParteCuerpo }} 
                 @endforeach </td>
+                <td>@foreach ($infoAccidente->lesions as $lesions)
+                    {{ $lesions->denominacionTipoLesion }} 
+                 @endforeach </td>
 
                
                 <td>

@@ -10,194 +10,196 @@
 
     <input type="hidden" name="id" value="{{ $accidente->id }}">
 
-    <div class="mb-3 row">
-        <label for="tipoaccidente" class="col-sm-2 col-form-label">Tipo Accidente</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="tipoaccidente" name='tipoaccidente'
-            value="{{ @old('tipoaccidente') ? @old('tipoaccidente') : $accidente->tipoaccidente}}">
-        </div>
-        @error('tipoaccidente')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="fechaHora" class="col-sm-2 col-form-label">Fecha Hora</label>
-        <div class="col-sm-10">
-            <input type="date" class="form-control" id="fechaHora" name='fechaHora'
-            value="{{ @old('fechaHora') ? @old('fechaHora') : $accidente->fechaHora}}">
+    <div class="login-box">  
+        <div class="user-box">
+          <input type="date" class="form-control" id="fechaHora" name='fechaHora'
+          value="{{ @old('fechaHora') ? @old('fechaHora') : $accidente->fechaHora}}">
+          <label class="label">Fecha del accidente</label>
         </div>
         @error('fechaHora')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="dia" class="col-sm-2 col-form-label">Dia</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="dia" name='dia'
-            value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
+        <p class="text-danger">
+            {{ $message }}
+        </p>
+    @enderror
+        <div class="user-box1">
+            <select name="dia" value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
+                <option selected>Seleccione...</option>
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miercoles</option>
+                <option value="Jueves">Jueves-</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sabado">Sabado</option>
+            </select>
+            <label class="label"> dia de la semana que ocurrio el accidente</label>
         </div>
-        @error('dia')
+     @error('dia')
+        <p class="text-danger">
+            {{ $message }}
+        </p>
+    @enderror   
+    </div>
+    
+    
+    <div class="login-box">  
+      <div class="user-box">
+        <label class="label1">Jornada en que sucecdio</label>
+        <div class="  form-check-inline" >
+            <input  type="radio" name="jornada"  value="Normal">
+            <label class="">Normal</label>
+          </div>
+          <div class=" form-check-inline">
+            <input  type="radio" name="jornada"  value="Extra">
+            <label class="">Extra</label>
+          </div>
+          {{-- <input type="text" class="form-control" id="jornada" name='jornada'
+          value="{{ @old('jornada') ? @old('jornada') : $accidente->jornada}}"> --}}
+        
+      </div>
+      @error('jornada')
+        <p class="text-danger">
+            {{ $message }}
+        </p>
+    @enderror
+      <div class="user-box1">
+          <label class="label1" >  ¿Estaba realizando la labor habitual?</label>
+        <div class="  form-check-inline" >
+            <input  type="radio" name="jornada"  value="si">
+            <label class="">si</label>
+          </div>
+          <div class=" form-check-inline">
+            <input  type="radio" name="jornada"  value="no">
+            <label class="">no</label>
+          </div>
+          {{-- <input type="text" class="form-control" id="laborHabitual" name='laborHabitual'
+          value="{{ @old('laborHabitual') ? @old('laborHabitual') : $accidente->laborHabitual}}"> --}}
+        
+      </div>
+      @error('laborHabitual')
+      <p class="text-danger">
+          {{ $message }}
+      </p>
+       @enderror
+  </div>
+  <div class="login-box">  
+      <div class="user-box">   
+              <input type="text" class="form-control" id="tiempoPA" name='tiempoPA'
+              value="{{ @old('tiempoPA') ? @old('tiempoPA') : $accidente->tiempoPA}}">
+        <label class="label"> Tiempo Previo al Accidente</label>
+      </div>
+      @error('tiempoPA')
+      <p class="text-danger">
+          {{ $message }}
+      </p>
+  @enderror
+      <div class="user-box1">
+        <input type="numeric" id="cantHoras" name='cantHoras'
+        value="{{ @old('cantHoras') ? @old('cantHoras') : $accidente->cantHoras}}">
+        <label class="label">Cantidad Horas</label>
+      </div>
+      @error('cantHoras')
             <p class="text-danger">
                 {{ $message }}
             </p>
         @enderror
-    </div>
+  </div>
 
-    <div class="mb-3 row">
-        <label for="jornada" class="col-sm-2 col-form-label">Jornada</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="jornada" name='jornada'
-            value="{{ @old('jornada') ? @old('jornada') : $accidente->jornada}}">
-        </div>
-        @error('jornada')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="laborHabitual" class="col-sm-2 col-form-label">Labor Habitual</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="laborHabitual" name='laborHabitual'
-            value="{{ @old('laborHabitual') ? @old('laborHabitual') : $accidente->laborHabitual}}">
-        </div>
-        @error('laborHabitual')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="tiempoPA" class="col-sm-2 col-form-label">Tiempo PA</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="tiempoPA" name='tiempoPA'
-            value="{{ @old('tiempoPA') ? @old('tiempoPA') : $accidente->tiempoPA}}">
-        </div>
-        @error('tiempoPA')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="cantHoras" class="col-sm-2 col-form-label">Cantidad de Horas</label>
-        <div class="col-sm-10">
-            <input type="numeric" class="form-control" id="cantHoras" name='cantHoras'
-            value="{{ @old('cantHoras') ? @old('cantHoras') : $accidente->cantHoras}}">
-        </div>
-        @error('cantHoras')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="cantMinutos" class="col-sm-2 col-form-label">Cantidad de Minuto</label>
-        <div class="col-sm-10">
-            <input type="numeric" class="form-control" id="cantMinutos" name='cantMinutos'
+  <div class="login-box">  
+      
+      <div class="user-box">
+            <input type="numeric" id="cantMinutos" name='cantMinutos'
             value="{{ @old('cantMinutos') ? @old('cantMinutos') : $accidente->cantMinutos}}">
-        </div>
-        @error('cantMinutos')
+            <label class="label">Cantidad Minutos</label>
+          </div>
+          @error('cantMinutos')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+            @enderror
+         <div class="user-box1">
+         <select name='tipoaccidente' value="{{ @old('tipoaccidente') ? @old('tipoaccidente') : $accidente->tipoaccidente}}">>
+                <option selected>Seleccione...</option>
+                <option value="Violencia">Violencia</option>
+                <option value="Transito">Tránsito</option>
+                <option value="Deportivo">Deportivo</option>
+                <option value="Recreativo o cultural">Recreativo o cultural</option>
+                <option value="Propios del trabajo">Propios del trabajo</option>    
+               </select>
+          <label class="label">Tipo Accidente</label>
+          </div>
+          @error('tipoaccidente')
+          <p class="text-danger">
+              {{ $message }}
+          </p>
+         @enderror
+  </div>
+  <div class="login-box">
+    <div class="user-box">
+        <label class="label1" >¿Causo muerte al trabajador?</label>
+        <div class="  form-check-inline" >
+            <input  type="radio" name="causaMuerte"  value="Si">
+            <label class="">si</label>
+          </div>
+          <div class=" form-check-inline">
+            <input  type="radio" name="causaMuerte"  value="NO">
+            <label class="">no</label>
+          </div>
+      </div>
+      @error('causaMuerte')
+      <p class="text-danger">
+          {{ $message }}
+      </p>
+  @enderror  
+     
+      <div class="user-box1">      
+        <select name="sitio_id" >
+        <option selected>Seleccione...</option>
+        @foreach ($sitios as $sitio)
+        <option value="{{$sitio->id}}" {{$sitio->id == $accidente->sitio_id ? "selected" : ""}}>
+            {{$sitio->denominacionSitio}}</option>
+    @endforeach  
+    </select>
+    <label class="label">Sitio</label>
+      </div>
+    @error('sitio_id')
+    <p class="text-danger">
+        {{ $message }}
+    </p>
+    @enderror
+  </div>
+  <div class="login-box">  
+      <div class="user-box">
+          {{-- <input type="password" name="" required="">
+        <label class="label"> Parte del cuerpo aparentemente afectado</label> --}}
+            <select name="agente_id" >
+            <option selected>Seleccione...</option>
+            @foreach ($agentes as $agente)
+            <option value="{{$agente->id}}" {{$agente->id == $accidente->agente_id ? "selected" : ""}} >{{$agente->denominacionAgente}}</option>        
+            @endforeach
+        </select>
+        <label class="label">Agente Accidente</label>      
+        @error('agente_id')
             <p class="text-danger">
                 {{ $message }}
             </p>
         @enderror
-    </div>
+      </div>
+      <div class="user-box1"> 
+        <select name="mecanismo_id">
+            <option selected>Seleccione...</option>
+            @foreach ($mecanismos as $mecanismo)
+            <option value="{{$mecanismo->id}}" {{$mecanismo->id == $accidente->mecanismo_id ? "selected" : ""}} >{{$mecanismo->denominacionMecanismo}}</option>
+        @endforeach
+    </select>
+    <label class="label">Mecanismo o forma de accidente</label>   
+      </div>
+      @error('mecanismo_id')
+      <p class="text-danger">
+          {{ $message }}
+      </p>
+  @enderror
+  </div>
 
-    <div class="mb-3 row">
-        <label for="empresa" class="col-sm-2 col-form-label">Empresa</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="empresa" name='empresa'
-            value="{{ @old('empresa') ? @old('empresa') : $accidente->empresa}}">
-        </div>
-        @error('empresa')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="causaMuerte" class="col-sm-2 col-form-label">Causa de Muerte</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="causaMuerte" name='causaMuerte'
-            value="{{ @old('causaMuerte') ? @old('causaMuerte') : $accidente->causaMuerte}}">
-        </div>
-        @error('causaMuerte')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="descripcion" name='descripcion'
-            value="{{ @old('descripcion') ? @old('descripcion') : $accidente->descripcion}}">
-        </div>
-        @error('descripcion')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="mecanismo_id " class="col-sm-2 col-form-label">Mecanismo</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="mecanismo_id " name='mecanismo_id'
-            value="{{ @old('mecanismo_id ') ? @old('mecanismo_id ') : $accidente->mecanismo_id}}">
-        </div>
-         @error('mecanismo_id')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="agenteAcci_id " class="col-sm-2 col-form-label">Agente Accidente</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="agenteAcci_id" name='agenteAcci_id'
-            value="{{ @old('agenteAcci_id') ? @old('agenteAcci_id') : $accidente->agenteAcci_id}}">
-        </div>
-        @error('agenteAcci_id')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="sitio_id " class="col-sm-2 col-form-label">Sitio</label>
-        <div class="col-sm-10">
-            {{-- <select class="form-select" aria-label="Default select example" name="sitio_id">
-                <option value="0">Seleccione...</option>
-                @foreach ( $listSitio as $sitio )
-                <option value="{{$sitio->id}} ">{{$sitio->denominacionSitio}} </option>
-                @endforeach
-               
-            </select> --}}
-            {{-- <input type="text" class="form-control" id="sitio_id" name='sitio_id'
-            value="{{ @old('sitio_id') ? @old('sitio_id') : $accidente->sitio_id}}"> --}}
-        </div>
-        @error('sitio_id')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
 
 
 

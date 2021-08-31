@@ -17,12 +17,12 @@ class CreateAcciTipoLesionsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('accidente_id');
-            $table->unsignedBigInteger('tipoLesion_id');
+            $table->unsignedBigInteger('Lesion_id');
 
             $table->timestamps();
 
             $table->foreign('accidente_id')->references('id')->on('accidentes');
-            $table->foreign('tipoLesion_id')->references('id')->on('tipo_lesions');
+            $table->foreign('Lesion_id')->references('id')->on('lesions');
         });
     }
 

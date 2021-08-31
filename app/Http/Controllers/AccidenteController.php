@@ -3,32 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\Accidente;
+use App\Models\Agente;
+use App\Models\Mecanismo;
+use App\Models\Sitio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AccidenteController extends Controller
 {
 
     function show(){
-          $accidenteList = Accidente::with('sitio')
-          ->with('mecanismo')
-          ->with('agenteAccidente')
-          ->with('otras_personas')
-          
-          ->with('acciTipoLesions')
+          $accidenteList = DB::table('accidentes') 
+          ->orderBy('id','desc')
           ->get();
-        // $accidente = Accidente::find(1); 
-
-        // return dd($accidente->partes_cuerpo);
+  
      
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }
 
     function form ($id = null){
         $accidente = new Accidente();
+        $sitio = Sitio::orderBy('denominacionSitio')->get();
+        $mecanismo = Mecanismo::orderBy('denominacionMecanismo')->get();
+        $agente = Agente::orderBy('denominacionAgente')->get();
         if ($id != null ) {
             $accidente = Accidente::findOrFail($id);
         }
-        return view('accidente/formAccidente', ['accidente' => $accidente]);
+        return view('accidente/formAccidente', ['accidente' => $accidente,'sitios'=>$sitio, 'mecanismos'=>$mecanismo, 'agentes'=>$agente ]);
     }
     function save(Request $request){
 
@@ -45,7 +46,7 @@ class AccidenteController extends Controller
             'causaMuerte' => 'required|max:50',
             'descripcion' => 'required|max:500',
             'mecanismo_id' => 'required|max:50',
-            'agenteAcci_id' => 'required|max:50',
+            'agente_id' => 'required|max:50',
             'sitio_id' => 'required|max:50'
         ]);
 
@@ -69,7 +70,7 @@ class AccidenteController extends Controller
         $accidente->causaMuerte = $request->causaMuerte;
         $accidente->descripcion = $request->descripcion;
         $accidente->mecanismo_id  = $request->mecanismo_id;
-        $accidente->agenteAcci_id  = $request->agenteAcci_id;
+        $accidente->agente_id  = $request->agente_id;
         $accidente->sitio_id  = $request->sitio_id ;
 
         $accidente->save();

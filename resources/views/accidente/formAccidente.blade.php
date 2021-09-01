@@ -3,9 +3,9 @@
 @section('title',$accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
 @section('h1' , $accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
 
-@section('content')
 
-<form action="{{ route('accidente.saveAccidente') }}" method="POST">
+@section('Contenido')
+<form action="{{ route('accidente.saveAccidente') }}" method="POST" >
     @csrf
 
     <input type="hidden" name="id" value="{{ $accidente->id }}">
@@ -201,9 +201,6 @@
   </div>
 
 
-
-
-
     <div class="mb-3 row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">
@@ -212,4 +209,6 @@
         </div>
     </div>
 </form>
+
+  
 @endsection

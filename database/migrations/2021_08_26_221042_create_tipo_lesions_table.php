@@ -13,7 +13,7 @@ class CreateTipoLesionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_lesions', function (Blueprint $table) {
+        Schema::create('lesions', function (Blueprint $table) {
             $table->id();
             $table -> string('denominacionTipoLesion',50);
             $table->timestamps();

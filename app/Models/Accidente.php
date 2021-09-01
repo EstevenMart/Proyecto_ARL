@@ -9,22 +9,25 @@ class Accidente extends Model
 {
     use HasFactory;
 
-    function acciParteCuerpos(){
-        return $this->hasMany(AcciParteCuerpo::class);
-    }
-
-    function acciTipoLesions(){
-        return $this->hasMany(AcciTipoLesion::class);
-    }
-
-    function mecanismos(){
+    function mecanismo(){
         return $this->belongsTo(Mecanismo::class);
     }
     function sitio(){
         return $this->belongsTo(Sitio::class);
     }
-    function agenteAccidentes(){
-        return $this->belongsTo(AgenteAccidente::class);
+    function agente(){
+        return $this->belongsTo(Agente::class);
+        // return $this->belongsTo(Agente::class,"agenteAcci_id",);
     }
+    function otras_personas(){
+        return $this->hasMany(OtrasPersona::class);
+    }
+    function partes_cuerpo(){
+        return $this->belongsToMany(ParteCuerpo::class,"acci_parte_cuerpos","accidente_id","parteCuerpo_id");
+    }
+    function lesions(){
+        return $this->belongsToMany(Lesion::class,"acci_tipo_lesions","accidente_id","Lesion_id");
+    }
+
 
 }

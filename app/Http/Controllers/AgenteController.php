@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\AgenteAccidente;
+use App\Models\Agente;
 use Illuminate\Http\Request;
 class AgentAcciController extends Controller
 {
@@ -11,20 +11,20 @@ class AgentAcciController extends Controller
     }
  */
     function show(){
-        $agentAcciList = AgenteAccidente::all();
+        $agentAcciList = Agente::all();
         return view('agentAcci/listAgentAcci' , ['listAgentAcci' =>$agentAcciList]);
     }
 
     /* function delete($id){
-        $agentAcci = AgenteAccidente::findOrFail($id);
+        $agentAcci = Agente::findOrFail($id);
         $agentAcci->delete();
         return redirect('/agentAccis')->with('message' , 'Marca borrada'); */
 
 
     function form($id=null){
-        $agentAcci = new AgenteAccidente();
+        $agentAcci = new Agente();
         if($id != null){
-            $agentAcci = AgenteAccidente::findOrFail($id);
+            $agentAcci = Agente::findOrFail($id);
         }
         return view('agentAcci/formAgentAcci', ['agentAcci' => $agentAcci]);
     }
@@ -34,11 +34,11 @@ class AgentAcciController extends Controller
             'denominacionAgenteAccidente' =>'required|max:50'
         ]);
 
-        $agentAcci = new AgenteAccidente();
+        $agentAcci = new Agente();
         $message = "Nuevo Agente Accidente";
 
         if(intval($request->id)>0){
-            $agentAcci = AgenteAccidente::findOrFail($request->id);
+            $agentAcci = Agente::findOrFail($request->id);
             $message = "Se ha Editado un Agente Accidente";
         }
 

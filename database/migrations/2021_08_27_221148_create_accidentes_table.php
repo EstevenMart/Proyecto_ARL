@@ -25,16 +25,16 @@ class CreateAccidentesTable extends Migration
             $table -> integer('cantMinutos');
             $table -> string('empresa',50);
             $table -> string('causaMuerte',50);
-            $table -> string('descripcion',500);
+            $table -> text('descripcion',500);
             $table->unsignedBigInteger('mecanismo_id');
-            $table->unsignedBigInteger('agenteAcci_id');
+            $table->unsignedBigInteger('agente_id');
             $table->unsignedBigInteger('sitio_id');
 
             $table->timestamps();
 
 
             $table->foreign('mecanismo_id')->references('id')->on('mecanismos');
-            $table->foreign('agenteAcci_id')->references('id')->on('agente_accidentes');
+            $table->foreign('agente_id')->references('id')->on('agentes');
             $table->foreign('sitio_id')->references('id')->on('sitios');
 
         });

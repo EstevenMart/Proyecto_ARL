@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\DB;
 class AccidenteController extends Controller
 {
 
+    function __construct(){
+        $this->middleware('auth');
+    }
+
     function show(){
           $accidenteList = DB::table('accidentes')
           ->orderBy('id','desc')
           ->get();
-
-
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }
 

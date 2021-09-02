@@ -7,6 +7,11 @@ use App\Models\OtrasPersona;
 
 class OtraPersonaController extends Controller
 {
+
+    function __construct(){
+        $this->middleware('auth');
+    }
+
     function show(){
         $otraPersonaList = OtrasPersona::all();
         return view('otraPersona/listOtraPersona',['listOtraPersona'=>$otraPersonaList]);
@@ -20,7 +25,7 @@ class OtraPersonaController extends Controller
         return view('otraPersona/formOtraPersona', ['otraPersona' => $otraPersona]);
     }
     function save(Request $request ){
-        
+
 
         $request->validate([
             /* unique:table,column,'. $idAccidente */ /* colocar unico */
@@ -28,7 +33,7 @@ class OtraPersonaController extends Controller
             'numeroDocumento' => 'required|max:50',
             'cargo' => 'required|max:50',
             'accidente_id' => 'required|max:50'
-            
+
         ]);
 
 $otraPersona = new OtrasPersona();
@@ -39,7 +44,7 @@ $otraPersona = new OtrasPersona();
             $message = 'Se ha Editado un nuevo otraPersona';
         }
 
-      
+
         $otraPersona->tipoDocumento = $request->tipoDocumento;
         $otraPersona->numeroDocumento = $request->numeroDocumento;
         $otraPersona->cargo = $request->cargo;

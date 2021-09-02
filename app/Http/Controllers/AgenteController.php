@@ -5,11 +5,10 @@ use App\Models\Agente;
 use Illuminate\Http\Request;
 class AgentAcciController extends Controller
 {
-    /* function __construct()
-    {
+    function __construct(){
         $this->middleware('auth');
     }
- */
+
     function show(){
         $agentAcciList = Agente::all();
         return view('agentAcci/listAgentAcci' , ['listAgentAcci' =>$agentAcciList]);

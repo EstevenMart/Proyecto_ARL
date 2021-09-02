@@ -3,9 +3,9 @@
 @section('title',$accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
 @section('h1' , $accidente->id ? 'Editar Accidente' : 'Nuevo Accidente')
 
-@section('content')
 
-<form action="{{ route('accidente.saveAccidente') }}" method="POST">
+@section('Contenido')
+<form action="{{ route('accidente.saveAccidente') }}" method="POST" >
     @csrf
 
     <input type="hidden" name="id" value="{{ $accidente->id }}">
@@ -23,7 +23,7 @@
     @enderror
         <div class="user-box1">
             <select name="dia" value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
-                <option selected>Seleccione...</option>
+                <option value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">{{ @old('dia') ? @old('dia') : $accidente->dia}}</option>
                 <option value="Lunes">Lunes</option>
                 <option value="Martes">Martes</option>
                 <option value="Miercoles">Miercoles</option>
@@ -44,14 +44,11 @@
     <div class="login-box">
       <div class="user-box">
         <label class="label1">Jornada en que sucecdio</label>
-        <div class="  form-check-inline" >
-            <input  type="radio" name="jornada"  value="Normal">
-            <label class="">Normal</label>
-          </div>
-          <div class=" form-check-inline">
-            <input  type="radio" name="jornada"  value="Extra">
-            <label class="">Extra</label>
-          </div>
+          <select name="jornada" value="{{ @old('jornada') ? @old('jornada') : $accidente->jornada}}">
+          <option  value="{{ @old('jornada') ? @old('jornada') : $accidente->jornada}}">{{ @old('jornada') ? @old('jornada') : $accidente->jornada}}</option>
+            <option value="Extra">Extra</option>
+            <option value="Normal">Normal</option>
+        </select>
           {{-- <input type="text" class="form-control" id="jornada" name='jornada'
           value="{{ @old('jornada') ? @old('jornada') : $accidente->jornada}}"> --}}
 
@@ -62,18 +59,12 @@
         </p>
     @enderror
       <div class="user-box1">
-          <label class="label1" >  ¿Estaba realizando la labor habitual?</label>
-        <div class="  form-check-inline" >
-            <input  type="radio" name="jornada"  value="si">
-            <label class="">si</label>
-          </div>
-          <div class=" form-check-inline">
-            <input  type="radio" name="jornada"  value="no">
-            <label class="">no</label>
-          </div>
-          {{-- <input type="text" class="form-control" id="laborHabitual" name='laborHabitual'
-          value="{{ @old('laborHabitual') ? @old('laborHabitual') : $accidente->laborHabitual}}"> --}}
-
+          <label class="label1" >  ¿Estaba realizando la labor habitual? si o no. Si escogio no, cual fué?</label>
+          <select name="laborHabitual" value="{{ @old('laborHabitual') ? @old('laborHabitual') : $accidente->laborHabitual}}">
+            <option  value="{{ @old('laborHabitual') ? @old('laborHabitual') : $accidente->laborHabitual}}">{{ @old('laborHabitual') ? @old('laborHabitual') : $accidente->laborHabitual}}</option>
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
       </div>
       @error('laborHabitual')
       <p class="text-danger">
@@ -83,7 +74,7 @@
   </div>
   <div class="login-box">
       <div class="user-box">
-              <input type="text" class="form-control" id="tiempoPA" name='tiempoPA'
+              <input type="number" class="form-control" id="tiempoPA" name='tiempoPA'
               value="{{ @old('tiempoPA') ? @old('tiempoPA') : $accidente->tiempoPA}}">
         <label class="label"> Tiempo Previo al Accidente</label>
       </div>
@@ -93,7 +84,7 @@
       </p>
   @enderror
       <div class="user-box1">
-        <input type="numeric" id="cantHoras" name='cantHoras'
+        <input type="number" id="cantHoras" name='cantHoras'
         value="{{ @old('cantHoras') ? @old('cantHoras') : $accidente->cantHoras}}">
         <label class="label">Cantidad Horas</label>
       </div>
@@ -107,7 +98,7 @@
   <div class="login-box">
 
       <div class="user-box">
-            <input type="numeric" id="cantMinutos" name='cantMinutos'
+            <input type="number" id="cantMinutos" name='cantMinutos'
             value="{{ @old('cantMinutos') ? @old('cantMinutos') : $accidente->cantMinutos}}">
             <label class="label">Cantidad Minutos</label>
           </div>
@@ -117,8 +108,8 @@
                 </p>
             @enderror
          <div class="user-box1">
-         <select name='tipoaccidente' value="{{ @old('tipoaccidente') ? @old('tipoaccidente') : $accidente->tipoaccidente}}">>
-                <option selected>Seleccione...</option>
+         <select name='tipoaccidente' value="{{ @old('tipoaccidente') ? @old('tipoaccidente') : $accidente->tipoaccidente}}">
+                <option selected value="{{ @old('tipoaccidente') ? @old('tipoaccidente') : $accidente->tipoaccidente}}">{{ @old('tipoaccidente') ? @old('tipoaccidente') : $accidente->tipoaccidente}}</option>
                 <option value="Violencia">Violencia</option>
                 <option value="Transito">Tránsito</option>
                 <option value="Deportivo">Deportivo</option>
@@ -136,14 +127,11 @@
   <div class="login-box">
     <div class="user-box">
         <label class="label1" >¿Causo muerte al trabajador?</label>
-        <div class="  form-check-inline" >
-            <input  type="radio" name="causaMuerte"  value="Si">
-            <label class="">si</label>
-          </div>
-          <div class=" form-check-inline">
-            <input  type="radio" name="causaMuerte"  value="NO">
-            <label class="">no</label>
-          </div>
+        <select name="causaMuerte" value="{{ @old('causaMuerte') ? @old('causaMuerte') : $accidente->causaMuerte}}">
+            <option selected value="{{ @old('causaMuerte') ? @old('causaMuerte') : $accidente->causaMuerte}}">{{ @old('causaMuerte') ? @old('causaMuerte') : $accidente->causaMuerte}}</option>
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
       </div>
       @error('causaMuerte')
       <p class="text-danger">
@@ -199,87 +187,28 @@
       </p>
   @enderror
   </div>
-
-    <div class="mb-3 row">
-        <label for="empresa" class="col-sm-2 col-form-label">Empresa</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="empresa" name='empresa'
-            value="{{ @old('empresa') ? @old('empresa') : $accidente->empresa}}">
-        </div>
-        @error('empresa')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
+  <div class="login-box">
+    <div class="user-box">
+        <input type="text" id="empresa" name='empresa'
+        value="{{ @old('empresa') ? @old('empresa') : $accidente->empresa}}">
+        <label class="label">empresa</label>
     </div>
-
-    <div class="mb-3 row">
-        <label for="causaMuerte" class="col-sm-2 col-form-label">Causa de Muerte</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="causaMuerte" name='causaMuerte'
-            value="{{ @old('causaMuerte') ? @old('causaMuerte') : $accidente->causaMuerte}}">
-        </div>
-        @error('causaMuerte')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
+    @error('descripcion')
+    <p class="text-danger">
+        {{ $message }}
+    </p>
+@enderror
+    <div class="user-box1">
+        <input type="text" id="descripcion" name='descripcion'
+        value="{{ @old('descripcion') ? @old('descripcion') : $accidente->descripcion}}">
+        <label class="label">descripcion</label>
     </div>
-
-    <div class="mb-3 row">
-        <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="descripcion" name='descripcion'
-            value="{{ @old('descripcion') ? @old('descripcion') : $accidente->descripcion}}">
-        </div>
-        @error('descripcion')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="mecanismo_id" class="col-sm-2 col-form-label">Mecanismo</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="mecanismo_id" name='mecanismo_id'
-            value="{{ @old('mecanismo_id') ? @old('mecanismo_id') : $accidente->mecanismo_id}}">
-        </div>
-         @error('mecanismo_id')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="agenteAcci_id" class="col-sm-2 col-form-label">Agente Accidente</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="agenteAcci_id" name='agenteAcci_id'
-            value="{{ @old('agenteAcci_id') ? @old('agenteAcci_id') : $accidente->agenteAcci_id}}">
-        </div>
-        @error('agenteAcci_id')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-    <div class="mb-3 row">
-        <label for="sitio_id" class="col-sm-2 col-form-label">Sitio</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="sitio_id" name='sitio_id'
-            value="{{ @old('sitio_id') ? @old('sitio_id') : $accidente->sitio_id}}">
-        </div>
-        @error('sitio_id')
-            <p class="text-danger">
-                {{ $message }}
-            </p>
-        @enderror
-    </div>
-
-
-
+    @error('empresa')
+    <p class="text-danger">
+        {{ $message }}
+    </p>
+@enderror
+  </div>
 
     <div class="mb-3 row">
         <div class="col-sm-9"></div>
@@ -289,4 +218,6 @@
         </div>
     </div>
 </form>
+
+
 @endsection

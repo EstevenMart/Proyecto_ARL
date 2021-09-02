@@ -24,13 +24,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
 /* Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete'); */
 Route::get('/accidente/formAccidente/{id?}', [AccidenteController::class, 'form'])->name('accidente.formAccidente');
 Route::get('/accidente/infoAccidente/{id?}', [AccidenteController::class, 'find'])->name('accidente.findAccidente');
 Route::post('/accidente/saveAccidente', [AccidenteController::class, 'save'])->name('accidente.saveAccidente');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/sitios' , [SitioController::class , "show"]);
 Route::get('/sitio/formSitio/{id?}', [SitioController::class, 'form'])->name('sitio.formSitio');
@@ -49,7 +53,3 @@ Route::get('/mecanismos' , [MecanismoController::class , "show"]);
 /* Route::get('/agentAcci/delete/{id}', [AgentAcciController::class, 'delete'])->name('agentAcci.delete'); */
 Route::get('/mecanismo/formMecanismo/{id?}', [MecanismoController::class, 'form'])->name('mecanismo.formMecanismo');
 Route::post('/mecanismo/saveMecanismo', [MecanismoController::class, 'save'])->name('mecanismo.saveMecanismo');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

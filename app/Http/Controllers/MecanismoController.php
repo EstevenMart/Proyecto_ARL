@@ -9,11 +9,9 @@ class MecanismoController extends Controller
 {
 
 
-    /* function __construct()
-    {
+    function __construct(){
         $this->middleware('auth');
     }
- */
 
     function show(){
         $mecanismoList = Mecanismo::all();

@@ -7,6 +7,11 @@ use App\Models\Sitio;
 
 class SitioController extends Controller
 {
+
+    function __construct(){
+        $this->middleware('auth');
+    }
+
     function show(){
         $sitioList = Sitio::all();
         return view('sitio/listSitio',['listSitio'=>$sitioList]);
@@ -21,12 +26,12 @@ class SitioController extends Controller
         return view('sitio/formSitio', ['sitio' => $sitio]);
     }
     function save(Request $request ){
-        
+
 
         $request->validate([
             /* unique:table,column,'. $idAccidente */ /* colocar unico */
             'denominacionSitio' => 'required|max:50'
-            
+
         ]);
 
 $sitio = new Sitio();

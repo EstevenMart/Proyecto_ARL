@@ -28,6 +28,7 @@ class Accidente extends Model
     function lesions(){
         return $this->belongsToMany(Lesion::class,"acci_tipo_lesions","accidente_id","Lesion_id");
     }
-
+    protected $guarded = [];
 
 }
+// value="{{@old('nombreRecomendacion', $recomendacion->nombreRecomendacion)}}"

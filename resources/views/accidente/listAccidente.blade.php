@@ -3,7 +3,7 @@
 @section('h1' , 'Accidentes')
 @section('Contenido')
 
-<a href=" {{route('accidente.formAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
+<a href=" {{route('accidente.createAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
 
 
 @if(Session::has('message'))
@@ -29,14 +29,14 @@
     <tbody>
         @foreach ( $listAccidente as $accidente )
             <tr>
-                <td>  <a href="{{route('accidente.formAccidente', ['id'=> $accidente->id])}}"> {{$accidente->tipoaccidente}} </a> </td>
+                <td>  <a href="{{route('accidente.editAccidente', ['id'=> $accidente->id])}}"> {{$accidente->tipoaccidente}} </a> </td>
                 <td>  <a href="{{route('sitio.formSitio', ['id'=> $accidente->id])}}">{{$accidente->fechaHora}}</a> </td>
                 <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">{{$accidente->sitio_id}}</a> </td>
                 <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}"> {{$accidente->descripcion}}</a></td>
 
                 <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">  <i class="fas fa-search"></a></i></td>
                 <td>
-                     <a href="{{ route('accidente.formAccidente', ['id'=> $accidente->id]) }}" class="btn btn-warning">Editar</a>
+                     <a href="{{ route('accidente.editAccidente', ['id'=> $accidente->id]) }}" class="btn btn-warning">Editar</a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                 </td>
             </tr>

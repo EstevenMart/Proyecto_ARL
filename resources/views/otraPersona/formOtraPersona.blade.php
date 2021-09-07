@@ -3,7 +3,7 @@
 @section('title',$otraPersona->id ? 'Editar otraPersona' : 'Nuevo otraPersona')
 @section('h1' , $otraPersona->id ? 'Editar otraPersona' : 'Nuevo otraPersona')
 
-@section('content')
+@section('Contenido')
 
 <form action="{{ route('otraPersona.saveOtraPersona') }}" method="POST">
     @csrf
@@ -61,7 +61,7 @@
         </p>
         @enderror
     </div>
-    
+
 
 
     <div class="mb-3 row">

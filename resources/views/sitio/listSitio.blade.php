@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title' , 'Sitio')
 @section('h1' , 'Sitio')
-@section('content')
+@section('Contenido')
 
 <a href=" {{route('sitio.formSitio')}} " class="btn btn-primary">Nuevo Sitio</a>
 
@@ -19,16 +19,16 @@
         <tr>
             <th>Parte del Cuerpo</th>
             <th></th>
-        
+
         </tr>
     </thead>
     <tbody>
         @foreach ( $listSitio as $sitio )
             <tr>
                 <td>{{$sitio->denominacionSitio}}</td>
-                
+
                 <td>
-                  <a href="{{ route('sitio.formSitio', ['id'=> $sitio->id]) }}" class="btn btn-warning">Editar</a> 
+                  <a href="{{ route('sitio.formSitio', ['id'=> $sitio->id]) }}" class="btn btn-warning">Editar</a>
                 {{--     <a href="{{ route('sitio.delete' , ['id'=> $sitio->id]) }}" class="btn btn-danger">Borrar</a>  --}}
                 </td>
             </tr>

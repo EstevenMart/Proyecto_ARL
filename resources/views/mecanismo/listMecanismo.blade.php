@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title' , 'Mecanismo')
 @section('h1' , 'Mecanismo')
-@section('content')
+@section('Contenido')
 
 <a href=" {{route('mecanismo.formMecanismo')}} " class="btn btn-primary">Nuevo Mecanismo</a>
 

@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title' , 'Agente Accidentes')
 @section('h1' , 'Agente Accidentes')
-@section('content')
+@section('Contenido')
 
 <a href=" {{route('agentAcci.formAgentAcci')}} " class="btn btn-primary">Nuevo Agente Accidentes</a>
 

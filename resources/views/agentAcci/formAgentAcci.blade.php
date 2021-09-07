@@ -3,7 +3,7 @@
 @section('title',$agentAcci->id ? 'Editar Agente Accidente' : 'Nuevo Agente Accidente')
 @section('h1' , $agentAcci->id ? 'Editar Agente Accidente' : 'Nuevo Agente Accidente')
 
-@section('content')
+@section('Contenido')
 
 <form action="{{ route('agentAcci.saveAgentAcci') }}" method="POST">
     @csrf

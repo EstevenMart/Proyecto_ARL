@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title' , 'otraPersona')
 @section('h1' , 'otraPersona')
-@section('content')
+@section('Contenido')
 
 <a href=" {{route('otraPersona.formOtrasPersona')}} " class="btn btn-primary">Nuevo Sitio</a>
 
@@ -22,7 +22,7 @@
             <th>cargo</th>
             <th>accidente_id</th>
             <th></th>
-        
+
         </tr>
     </thead>
     <tbody>
@@ -32,9 +32,9 @@
                 <td>{{$otraPersona->numeroDocumento}}</td>
                 <td>{{$otraPersona->cargo}}</td>
                 <td>{{$otraPersona->accidente_id}}</td>
-                
+
                 <td>
-                  <a href="{{ route('otraPersona.formOtrasPersona', ['id'=> $otraPersona->id]) }}" class="btn btn-warning">Editar</a> 
+                  <a href="{{ route('otraPersona.formOtrasPersona', ['id'=> $otraPersona->id]) }}" class="btn btn-warning">Editar</a>
                 {{--     <a href="{{ route('sitio.delete' , ['id'=> $sitio->id]) }}" class="btn btn-danger">Borrar</a>  --}}
                 </td>
             </tr>

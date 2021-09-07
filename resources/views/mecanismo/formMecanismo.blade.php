@@ -3,7 +3,7 @@
 @section('title',$mecanismo->id ? 'Editar Mecanismo' : 'Nuevo Mecanismo')
 @section('h1' , $mecanismo->id ? 'Editar Mecanismo' : 'Nuevo Mecanismo')
 
-@section('content')
+@section('Contenido')
 
 <form action="{{ route('mecanismo.saveMecanismo') }}" method="POST">
     @csrf

@@ -5,13 +5,13 @@
 
 <a href=" {{route('usuario.formUsuario')}} " class="btn btn-primary">Nuevo Usuario</a>
 
-
+{{--
 @if(Session::has('message'))
     <p class="text-danger">{{ Session::get('message') }}</p>
 @endif
 @if(Session::has('messa'))
     <p class="text-primary">{{ Session::get('messa') }}</p>
-@endif
+@endif --}}
 
 <table class="table table-striped table-hover">
     <thead>
@@ -63,10 +63,10 @@
                 <td>{{$usuario->cargo_id->nombreCargo}}</td>
                 <td>{{$usuario->fechaIngreso}}</td>
                 <td>{{$usuario->vinculacion}}</td>
-                <td>{{$usuario->afp->denominacionAfp}}</td>
-                 <td>{{$usuario->municipio->denominacionArp}}</td>
-                 <td>{{$usuario->arp->denominacionArp}}</td>
-                 <td>{{$usuario->eps->denominacionEps}}</td>
+                <td>{{$usuario->afp_id->denominacionAfp}}</td>
+                 <td>{{$usuario->municipio_id->denominacionMunicipio}}</td>
+                 <td>{{$usuario->arp_id->denominacionArp}}</td>
+                 <td>{{$usuario->eps_id->denominacionEps}}</td>
                 <td>
                      <a href="{{ route('usuario.formUsuario', ['id'=> $usuario->id]) }}" class="btn btn-warning">Editar</a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}

@@ -19,17 +19,17 @@
         <p class="text-danger">
             {{ $message }}
         </p>
-    @enderror
+        @enderror
         <div class="user-box1">
             <input type="text" id="apellido" name="apellido"
             value="{{ @old('apellido') ? @old('apellido') : $usuario->apellido}}" >
             <label class="labe">Apellido</label>
         </div>
-     @error('apellido')
+        @error('apellido')
         <p class="text-danger">
             {{ $message }}
         </p>
-    @enderror
+        @enderror
     </div>
     <div class="login-box">
         <div class="user-box">
@@ -165,7 +165,6 @@
                 <option value="Nocturna">Nocturna</option>
             </select>
             <label class="label">Jornada</label>
-
           </div>
             @error('jornada')
             <p class="text-danger">
@@ -219,7 +218,7 @@
 
           <div class="user-box1">
             <select name="vinculacion" value="{{ @old('vinculacion') ? @old('vinculacion') : $usuario->vinculacion}}">
-                <option value="{{ @old('vinculacion') ? @old('vinculacion') : $usuario->vinculacion}}">{{ @old('vinculacion') ? @old('vinculacion') : $accidente->vinculacion}}</option>
+                <option value="{{ @old('vinculacion') ? @old('vinculacion') : $usuario->vinculacion}}">{{ @old('vinculacion') ? @old('vinculacion') : $usuario->vinculacion}}</option>
                 <option value="Planta">Planta</option>
                 <option value="Misión">Misión</option>
                 <option value="Estudiante o Aprendiz">Estudiante o Aprendiz</option>
@@ -239,11 +238,10 @@
             <select name="afp_id" >
                 <option selected>Seleccione...</option>
                 @foreach ($afps as $afp)
-                <option value="{{$afp->id}}" {{$afp->id == $usuario->afp_id ? "selected" : ""}}>
-                    {{$afp->denominacionAFP}}</option>
+                <option value="{{$afp->id}}" {{$afp->id == $usuario->afp_id ? "selected" : ""}}>{{$afp->denominacionAfp}}</option>
             @endforeach
             </select>
-            <label class="label">afp</label>
+            <label class="label">Administradoras de Fondos de Pensiones</label>
           </div>
           @error('afp_id')
           <p class="text-danger">
@@ -255,8 +253,7 @@
             <select name="municipio_id" >
             <option selected>Seleccione...</option>
             @foreach ($municipios as $municipio)
-            <option value="{{$municipio->id}}" {{$municipio->id == $usuario->municipio_id ? "selected" : ""}}>
-                {{$municipio->denominacionMunicipio}}</option>
+            <option value="{{$municipio->id}}" {{$municipio->id == $usuario->municipio_id ? "selected" : ""}}>{{$municipio->denominacionMunicipio}}</option>
         @endforeach
         </select>
         <label class="label">Municipio</label>
@@ -272,11 +269,10 @@
             <select name="arp_id" >
                 <option selected>Seleccione...</option>
                 @foreach ($arps as $arp)
-                <option value="{{$arp->id}}" {{$arp->id == $usuario->arp_id ? "selected" : ""}}>
-                    {{$arp->denominacionARP}}</option>
+                <option value="{{$arp->id}}" {{$arp->id == $usuario->arp_id ? "selected" : ""}}>{{$arp->denominacionArp}}</option>
             @endforeach
             </select>
-            <label class="label">arp</label>
+            <label class="label">Administradoras de Riesgos Profesionales</label>
           </div>
           @error('arp_id')
           <p class="text-danger">
@@ -287,25 +283,23 @@
           <div class="user-box1">
             <select name="eps_id" >
                 <option selected>Seleccione...</option>
-                @foreach ($epss as $eps)
-                <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>
-                    {{$eps->denominacionARP}}</option>
+                @foreach ($eps as $eps)
+                <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>{{$eps->denominacionARP}}</option>
             @endforeach
             </select>
-            <label class="label">eps</label>
+            <label class="label">Eps</label>
           </div>
           @error('eps_id')
           <p class="text-danger">
               {{ $message }}
           </p>
       @enderror
-        @enderror
       </div>
 
       <div class="mb-3 row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">
-            <a href="/accidentes" class="btn btn-secondary">Cancelar</a>
+            <a href="/usuarios" class="btn btn-secondary">Cancelar</a>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </div>

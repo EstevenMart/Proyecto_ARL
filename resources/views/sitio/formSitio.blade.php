@@ -3,7 +3,7 @@
 @section('title',$sitio->id ? 'Editar sitio' : 'Nuevo sitio')
 @section('h1' , $sitio->id ? 'Editar sitio' : 'Nuevo sitio')
 
-@section('content')
+@section('Contenido')
 
 <form action="{{ route('sitio.saveSitio') }}" method="POST">
     @csrf
@@ -23,7 +23,7 @@
         @enderror
     </div>
 
-    
+
 
 
     <div class="mb-3 row">

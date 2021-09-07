@@ -12,10 +12,10 @@ class Usuario extends Model
     protected $table ="usuarios";
 
     function municipios(){
-        return $this->belongsTo(Municipio::class);
+        return $this->belongsTo(Municipio::class, 'municipio_id');
     }
     function tipo_documento(){
-        return $this->belongsTo(TipoDocumento::class);
+        return $this->belongsTo(TipoDocumento::class,'tipoDocumento_id');
     }
     function cargo(){
         return $this->belongsTo(Cargo::class);
@@ -25,7 +25,7 @@ class Usuario extends Model
         return $this->belongsTo(rol::class);
     }
     function afp(){
-        return $this->belongsTo(AFP::class);
+        return $this->belongsTo(AFP::class) ;
     }
     function arp(){
         return $this->belongsTo(arp::class);

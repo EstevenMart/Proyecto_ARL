@@ -11,7 +11,7 @@ class AFP extends Model
 
     protected $table ="afps";
 
-    function usuario(){
+    function usuarios(){
         return $this->hasMany(Usuario::class);
     }
 }

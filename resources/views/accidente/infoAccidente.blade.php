@@ -3,7 +3,7 @@
 @section('h1' , 'Accidentes')
 @section('Contenido')
 
-<a href=" {{route('accidente.formAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
+<a href=" {{route('accidente.editAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
 
 
 @if(Session::has('message'))
@@ -65,7 +65,7 @@
 
 
                 <td>
-                     <a href="{{ route('accidente.formAccidente', ['id'=> $infoAccidente->id]) }}" class="btn btn-warning">Editar</a>
+                     <a href="{{ route('accidente.editAccidente', ['id'=> $infoAccidente->id]) }}" class="btn btn-warning">Editar</a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                 </td>
             </tr>

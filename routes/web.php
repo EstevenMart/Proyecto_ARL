@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\AccidenteController;
+use App\Http\Controllers\AfpController;
+use App\Http\Controllers\ArpController;
 use App\Http\Controllers\AgentAcciController;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\OtraPersonaController;
+use App\Http\Controllers\EpsController;
+use App\Http\Controllers\DepartamentoController;
 
 
 
@@ -29,9 +33,12 @@ Route::get('/', function () {
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
 /* Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete'); */
-Route::get('/accidente/formAccidente/{id?}', [AccidenteController::class, 'form'])->name('accidente.formAccidente');
+Route::post('/accidente/store', [AccidenteController::class, "store"])->name('accidente.store');
+Route::get('/accidente/createAccidente', [AccidenteController::class, 'create'])->name('accidente.createAccidente');
+Route::get('/accidente/editAccidente/{id?}', [AccidenteController::class, 'edit'])->name('accidente.editAccidente');
 Route::get('/accidente/infoAccidente/{id?}', [AccidenteController::class, 'find'])->name('accidente.findAccidente');
-Route::post('/accidente/saveAccidente', [AccidenteController::class, 'save'])->name('accidente.saveAccidente');
+Route::put('/accidente/{id}',[AccidenteController::class, 'update'])->name('accidente.updateAccidente');
+
 
 Auth::routes();
 
@@ -61,3 +68,20 @@ Route::get('/usuarios', [UsuarioController::class , "show"] );
 Route::get('/usuario/formUsuario/{id?}', [UsuarioController::class, 'form'])->name('usuario.formUsuario');
 /* Route::get('/usuario/infoUsuario/{id?}', [UsuarioController::class, 'find'])->name('usuario.findUsuario'); */
 Route::post('/usuario/saveUsuario', [UsuarioController::class, 'save'])->name('usuario.saveUsuario');
+
+// afp
+Route::get('/afps' , [AfpController::class , "show"]);
+Route::get('/afp/formAfp/{id?}', [AfpController::class, 'form'])->name('afp.formAfp');
+Route::post('/afp/saveAfp', [AfpController::class, 'save'])->name('afp.saveAfp');
+// arp
+Route::get('/arps' , [ArpController::class , "show"]);
+Route::get('/arp/formArp/{id?}', [ArpController::class, 'form'])->name('arp.formArp');
+Route::post('/arp/saveArp', [ArpController::class, 'save'])->name('arp.saveArp');
+// eps
+Route::get('/eps' , [EpsController::class , "show"]);
+Route::get('/eps/formEps/{id?}', [EpsController::class, 'form'])->name('eps.formEps');
+Route::post('/eps/saveEps', [EpsController::class, 'save'])->name('eps.saveEps');
+// departamento
+Route::get('/departamentos' , [DepartamentoController::class , "show"]);
+Route::get('/departamento/formDepartamento/{id?}', [DepartamentoController::class, 'form'])->name('departamento.formDepartamento');
+Route::post('/departamento/saveDepartamento', [DepartamentoController::class, 'save'])->name('departamento.saveDepartamento');

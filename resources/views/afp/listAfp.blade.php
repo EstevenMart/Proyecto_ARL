@@ -1,9 +1,10 @@
+
 @extends('layout')
-@section('title' , 'Sitio')
-@section('h1' , 'Sitio')
+@section('title' , 'AFP')
+@section('h1' , 'AFP')
 @section('Contenido')
 
-<a href=" {{route('sitio.formSitio')}} " class="btn btn-primary">Nuevo Sitio</a>
+<a href="  {{route('afp.formAfp')}}  " class="btn btn-primary">Nuevo Afp</a>
 
 
 @if(Session::has('message'))
@@ -17,18 +18,18 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <th>sitio</th>
+            <th>Afp</th>
             <th></th>
 
         </tr>
     </thead>
     <tbody>
-        @foreach ( $listSitio as $sitio )
+        @foreach ( $listAfp as $afp )
             <tr>
-                <td>{{$sitio->denominacionSitio}}</td>
+                <td>{{$afp->denominacionAfp}}</td>
 
                 <td>
-                  <a href="{{ route('sitio.formSitio', ['id'=> $sitio->id]) }}" class="btn btn-warning">Editar</a>
+                  <a href="{{ route('afp.formAfp', ['id'=> $afp->id]) }}" class="btn btn-warning">Editar</a>
                 {{--     <a href="{{ route('sitio.delete' , ['id'=> $sitio->id]) }}" class="btn btn-danger">Borrar</a>  --}}
                 </td>
             </tr>

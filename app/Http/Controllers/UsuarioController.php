@@ -6,7 +6,9 @@ use App\Models\AFP;
 use App\Models\arp;
 use App\Models\Cargo;
 use App\Models\eps;
+use App\Models\Municipio;
 use App\Models\rol;
+use App\Models\TipoDocumento;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,8 +39,8 @@ class UsuarioController extends Controller
         $arp = arp::orderBy('denominacionArp')->get();
         $eps = eps::orderBy('denominacionEps')->get();
         $rol = rol::orderBy('nombreRol')->get();
-        $tipo_documento = arp::orderBy('nombreTipoDocumento')->get();
-        $municipio = arp::orderBy('denominacionArp')->get();
+        $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
+        $municipio = Municipio::orderBy('denominacionMunicipio')->get();
         if ($id != null ) {
             $usuario = Usuario::findOrFail($id);
         }

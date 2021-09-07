@@ -54,6 +54,7 @@
                 <td>{{$usuario->numeroDocumento}}</td>
                 <td>{{$usuario->sangre}}</td>
                 <td>{{$usuario->telefono}}</td>
+                <td>{{$usuario->fechaNacimiento}}</td>
                 <td>{{$usuario->estado}}</td>
                 <td>{{$usuario->sexo}}</td>
                 <td>{{$usuario->direccion}}</td>

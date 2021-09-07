@@ -61,8 +61,8 @@
       </div>
       <div class="login-box">
         <div class="user-box">
-            <select name="tipoSangre" value="{{ @old('tipoSangre') ? @old('tipoSangre') : $usuario->tipoSangre}}">
-                <option value="{{ @old('tipoSangre') ? @old('tipoSangre') : $usuario->tipoSangre}}">{{ @old('tipoSangre') ? @old('tipoSangre') : $accidente->tipoSangre}}</option>
+            <select name="sangre" value="{{ @old('sangre') ? @old('sangre') : $usuario->sangre}}">
+                <option value="{{ @old('sangre') ? @old('sangre') : $usuario->sangre}}">{{ @old('sangre') ? @old('sangre') : $usuario->sangre}}</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
                 <option value="AB+">AB+</option>
@@ -72,7 +72,7 @@
             </select>
             <label class="label">Tipo de Sangre</label>
           </div>
-          @error('tipoSangre')
+          @error('sangre')
           <p class="text-danger">
               {{ $message }}
           </p>
@@ -91,7 +91,7 @@
         @enderror
       </div>
       <div class="login-box">
-        <div class="user-box">
+        {{-- <div class="user-box">
             <input type="email" id="correo" name="correo"
             value="{{ @old('correo') ? @old('correo') : $usuario->correo}}">
             <label class="label">Correo Electronica</label>
@@ -100,15 +100,15 @@
           <p class="text-danger">
               {{ $message }}
           </p>
-         @enderror
+         @enderror --}}
 
           <div class="user-box1">
-            <input type="date" id="fechaNaci" name='fechaNaci'
-            value="{{ @old('fechaNaci') ? @old('fechaNaci') : $usuario->fechaNaci}}">
+            <input type="date" id="fechaNacimiento" name='fechaNacimiento'
+            value="{{ @old('fechaNacimiento') ? @old('fechaNacimiento') : $usuario->fechaNacimiento}}">
             <label class="label">Fecha de Nacimiento</label>
 
           </div>
-            @error('fechaNaci')
+            @error('fechaNacimiento')
             <p class="text-danger">
                 {{ $message }}
             </p>
@@ -117,7 +117,7 @@
       <div class="login-box">
         <div class="user-box">
             <select name="estado" value="{{ @old('estado') ? @old('estado') : $usuario->estado}}">
-                <option value="{{ @old('estado') ? @old('estado') : $usuario->estado}}">{{ @old('estado') ? @old('estado') : $accidente->estado}}</option>
+                <option value="{{ @old('estado') ? @old('estado') : $usuario->estado}}">{{ @old('estado') ? @old('estado') : $usuario->estado}}</option>
                 <option value="Activo">Activo</option>
                 <option value="Inactivo">Inactivo</option>
             </select>
@@ -131,7 +131,7 @@
 
           <div class="user-box1">
             <select name="sexo" value="{{ @old('sexo') ? @old('sexo') : $usuario->sexo}}">
-                <option value="{{ @old('sexo') ? @old('sexo') : $usuario->sexo}}">{{ @old('sexo') ? @old('sexo') : $accidente->sexo}}</option>
+                <option value="{{ @old('sexo') ? @old('sexo') : $usuario->sexo}}">{{ @old('sexo') ? @old('sexo') : $usuario->sexo}}</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
                 <option value="Indefinido">Indefinido</option>
@@ -159,7 +159,7 @@
 
           <div class="user-box1">
             <select name="jornada" value="{{ @old('jornada') ? @old('jornada') : $usuario->jornada}}">
-                <option value="{{ @old('jornada') ? @old('jornada') : $usuario->jornada}}">{{ @old('jornada') ? @old('jornada') : $accidente->jornada}}</option>
+                <option value="{{ @old('jornada') ? @old('jornada') : $usuario->jornada}}">{{ @old('jornada') ? @old('jornada') : $usuario->jornada}}</option>
                 <option value="Diurna">Diurna</option>
                 <option value="Mixta">Mixta</option>
                 <option value="Nocturna">Nocturna</option>
@@ -177,9 +177,8 @@
         <div class="user-box">
             <select name="rol_id" >
                 <option selected>Seleccione...</option>
-                @foreach ($sitios as $rol)
-                <option value="{{$rol->id}}" {{$rol->id == $usuario->rol_id ? "selected" : ""}}>
-                    {{$rol->denominacionRol}}</option>
+                @foreach ($rols as $rol)
+                <option value="{{$rol->id}}" {{$rol->id == $usuario->rol_id ? "selected" : ""}}>{{$rol->nombreRol}}</option>
             @endforeach
             </select>
             <label class="label">Rol</label>
@@ -193,9 +192,8 @@
           <div class="user-box1">
             <select name="cargo_id" >
             <option selected>Seleccione...</option>
-            @foreach ($sitios as $cargo)
-            <option value="{{$cargo->id}}" {{$cargo->id == $usuario->cargo_id ? "selected" : ""}}>
-                {{$cargo->denominacionCargo}}</option>
+            @foreach ($cargos as $cargo)
+            <option value="{{$cargo->id}}" {{$cargo->id == $usuario->cargo_id ? "selected" : ""}}>{{$cargo->nombreCargo}}</option>
         @endforeach
         </select>
         <label class="label">Cargo</label>

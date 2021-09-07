@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class arp extends Model
 {
     use HasFactory;
+
+    protected $table ="arps";
+
+    function usuario(){
+        return $this->hasMany(Usuario::class);
+    }
 }

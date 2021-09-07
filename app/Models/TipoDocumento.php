@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TipoDocumento extends Model
 {
     use HasFactory;
+
+    protected $table ="tipo_documentos";
+
+    function usuario(){
+        return $this->hasMany(Usuario::class);
+    }
 }

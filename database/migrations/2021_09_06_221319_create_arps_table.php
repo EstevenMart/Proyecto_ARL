@@ -15,6 +15,7 @@ class CreateArpsTable extends Migration
     {
         Schema::create('arps', function (Blueprint $table) {
             $table->id();
+            $table -> string('denominacionArp',50);
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateAfpsTable extends Migration
     {
         Schema::create('afps', function (Blueprint $table) {
             $table->id();
+            $table -> string('denominacionAfp',50);
+
             $table->timestamps();
         });
     }

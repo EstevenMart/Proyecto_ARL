@@ -17,7 +17,7 @@ class CreateUsuariosTable extends Migration
             $table->id();
             $table -> string('nombre',50);
             $table -> string('apellido',50);
-            $table -> string('numeroDocumento',50)->unique();
+            $table -> integer('numeroDocumento')->unique();
             $table -> integer('telefono');
             $table -> date('fechaNacimiento');
             $table -> string('sexo',50);
@@ -27,6 +27,7 @@ class CreateUsuariosTable extends Migration
             $table -> date('fechaIngreso',50);
             $table -> string('vinculacion',50);
             $table -> string('estado',50);
+            $table->unsignedBigInteger('municipio_id');
             $table->unsignedBigInteger('tipoDocumento_id');
             $table->unsignedBigInteger('cargo_id');
             $table->unsignedBigInteger('rol_id');
@@ -36,6 +37,7 @@ class CreateUsuariosTable extends Migration
 
             $table->timestamps();
 
+            $table->foreign('municipio_id')->references('id')->on('municipios');
             $table->foreign('tipoDocumento_id')->references('id')->on('tipo_documentos');
             $table->foreign('cargo_id')->references('id')->on('cargos');
             $table->foreign('rol_id')->references('id')->on('rols');

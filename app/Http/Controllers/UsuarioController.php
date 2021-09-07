@@ -2,84 +2,109 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AFP;
+use App\Models\arp;
+use App\Models\Cargo;
+use App\Models\eps;
+use App\Models\rol;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    function __construct(){
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    function show(){
+          $usuarioList = DB::table('usuarios')
+          ->orderBy('id','desc')
+          ->get();
+        return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+     /* function delete($id){
+        $categorie = Category::findOrFail($id);
+        $categorie->delete();
+        return redirect('/categories')->with('message' , 'Categoria borrada');
+    } */
+
+    function form ($id = null){
+        $usuario = new Usuario();
+        $cargo = Cargo::orderBy('nombreCargo')->get();
+        $afp = AFP::orderBy('denominacionAfp')->get();
+        $arp = arp::orderBy('denominacionArp')->get();
+        $eps = eps::orderBy('denominacionEps')->get();
+        $rol = rol::orderBy('nombreRol')->get();
+        $tipo_documento = arp::orderBy('nombreTipoDocumento')->get();
+        $municipio = arp::orderBy('denominacionArp')->get();
+        if ($id != null ) {
+            $usuario = Usuario::findOrFail($id);
+        }
+        return view('usuario/formUsuario', ['usuarios' => $usuario,'cargos'=>$cargo,
+        'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Usuario $usuario)
-    {
-        //
+    function save(Request $request){
+
+        $request->validate([
+            'nombre' => 'required|max:50' ,
+            'apellido' => 'required|max:50',
+            'numeroDocumento' => 'required|numeric',
+            'telefono' => 'required|numeric',
+            'fechaNacimiento' => 'required|date',
+            'sexo' => 'required|max:50',
+            'sangre' => 'required|max:50',
+            'direccion' => 'required|max:50',
+            'jornada' => 'required|max:50',
+            'fechaIngreso' => 'required|date',
+            'vinculacion' => 'required|max:50',
+            'estado' => 'required|max:50',
+            'municipio_id' => 'required|max:50',
+            'cargo_id' => 'required|max:50',
+            'rol_id' => 'required|max:50',
+            'afp_id' => 'required|max:50',
+            'arp_id' => 'required|max:50',
+            'eps_id' => 'required|max:50',
+            'tipoDocumento_id' => 'required|max:50'
+        ]);
+
+        $usuario = new Usuario();
+        $message = 'Se ha creado una nuevo Usuario';
+
+        if (intval($request->id)>0){
+            $usuario = Usuario::findOrFail($request->id);
+            $message = 'Se ha Editado el usuario';
+        }
+
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->numeroDocumento = $request->numeroDocumento;
+        $usuario->telefono = $request->telefono;
+        $usuario->fechaNacimiento = $request->fechaNacimiento;
+        $usuario->sexo = $request->sexo;
+        $usuario->sangre = $request->sangre;
+        $usuario->direccion = $request->direccion;
+        $usuario->jornada = $request->jornada;
+        $usuario->fechaIngreso = $request->fechaIngreso;
+        $usuario->vinculacion = $request->vinculacion;
+        $usuario->estado  = $request->estado;
+        $usuario->municipio_id  = $request->municipio_id;
+        $usuario->cargo_id  = $request->cargo_id ;
+        $usuario->rol_id  = $request->rol_id ;
+        $usuario->afp_id  = $request->afp_id ;
+        $usuario->arp_id  = $request->arp_id ;
+        $usuario->eps_id  = $request->eps_id ;
+        $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
+
+        $usuario->save();
+        return redirect('/usuarios')->with('messa' , $message);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Usuario $usuario)
-    {
-        //
+    function find($id){
+        $usuarioFind = Usuario::find($id);
+        return view('usuario/infoUsuario', ['infoUsuario'=>$usuarioFind]);
     }
 }

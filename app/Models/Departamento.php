@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Departamento extends Model
 {
     use HasFactory;
+
+    protected $table ="departamentos";
+
+    function municipio(){
+        return $this->hasMany(Municipio::class);
+    }
 }

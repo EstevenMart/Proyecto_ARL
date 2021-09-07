@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Municipio extends Model
 {
     use HasFactory;
+
+    protected $table ="municipios";
+
+    function departamento(){
+        return $this->belongsTo(Departamento::class);
+    }
+
+    function usuario(){
+        return $this->hasMany(Usuario::class);
+    }
+
 }

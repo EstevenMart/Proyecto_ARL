@@ -86,13 +86,10 @@
           <i class='bx bx-menu sidebarBtn'></i>
           <span class="dashboard">Arbeid</span>
         </div>
-        <div class="search-box">
-          <input type="text" placeholder="Buscar...">
-          <i class='bx bx-search' ></i>
-        </div>
+
         <div class="profile-details">
           <img src="portada-foto-perfil-redes-sociales-consejos.jpg" alt="">
-          <span class="admin_name">Administrador</span>
+          <span class="admin_name">{{ Auth::user()->name }}</span>
            <i class='bx bx-chevron-down' ></i>
         </div>
       </nav>

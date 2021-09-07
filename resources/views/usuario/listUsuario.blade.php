@@ -47,38 +47,26 @@
 
             <tr>
 
-                <td>{{$infoUsuario->nombre}}</td>
-                <td>{{$infoUsuario->apellido}}</td>
-                <td>{{$infoUsuario->tipoDocumento_id->nombreTipoDocumento}}</td>
-                <td>{{$infoUsuario->numeroDocumento}}</td>
-                <td>{{$infoUsuario->sangre}}</td>
-                <td>{{$infoUsuario->telefono}}</td>
-                <td>{{$infoUsuario->estado}}</td>
-                <td>{{$infoUsuario->sexo}}</td>
-                <td>{{$infoUsuario->direccion}}</td>
-                <td>{{$infoUsuario->jornada}}</td>
-                <td>@foreach ($infoUsuario->rol as $rols)
-                   {{ $rols->denominacionRol }}
-                @endforeach </td>
-                <td>@foreach ($infoUsuario->cargo as $cargos)
-                    {{ $cargos->denominacionCargo }}
-                 @endforeach </td>
-                <td>{{$infoUsuario->fechaIngreso}}</td>
-                <td>{{$infoUsuario->vinculacion}}</td>
-                <td>@foreach ($infoUsuario->afp as $afps)
-                    {{ $afps->denominacionAFP }}
-                 @endforeach </td>
-                 <td>@foreach ($infoUsuario->municipio as $municipios)
-                    {{ $municipios->denominacionMunicipio }}
-                 @endforeach </td>
-                 <td>@foreach ($infoUsuario->arp as $arps)
-                    {{ $arps->denominacionARP }}
-                 @endforeach </td>
-                 <td>@foreach ($infoUsuario->eps as $epss)
-                    {{ $epss->denominacionEPS }}
-                 @endforeach </td>
+                <td>{{$usuario->nombre}}</td>
+                <td>{{$usuario->apellido}}</td>
+                <td>{{$usuario->tipoDocumento_id->nombreTipoDocumento}}</td>
+                <td>{{$usuario->numeroDocumento}}</td>
+                <td>{{$usuario->sangre}}</td>
+                <td>{{$usuario->telefono}}</td>
+                <td>{{$usuario->estado}}</td>
+                <td>{{$usuario->sexo}}</td>
+                <td>{{$usuario->direccion}}</td>
+                <td>{{$usuario->jornada}}</td>
+                <td>{{$usuario->rol_id->nombreRol}} </td>
+                <td>{{$usuario->cargo_id->nombreCargo}}</td>
+                <td>{{$usuario->fechaIngreso}}</td>
+                <td>{{$usuario->vinculacion}}</td>
+                <td>{{$usuario->afp->denominacionAfp}}</td>
+                 <td>{{$usuario->municipio->denominacionArp}}</td>
+                 <td>{{$usuario->arp->denominacionArp}}</td>
+                 <td>{{$usuario->eps->denominacionEps}}</td>
                 <td>
-                     <a href="{{ route('accidente.formAccidente', ['id'=> $infoAccidente->id]) }}" class="btn btn-warning">Editar</a>
+                     <a href="{{ route('usuario.formUsuario', ['id'=> $usuario->id]) }}" class="btn btn-warning">Editar</a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                 </td>
             </tr>

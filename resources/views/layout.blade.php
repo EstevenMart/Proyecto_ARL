@@ -31,15 +31,15 @@
             <span class="links_name" >Usuario</span>
             </a>
             <ul >
-              <li> <a href="Registarusuario.jsp" >
+              <li> <a href="{{-- {{route('usuario.formAccidente')}} --}}" >
                 <i class="fas fa-user-plus"></i>
                 <span class="links_name" >Registrar usuario</span>
               </a></li>
-              <li><a href="ConsultarUsuario.jsp">
+              <li><a href="/usuarios">
                 <i class="fas fa-users-cog"></i>
                 <span class="links_name">Consultar usuario</span>
               </a></li>
-              <li><a href="ConsultarUsuario.jsp">
+              <li><a href="{{-- {{ route('usuario.saveUsuario') }} --}}">
                 <i class="fas fa-user-edit"></i>
                 <span class="links_name">Modificar usuario</span>
               </a></li>

@@ -59,5 +59,5 @@ Route::post('/mecanismo/saveMecanismo', [MecanismoController::class, 'save'])->n
 Route::get('/usuarios', [UsuarioController::class , "show"] );
 /* Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete'); */
 Route::get('/usuario/formUsuario/{id?}', [UsuarioController::class, 'form'])->name('usuario.formUsuario');
-Route::get('/usuario/infoUsuario/{id?}', [UsuarioController::class, 'find'])->name('usuario.findUsuario');
+/* Route::get('/usuario/infoUsuario/{id?}', [UsuarioController::class, 'find'])->name('usuario.findUsuario'); */
 Route::post('/usuario/saveUsuario', [UsuarioController::class, 'save'])->name('usuario.saveUsuario');

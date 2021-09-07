@@ -3,7 +3,7 @@
 @section('h1' , 'Usuario')
 @section('Contenido')
 
-<a href=" {{route('usuario.formAccidente')}} " class="btn btn-primary">Nuevo Usuario</a>
+<a href=" {{route('usuario.formUsuario')}} " class="btn btn-primary">Nuevo Usuario</a>
 
 
 @if(Session::has('message'))
@@ -22,13 +22,10 @@
             <th>Numero de Documento</th>
             <th>Tipo de Sangre</th>
             <th>Telefono</th>
-            <th>Correo Electronica</th>
             <th>Fecha de Nacimiento</th>
             <th>Estado</th>
             <th>Sexo</th>
             <th>Direccion</th>
-            <th>Usuario login</th>
-            <th>Contraseña</th>
             <th>Jornada</th>
             <th>Rol</th>
             <th>Cargo</th>
@@ -52,16 +49,13 @@
 
                 <td>{{$infoUsuario->nombre}}</td>
                 <td>{{$infoUsuario->apellido}}</td>
-                <td>{{$infoUsuario->tipoDoc->denominacionTipoDoc}}</td>
-                <td>{{$infoUsuario->noDocumentoUsu}}</td>
-                <td>{{$infoUsuario->tipoSangre}}</td>
+                <td>{{$infoUsuario->tipoDocumento_id->nombreTipoDocumento}}</td>
+                <td>{{$infoUsuario->numeroDocumento}}</td>
+                <td>{{$infoUsuario->sangre}}</td>
                 <td>{{$infoUsuario->telefono}}</td>
-                <td>{{$infoUsuario->correo}}</td>
                 <td>{{$infoUsuario->estado}}</td>
                 <td>{{$infoUsuario->sexo}}</td>
                 <td>{{$infoUsuario->direccion}}</td>
-                <td>{{$infoUsuario->loginUsuario}}</td>
-                <td>{{$infoUsuario->contraseñaUsu}}</td>
                 <td>{{$infoUsuario->jornada}}</td>
                 <td>@foreach ($infoUsuario->rol as $rols)
                    {{ $rols->denominacionRol }}

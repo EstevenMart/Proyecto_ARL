@@ -11,7 +11,7 @@ class TipoDocumento extends Model
 
     protected $table ="tipo_documentos";
 
-    function usuario(){
+    public function usuarios(){
         return $this->hasMany(Usuario::class);
     }
 }

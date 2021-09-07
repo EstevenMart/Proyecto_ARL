@@ -20,9 +20,7 @@ class UsuarioController extends Controller
     }
 
     function show(){
-          $usuarioList = DB::table('usuarios')
-          ->orderBy('id','desc')
-          ->get();
+          $usuarioList =Usuario::all();
         return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
     }
 

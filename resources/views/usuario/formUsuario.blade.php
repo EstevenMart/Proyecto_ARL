@@ -1,7 +1,7 @@
 @extends('layout')
 
-@section('title',$usuario->id ? 'Editar Usuario' : 'Nuevo Usuario')
-@section('h1' , $usuario->id ? 'Editar Usuario' : 'Nuevo Usuario')
+@section('title',$usuarios->id ? 'Editar Usuario' : 'Nuevo Usuario')
+@section('h1' , $usuarios->id ? 'Editar Usuario' : 'Nuevo Usuario')
 
 
 @section('Contenido')

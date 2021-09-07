@@ -4,6 +4,7 @@ use App\Http\Controllers\AccidenteController;
 use App\Http\Controllers\AfpController;
 use App\Http\Controllers\ArpController;
 use App\Http\Controllers\AgentAcciController;
+use App\Http\Controllers\CargoController;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\OtraPersonaController;
 use App\Http\Controllers\EpsController;
@@ -68,6 +69,10 @@ Route::get('/usuarios', [UsuarioController::class , "show"] );
 Route::get('/usuario/formUsuario/{id?}', [UsuarioController::class, 'form'])->name('usuario.formUsuario');
 /* Route::get('/usuario/infoUsuario/{id?}', [UsuarioController::class, 'find'])->name('usuario.findUsuario'); */
 Route::post('/usuario/saveUsuario', [UsuarioController::class, 'save'])->name('usuario.saveUsuario');
+
+Route::get('/cargos' , [CargoController::class , "show"]);
+Route::get('/cargo/formCargo/{id?}', [CargoController::class, 'form'])->name('cargo.formCargo');
+Route::post('/cargo/saveCargo', [CargoController::class, 'save'])->name('cargo.saveCargo');
 
 // afp
 Route::get('/afps' , [AfpController::class , "show"]);

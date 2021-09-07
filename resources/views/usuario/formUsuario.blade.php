@@ -1,7 +1,7 @@
 @extends('layout')
 
-@section('title',$usuarios->id ? 'Editar Usuario' : 'Nuevo Usuario')
-@section('h1' , $usuarios->id ? 'Editar Usuario' : 'Nuevo Usuario')
+@section('title',$usuario->id ? 'Editar Usuario' : 'Nuevo Usuario')
+@section('h1' , $usuario->id ? 'Editar Usuario' : 'Nuevo Usuario')
 
 
 @section('Contenido')
@@ -91,17 +91,6 @@
         @enderror
       </div>
       <div class="login-box">
-        {{-- <div class="user-box">
-            <input type="email" id="correo" name="correo"
-            value="{{ @old('correo') ? @old('correo') : $usuario->correo}}">
-            <label class="label">Correo Electronica</label>
-          </div>
-          @error('correo')
-          <p class="text-danger">
-              {{ $message }}
-          </p>
-         @enderror --}}
-
           <div class="user-box1">
             <input type="date" id="fechaNacimiento" name='fechaNacimiento'
             value="{{ @old('fechaNacimiento') ? @old('fechaNacimiento') : $usuario->fechaNacimiento}}">
@@ -284,7 +273,7 @@
             <select name="eps_id" >
                 <option selected>Seleccione...</option>
                 @foreach ($eps as $eps)
-                <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>{{$eps->denominacionARP}}</option>
+                <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>{{$eps->denominacionEps}}</option>
             @endforeach
             </select>
             <label class="label">Eps</label>

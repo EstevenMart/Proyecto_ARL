@@ -5,13 +5,13 @@
 
 <a href=" {{route('usuario.formUsuario')}} " class="btn btn-primary">Nuevo Usuario</a>
 
-{{--
+
 @if(Session::has('message'))
     <p class="text-danger">{{ Session::get('message') }}</p>
 @endif
 @if(Session::has('messa'))
     <p class="text-primary">{{ Session::get('messa') }}</p>
-@endif --}}
+@endif
 
 <table class="table table-striped table-hover">
     <thead>
@@ -45,12 +45,10 @@
     <tbody>
 
         @foreach ( $listUsuario as $usuario )
-
             <tr>
-
                 <td>{{$usuario->nombre}}</td>
                 <td>{{$usuario->apellido}}</td>
-                {{-- <td>{{$usuario->tipo_documento->nombreTipoDocumento}}</td> --}}
+                <td>{{$usuario->tipo_documento->nombreTipoDocumento}}</td>
                 <td>{{$usuario->numeroDocumento}}</td>
                 <td>{{$usuario->sangre}}</td>
                 <td>{{$usuario->telefono}}</td>
@@ -59,14 +57,14 @@
                 <td>{{$usuario->sexo}}</td>
                 <td>{{$usuario->direccion}}</td>
                 <td>{{$usuario->jornada}}</td>
-                <td>{{$usuario->rol_id}} </td>
+                <td>{{$usuario->rol->nombreRol}} </td>
                 <td>{{$usuario->cargo_id}}</td>
                 <td>{{$usuario->fechaIngreso}}</td>
                 <td>{{$usuario->vinculacion}}</td>
-                <td>{{$usuario->afp_id->denominacionAfp}}</td>
-                 {{-- <td>{{$usuario->municipio_id->denominacionMunicipio}}</td> --}}
-                 <td>{{$usuario->arp_id->denominacionArp}}</td>
-                 <td>{{$usuario->eps_id->denominacionEps}}</td>
+                <td>{{$usuario->afp->denominacionAfp}}</td>
+                <td>{{$usuario->municipios->denominacionMunicipio;}}</td>
+                 <td>{{$usuario->arp->denominacionArp}}</td>
+                 <td>{{$usuario->eps->denominacionEps}}</td>
                 <td>
                      <a href="{{ route('usuario.formUsuario', ['id'=> $usuario->id]) }}" class="btn btn-warning">Editar</a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}

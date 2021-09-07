@@ -20,8 +20,10 @@ class UsuarioController extends Controller
     }
 
     function show(){
-          $usuarioList =Usuario::all();
-        return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
+           $usuarioList = Usuario::all();
+         return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
+        // $usuarios = Usuario::findOrFail(1);
+        // return $usuarios->municipios->denominacionMunicipio;
     }
 
      /* function delete($id){
@@ -31,7 +33,7 @@ class UsuarioController extends Controller
     } */
 
     function form ($id = null){
-        $usuario = new Usuario();
+        $usuarios = new Usuario();
         $cargo = Cargo::orderBy('nombreCargo')->get();
         $afp = AFP::orderBy('denominacionAfp')->get();
         $arp = arp::orderBy('denominacionArp')->get();
@@ -40,9 +42,9 @@ class UsuarioController extends Controller
         $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
         $municipio = Municipio::orderBy('denominacionMunicipio')->get();
         if ($id != null ) {
-            $usuario = Usuario::findOrFail($id);
+            $usuarios = Usuario::findOrFail($id);
         }
-        return view('usuario/formUsuario', ['usuarios' => $usuario,'cargos'=>$cargo,
+        return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo,
         'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
     }
 

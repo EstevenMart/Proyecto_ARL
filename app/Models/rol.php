@@ -11,7 +11,7 @@ class rol extends Model
 
     protected $table ="rols";
 
-    function usuario(){
+    function usuarios(){
         return $this->hasMany(Usuario::class);
     }
 

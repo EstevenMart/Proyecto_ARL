@@ -14,4 +14,5 @@ class eps extends Model
     function usuario(){
         return $this->hasMany(Usuario::class);
     }
+
 }

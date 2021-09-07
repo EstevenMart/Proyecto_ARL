@@ -20,7 +20,6 @@
             <th>Fecha Hora</th>
             <th>Sitio</th>
             <th>Descripcion</th>
-
             <th>Ver más</th>
             <th>Acciones</th>
 

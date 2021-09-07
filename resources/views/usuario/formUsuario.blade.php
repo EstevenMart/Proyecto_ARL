@@ -7,7 +7,7 @@
 @section('Contenido')
 <form action="{{ route('usuario.saveUsuario') }}" method="POST" >
     @csrf
-    <input type="hidden" name="id" value="{{ $accidente->id }}">
+    <input type="hidden" name="id" value="{{ $usuario->id }}">
 
     <div class="login-box">
         <div class="user-box">
@@ -33,27 +33,27 @@
     </div>
     <div class="login-box">
         <div class="user-box">
-            <select name="tipoDoc_id" >
+            <select name="tipoDocumento_id" >
                 <option selected>Seleccione...</option>
-                @foreach ($tipoDocs as $tipoDoc)
-                <option value="{{$tipoDoc->id}}" {{$tipoDoc->id == $usuario->tipoDoc_id ? "selected" : ""}} >{{$tipoDoc->denominacionTipoDoc}}</option>
+                @foreach ($tipo_documentos as $tipo_documento)
+                <option value="{{$tipo_documento->id}}" {{$tipo_documento->id == $usuario->tipoDocumento_id ? "selected" : ""}} >{{$tipo_documento->nombreTipoDocumento}}</option>
                 @endforeach
             </select>
             <label class="label">Tipo Documento</label>
           </div>
-          @error('tipoDoc')
+          @error('tipoDocumento_id')
           <p class="text-danger">
               {{ $message }}
           </p>
       @enderror
 
           <div class="user-box1">
-            <input type="number" id="noDocumentoUsu" name='noDocumentoUsu'
-            value="{{ @old('noDocumentoUsu') ? @old('noDocumentoUsu') : $usuario->noDocumentoUsu}}">
+            <input type="number" id="numeroDocumento" name='numeroDocumento'
+            value="{{ @old('numeroDocumento') ? @old('numeroDocumento') : $usuario->numeroDocumento}}">
             <label class="label">Numero de Documento</label>
 
           </div>
-        @error('noDocumentoUsu')
+        @error('numeroDocumento')
         <p class="text-danger">
             {{ $message }}
         </p>

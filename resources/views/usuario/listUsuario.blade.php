@@ -44,6 +44,7 @@
     </thead>
     <tbody>
 
+        @foreach ( $listUsuario as $usuario )
 
             <tr>
 
@@ -70,7 +71,7 @@
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                 </td>
             </tr>
-
+        @endforeach
 </table>
 
 

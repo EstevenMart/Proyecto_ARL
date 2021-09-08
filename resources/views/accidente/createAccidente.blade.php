@@ -200,6 +200,7 @@
     </p>
 @enderror
   </div>
+
     <div class="user-box">
         <label class="label">parte cuerpo</label>
         <br>
@@ -218,8 +219,31 @@
               {{$parte_cuerpo}}
         <br>
       @endforeach
-
     </div>
+     <div class="user-box2">
+         <label class="label">lesions</label>
+        <br>
+               @foreach ($lesions as $id=> $lesionn)
+
+              <div class="inline">
+                  <label class="label2">
+                      <input class="form-check-input" type="checkbox" name="denominacionTipoLesion[]"
+                          value="{{$id}}">
+                      <span class="form-check-sign">
+                          <span class="check"></span>
+                      </span>
+                  </label>
+              </div>
+
+              {{$lesionn}}
+        <br>
+      @endforeach
+    </div>
+
+
+
+
+
 
 
 

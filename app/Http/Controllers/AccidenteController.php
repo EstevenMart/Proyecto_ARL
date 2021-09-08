@@ -51,6 +51,7 @@ class AccidenteController extends Controller
             'agente_id' => 'required|max:50',
             'sitio_id' => 'required|max:50'
         ]);
+        
         $accidente = new Accidente();
         $accidente->tipoaccidente = $request->tipoaccidente;
         $accidente->fechaHora = $request->fechaHora;

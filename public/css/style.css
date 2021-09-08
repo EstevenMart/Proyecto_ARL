@@ -332,8 +332,13 @@ nav .sidebar-button .dashboard{
     height: 50px;
     margin: 50px 0px;
   }
-
-
+  .login-box1 {
+    position: relative;
+    margin: 5px;
+    box-sizing: border-box;
+    height: 50px;
+    margin: 50px 0px;
+  }
 
   .login-box .user-box{
     position: absolute;
@@ -427,6 +432,23 @@ nav .sidebar-button .dashboard{
     left: 50%;
     padding: 10px 0;
   }
+.user-box2{
+    position: absolute;
+    box-sizing: border-box;
+    width: 45%;
+    left: 50%;
+    height: 50px;
+
+  }
+   .user-box{
+    position: absolute;
+    box-sizing: border-box;
+    width: 45%;
+    height: 50px;
+ 
+  }
+
+  
   .inline {
     display: inline-block;
     /* margin-right: 1rem; */

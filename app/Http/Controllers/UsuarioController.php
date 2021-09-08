@@ -99,7 +99,6 @@ class UsuarioController extends Controller
         $usuario->arp_id  = $request->arp_id ;
         $usuario->eps_id  = $request->eps_id ;
         $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
-
         $usuario->save();
         return redirect('/usuarios')->with('messa' , $message);
 

@@ -224,37 +224,6 @@
       </div>
       <div class="login-box">
         <div class="user-box">
-            <select name="afp_id" >
-                <option selected>Seleccione...</option>
-                @foreach ($afps as $afp)
-                <option value="{{$afp->id}}" {{$afp->id == $usuario->afp_id ? "selected" : ""}}>{{$afp->denominacionAfp}}</option>
-            @endforeach
-            </select>
-            <label class="label">Administradoras de Fondos de Pensiones</label>
-          </div>
-          @error('afp_id')
-          <p class="text-danger">
-              {{ $message }}
-          </p>
-      @enderror
-
-          <div class="user-box1">
-            <select name="municipio_id" >
-            <option selected>Seleccione...</option>
-            @foreach ($municipios as $municipio)
-            <option value="{{$municipio->id}}" {{$municipio->id == $usuario->municipio_id ? "selected" : ""}}>{{$municipio->denominacionMunicipio}}</option>
-        @endforeach
-        </select>
-        <label class="label">Municipio</label>
-          </div>
-        @error('municipio_id')
-        <p class="text-danger">
-            {{ $message }}
-        </p>
-        @enderror
-      </div>
-      <div class="login-box">
-        <div class="user-box">
             <select name="arp_id" >
                 <option selected>Seleccione...</option>
                 @foreach ($arps as $arp)
@@ -284,14 +253,46 @@
           </p>
       @enderror
       </div>
+      <div class="login-box">
+        <div class="user-box">
+            <select name="afp_id" >
+                <option selected>Seleccione...</option>
+                @foreach ($afps as $afp)
+                <option value="{{$afp->id}}" {{$afp->id == $usuario->afp_id ? "selected" : ""}}>{{$afp->denominacionAfp}}</option>
+            @endforeach
+            </select>
+            <label class="label">Administradoras de Fondos de Pensiones</label>
+          </div>
+          @error('afp_id')
+          <p class="text-danger">
+              {{ $message }}
+          </p>
+      @enderror
+
+          <div class="user-box1">
+            <select name="municipio_id" >
+            <option selected>Seleccione...</option>
+            @foreach ($municipios as $municipio)
+            <option value="{{$municipio->id}}" {{$municipio->id == $usuario->municipio_id ? "selected" : ""}}>{{$municipio->denominacionMunicipio}}</option>
+        @endforeach
+        </select>
+        <label class="label">Municipio</label>
+          </div>
+        @error('municipio_id')
+        <p class="text-danger">
+            {{ $message }}
+        </p>
+        @enderror
+      </div>
+
 
       <div class="mb-3 row">
-        <div class="col-sm-9"></div>
+        <div class="col-sm-9">
         <div class="col-sm-3">
             <a href="/usuarios" class="btn btn-secondary">Cancelar</a>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
-    </div>
+    </div></div>
 </form>
 
 @endsection

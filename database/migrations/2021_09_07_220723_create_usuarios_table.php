@@ -34,6 +34,8 @@ class CreateUsuariosTable extends Migration
             $table->unsignedBigInteger('afp_id');
             $table->unsignedBigInteger('arp_id');
             $table->unsignedBigInteger('eps_id');
+            $table->unsignedBigInteger('user_id');
+
 
             $table->timestamps();
 
@@ -44,6 +46,7 @@ class CreateUsuariosTable extends Migration
             $table->foreign('afp_id')->references('id')->on('afps');
             $table->foreign('arp_id')->references('id')->on('arps');
             $table->foreign('eps_id')->references('id')->on('eps');
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

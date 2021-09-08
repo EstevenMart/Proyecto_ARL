@@ -3,7 +3,7 @@
 @section('h1' , 'Usuario')
 @section('Contenido')
 
-<a href=" {{route('usuario.formUsuario')}} " class="btn btn-primary">Nuevo Usuario</a>
+{{-- <a href=" {{route('usuario.formUsuario')}} " class="btn btn-primary">Nuevo Usuario</a> --}}
 
 
 @if(Session::has('message'))
@@ -23,6 +23,7 @@
             <th>Tipo de Sangre</th>
             <th>Telefono</th>
             <th>Fecha de Nacimiento</th>
+            <th>Correo</th>
             <th>Estado</th>
             <th>Sexo</th>
             <th>Direccion</th>
@@ -53,6 +54,7 @@
                 <td>{{$usuario->sangre}}</td>
                 <td>{{$usuario->telefono}}</td>
                 <td>{{$usuario->fechaNacimiento}}</td>
+                <td>{{$usuario->user->email}}</td>
                 <td>{{$usuario->estado}}</td>
                 <td>{{$usuario->sexo}}</td>
                 <td>{{$usuario->direccion}}</td>

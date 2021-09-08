@@ -31,17 +31,13 @@
             <span class="links_name" >Usuario</span>
             </a>
             <ul >
-              <li> <a href="{{-- {{route('usuario.formAccidente')}} --}}" >
+              <li> <a href="/usuario/formUsuario" >
                 <i class="fas fa-user-plus"></i>
                 <span class="links_name" >Registrar usuario</span>
               </a></li>
               <li><a href="/usuarios">
                 <i class="fas fa-users-cog"></i>
                 <span class="links_name">Consultar usuario</span>
-              </a></li>
-              <li><a href="{{-- {{ route('usuario.saveUsuario') }} --}}">
-                <i class="fas fa-user-edit"></i>
-                <span class="links_name">Modificar usuario</span>
               </a></li>
             </ul>
           </li>
@@ -51,17 +47,13 @@
             <span class="links_name" > Accidente</span>
             </a>
             <ul>
-              <li> <a href="#" >
+              <li> <a href="/accidente/createAccidente" >
                 <i class="fas fa-file-medical"></i>
                 <span class="links_name" >Registrar Accidente</span>
               </a></li>
               <li><a href="/accidentes">
                 <i class="fas fa-paste"></i>
                 <span class="links_name">Consultar Accidente</span>
-              </a></li>
-              <li><a href="#">
-                <i class='bx bx-list-ul' ></i>
-                <span class="links_name">Modificar Accidente</span>
               </a></li>
             </ul>
           </li>

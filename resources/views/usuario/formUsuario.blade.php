@@ -102,6 +102,18 @@
                 {{ $message }}
             </p>
             @enderror
+
+            <div class="user-box">
+                <input type="text" id="user_id" name='user_id'
+                value="{{ @old('user_id') ? @old('user_id') : $usuario->user_id}}">
+                <label class="label">Correo</label>
+
+              </div>
+                @error('user_id')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
       </div>
       <div class="login-box">
         <div class="user-box">

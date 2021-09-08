@@ -7,6 +7,8 @@
 <form action="{{ route('accidente.store') }}" method="POST" >
     @csrf
 
+    <h1 >Nuevo Accidente</h1>
+
     <input type="hidden" name="id" >
 
     <div class="login-box">
@@ -202,26 +204,26 @@
         <label class="label">parte cuerpo</label>
         <br>
                @foreach ($partes_cuerpo as $id=> $parte_cuerpo)
-      
+
               <div class="inline">
                   <label class="label2">
                       <input class="form-check-input" type="checkbox" name="denominacionParteCuerpo[]"
-                          value="{{$id}}"> 
+                          value="{{$id}}">
                       <span class="form-check-sign">
                           <span class="check"></span>
                       </span>
                   </label>
               </div>
-          
+
               {{$parte_cuerpo}}
         <br>
       @endforeach
-          
-    </div>
-  
-  
 
-   
+    </div>
+
+
+
+
     <div class="mb-3 row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">
@@ -232,5 +234,5 @@
 
 
 </form>
-  
+
 @endsection

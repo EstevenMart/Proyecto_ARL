@@ -3,8 +3,8 @@
 @section('h1' , 'Accidentes')
 @section('Contenido')
 
-<a href=" {{route('accidente.createAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
-
+{{-- <a href=" {{route('accidente.createAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
+ --}}
 
 @if(Session::has('message'))
     <p class="text-danger">{{ Session::get('message') }}</p>

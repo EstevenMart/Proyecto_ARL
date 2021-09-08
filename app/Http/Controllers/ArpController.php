@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\arp;
- 
+
 
 class ArpController extends Controller
 {
@@ -15,7 +15,6 @@ class ArpController extends Controller
     function show(){
         $arpList = arp::all();
         return view('arp/listArp',['listArp'=>$arpList]);
-        return view('arp/formArp',['listArp'=>$arpList]);
     }
 
     function form ($id  = null){
@@ -34,7 +33,7 @@ class ArpController extends Controller
 
         ]);
 
-$arp = new arp();
+        $arp = new arp();
         $message = 'Se ha creado un nuevo arp';
 
         if (intval($request->id )>0){

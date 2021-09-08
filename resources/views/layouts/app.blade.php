@@ -22,7 +22,7 @@
 
   <!-- MENU BAR -->
   <nav class="navbar navbar-expand-lg">
-        
+
      <a class="navbar-brand title" href="index.html">
        <img src="{{ asset('/css/img/logo1.1.png') }}" width="55px" height="55px">
        Arbeid
@@ -51,7 +51,7 @@
                  <a href="#contactanos" class="nav-link smoothScroll">Contáctanos</a>
              </li>
              <li class="nav-item">
-              <a href="#contactanos" class="nav-link contact">Iniciar sesión</a>
+              <a href="/register" class="nav-link contact">Iniciar sesión</a>
           </li>
          </ul>
      </div>
@@ -59,7 +59,7 @@
 </nav>
 
 
- 
+
   <section class="hero hero-bg d-flex justify-content-center align-items-center">
             <div class="container">
                  <div class="row">
@@ -86,7 +86,7 @@
   </section>
 
 
-  
+
 
 <!-- funcionalidad -->
 <div id="funcionalidades" class="about-us section">
@@ -202,7 +202,7 @@
 
     <!-- end Hosting -->
    <!-- Services  -->
- 
+
     <!-- end Servicess -->
     <!-- why -->
 
@@ -369,9 +369,9 @@
                     </div>
 
                     <div class="col-lg-8 mx-auto col-md-10 col-12">
-                    
+
                     <!-- Follow https://templatemo.com/contact page to setup your own contact form -->
-                    
+
                       <form action="#" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
                         <div class="row">
                           <div class="col-lg-6 col-12">

@@ -198,25 +198,30 @@
     </p>
 @enderror
   </div>
+    <div class="user-box">
+        <label class="label">parte cuerpo</label>
+        <br>
+               @foreach ($partes_cuerpo as $id=> $parte_cuerpo)
+      
+              <div class="inline">
+                  <label class="label2">
+                      <input class="form-check-input" type="checkbox" name="denominacionParteCuerpo[]"
+                          value="{{$id}}"> 
+                      <span class="form-check-sign">
+                          <span class="check"></span>
+                      </span>
+                  </label>
+              </div>
+          
+              {{$parte_cuerpo}}
+        <br>
+      @endforeach
+          
+    </div>
+  
+  
 
-    @foreach ($partes_cuerpo as $id=> $parte_cuerpo)
-<tr>
-    <td>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="denominacionParteCuerpo[]"
-                    value="{{$id}}"> 
-                <span class="form-check-sign">
-                    <span class="check"></span>
-                </span>
-            </label>
-        </div>
-    </td>
-    <td>
-        {{$parte_cuerpo}}
-    </td>
-</tr>
-@endforeach
+   
     <div class="mb-3 row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">

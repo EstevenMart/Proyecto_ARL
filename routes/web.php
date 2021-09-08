@@ -13,6 +13,7 @@ use App\Http\Controllers\DepartamentoController;
 
 
 use App\Http\Controllers\MecanismoController;
+use App\Http\Controllers\TipoDocumentoController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +74,10 @@ Route::post('/usuario/saveUsuario', [UsuarioController::class, 'save'])->name('u
 Route::get('/cargos' , [CargoController::class , "show"]);
 Route::get('/cargo/formCargo/{id?}', [CargoController::class, 'form'])->name('cargo.formCargo');
 Route::post('/cargo/saveCargo', [CargoController::class, 'save'])->name('cargo.saveCargo');
+
+Route::get('/tipoDocumentos' , [TipoDocumentoController::class , "show"]);
+Route::get('/tipoDocumento/formTipoDocumento/{id?}', [TipoDocumentoController::class, 'form'])->name('tipoDocumento.formTipoDocumento');
+Route::post('/tipoDocumento/saveTipoDocumento', [TipoDocumentoController::class, 'save'])->name('tipoDocumento.saveTipoDocumento');
 
 // afp
 Route::get('/afps' , [AfpController::class , "show"]);

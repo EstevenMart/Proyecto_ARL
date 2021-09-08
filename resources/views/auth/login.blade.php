@@ -1,73 +1,64 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<footer class="site-footer">
+    <div class="container">
+      <div class="row">
+ 
+        <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
+          <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">hacemos que tu <strong>Empresa</strong> sea mejor.</h1>
         </div>
+ 
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+          <h4 class="my-4">Información de contacto</h4>
+ 
+          <p class="mb-1">
+            <i class="fa fa-phone mr-2 footer-icon"></i> 
+            +57 3138302506
+          </p>
+ 
+          <p>
+            <a href="#">
+              <i class="fa fa-envelope mr-2 footer-icon"></i>
+              hello@company.com
+            </a>
+          </p>
+        </div>
+ 
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+          <h4 class="my-4">Nuestro sitio</h4>
+ 
+          <p class="mb-1">
+            <i class="fa fa-home mr-2 footer-icon"></i> 
+            Av. Lúcio Costa - Barra da Tijuca, Rio de Janeiro - RJ, Brazil
+          </p>
+        </div>
+ 
+        <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
+          <p class="copyright-text">Copyright &copy; 2020 Your Company
+          <br>
+          <a rel="nofollow noopener" href="https://templatemo.com">Design: TemplateMo</a></p>
+        </div>
+ 
+        <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+          
+          <ul class="footer-link">
+            <li><a href="#">Stories</a></li>
+            <li><a href="#">Work with us</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+          <ul class="social-icon">
+            <li><a href="#" class="fa fa-instagram"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-dribbble"></a></li>
+            <li><a href="#" class="fa fa-behance"></a></li>
+          </ul>
+        </div>
+ 
+      </div>
     </div>
-</div>
+  </footer>
 @endsection

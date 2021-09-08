@@ -109,8 +109,8 @@ class UsuarioController extends Controller
 
     }
 
-    /* function find($id){
+     function find($id){
         $usuarioFind = Usuario::find($id);
         return view('usuario/infoUsuario', ['infoUsuario'=>$usuarioFind]);
-    } */
+    }
 }

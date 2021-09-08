@@ -28,10 +28,10 @@
     <tbody>
         @foreach ( $listAccidente as $accidente )
             <tr>
-                <td>  <a href="{{route('accidente.editAccidente', ['id'=> $accidente->id])}}"> {{$accidente->tipoaccidente}} </a> </td>
-                <td>  <a href="{{route('sitio.formSitio', ['id'=> $accidente->id])}}">{{$accidente->fechaHora}}</a> </td>
-                <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">{{$accidente->sitio_id}}</a> </td>
-                <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}"> {{$accidente->descripcion}}</a></td>
+                <td>{{$accidente->tipoaccidente}}</td>
+                <td>{{$accidente->fechaHora}}</td>
+                <td>{{$accidente->sitio_id}}</td>
+                <td>{{$accidente->descripcion}}</td>
 
                 <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">  <i class="fas fa-search"></a></i></td>
                 <td>

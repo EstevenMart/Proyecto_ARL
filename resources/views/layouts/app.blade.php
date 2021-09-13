@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Digital Trend HTML Template</title>
+     <title>Aseguradora de Riesgos Laborales</title>
 
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -22,7 +22,7 @@
 
   <!-- MENU BAR -->
   <nav class="navbar navbar-expand-lg">
-        
+
      <a class="navbar-brand title" href="index.html">
        <img src="{{ asset('/css/img/logo1.1.png') }}" width="55px" height="55px">
        Arbeid
@@ -54,7 +54,7 @@
                  <a href="#contactanos" class="nav-link smoothScroll">Contáctanos</a>
              </li>
              <li class="nav-item">
-              <a href="#contactanos" class="nav-link contact">Iniciar sesión</a>
+              <a href="/register" class="nav-link contact">Iniciar sesión</a>
           </li>
          </ul>
      </div>
@@ -62,7 +62,7 @@
 </nav>
 
 
- 
+
   <section class="hero hero-bg d-flex justify-content-center align-items-center">
             <div class="container">
                  <div class="row">
@@ -89,10 +89,14 @@
   </section>
 
 
+<<<<<<< HEAD
   
   <!-- CHOOSE  -->
   <div class="whyschose">
     <div class="container">
+=======
+
+>>>>>>> fa288dd8766e26736ef8b387d782898ea75078e5
 
        <div class="row">
           <div class="col-md-7 offset-md-3">
@@ -206,7 +210,7 @@
 
     <!-- end Hosting -->
    <!-- Services  -->
- 
+
     <!-- end Servicess -->
     <!-- why -->
 
@@ -374,9 +378,9 @@
                     </div>
 
                     <div class="col-lg-8 mx-auto col-md-10 col-12">
-                    
+
                     <!-- Follow https://templatemo.com/contact page to setup your own contact form -->
-                    
+
                       <form action="#" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="300" role="form">
                         <div class="row">
                           <div class="col-lg-6 col-12">

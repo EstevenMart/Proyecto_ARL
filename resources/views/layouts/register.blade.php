@@ -81,7 +81,7 @@
             </a>
         @endif
               <div class="button input-box">
-                
+
                 <button type="submit">
                   {{ __('Login') }}
               </button>
@@ -124,12 +124,12 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
+
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
                 <input id="password-confirm" placeholder="Confirmar contraseña" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                
+
               </div>
               <div class="button input-box">
                 <button type="submit" >
@@ -145,7 +145,15 @@
   </div>
 
 
-  <a class="read_more" href="#">atras</a>
+  <a class="read_more" href="{{ route('logout') }}"
+  onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+<i class='bx bx-log-out'></i>
+<span class="links_name">Atras</span></a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+   @csrf
+</form>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

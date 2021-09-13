@@ -9,6 +9,7 @@ use App\Models\eps;
 use App\Models\Municipio;
 use App\Models\rol;
 use App\Models\TipoDocumento;
+use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,11 +42,12 @@ class UsuarioController extends Controller
         $rol = rol::orderBy('nombreRol')->get();
         $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
         $municipio = Municipio::orderBy('denominacionMunicipio')->get();
+        $user = User::orderBy('email')->get();
         if ($id != null ) {
             $usuarios = Usuario::findOrFail($id);
         }
         return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo,
-        'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
+        'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio, 'users'=>$user ]);
     }
 
     function save(Request $request){
@@ -69,7 +71,8 @@ class UsuarioController extends Controller
             'afp_id' => 'required|max:50',
             'arp_id' => 'required|max:50',
             'eps_id' => 'required|max:50',
-            'tipoDocumento_id' => 'required|max:50'
+            'tipoDocumento_id' => 'required|max:50',
+            'user_id' => 'required|max:50'
         ]);
 
         $usuario = new Usuario();
@@ -99,13 +102,15 @@ class UsuarioController extends Controller
         $usuario->arp_id  = $request->arp_id ;
         $usuario->eps_id  = $request->eps_id ;
         $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
+        $usuario->user_id  = $request->user_id ;
+
         $usuario->save();
         return redirect('/usuarios')->with('messa' , $message);
 
     }
 
-    /* function find($id){
+     function find($id){
         $usuarioFind = Usuario::find($id);
         return view('usuario/infoUsuario', ['infoUsuario'=>$usuarioFind]);
-    } */
+    }
 }

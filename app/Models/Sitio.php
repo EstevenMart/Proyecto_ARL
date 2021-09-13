@@ -12,7 +12,7 @@ class Sitio extends Model
     protected $table ="sitios";
 
     function accidentes(){
-        return $this->hasMany(Accidente::class);
+        return $this->hasMany(Accidente::class,);
     }
 
 }

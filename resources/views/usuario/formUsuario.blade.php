@@ -102,6 +102,18 @@
                 {{ $message }}
             </p>
             @enderror
+
+            <div class="user-box">
+                <input type="text" id="user_id" name='user_id'
+                value="{{ @old('user_id') ? @old('user_id') : $usuario->user_id}}">
+                <label class="label">Correo</label>
+
+              </div>
+                @error('user_id')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
       </div>
       <div class="login-box">
         <div class="user-box">
@@ -224,37 +236,6 @@
       </div>
       <div class="login-box">
         <div class="user-box">
-            <select name="arp_id" >
-                <option selected>Seleccione...</option>
-                @foreach ($arps as $arp)
-                <option value="{{$arp->id}}" {{$arp->id == $usuario->arp_id ? "selected" : ""}}>{{$arp->denominacionArp}}</option>
-            @endforeach
-            </select>
-            <label class="label">Administradoras de Riesgos Profesionales</label>
-          </div>
-          @error('arp_id')
-          <p class="text-danger">
-              {{ $message }}
-          </p>
-      @enderror
-
-          <div class="user-box1">
-            <select name="eps_id" >
-                <option selected>Seleccione...</option>
-                @foreach ($eps as $eps)
-                <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>{{$eps->denominacionEps}}</option>
-            @endforeach
-            </select>
-            <label class="label">Eps</label>
-          </div>
-          @error('eps_id')
-          <p class="text-danger">
-              {{ $message }}
-          </p>
-      @enderror
-      </div>
-      <div class="login-box">
-        <div class="user-box">
             <select name="afp_id" >
                 <option selected>Seleccione...</option>
                 @foreach ($afps as $afp)
@@ -284,15 +265,46 @@
         </p>
         @enderror
       </div>
+      <div class="login-box">
+        <div class="user-box">
+            <select name="arp_id" >
+                <option selected>Seleccione...</option>
+                @foreach ($arps as $arp)
+                <option value="{{$arp->id}}" {{$arp->id == $usuario->arp_id ? "selected" : ""}}>{{$arp->denominacionArp}}</option>
+            @endforeach
+            </select>
+            <label class="label">Administradoras de Riesgos Profesionales</label>
+          </div>
+          @error('arp_id')
+          <p class="text-danger">
+              {{ $message }}
+          </p>
+      @enderror
 
+          <div class="user-box1">
+            <select name="eps_id" >
+                <option selected>Seleccione...</option>
+                @foreach ($eps as $eps)
+                <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>{{$eps->denominacionEps}}</option>
+            @endforeach
+            </select>
+            <label class="label">Eps</label>
+          </div>
+          @error('eps_id')
+          <p class="text-danger">
+              {{ $message }}
+          </p>
+      @enderror
+
+      </div>
 
       <div class="mb-3 row">
-        <div class="col-sm-9">
+        <div class="col-sm-9"></div>
         <div class="col-sm-3">
             <a href="/usuarios" class="btn btn-secondary">Cancelar</a>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
-    </div></div>
+    </div>
 </form>
 
 @endsection

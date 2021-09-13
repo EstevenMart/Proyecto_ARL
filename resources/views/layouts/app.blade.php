@@ -39,6 +39,9 @@
                  <a href="#about" class="nav-link smoothScroll"></a>
              </li>
              <li class="nav-item">
+              <a href="#container" class="nav-link smoothScroll">Inicio</a>
+          </li>
+             <li class="nav-item">
               <a href="#funcionalidades" class="nav-link smoothScroll">Modúlos</a>
           </li>
              <li class="nav-item">
@@ -77,7 +80,7 @@
                      <div class="col-lg-6 col-12">
                        <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
 
-                         <img src="{{ asset('/css/img/working-girl.png') }}" class="img-fluid" alt="working girl">
+                         <img src="{{ asset('/css/img/señorita.png') }}" class="img-fluid" alt="working girl" width="1000px" height="1000px">
                        </div>
                      </div>
 
@@ -87,7 +90,60 @@
 
 
   
+  <!-- CHOOSE  -->
+  <div class="whyschose">
+    <div class="container">
 
+       <div class="row">
+          <div class="col-md-7 offset-md-3">
+             <div class="title">
+                <h2>Why <strong class="black">choose us</strong></h2>
+                <span>Fastest repair service with best price!</span>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="choose_bg">
+    <div class="container">
+       <div class="white_bg">
+       <div class="row">
+          <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+             <div class="for_box">
+                <i><img src="icon/1.png"/></i>
+                <h3>Data recovery</h3>
+                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+             </div>
+          </dir>
+          <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+             <div class="for_box">
+                <i><img src="icon/2.png"/></i>
+                <h3>Computer repair</h3>
+                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+             </div>
+          </dir>
+          <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+             <div class="for_box">
+                <i><img src="icon/3.png"/></i>
+                <h3>Mobile service</h3>
+                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+             </div>
+          </dir>
+          <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+             <div class="for_box">
+                <i><img src="icon/4.png"/></i>
+                <h3>Network solutions</h3>
+                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+             </div>
+          </dir>
+          <div class="col-md-12">
+             <a class="read-more">Read More</a>
+          </div>
+       </div>
+    </div>
+  </div>
+ </div>
+<!-- end CHOOSE -->
 <!-- funcionalidad -->
 <div id="funcionalidades" class="about-us section">
   <div class="container">
@@ -168,7 +224,7 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                <img src=" {{ asset('/css/img/130175.png') }}" class="rounded img-fluid d-block mx-auto" alt="App" width="50%" height="50%">
+                <img src=" {{ asset('/css/img/accident.png') }}" class="rounded img-fluid d-block mx-auto" alt="App" width="50%" height="50%">
             </div>
         </div>
     </div>
@@ -333,7 +389,7 @@
                  <div class="col-lg-6 col-md-5 col-12">
                      <div class="contact-image" data-aos="fade-up">
 
-                       <img src="{{ asset('/css/img/female-avatar.png') }}" class="img-fluid" alt="website">
+                       <img src="{{ asset('/css/img/opinion.png') }}" class="img-fluid" alt="website" width="450px" height="450px">
                      </div>
                  </div>
 
@@ -356,6 +412,7 @@
             </div>
        </div>
   </section>
+
      <!-- CONTACT -->
      <section class="contact section-padding" id="contactanos">
           <div class="container">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Digital Trend HTML Template</title>
+     <title>Aseguradora de Riesgos Laborales</title>
 
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">

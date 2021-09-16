@@ -70,7 +70,7 @@
                      <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
                            <div class="hero-text">
 
-                                <h1 class="text-white" data-aos="fade-up">Gestor de riesgos profesionales </h1>
+                                <h1 class="text-white" data-aos="fade-up">Gestor de Riesgos Profesionales </h1>
 
                                 <a href="/register" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">¡Iniciar sesión!</a>
 
@@ -80,7 +80,7 @@
                      <div class="col-lg-6 col-12">
                        <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
 
-                         <img src="{{ asset('/css/img/señorita.png') }}" class="img-fluid" alt="working girl" width="1000px" height="1000px">
+                         <img src="{{ asset('/css/img/señorita.png') }}" class="img-fluid" alt="working girl" width="1800px" height="1800px">
                        </div>
                      </div>
 
@@ -89,16 +89,21 @@
   </section>
 
 
+  <!-- CHOOSE  -->
+  <div class="whyschose">
+    <div class="container">
+
 
   <!-- CHOOSE  -->
   <div class="whyschose">
     <div class="container">
 
+
        <div class="row">
           <div class="col-md-7 offset-md-3">
              <div class="title">
-                <h2>Why <strong class="black">choose us</strong></h2>
-                <span>Fastest repair service with best price!</span>
+                <h2>Modúlos <strong class="black"></strong></h2>
+
              </div>
           </div>
        </div>
@@ -110,73 +115,43 @@
        <div class="row">
           <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
              <div class="for_box">
-                <i><img src="icon/1.png"/></i>
-                <h3>Data recovery</h3>
-                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+                <i><img src="{{ asset('/css/img/icons8.png') }}"/></i>
+                <h3>Consulta facíl tu información</h3>
+                <p>-Encuentra la información ordenada de tus procesos, riesgos y controles<br>
+                  -La navegación es directa y sencilla
+                </p>
              </div>
           </dir>
           <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
              <div class="for_box">
-                <i><img src="icon/2.png"/></i>
-                <h3>Computer repair</h3>
-                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+                <i><img src="{{ asset('/css/img/test-passed-96.png') }}"/></i>
+                <h3>Certificado del control de la ARL</h3>
+                <p>-Control avalado por la Aseguradora de Riesgos Laborales  </p>
              </div>
           </dir>
           <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
              <div class="for_box">
-                <i><img src="icon/3.png"/></i>
-                <h3>Mobile service</h3>
-                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+                <i><img src="{{ asset('/css/img/edit-graph.png') }}"/></i>
+                <h3>Generar reporte de riesgo</h3>
+                <p>-Se visualizara correctamente el reporte facil y sencillo <br>
+                  -Registraria un nuevo reporte de un empleado  </p>
              </div>
           </dir>
           <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
              <div class="for_box">
-                <i><img src="icon/4.png"/></i>
-                <h3>Network solutions</h3>
-                <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+                <i><img src="{{ asset('/css/img/time-limit.png') }}"/></i>
+                <h3>Seguimiento de reporte más efectivo</h3>
+                <p>-Validar los datos del reporte de riesgo <br>
+                -Llevar continuidad del reporte</p>
              </div>
           </dir>
-          <div class="col-md-12">
-             <a class="read-more">Read More</a>
-          </div>
+
        </div>
     </div>
   </div>
  </div>
 <!-- end CHOOSE -->
-<!-- funcionalidad -->
-<div id="funcionalidades" class="about-us section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-          <img src="{{ asset('/css/img/about-left-image.png') }}" alt="">
-        </div>
-      </div>
-      <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-        <div class="section-heading">
-          <strong><h2>Funcionalidades</h2></strong>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-              <h4>750+</h4>
-              <h6>proyectos finalizados</h6>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-4">
-            <div class="about-item">
-              <h4>340+</h4>
-              <h6>Clientes felices</h6>
-            </div>
-          </div>
-        </div>
-        <p> La función principal de ARL es cooperar con las empresas para identificar ,controlar y Reportar los riesgos en el lugar de trabajo para evitar accidentes y enfermedades profesionales.</p>
-        <div class="main-green-button"><a href="#">Discover company</a></div>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- funcionalidades -->
   <!-- ***** Features Big Item Start ***** -->
@@ -184,7 +159,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-md-12 col-sm-12 align-self-center" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                <img src="{{ asset('/css/assets/img/left-image.png') }}" class="rounded img-fluid d-block mx-auto" alt="App">
+                <img src="{{ asset('/css/img/user.png') }}" class="rounded img-fluid d-block mx-auto" alt="App" width="300px" height="300px" >
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
@@ -192,9 +167,9 @@
                     <h2 class="section-title">Empleado</h2>
                 </div>
                 <div class="left-text">
-                    <p>Manejo de los datos del empleado <br>
-                      Registro de documentos: ARL, EPS, ARP, Vinculación personal<br>
-                    Manipulación de los datos</p>
+                    <p>-Manejo de los datos del empleado <br>
+                      -Registro de documentos: ARL, EPS, ARP, Vinculación personal<br>
+                    -Manipulación de los datos</p>
                 </div>
             </div>
         </div>
@@ -224,36 +199,14 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                <img src=" {{ asset('/css/img/accident.png') }}" class="rounded img-fluid d-block mx-auto" alt="App" width="50%" height="50%">
+                <img src=" {{ asset('/css/img/wounded.png') }}" class="rounded img-fluid d-block mx-auto" alt="App" width="50%" height="50%">
             </div>
         </div>
     </div>
 </section>
 <!-- ***** Features Big Item End ***** -->
  <!-- ***** Features Big Item Start ***** -->
- <section class="section padding-top-70 padding-bottom-0" id="features">
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-5 col-md-12 col-sm-12 align-self-center" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-              <img src=" {{ asset('/css/img/left-image.png') }}" class="rounded img-fluid d-block mx-auto" alt="App">
-          </div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
-              <div class="left-heading">
-                  <h2 class="section-title">Manejo de los datos del empleado</h2>
-              </div>
-              <div class="left-text">
-                  <p>Nullam sit amet purus libero. Etiam ullamcorper nisl ut augue blandit, at finibus leo efficitur. Nam gravida purus non sapien auctor, ut aliquam magna ullamcorper.</p>
-              </div>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-lg-12">
-              <div class="hr"></div>
-          </div>
-      </div>
-  </div>
-</section>
+
 <!-- ***** Features Big Item End ***** -->
 
     <!-- end Hosting -->
@@ -286,8 +239,8 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Menos tiempo de producción</h4>
-                <p>Como es un sistema de información facil de utilizar al momento de utilizarlo se va garantizar un menor tiempo de producción</p>
+                <h4>Menos tiempo </h4>
+                <p>Como es un sistema de información facil de utilizar se va garantizar un menor tiempo de producción.</p>
               </div>
             </div>
           </div>
@@ -304,7 +257,7 @@
             <div class="col-lg-8">
               <div class="right-content">
                 <h4>Menores costos</h4>
-                <p>Al ser un sistema de información que genera menos tiempo en la gestión de accidentes los empleados se enfocaran en otras acctividades y teniendo una mejor produccion.</p>
+                <p>Genera menos tiempo en la gestión de accidentes los empleados se enfocaran en otras acctividades.</p>
               </div>
             </div>
           </div>
@@ -320,8 +273,8 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Registro de información más acertivo</h4>
-                <p>Nuestro sistema de información al momento de registar es facil de entender y va hacer mas puntual en los untos que necesita.</p>
+                <h4>Registro más acertivo</h4>
+                <p>Al momento de registar es facil de entender y va hacer mas puntual en los puntos que necesita.</p>
               </div>
             </div>
           </div>
@@ -337,8 +290,8 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Mejora el rendimiento de la información</h4>
-                <p>Al momento de hacer cualquier consulta o registro de información en nuestro sistema de información este va hacer de una forma fácil y sencilla.</p>
+                <h4>Mejora la información</h4>
+                <p>Al momento de hacer cualquier consulta o registro de información este va hacer de una forma fácil y sencilla.</p>
               </div>
             </div>
           </div>
@@ -354,7 +307,7 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Eficiencia al registrar cualquier información</h4>
+                <h4>Eficiencia al registrar</h4>
                 <p>Nuestro sistema de información hace registros rápidos y seguros.</p>
               </div>
             </div>
@@ -372,7 +325,7 @@
             <div class="col-lg-8">
               <div class="right-content">
                 <h4>Un seguimiento continuo</h4>
-                <p>Nuestro sistema de informacion va a generar un analisis de datos haciendo que se pueda ver seguimiento de los procesos.</p>
+                <p>Generar un analisis de datos haciendo que se pueda ver seguimiento de los procesos.</p>
               </div>
             </div>
           </div>

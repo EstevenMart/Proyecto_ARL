@@ -1251,29 +1251,29 @@ Portfolio
 
 /** whyschose section **/
 
-/* .whyschose {
+.whyschose .whyschose {
 	background: #fff;
     padding-top: 85px;
 }
 
 
-.title {
+.whyschose .title {
 	text-align:center;
 	padding-bottom: 60px;
 
 }
 
-.title h2 {
+.whyschose .title h2 {
 	font-size: 50px;
 	line-height: 55px;
-	color:#ffc221;
+	color:#33ccc5;
 	font-weight: 500;
 	text-transform: uppercase;
     margin-bottom: 27px;
     position: relative;
     padding-bottom: 8px;
 }
-.title h2:after {
+.whyschose .title h2:after {
 	position: relative;
 content: '';
 top: 100%;
@@ -1284,19 +1284,19 @@ margin: 0 auto;
 background: #000;
 }
 
-.title span{
+.whyschose .title span{
 color:#070500;
 font-size: 28px;
 line-height: 28px;
 margin-top: 20px;
 }
-.black {
+.whyschose .black {
 	font-weight: 500;
 	color:#070500;
 }
 
 .choose_bg {
-	background: #f9be20;
+	background: #33ccc5;
 }
 
 
@@ -1330,7 +1330,7 @@ margin-top: 20px;
 margin: 0 auto;
 background: #fff;
 display: block;
-border: #f9be20 solid 2px;
+border: #33ccc5 solid 2px;
 text-align: center;
 padding: 10px 0px;
 color: #0a0401 !important;
@@ -1338,9 +1338,9 @@ font-size: 20px;
 margin-top: 40px;
 }
 .read-more:hover {
-	background: #f9be20;
+	background: #33ccc5;
 	color: #0a0401;
-} */
+} 
 
 /** end whyschose section **/
 

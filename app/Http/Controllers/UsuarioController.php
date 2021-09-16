@@ -66,7 +66,7 @@ class UsuarioController extends Controller
             'fechaIngreso' => 'required|date',
             'vinculacion' => 'required|max:50',
             'estado' => 'required|max:50',
-            // 'imagen' => 'required|image|mines:jpg,jpeg,png,gif,svg|max2048',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048','image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'municipio_id' => 'required|max:50',
             'cargo_id' => 'required|max:50',
             'rol_id' => 'required|max:50',

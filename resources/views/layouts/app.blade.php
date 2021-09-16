@@ -143,7 +143,7 @@
                 Llevar continuidad del reporte</p>
              </div>
           </dir>
-         
+
        </div>
     </div>
   </div>
@@ -260,7 +260,7 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Menor costo</h4>
+                <h4>Menores costos</h4>
                 <p>Genera menos tiempo en la gestión de accidentes los empleados se enfocaran en otras acctividades.</p>
               </div>
             </div>
@@ -295,7 +295,7 @@
             <div class="col-lg-8">
               <div class="right-content">
                 <h4>Mejora la información</h4>
-                <p>Hacer cualquier consulta o registro de información este va hacer de una forma fácil y sencilla.</p>
+                <p>Al momento de hacer cualquier consulta o registro de información este va hacer de una forma fácil y sencilla.</p>
               </div>
             </div>
           </div>

@@ -18,6 +18,7 @@ class CreateUsuariosTable extends Migration
             $table -> string('nombre',50);
             $table -> string('apellido',50);
             $table -> integer('numeroDocumento')->unique();
+            $table -> string('imagen');
             $table -> integer('telefono');
             $table -> date('fechaNacimiento');
             $table -> string('sexo',50);
@@ -36,7 +37,6 @@ class CreateUsuariosTable extends Migration
             $table->unsignedBigInteger('arp_id');
             $table->unsignedBigInteger('eps_id');
             $table->unsignedBigInteger('user_id');
-
 
             $table->timestamps();
 

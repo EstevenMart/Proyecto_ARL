@@ -136,5 +136,6 @@ function update(Request $request, $id){
         return redirect('/accidentes');
 
 }
+public $search = "tecto de prueba";
 
 }

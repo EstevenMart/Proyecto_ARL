@@ -12,7 +12,9 @@
 @if(Session::has('messa'))
     <p class="text-primary">{{ Session::get('messa') }}</p>
 @endif
-
+<div class="card-body">
+    <input wire:model="search" class="form-control" placeholder="ingrese lo que quieres buscar">
+</div>
 <table class="table table-striped table-hover">
     <thead>
         <tr>

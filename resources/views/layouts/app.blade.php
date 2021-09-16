@@ -92,6 +92,13 @@
   </section>
 
 
+<<<<<<< HEAD
+=======
+
+  <!-- CHOOSE  -->
+  <div class="whyschose">
+    <div class="container">
+>>>>>>> bd4ffc4bf9540dd7eee5869ff9ca008c3446e879
 
        <div class="row">
           <div class="col-md-7 offset-md-3">

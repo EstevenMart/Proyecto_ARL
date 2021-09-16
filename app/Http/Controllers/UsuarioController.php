@@ -47,7 +47,8 @@ class UsuarioController extends Controller
             $usuarios = Usuario::findOrFail($id);
         }
         return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo,
-        'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio, 'users'=>$user ]);
+        'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 
+        'municipios'=>$municipio, 'users'=>$user ]);
     }
 
     function save(Request $request){
@@ -65,6 +66,7 @@ class UsuarioController extends Controller
             'fechaIngreso' => 'required|date',
             'vinculacion' => 'required|max:50',
             'estado' => 'required|max:50',
+            // 'imagen' => 'required|image|mines:jpg,jpeg,png,gif,svg|max2048',
             'municipio_id' => 'required|max:50',
             'cargo_id' => 'required|max:50',
             'rol_id' => 'required|max:50',
@@ -95,6 +97,7 @@ class UsuarioController extends Controller
         $usuario->fechaIngreso = $request->fechaIngreso;
         $usuario->vinculacion = $request->vinculacion;
         $usuario->estado  = $request->estado;
+        $usuario->imagen  = $request->imagen;
         $usuario->municipio_id  = $request->municipio_id;
         $usuario->cargo_id  = $request->cargo_id ;
         $usuario->rol_id  = $request->rol_id ;

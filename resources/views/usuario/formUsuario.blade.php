@@ -297,7 +297,7 @@
       @enderror
 
       </div>
-
+<input type="file" name="imagen" placeholder="imagen">
       <div class="mb-3 row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">

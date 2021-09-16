@@ -27,6 +27,7 @@ class CreateUsuariosTable extends Migration
             $table -> date('fechaIngreso',50);
             $table -> string('vinculacion',50);
             $table -> string('estado',50);
+            $table-> string('imagen');
             $table->unsignedBigInteger('municipio_id');
             $table->unsignedBigInteger('tipoDocumento_id');
             $table->unsignedBigInteger('cargo_id');

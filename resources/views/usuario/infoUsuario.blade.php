@@ -54,7 +54,7 @@
                 <td>{{$infoUsuario->sangre}}</td>
                 <td>{{$infoUsuario->telefono}}</td>
                 <td>{{$infoUsuario->fechaNacimiento}}</td>
-                <td>{{$infoUsuario->user->email}}</td>
+                <td>{{$infoUsuario->correo}}</td>
                 <td>{{$infoUsuario->estado}}</td>
                 <td>{{$infoUsuario->sexo}}</td>
                 <td>{{$infoUsuario->direccion}}</td>

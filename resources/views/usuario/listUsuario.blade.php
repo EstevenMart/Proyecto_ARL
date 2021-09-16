@@ -21,8 +21,7 @@
             <th>Numero de Documento</th>
             <th>Telefono</th>
             <th>Correo</th>
-            <th>Rol</th>
-            <th>Cargo</th>
+
 
             <th>Ver más</th>
             <th>Acciones</th>
@@ -39,9 +38,8 @@
                 <td>{{$usuario->tipo_documento->nombreTipoDocumento}}</td>
                 <td>{{$usuario->numeroDocumento}}</td>
                 <td>{{$usuario->telefono}}</td>
-                <td>{{$usuario->user->email}}</td>
-                <td>{{$usuario->rol->nombreRol}} </td>
-                <td>{{$usuario->cargo->nombreCargo}}</td>
+                <td>{{$usuario->correo}}</td>
+
 
                 <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></i> </a></td>
                 <td>

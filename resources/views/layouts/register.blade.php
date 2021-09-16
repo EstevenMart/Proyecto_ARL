@@ -40,6 +40,7 @@
     <div class="forms">
         <div class="form-content">
           <div class="login-form">
+            <img src="{{ asset('/css/img/logo1.1.png') }}" width="55px" height="55px">
             <div class="title">Iniciar sesión</div>
           <form method="POST" action="{{ route('login') }}" >
             @csrf
@@ -145,7 +146,7 @@
   </div>
 
 
-  <a class="read_more" href="{{ route('logout') }}"
+  <a class="read_more" href="/login"
   onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
 <i class='bx bx-log-out'></i>

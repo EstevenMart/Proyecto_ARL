@@ -104,12 +104,12 @@
             @enderror
 
             <div class="user-box">
-                <input type="text" id="user_id" name='user_id'
-                value="{{ @old('user_id') ? @old('user_id') : $usuario->user_id}}">
+                <input type="text" id="correo" name='correo'
+                value="{{ @old('correo') ? @old('correo') : $usuario->correo}}">
                 <label class="label">Correo</label>
 
               </div>
-                @error('user_id')
+                @error('correo')
                 <p class="text-danger">
                     {{ $message }}
                 </p>
@@ -282,20 +282,24 @@
       @enderror
 
           <div class="user-box1">
+
             <select name="eps_id" >
                 <option selected>Seleccione...</option>
                 @foreach ($eps as $eps)
                 <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>{{$eps->denominacionEps}}</option>
+
             @endforeach
-            </select>
+            </select><br><br>
+            <a href="  {{route('eps.formEps')}}  " class="btn btn-primary">Otra Eps</a>
+
             <label class="label">Eps</label>
+
           </div>
           @error('eps_id')
           <p class="text-danger">
               {{ $message }}
           </p>
       @enderror
-
       </div>
 
       <div class="mb-3 row">

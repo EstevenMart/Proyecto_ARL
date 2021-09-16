@@ -44,7 +44,7 @@ class ArpController extends Controller
         $arp->denominacionArp = $request->denominacionArp;
 
         $arp->save();
-        return redirect('/arps')->with('messa' , $message);
+        return redirect('/usuario/formUsuario')->with('messa' , $message);
 
 }
 }

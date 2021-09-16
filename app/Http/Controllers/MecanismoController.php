@@ -49,7 +49,7 @@ class MecanismoController extends Controller
 
 
         $mecanismo->save();
-        return redirect('/mecanismos')->with('messa' , $message);
+        return redirect('/accidente/createAccidente')->with('messa' , $message);
 
     }
 }

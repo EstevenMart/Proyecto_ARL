@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AFP;
- 
+
 
 class AfpController extends Controller
 {
@@ -44,7 +44,7 @@ $afp = new AFP();
         $afp->denominacionAfp = $request->denominacionAfp;
 
         $afp->save();
-        return redirect('/afps')->with('messa' , $message);
+        return redirect('/usuario/formUsuario')->with('messa' , $message);
 
 }
 }

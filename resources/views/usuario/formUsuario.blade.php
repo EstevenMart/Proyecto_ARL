@@ -242,6 +242,9 @@
                 <option value="{{$afp->id}}" {{$afp->id == $usuario->afp_id ? "selected" : ""}}>{{$afp->denominacionAfp}}</option>
             @endforeach
             </select>
+            <br><br>
+            <a href="  {{route('afp.formAfp')}}  " class="btn btn-primary">Otro Afp</a>
+
             <label class="label">Administradoras de Fondos de Pensiones</label>
           </div>
           @error('afp_id')
@@ -265,6 +268,8 @@
         </p>
         @enderror
       </div>
+      <br>
+
       <div class="login-box">
         <div class="user-box">
             <select name="arp_id" >
@@ -272,7 +277,9 @@
                 @foreach ($arps as $arp)
                 <option value="{{$arp->id}}" {{$arp->id == $usuario->arp_id ? "selected" : ""}}>{{$arp->denominacionArp}}</option>
             @endforeach
-            </select>
+            </select><br><br>
+            <a href="  {{route('arp.formArp')}} " class="btn btn-primary">Otro Arp</a>
+
             <label class="label">Administradoras de Riesgos Profesionales</label>
           </div>
           @error('arp_id')

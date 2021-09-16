@@ -141,7 +141,9 @@
         <option value="{{$sitio->id}}" {{$sitio->id == $accidente->sitio_id ? "selected" : ""}}>
             {{$sitio->denominacionSitio}}</option>
     @endforeach
-    </select>
+    </select><br><br>
+    <a href="   {{route('sitio.formSitio')}} " class="btn btn-primary">Otro Sitio</a>
+
     <label class="label">Sitio</label>
       </div>
     @error('sitio_id')
@@ -150,6 +152,7 @@
     </p>
     @enderror
   </div>
+  <br>
   <div class="login-box">
       <div class="user-box">
             <select name="agente_id" >
@@ -158,6 +161,7 @@
             <option value="{{$agente->id}}" {{$agente->id == $accidente->agente_id ? "selected" : ""}} >{{$agente->denominacionAgente}}</option>
             @endforeach
         </select>
+
         <label class="label">Agente Accidente</label>
         @error('agente_id')
             <p class="text-danger">
@@ -171,7 +175,9 @@
             @foreach ($mecanismos as $mecanismo)
             <option value="{{$mecanismo->id}}" {{$mecanismo->id == $accidente->mecanismo_id ? "selected" : ""}} >{{$mecanismo->denominacionMecanismo}}</option>
         @endforeach
-    </select>
+    </select><br><br>
+    <a href=" {{route('mecanismo.formMecanismo')}} " class="btn btn-primary">Otro Mecanismo</a>
+
     <label class="label">Mecanismo o forma de accidente</label>
       </div>
       @error('mecanismo_id')
@@ -180,10 +186,11 @@
       </p>
   @enderror
   </div>
+  <br>
   <div class="login-box">
     <div class="user-box">
         <input type="text" id="empresa" name='empresa'>
-        <label class="label">empresa</label>
+        <label class="label">Empresa</label>
     </div>
     @error('descripcion')
     <p class="text-danger">
@@ -192,7 +199,7 @@
 @enderror
     <div class="user-box1">
         <input type="text" id="descripcion" name='descripcion'>
-        <label class="label">descripcion</label>
+        <label class="label">Descripcion</label>
     </div>
     @error('empresa')
     <p class="text-danger">
@@ -219,9 +226,10 @@
               {{$parte_cuerpo}}
         <br>
       @endforeach
+
     </div>
      <div class="user-box2">
-         <label class="label">lesions</label>
+         <label class="label">lesiones</label>
         <br>
                @foreach ($lesions as $id=> $lesionn)
 
@@ -237,7 +245,9 @@
 
               {{$lesionn}}
         <br>
+
       @endforeach
+
     </div>
 
 

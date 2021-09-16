@@ -18,7 +18,7 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <th>eps</th>
+            <th>Eps</th>
             <th></th>
 
         </tr>

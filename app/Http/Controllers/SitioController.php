@@ -45,7 +45,7 @@ $sitio = new Sitio();
         $sitio->denominacionSitio = $request->denominacionSitio;
 
         $sitio->save();
-        return redirect('/sitios')->with('messa' , $message);
+        return redirect('/accidente/createAccidente')->with('messa' , $message);
 
 }
 }

@@ -25,7 +25,7 @@
     <div class="mb-3 row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">
-            <a href="/arps" class="btn btn-secondary">Cancelar</a>
+            <a href="/usuario/formUsuario" class="btn btn-secondary">Cancelar</a>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </div>

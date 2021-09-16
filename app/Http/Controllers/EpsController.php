@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\eps;
- 
+
 
 class EpsController extends Controller
 {
@@ -45,7 +45,7 @@ $eps = new eps();
         $eps->denominacionEps = $request->denominacionEps;
 
         $eps->save();
-        return redirect('/eps')->with('messa' , $message);
+        return redirect('/usuario/formUsuario')->with('messa' , $message);
 
 }
 }

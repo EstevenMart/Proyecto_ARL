@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
+    protected $fillable = ["imagen"];
     use HasFactory;
 
     protected $table ="usuarios";
@@ -34,9 +35,7 @@ class Usuario extends Model
         return $this->belongsTo(eps::class);
     }
 
-    function user(){
-        return $this->belongsTo(User::class);
-    }
+
 
 
 

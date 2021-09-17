@@ -73,7 +73,7 @@
                                 <h1 class="text-white" data-aos="fade-up">Gestor de Riesgos Profesionales </h1>
                                  <p class="text-white">Dile adiós a las celdas, fórmulas y tablas dinámicas de Excel. Comienza a usar nuestro software que te permite ser más eficiente y estratégico en tu labor.
 
-                                  Comienza gratis <p> 
+                                  Comienza gratis <p>
 
                                 <a href="/register" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">¡Iniciar sesión!</a>
 
@@ -92,16 +92,9 @@
   </section>
 
 
-
-  <!-- CHOOSE  -->
-  <div class="whyschose">
-    <div class="container">
-
-       <div class="row">
-          <div class="col-md-7 offset-md-3">
              <div class="title">
                <center><h1><strong>Modúlos</strong></h1></center>
-              
+
              </div>
           </div>
        </div>
@@ -116,7 +109,7 @@
                 <i><img src="{{ asset('/css/img/searching-amico.png') }}" width="150px" height="150px" /></i>
                 <h3>Consulta facíl </h3>
                 <p>Encuentra la información ordenada de tus procesos, riesgos y controles<br>
-                
+
                 </p>
              </div>
           </dir>
@@ -131,7 +124,7 @@
              <div class="for_box">
                 <i><img src="{{ asset('/css/img/out-bro.png') }}" width="150px" height="150px"/></i>
                 <h3>Reporte de riesgo</h3>
-                <p>Se registrara un nuevo reporte correctamente facil y sencillo 
+                <p>Se registrara un nuevo reporte correctamente facil y sencillo
                  </p>
              </div>
           </dir>
@@ -159,7 +152,7 @@
   <section class="mini" id="work-process">
     <div class="mini-content">
         <div class="container">
-         
+
 
             <!-- ***** Mini Box Start ***** -->
            <center>  <h1><strong>Funcionalidades</strong> </h1></center>
@@ -168,35 +161,35 @@
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/Server-bro.png') }}" alt="" width="100px" height="100px"></i>
                         <strong>Manejo de los datos del empleado</strong>
-                        
+
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/Hidden-amico.png') }}" alt="" width="100px" height="100px"></i>
                         <strong> Vinculación personal</strong>
-                        
+
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/extraction-rafiki.png') }}" alt="" width="100px" height="100px"></i>
                         <strong>Manipulación de los datos</strong>
-                        
+
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/searching-amico.png') }}" alt="" width="100px" height="100px"></i>
                         <strong>Consulta el control de la ARL</strong>
-                        
+
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/out-pana.png') }}" alt="" width="100px" height="100px"></i>
                         <strong>Generar reporte de riesgos</strong>
-                        
+
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
@@ -226,7 +219,7 @@
       <div class="col-lg-6 offset-lg-3">
         <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
           <h5>Arbeid te da los siguientes</h5>
-         <center><h1><strong>Beneficios</strong> </h1></center> 
+         <center><h1><strong>Beneficios</strong> </h1></center>
         </div>
       </div>
     </div>
@@ -295,7 +288,7 @@
             <div class="col-lg-8">
               <div class="right-content">
                 <h4>Mejora la información</h4>
-                <p>Al momento de hacer cualquier consulta o registro de información este va hacer de una forma fácil y sencilla.</p>
+                <p>Hacer cualquier consulta o registro de información este va hacer de una forma fácil y sencilla.</p>
               </div>
             </div>
           </div>

@@ -16,6 +16,7 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
+            <th>imagen</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Tipo Documento</th>
@@ -35,6 +36,7 @@
             <th>afp</th>
             <th>Municipio</th>
             <th>arp</th>
+            
             <th>eps</th>
 
 
@@ -46,7 +48,7 @@
     <tbody>
 
 
-            <tr>
+            <tr> <td><img src="{{asset($infoUsuario->imagen) }}" alt="image" class="imagen_perfil" ></td>
                 <td>{{$infoUsuario->nombre}}</td>
                 <td>{{$infoUsuario->apellido}}</td>
                 <td>{{$infoUsuario->tipo_documento->nombreTipoDocumento}}</td>
@@ -54,7 +56,7 @@
                 <td>{{$infoUsuario->sangre}}</td>
                 <td>{{$infoUsuario->telefono}}</td>
                 <td>{{$infoUsuario->fechaNacimiento}}</td>
-                <td>{{$infoUsuario->user->email}}</td>
+                <td>{{$infoUsuario->correo}}</td>
                 <td>{{$infoUsuario->estado}}</td>
                 <td>{{$infoUsuario->sexo}}</td>
                 <td>{{$infoUsuario->direccion}}</td>
@@ -66,6 +68,7 @@
                 <td>{{$infoUsuario->afp->denominacionAfp}}</td>
                 <td>{{$infoUsuario->municipios->denominacionMunicipio;}}</td>
                  <td>{{$infoUsuario->arp->denominacionArp}}</td>
+                
                  <td>{{$infoUsuario->eps->denominacionEps}}</td>
                 <td>
                      <a href="{{ route('usuario.formUsuario', ['id'=> $infoUsuario->id]) }}" class="btn btn-warning">Editar</a>

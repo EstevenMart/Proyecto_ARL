@@ -16,13 +16,13 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
+            <th>Imagen</th>
             <th>Nombre</th>
             <th>Tipo Documento</th>
             <th>Numero de Documento</th>
             <th>Telefono</th>
             <th>Correo</th>
-            <th>Rol</th>
-            <th>Cargo</th>
+
 
             <th>Ver más</th>
             <th>Acciones</th>
@@ -35,13 +35,13 @@
 
         @foreach ( $listUsuario as $usuario )
             <tr>
+                <td><img src="{{asset($usuario->imagen) }}" alt="perfil" class="imagen_perfil" ></td>
                 <td>{{$usuario->nombre}}</td>
                 <td>{{$usuario->tipo_documento->nombreTipoDocumento}}</td>
                 <td>{{$usuario->numeroDocumento}}</td>
                 <td>{{$usuario->telefono}}</td>
-                <td>{{$usuario->user->email}}</td>
-                <td>{{$usuario->rol->nombreRol}} </td>
-                <td>{{$usuario->cargo->nombreCargo}}</td>
+                <td>{{$usuario->correo}}</td>
+
 
                 <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></i> </a></td>
                 <td>

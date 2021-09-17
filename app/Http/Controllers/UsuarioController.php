@@ -13,6 +13,8 @@ use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class UsuarioController extends Controller
 {
@@ -42,13 +44,10 @@ class UsuarioController extends Controller
         $rol = rol::orderBy('nombreRol')->get();
         $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
         $municipio = Municipio::orderBy('denominacionMunicipio')->get();
-        $user = User::orderBy('email')->get();
         if ($id != null ) {
             $usuarios = Usuario::findOrFail($id);
         }
-        return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo,
-        'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 
-        'municipios'=>$municipio, 'users'=>$user ]);
+        return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
     }
 
     function save(Request $request){
@@ -57,6 +56,7 @@ class UsuarioController extends Controller
             'nombre' => 'required|max:50' ,
             'apellido' => 'required|max:50',
             'numeroDocumento' => 'required|numeric',
+            'correo' => 'required|max:50',
             'telefono' => 'required|numeric',
             'fechaNacimiento' => 'required|date',
             'sexo' => 'required|max:50',
@@ -66,7 +66,7 @@ class UsuarioController extends Controller
             'fechaIngreso' => 'required|date',
             'vinculacion' => 'required|max:50',
             'estado' => 'required|max:50',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048','image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagen' => 'required|image|max:2048',
             'municipio_id' => 'required|max:50',
             'cargo_id' => 'required|max:50',
             'rol_id' => 'required|max:50',
@@ -74,9 +74,7 @@ class UsuarioController extends Controller
             'arp_id' => 'required|max:50',
             'eps_id' => 'required|max:50',
             'tipoDocumento_id' => 'required|max:50',
-            'user_id' => 'required|max:50'
         ]);
-
         $usuario = new Usuario();
         $message = 'Se ha creado una nuevo Usuario';
 
@@ -88,6 +86,7 @@ class UsuarioController extends Controller
         $usuario->nombre = $request->nombre;
         $usuario->apellido = $request->apellido;
         $usuario->numeroDocumento = $request->numeroDocumento;
+        $usuario->correo = $request->correo;
         $usuario->telefono = $request->telefono;
         $usuario->fechaNacimiento = $request->fechaNacimiento;
         $usuario->sexo = $request->sexo;
@@ -97,7 +96,7 @@ class UsuarioController extends Controller
         $usuario->fechaIngreso = $request->fechaIngreso;
         $usuario->vinculacion = $request->vinculacion;
         $usuario->estado  = $request->estado;
-        $usuario->imagen  = $request->imagen;
+        $imagenes  = $request->imagen->store("public/imagenes");
         $usuario->municipio_id  = $request->municipio_id;
         $usuario->cargo_id  = $request->cargo_id ;
         $usuario->rol_id  = $request->rol_id ;
@@ -105,11 +104,12 @@ class UsuarioController extends Controller
         $usuario->arp_id  = $request->arp_id ;
         $usuario->eps_id  = $request->eps_id ;
         $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
-        $usuario->user_id  = $request->user_id ;
 
         $usuario->save();
+        $url = Storage::url($imagenes);
+        
         return redirect('/usuarios')->with('messa' , $message);
-
+        
     }
 
      function find($id){

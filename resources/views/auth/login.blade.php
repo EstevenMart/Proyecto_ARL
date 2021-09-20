@@ -14,11 +14,9 @@
                
               </div>
     
-              <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="text-white" data-aos="fade-up" data-aos-delay="100"> Arbeid hace que tu <strong>Empresa</strong> sea mejor.</h2>
-              </div>
+             
     
-              <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+              <div class=" col-md-6 col-6" data-aos="fade-up" data-aos-delay="300">
                 <h4 class="my-4">Copyright</h4>
     
                 <p class="mb-1">

@@ -13,6 +13,8 @@ use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class UsuarioController extends Controller
 {
@@ -45,8 +47,7 @@ class UsuarioController extends Controller
         if ($id != null ) {
             $usuarios = Usuario::findOrFail($id);
         }
-        return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo,
-        'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
+        return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
     }
 
     function save(Request $request){
@@ -65,6 +66,7 @@ class UsuarioController extends Controller
             'fechaIngreso' => 'required|date',
             'vinculacion' => 'required|max:50',
             'estado' => 'required|max:50',
+            'imagen' => 'required|image|max:2048',
             'municipio_id' => 'required|max:50',
             'cargo_id' => 'required|max:50',
             'rol_id' => 'required|max:50',
@@ -73,7 +75,6 @@ class UsuarioController extends Controller
             'eps_id' => 'required|max:50',
             'tipoDocumento_id' => 'required|max:50',
         ]);
-
         $usuario = new Usuario();
         $message = 'Se ha creado una nuevo Usuario';
 
@@ -95,6 +96,7 @@ class UsuarioController extends Controller
         $usuario->fechaIngreso = $request->fechaIngreso;
         $usuario->vinculacion = $request->vinculacion;
         $usuario->estado  = $request->estado;
+        $imagenes  = $request->imagen->store("public/imagenes");
         $usuario->municipio_id  = $request->municipio_id;
         $usuario->cargo_id  = $request->cargo_id ;
         $usuario->rol_id  = $request->rol_id ;
@@ -104,8 +106,10 @@ class UsuarioController extends Controller
         $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
 
         $usuario->save();
+        $url = Storage::url($imagenes);
+        
         return redirect('/usuarios')->with('messa' , $message);
-
+        
     }
 
      function find($id){

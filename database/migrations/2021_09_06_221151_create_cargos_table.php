@@ -15,8 +15,8 @@ class CreateCargosTable extends Migration
     {
         Schema::create('cargos', function (Blueprint $table) {
             $table->id();
-            $table -> string('nivelRiesgo',50);
             $table -> string('nombreCargo',50);
+            $table -> string('nivelRiesgo',50);
             $table -> string('estado',50);
             $table -> float('salario',32,3);
 

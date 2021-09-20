@@ -16,6 +16,7 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
+            <th>Imagen</th>
             <th>Nombre</th>
             <th>Tipo Documento</th>
             <th>Numero de Documento</th>
@@ -34,6 +35,7 @@
 
         @foreach ( $listUsuario as $usuario )
             <tr>
+                <td><img src="{{asset($usuario->imagen) }}" alt="perfil" class="imagen_perfil" ></td>
                 <td>{{$usuario->nombre}}</td>
                 <td>{{$usuario->tipo_documento->nombreTipoDocumento}}</td>
                 <td>{{$usuario->numeroDocumento}}</td>

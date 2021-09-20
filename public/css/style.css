@@ -453,4 +453,27 @@ nav .sidebar-button .dashboard{
     display: inline-block;
     /* margin-right: 1rem; */
 }
+.imagen_perfil{
+  width: 60px;
+  height: 60px;
+  border-radius:50px ;
+}
 
+.social-icon {
+  position: relative;
+  padding: 0;
+  margin: 4em 0 0 0;
+}
+
+.social-icon li {
+  display: inline-block;
+  list-style: none;
+}
+
+.social-icon li a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  text-align: center;
+}

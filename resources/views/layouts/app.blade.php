@@ -42,7 +42,7 @@
               <a href="#container" class="nav-link smoothScroll">Inicio</a>
           </li>
              <li class="nav-item">
-              <a href="#funcionalidades" class="nav-link smoothScroll">Modúlos</a>
+              <a href="#funcionalidades" class="nav-link smoothScroll">Módulos</a>
           </li>
              <li class="nav-item">
               <a href="#funcionalidades" class="nav-link smoothScroll">Funcionalidades</a>
@@ -93,7 +93,7 @@
 
 
              <div class="title">
-               <center><h1><strong>Modúlos</strong></h1></center>
+               <center><h1><strong>Módulos</strong></h1></center>
 
              </div>
           </div>
@@ -107,7 +107,7 @@
           <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
              <div class="for_box">
                 <i><img src="{{ asset('/css/img/searching-amico.png') }}" width="150px" height="150px" /></i>
-                <h3>Consulta facíl </h3>
+                <h3>Consulta fácil </h3>
                 <p>Encuentra la información ordenada de tus procesos, riesgos y controles<br>
 
                 </p>
@@ -124,7 +124,7 @@
              <div class="for_box">
                 <i><img src="{{ asset('/css/img/out-bro.png') }}" width="150px" height="150px"/></i>
                 <h3>Reporte de riesgo</h3>
-                <p>Se registrara un nuevo reporte correctamente facil y sencillo
+                <p>Se registrara un nuevo reporte correctamente fácil y sencillo
                  </p>
              </div>
           </dir>
@@ -174,7 +174,7 @@
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/extraction-rafiki.png') }}" alt="" width="100px" height="100px"></i>
-                        <strong>Manipulación de los datos</strong>
+                        <strong>Gestión de datos</strong>
 
                     </a>
                 </div>
@@ -195,7 +195,7 @@
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/engineers-rafiki.png') }}" alt="" width="100px" height="100px"></i>
-                        <strong>Seguimiento de reporte de accidentes</strong>
+                        <strong>Reporte de riwesgo</strong>
                     </a>
                 </div>
             </div>
@@ -219,7 +219,7 @@
       <div class="col-lg-6 offset-lg-3">
         <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
           <h5>Arbeid te da los siguientes</h5>
-         <center><h1><strong>Beneficios</strong> </h1></center>
+         <center><h1><strong>Beneficios para tu empresa</strong> </h1></center>
         </div>
       </div>
     </div>
@@ -236,8 +236,8 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Menos tiempo </h4>
-                <p>Como es un sistema de información facil de utilizar se va garantizar un menor tiempo de producción.</p>
+                <h4>Disminución de tiempo</h4>
+                <p>Como es un sistema de información fácil de utilizar se va garantizar un menor tiempo de producción.</p>
               </div>
             </div>
           </div>
@@ -253,7 +253,7 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Menor costo</h4>
+                <h4>Menores costos</h4>
                 <p>Genera menos tiempo en la gestión de accidentes los empleados se enfocaran en otras acctividades.</p>
               </div>
             </div>
@@ -271,7 +271,7 @@
             <div class="col-lg-8">
               <div class="right-content">
                 <h4>Registro más acertivo</h4>
-                <p>Al momento de registar es facil de entender y va hacer mas puntual en los puntos que necesita.</p>
+                <p>Al momento de registar es fácil de entender y va hacer mas puntual en los puntos que necesita.</p>
               </div>
             </div>
           </div>
@@ -349,7 +349,7 @@
 
                    <div class="quote" data-aos="fade-up" data-aos-delay="200"></div>
 
-                   <h2 class="mb-4" data-aos="fade-up" >Al momento de utilizar el sistema de informacion fue facil y sencillo y me generaba reportes de inmediato </h2>
+                   <h2 class="mb-4" data-aos="fade-up" >Al momento de utilizar el sistema de información fue fácil y sencillo y me generaba reportes de inmediato </h2>
 
                    <p data-aos="fade-up" data-aos-delay="400">
                      <strong>Mary Zoe</strong>
@@ -370,10 +370,10 @@
                <div class="row">
 
                     <div class="col-lg-6 mx-auto col-md-7 col-12 py-5 mt-5 text-center" data-aos="fade-up">
+                      
+                      <center><h1><strong>Contáctanos</strong> </h1></center>
+                      <h1 class="mb-4">Hola quieres saber más sobre nuestro <strong>sistema de información</strong> contáctanos</h1>
 
-                      <h1 class="mb-4">Hola quieres sabes mas sobre nuestro <strong>sistema de información</strong> contáctanos</h1>
-
-                      <p>ó envianos un correo electronico a <a href="mailto:hello@company.com">hello@company.com</a></p>
                     </div>
 
                     <div class="col-lg-8 mx-auto col-md-10 col-12">

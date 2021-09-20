@@ -196,6 +196,8 @@
   }
 
   .navbar-expand-lg .navbar-nav .nav-link.contact {
+    padding-right: 10px;
+    padding-left: 10px;
     border: 2px solid #ffaf27;
     border-radius: 100px;
     color: #ffaf27;
@@ -509,7 +511,7 @@
 
   .site-footer {
     background: #171819;
-    padding: 7em 0 6em 0;
+    padding: 7px 0 6px 0;
   }
 
   .site-footer a {

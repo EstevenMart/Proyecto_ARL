@@ -5,7 +5,7 @@
 
 
 @section('Contenido')
-<form action="{{ route('usuario.saveUsuario') }}" method="POST" >
+<form action="{{ route('usuario.saveUsuario') }}" method="POST" enctype="multipart/form-data" >
     @csrf
     <input type="hidden" name="id" value="{{ $usuario->id }}">
 
@@ -308,7 +308,12 @@
           </p>
       @enderror
       </div>
-
+<input type="file" name="imagen"  accept="image/*">
+@error('imagen')
+<p class="text-danger">
+    {{ $message }}
+</p>
+@enderror
       <div class="mb-3 row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3">

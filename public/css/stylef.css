@@ -49,7 +49,6 @@
 .copyright-text, 
 .footer-link, 
 .site-footer .social-icon {
-  margin-top: 3em;
   padding: 0;
   text-align: left;
 }
@@ -75,10 +74,6 @@ h3 {
   margin: 0 auto;
 }
 
-.footer-link, 
-.site-footer .social-icon {
-  margin-top: 1em;
-}
 
 .copyright-text {
   margin: 2.5em 0 1em 0;
@@ -90,7 +85,12 @@ h3 {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
+body{
+  background: linear-gradient(
+    170deg, #fff 50%, #057a8d 50%);
+    height: 100vh;
+                                ;
+}
 .container{
   position: relative;
   max-width: 850px;
@@ -117,18 +117,18 @@ h3 {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #0c8195;
-  opacity: 0.5;
-  z-index: 100;
+  background: #f0f8ff;
+  /* opacity: 0.5; */
+
 }
 .container .cover::after{
   content: '';
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #0c8195;
-  opacity: 0.5;
-  z-index: 100;
+  background: #f0f8ff;
+  /* opacity: 0.5; */
+ 
   transform: rotateY(180deg);
 }
 .container #flip:checked ~ .cover{
@@ -287,6 +287,7 @@ h3 {
 .forms .form-content .sign-up-text{
   text-align: center;
   margin-top: 25px;
+  text-decoration: none;
 }
 .container #flip{
   display: none;
@@ -395,8 +396,15 @@ h3 {
   color: #f0f8ff;
   font-size: 55px;
 }
-
-
+a{
+  text-decoration: none;
+}
+.form-group{
+  margin-left: 5px;
+}
+.input-boxes a{
+  text-decoration: none;
+}
 /** end Services section **/
 
 

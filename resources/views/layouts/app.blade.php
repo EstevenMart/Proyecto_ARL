@@ -349,7 +349,7 @@
 
                    <div class="quote" data-aos="fade-up" data-aos-delay="200"></div>
 
-                   <h2 class="mb-4" data-aos="fade-up" >Al momento de utilizar el sistema de informacion fue facil y sencillo y me generaba reportes de inmediato </h2>
+                   <h2 class="mb-4" data-aos="fade-up" >Al momento de utilizar el sistema de información fue fácil y sencillo y me generaba reportes de inmediato </h2>
 
                    <p data-aos="fade-up" data-aos-delay="400">
                      <strong>Mary Zoe</strong>
@@ -370,10 +370,10 @@
                <div class="row">
 
                     <div class="col-lg-6 mx-auto col-md-7 col-12 py-5 mt-5 text-center" data-aos="fade-up">
+                      
+                      <center><h1><strong>Contáctanos</strong> </h1></center>
+                      <h1 class="mb-4">Hola quieres saber más sobre nuestro <strong>sistema de información</strong> contáctanos</h1>
 
-                      <h1 class="mb-4">Hola quieres sabes mas sobre nuestro <strong>sistema de información</strong> contáctanos</h1>
-
-                      <p>ó envianos un correo electronico a <a href="mailto:hello@company.com">hello@company.com</a></p>
                     </div>
 
                     <div class="col-lg-8 mx-auto col-md-10 col-12">

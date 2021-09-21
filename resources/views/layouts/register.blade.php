@@ -23,7 +23,7 @@
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img src="{{ asset('/css/img/world-amico.png') }}" alt="">
+        <img src="{{ asset('/css/img/team-pana.png') }}" alt="">
         <div class="text">
           {{-- <span class="text-1">Tu nos ayudas a ser <br> mejor</span>
           <span class="text-2">Conectemonos!</span> --}}
@@ -40,7 +40,7 @@
     <div class="forms">
         <div class="form-content">
           <div class="login-form">
-            <img src="{{ asset('/css/img/logo1.4.png') }}" width="390px">
+            <img src="{{ asset('/css/img/logo1.4.png') }}" width="230px">
             <div class="title">Iniciar sesión</div>
           <form method="POST" action="{{ route('login') }}" >
             @csrf
@@ -92,7 +92,8 @@
         </form>
       </div>
         <div class="signup-form">
-          <img src="{{ asset('/css/img/logo1.4.png') }}" width="390px">
+          <img src="{{ asset('/css/img/logo1.4.png') }}" width="230px">
+          <br>
           <div class="title">Registrar una cuenta</div>
           <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -109,7 +110,7 @@
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input id="email" type="email" placeholder="Ingresa tu email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                <input id="email" type="email" placeholder="Ingresa tu correo" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">

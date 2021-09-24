@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -94,6 +92,7 @@
     @yield('Contenido')
 
   </section>
+
 <script src="{{ asset('/js/menu.js') }}"></script>
 </body>
 </html>

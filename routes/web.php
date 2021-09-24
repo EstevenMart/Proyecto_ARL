@@ -97,4 +97,4 @@ Route::get('/departamentos' , [DepartamentoController::class , "show"]);
 Route::get('/departamento/formDepartamento/{id?}', [DepartamentoController::class, 'form'])->name('departamento.formDepartamento');
 Route::post('/departamento/saveDepartamento', [DepartamentoController::class, 'save'])->name('departamento.saveDepartamento');
 //dashboar
-Route::get('/layouts/Dashboard', [DashboardController::class , "show"])->name('layouts.Dashboard');
+Route::post('/Dashboard', [DashboardController::class , "show"])->name('Dashboard');

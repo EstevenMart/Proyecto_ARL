@@ -192,7 +192,8 @@
                 <i class="fas fa-cog"></i> Ajustes
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"  onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
               </a>
             </div>
@@ -236,8 +237,9 @@
            
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i>Cerar sesión
+              <a  class="btn btn-primary btn-lg btn-block btn-icon-split" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+              </a>
               </a>
             </div>
         </aside>

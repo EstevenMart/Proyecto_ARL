@@ -186,7 +186,7 @@
                 </div>
               </li>
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src=" " class="rounded-circle mr-1">
+                <img alt="image" src="{{asset('storage/imagenes/avatar-2.png') }} " class="rounded-circle mr-1">
                 {{-- modificar nombre --}}
                 <div class="d-sm-none d-lg-inline-block">@yield('nombre')</div></a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -225,14 +225,13 @@
                       <li><a class="nav-link" href="/accidente/createAccidente">Crear accidente</a></li>
                       
                     </ul>
-                    <li><a class="nav-link" href="#"><i class="fas fa-pencil-ruler"></i> <span>Analisis de Acciente</span></a></li>
+                    <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Analisis de Acciente</span></a></li>
                     <li><a class="nav-link" href="#"><i class="far fa-file-alt"></i> <span>Planes de acción</span></a></li>
                   <li class="menu-header">Usuario</li>
                   <li class="nav-item dropdown">
                     <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Usuario</span></a>
                     <ul class="dropdown-menu">
                       <li><a href="/usuarios">Lista de Usuario</a></li>
-                      <li><a href="/usuario/formUsuario/">Crear usuario</a></li>
                       <li><a class="beep beep-sidebar" href="auth-login-2.html">Recuperar contraseña</a></li>
                     </ul>
                   </li>

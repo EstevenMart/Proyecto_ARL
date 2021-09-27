@@ -222,12 +222,8 @@
                   <li><a class="nav-link active" href="/"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
                   <li class="menu-header">Modulo</li>
                   <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Accidente</span></a>
-                    <ul class="dropdown-menu">
-                      <li><a class="nav-link" href="/accidentes">Lista de accidente</a></li>
-                      <li><a class="nav-link" href="/accidente/createAccidente">Crear accidente</a></li>
-
-                    </ul>
+        
+                    <li><a class="nav-link" href="/accidentes"><i class="fas fa-columns"></i> <span>Accientes</span></a></li>
                     <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Analisis de Acciente</span></a></li>
                     <li><a class="nav-link" href="#"><i class="far fa-file-alt"></i> <span>Planes de acción</span></a></li>
 

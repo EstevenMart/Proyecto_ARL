@@ -16,14 +16,12 @@
     
              
     
-              <div class=" col-md-6 col-6" data-aos="fade-up" data-aos-delay="300">
-                <h4 class="my-4">Copyright</h4>
-    
+              <div class=" col-lg-5 mx-lg-auto col-md-8 col-10" data-aos="fade-up" data-aos-delay="300">
                 <p class="mb-1">
-        
-                  Copyright &copy; 2020 Your Company
+        <br><br>
+                  Copyright &copy; 2021 
                 <br>
-                <a rel="nofollow noopener" href="https://templatemo.com">Design: TemplateMo</a>
+                Todos Los Derechos Reservados
                 </p>
               </div>
   

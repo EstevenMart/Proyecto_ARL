@@ -15,6 +15,7 @@ use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\MecanismoController;
 use App\Http\Controllers\TipoDocumentoController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -95,3 +96,5 @@ Route::post('/eps/saveEps', [EpsController::class, 'save'])->name('eps.saveEps')
 Route::get('/departamentos' , [DepartamentoController::class , "show"]);
 Route::get('/departamento/formDepartamento/{id?}', [DepartamentoController::class, 'form'])->name('departamento.formDepartamento');
 Route::post('/departamento/saveDepartamento', [DepartamentoController::class, 'save'])->name('departamento.saveDepartamento');
+//dashboar
+Route::post('/Dashboard', [DashboardController::class , "show"])->name('Dashboard');

@@ -75,7 +75,7 @@
 
                                   Comienza gratis <p>
 
-                                <a href="/register" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">¡Iniciar sesión!</a>
+                                <a href="/register" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Iniciar sesión</a>
 
                            </div>
                      </div>
@@ -195,7 +195,7 @@
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
                         <i><img src="{{ asset('/css/img/engineers-rafiki.png') }}" alt="" width="100px" height="100px"></i>
-                        <strong>Reporte de riwesgo</strong>
+                        <strong>Seguimiento de reportes</strong>
                     </a>
                 </div>
             </div>
@@ -215,8 +215,8 @@
 <!-- beneficios  -->
 <div id="beneficios" class="our-services section">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-6 offset-lg-3">
+   
+      
         <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
           <h5>Arbeid te da los siguientes</h5>
          <center><h1><strong>Beneficios para tu empresa</strong> </h1></center>
@@ -237,7 +237,7 @@
             <div class="col-lg-8">
               <div class="right-content">
                 <h4>Disminución de tiempo</h4>
-                <p>Como es un sistema de información fácil de utilizar se va garantizar un menor tiempo de producción.</p>
+                <p>En pocos minutos realiza las funcionalidades solo agregando los riesgos y listo</p>
               </div>
             </div>
           </div>
@@ -253,8 +253,8 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Menores costos</h4>
-                <p>Genera menos tiempo en la gestión de accidentes los empleados se enfocaran en otras acctividades.</p>
+                <h4>Conoce la evolución</h4>
+                <p>Consulta fácilmente cómo evolucionan tus riesgos y toma mejores decisiones con esta información.</p>
               </div>
             </div>
           </div>
@@ -270,8 +270,8 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Registro más acertivo</h4>
-                <p>Al momento de registar es fácil de entender y va hacer mas puntual en los puntos que necesita.</p>
+                <h4>Proceso estándar</h4>
+                <p> Mejora la efectividad y la eficiencia operacional haciendo que todos tengan el mismo proceso</p>
               </div>
             </div>
           </div>
@@ -287,8 +287,8 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Mejora la información</h4>
-                <p>Hacer cualquier consulta o registro de información este va hacer de una forma fácil y sencilla.</p>
+                <h4>Consulta eficíente</h4>
+                <p>Al momento de hacer cualquier consulta va hacer de forma fácil, rápida y sencilla </p>
               </div>
             </div>
           </div>
@@ -304,7 +304,7 @@
             </div>
             <div class="col-lg-8">
               <div class="right-content">
-                <h4>Eficiencia al registrar</h4>
+                <h4>Seguridad al registrar</h4>
                 <p>Nuestro sistema de información hace registros rápidos y seguros.</p>
 
               </div>
@@ -323,7 +323,7 @@
             <div class="col-lg-8">
               <div class="right-content">
                 <h4>Seguimiento continuo</h4>
-                <p>Generar un analisis de datos haciendo que se pueda ver seguimiento de los procesos.</p>
+                <p>Genera un análisis de datos haciendo que se pueda ver el seguimiento de los procesos.</p>
               </div>
             </div>
           </div>
@@ -352,11 +352,11 @@
                    <h2 class="mb-4" data-aos="fade-up" >Al momento de utilizar el sistema de información fue fácil y sencillo y me generaba reportes de inmediato </h2>
 
                    <p data-aos="fade-up" data-aos-delay="400">
-                     <strong>Mary Zoe</strong>
+                     <strong>Camila Duarte</strong>
 
                      <span class="mx-1">/</span>
 
-                     <small>Digital Agency (CEO)</small>
+                     <small>Agente comercial (CEO)</small>
                    </p>
                  </div>
 
@@ -413,6 +413,7 @@
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
      <!-- <script src="js/aos.js"></script> -->
+     
      <!-- <script src="js/owl.carousel.min.js"></script> -->
      <!-- <script src="js/smoothscroll.js"></script> -->
      <!-- <script src="js/custom.js"></script> -->

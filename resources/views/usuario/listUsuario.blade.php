@@ -13,8 +13,10 @@
     <p class="text-primary">{{ Session::get('messa') }}</p>
 @endif
 
-      
+
         <div class="card card-danger">
+            <a href="{{route('usuario.formUsuario')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
+
             <div class="card-header">
                 <h4>Tabla de Usuarios</h4>
                 <div class="card-header-form">
@@ -68,7 +70,7 @@
                         </ul>
                         </nav>
                     </div>
-                
+
 
 
 

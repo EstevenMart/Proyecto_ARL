@@ -191,6 +191,9 @@
               <a href="features-settings.html" class="dropdown-item has-icon">
                 <i class="fas fa-cog"></i> Ajustes
               </a>
+              <a href="features-settings.html" class="dropdown-item has-icon">
+                <i class="#"></i> Recuperar Contraseña
+              </a>
               <div class="dropdown-divider"></div>
               <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"  onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
@@ -232,9 +235,9 @@
                   <li><a class="beep beep-sidebar" href="auth-login-2.html">Recuperar contraseña</a></li>
                 </ul>
               </li>
-          
-              
-           
+
+
+
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
               <a  class="btn btn-primary btn-lg btn-block btn-icon-split" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

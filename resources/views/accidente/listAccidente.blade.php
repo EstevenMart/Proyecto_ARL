@@ -14,8 +14,10 @@
 @endif
 </table>
 <div class="row">
+
 <div class="col-12 col-md-12 col-lg-12">
-    <div class="card">
+
+        <div class="card card-danger">
         <div class="card-header">
             <h4>Tabla de Accidentes</h4>
             <div class="card-header-form">
@@ -91,6 +93,8 @@
             </nav>
         </div>
     </div>
+</div>
+</div>
 
 @endsection
 

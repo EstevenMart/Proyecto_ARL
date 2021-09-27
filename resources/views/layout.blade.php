@@ -196,6 +196,9 @@
                   <a href="features-settings.html" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Ajustes
                   </a>
+                  <a href="features-settings.html" class="dropdown-item has-icon">
+                    <i class="fas fa-key"></i> Recuperar Contraseña
+                  </a>
                   <div class="dropdown-divider"></div>
                   <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"  onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
@@ -217,25 +220,22 @@
               <ul class="sidebar-menu">
                   <li class="menu-header">Inicio</li>
                   <li><a class="nav-link active" href="/"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                  <li class="menu-header">Accidente</li>
+                  <li class="menu-header">Modulo</li>
                   <li class="nav-item dropdown">
                     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Accidente</span></a>
                     <ul class="dropdown-menu">
                       <li><a class="nav-link" href="/accidentes">Lista de accidente</a></li>
                       <li><a class="nav-link" href="/accidente/createAccidente">Crear accidente</a></li>
-                      
+
                     </ul>
                     <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Analisis de Acciente</span></a></li>
                     <li><a class="nav-link" href="#"><i class="far fa-file-alt"></i> <span>Planes de acción</span></a></li>
-                  <li class="menu-header">Usuario</li>
-                  <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Usuario</span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/usuarios">Lista de Usuario</a></li>
-                      <li><a class="beep beep-sidebar" href="auth-login-2.html">Recuperar contraseña</a></li>
-                    </ul>
+
+
+                    <li><a href="/usuarios" class="nav-link" ><i class="far fa-user"></i> <span>Usuarios</span></a></li>
+
                   </li>
-                     
+
                   <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
                     <a  href="{{ route('logout') }}" class="btn btn-primary btn-lg btn-block btn-icon-split"
                     onclick="event.preventDefault();
@@ -247,10 +247,10 @@
                       @csrf
                   </form>
                   </div>
-                
+
             </aside>
           </div>
-    
+
           <!-- Main Content -->
           <div class="main-content">
             <section class="section">

@@ -1,11 +1,9 @@
 @extends('layout')
+@section('title' , 'Inicio')
+@section('h1' , 'Inicio')
 @section('Contenido')
       <!-- Main Content -->
-      <div class="main-content">
-        <section class="section">
-          <div class="section-header">
-            <h1>Inicio</h1>
-          </div>
+
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
@@ -579,8 +577,17 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         </section>
       </div>
-@endsection
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+        </div>
+        <div class="footer-right">
+          2.3.0
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  @endsection

@@ -46,7 +46,7 @@
                           <div class="profile-widget-item-value"><div class="badge badge-success">{{$usuario->estado}}</div></div>
                         </div>
                         <div class="media-cta">
-                            <a href="#" class="btn btn-outline-primary">Datalle</a>
+                            <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                           </div>
                       </div>
                     </div>

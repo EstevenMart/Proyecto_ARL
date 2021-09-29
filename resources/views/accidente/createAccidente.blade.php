@@ -1,75 +1,197 @@
 @extends('layout')
-
+@section('title' , 'Crear accidente')
+@section('h1' , 'Crear accidente')
 
 
 
 @section('Contenido')
 <form action="{{ route('accidente.store') }}" method="POST" >
     @csrf
-
-    <h1 >Nuevo Accidente</h1>
-
+    <div class="row">
     <input type="hidden" name="id" >
+    <div class="col-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Fecha del accidente</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                </div>
+                                <input type="date" class="form-control" id="fechaHora" name='fechaHora'>
+                                @error('fechaHora')
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
+                                @enderror
+                            </div>
+                        </div>
 
-    <div class="login-box">
-        <div class="user-box">
-          <input type="date" class="form-control" id="fechaHora" name='fechaHora'>
-          <label class="label">Fecha del accidente</label>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    
+                    <div class="card-body">
+                            <div class="form-group">
+                                <label>dia de la semana que ocurrio el accidente</label>
+                                    <select class="form-control select2" name="dia" value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
+                                        <option value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">{{ @old('dia') ? @old('dia') : $accidente->dia}}</option>
+                                        <option value="Lunes">Lunes</option>
+                                        <option value="Martes">Martes</option>
+                                        <option value="Miercoles">Miercoles</option>
+                                        <option value="Jueves">Jueves-</option>
+                                        <option value="Viernes">Viernes</option>
+                                        <option value="Sabado">Sabado</option>
+                                    </select>
+                                @error('dia')
+                                <p class="text-danger">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label >Jornada en que sucecdio</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"  value="Extra" >
+                                <label class="form-check-label" >Extra</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Normal">
+                                <label class="form-check-label" >Normal</label>
+                              </div>
+                              @error('jornada')
+                              <p class="text-danger">
+                                  {{ $message }}
+                              </p>
+                          @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label > ¿Estaba realizando la labor habitual? Si escogio no, cual fué?</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"  value="No" >
+                                <label class="form-check-label" >No</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Si">
+                                <label class="form-check-label" >Si</label>
+                              </div>
+                              @error('laborHabitual')
+                             <p class="text-danger">
+                                 {{ $message }}
+                             </p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Tiempo Previo al Accidente</label>
+                                <input type="number" class="form-control" id="tiempoPA" name='tiempoPA'>
+                                @error('tiempoPA')
+                                <p class="text-danger">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Tiempo Previo al Accidente</label>
+                                <input type="number" class="form-control" id="tiempoPA" name='tiempoPA'>
+                                @error('tiempoPA')
+                                <p class="text-danger">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        @error('fechaHora')
-        <p class="text-danger">
-            {{ $message }}
-        </p>
-    @enderror
-        <div class="user-box1">
-            <select name="dia" >
-                <option selected>Seleccione....</option>
-                <option value="Lunes">Lunes</option>
-                <option value="Martes">Martes</option>
-                <option value="Miercoles">Miercoles</option>
-                <option value="Jueves">Jueves-</option>
-                <option value="Viernes">Viernes</option>
-                <option value="Sabado">Sabado</option>
-            </select>
-            <label class="label"> dia de la semana que ocurrio el accidente</label>
-        </div>
-     @error('dia')
-        <p class="text-danger">
-            {{ $message }}
-        </p>
-    @enderror
     </div>
+        
+          
+    <div class="input-group">
+        <select class="custom-select" id="inputGroupSelect04">
+          <option selected="">Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Button</button>
+        </div>
+      </div>
 
 
-    <div class="login-box">
-      <div class="user-box">
-        <label class="label1">Jornada en que sucecdio</label>
-          <select name="jornada" >
+
+   
+    <div class="form-group">
+        <label >Jornada en que sucecdio</label>
+          <select class="form-control select2" name="jornada" >
             <option selected>Seleccione....</option>
             <option value="Extra">Extra</option>
             <option value="Normal">Normal</option>
         </select>
-
-      </div>
+        <div class="form-group">
+            <div class="control-label">Jornada en que sucecdio</div>
+            <div class="custom-switches-stacked mt-2">
+              <label class="custom-switch">
+                <input type="radio" name="option" value="Extra" class="custom-switch-input" checked>
+                <span class="custom-switch-indicator"></span>
+                <span class="custom-switch-description"  >Extra</span>
+              </label>
+              <label class="custom-switch">
+                <input type="radio" name="option" value="Normal" class="custom-switch-input">
+                <span class="custom-switch-indicator"></span>
+                <span class="custom-switch-description" >Normal</span>
+              </label>
+            </div>
+          </div>
       @error('jornada')
         <p class="text-danger">
             {{ $message }}
         </p>
     @enderror
-      <div class="user-box1">
+    </div>
+    </div>
           <label class="label1" >  ¿Estaba realizando la labor habitual? si o no. Si escogio no, cual fué?</label>
           <select name="laborHabitual" >
             <option selected>Seleccione....</option>
             <option value="No">No</option>
             <option value="Si">Si</option>
           </select>
-      </div>
+      
       @error('laborHabitual')
       <p class="text-danger">
           {{ $message }}
       </p>
        @enderror
-  </div>
+  
   <div class="login-box">
       <div class="user-box">
               <input type="number" class="form-control" id="tiempoPA" name='tiempoPA'>
@@ -246,10 +368,10 @@
               {{$lesionn}}
         <br>
 
-      @endforeach
+@endforeach
 
     </div>
-
+    </div>
 
 
 
@@ -268,5 +390,6 @@
 
 
 </form>
+
 
 @endsection

@@ -220,11 +220,11 @@
               <ul class="sidebar-menu">
                   <li class="menu-header">Inicio</li>
                   <li><a class="nav-link active" href="/"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                  <li class="menu-header">Modulo</li>
+                  <li class="menu-header">Módulo</li>
                   <li class="nav-item dropdown">
         
                     <li><a class="nav-link" href="/accidentes"><i class="fas fa-columns"></i> <span>Accientes</span></a></li>
-                    <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Analisis de Acciente</span></a></li>
+                    <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Análisis de Acciente</span></a></li>
                     <li><a class="nav-link" href="#"><i class="far fa-file-alt"></i> <span>Planes de acción</span></a></li>
 
 

@@ -21,8 +21,10 @@
             {{ $message }}
         </p>
     @enderror
-        <div class="user-box1">
-            <select name="dia" value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
+    
+    <div class="form-group">
+        <label>dia de la semana que ocurrio el accidente</label>
+            <select class="form-control select2" name="dia" value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
                 <option value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">{{ @old('dia') ? @old('dia') : $accidente->dia}}</option>
                 <option value="Lunes">Lunes</option>
                 <option value="Martes">Martes</option>
@@ -31,8 +33,6 @@
                 <option value="Viernes">Viernes</option>
                 <option value="Sabado">Sabado</option>
             </select>
-            <label class="label"> dia de la semana que ocurrio el accidente</label>
-        </div>
      @error('dia')
         <p class="text-danger">
             {{ $message }}

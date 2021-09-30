@@ -21,7 +21,7 @@ class AccidenteController extends Controller
     function show(){
           $accidenteList = DB::table('accidentes')
           ->orderBy('id','desc')
-          ->get();
+          ->Paginate(10);
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
     }
     function create(){
@@ -49,8 +49,10 @@ class AccidenteController extends Controller
             'descripcion' => 'required|max:500',
             'mecanismo_id' => 'required|max:50',
             'agente_id' => 'required|max:50',
-            'sitio_id' => 'required|max:50'
+            'sitio_id' => 'required|max:50',
+            'sitio_id' => 'required|min:1'
         ]);
+        
         
         $accidente = new Accidente();
         $accidente->tipoaccidente = $request->tipoaccidente;
@@ -136,6 +138,5 @@ function update(Request $request, $id){
         return redirect('/accidentes');
 
 }
-public $search = "tecto de prueba";
 
 }

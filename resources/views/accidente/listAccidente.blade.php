@@ -2,6 +2,11 @@
 @section('title' , 'Accidentes')
 @section('h1' , 'Accidentes')
 @section('Contenido')
+@section('CSS')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css"> 
+
+@endsection
 
 {{-- <a href=" {{route('accidente.createAccidente')}} " class="btn btn-primary">Nuevo Accidente</a>
  --}}
@@ -12,29 +17,24 @@
 @if(Session::has('messa'))
     <p class="text-primary">{{ Session::get('messa') }}</p>
 @endif
-</table>
 <div class="row">
 
 <div class="col-12 col-md-12 col-lg-12">
-
         <div class="card card-danger">
         <div class="card-header">
             <h4>Tabla de Accidentes</h4>
             <div class="card-header-form">
-              <form>
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Buscar">
-                  <div class="input-group-btn">
-                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                  </div>
-                </div>
-              </form>
-            </div>
+            <a href="{{route('accidente.createAccidente')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
+            
           </div>
+          </div>
+        
       <div class="card-body p-0">
         <div class="table-responsive">
-          <table class="table table-striped table-md">
-        <tr>
+
+          <table id="search" class="table table-striped table-md"  >
+        <thead>
+            <tr>
             <th>
                 <div class="custom-checkbox custom-control">
                   <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
@@ -78,27 +78,29 @@
         <div class="card-footer text-right">
             <nav class="d-inline-block">
             <ul class="pagination mb-0">
-                <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                <li class="page-item">
-                <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                </li>
+                {{ $listAccidente->links() }}               
             </ul>
             </nav>
         </div>
     </div>
 </div>
 </div>
-
 @endsection
 
 
 @section('JS')
 <script src="{{ asset('/js/components-table.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready( function () {
+  var table = $('#search').DataTable({
+    language: {
+      url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json'
+    },
+  });
+} );
+</script>
 @endsection
+

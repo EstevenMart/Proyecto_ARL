@@ -651,7 +651,7 @@ select.form-control:not([size]):not([multiple]) {
       margin-top: 1px;
       padding: 2px 15px; }
       .card .card-header .btn:not(.note-btn) {
-        border-radius: 30px; }
+        /* border-radius: 30px; */ }
       .card .card-header .btn:hover {
         box-shadow: none; }
     .card .card-header .form-control {
@@ -672,7 +672,7 @@ select.form-control:not([size]):not([multiple]) {
         .card .card-header h4 + .card-header-action .btn,
         .card .card-header h4 + .card-header-form .btn {
           font-size: 12px;
-          border-radius: 30px !important;
+          /* border-radius: 30px !important; */
           padding-left: 13px !important;
           padding-right: 13px !important; }
           .card .card-header h4 + .card-header-action .btn.active,
@@ -3001,8 +3001,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
    margin-right: 30px;
  }
 /*Avatar*/
-.profile-widget .profile-widget-picture{
+td .profile-widget .profile-widget-picture{
   height: 50px !important;
   width: 50px !important;
-  margin-top: 10px !important;
+}
+/* text-danger */
+.text-danger{
+  font-size: 80%;
+  color: #dc3545 !important;
 }

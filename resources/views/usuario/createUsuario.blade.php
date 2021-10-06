@@ -1,174 +1,128 @@
 @extends('layout')
-@section('title' , 'Crear accidente')
-@section('h1' , 'Crear accidente')
+@section('title' , 'Crear usuario')
+@section('h1' , 'Crear usuario')
 
 
 
 @section('Contenido')
-<form action="{{ route('accidente.store') }}" method="POST" >
+<form action="{{ route('usuario.store') }}" method="POST" enctype="multipart/form-data"  >
     @csrf
+   
     <div class="row">
-    <input type="hidden" name="id" >
-    <div class="col-12">
-        <div class="card">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Fecha del accidente</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fas fa-calendar"></i>
+        <input type="hidden" name="id" value="{{ $usuario->id }}" >
+        <div class="col-12">
+            <div class="card">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Nombres</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror"  id="nombre" name='nombre'>
+                                    @error('nombre')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
                                 </div>
+                                    @enderror
                                 </div>
-                                <input type="date" class="form-control @error('fechaHora') is-invalid @enderror" id="fechaHora" name='fechaHora'>
-                                @error('fechaHora')
-                            <div class="invalid-feedback">
-                                {{ $message }}
                             </div>
-                                @enderror
+    
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Apellidos</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control @error('apellido') is-invalid @enderror"  id="apellido" name='apellido'>
+                                    @error('apellido')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    
-                    <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
                             <div class="form-group">
-                                <label>dia de la semana que ocurrio el accidente</label>
-                                    <select class="form-control @error('dia') is-invalid @enderror select2" name="dia" value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
-                                        <option value="{{  $accidente->dia}}">{{  $accidente->dia}}</option>
-                                        <option value="Lunes">Lunes</option>
-                                        <option value="Martes">Martes</option>
-                                        <option value="Miercoles">Miercoles</option>
-                                        <option value="Jueves">Jueves-</option>
-                                        <option value="Viernes">Viernes</option>
-                                        <option value="Sabado">Sabado</option>
+                                <label>Tipo de documento</label>
+                                <div class="input-group">
+                                    <select class=" custom-select" name="tipoDocumento_id" >
+                                       <option selected>Seleccione...</option>
+                                       @foreach ($tipo_documentos as $tipo_documento)
+                                       <option value="{{$tipo_documento->id}}" {{$tipo_documento->id == $usuario->tipoDocumento_id ? "selected" : ""}} >{{$tipo_documento->nombreTipoDocumento}}</option>
+                                        @endforeach
+                                        </select>
+                                  </div>
+                                  
+                               @error('tipoDocumento_id')
+                                <p class="text-danger">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Numero de Documento</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control @error('numeroDocumento') is-invalid @enderror"  id="numeroDocumento" name='numeroDocumento'>
+                                    @error('numeroDocumento')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Tipo de Sangre</label>
+                                    <select class="form-control @error('sangre') is-invalid @enderror select2" name="sangre" value="{{ @old('sangre') ? @old('sangre') : $usuario->sangre}}">
+                                        <option selected>Seleccione...</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
                                     </select>
-                                @error('dia')
+                                @error('sangre')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                            
                             </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label >Jornada en que sucecdio</label>
-                            <br>
-                            <div class="form-check form-check-inline ">
-                                <input class="form-check-input jornada" type="radio" name="jornada"  value="Extra" >
-                                <label class="form-check-label" >Extra</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jornada" value="Normal">
-                                <label class="form-check-label" >Normal</label>
-                              </div>
-                              @error('jornada')
-                              <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                          @enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label > ¿Estaba realizando la labor habitual? Si escogio no, cual fué?</label>
-                            <br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="laborHabitual"  value="No" >
-                                <label class="form-check-label" >No</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="laborHabitual" value="Si">
-                                <label class="form-check-label" >Si</label>
-                              </div>
-                              @error('laborHabitual')
-                              <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Tiempo Previo al Accidente</label>
-                                <input type="number" class="form-control @error('tiempoPA') is-invalid @enderror" id="tiempoPA" name='tiempoPA'>
-                                @error('tiempoPA')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Cantidad Horas</label>
-                                <input type="number" class="form-control @error('cantHoras') is-invalid @enderror" id="cantHoras" name='cantHoras'>
-                                @error('cantHoras')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-            </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Cantidad Minutos</label>
-                                <input type="number" class="form-control @error('cantMinutos') is-invalid @enderror" id="cantMinutos" name='cantMinutos'>
-                                @error('cantMinutos')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            </div>
+    
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Tipo Accidente</label>
+                                <label>Telefono</label>
                                 <div class="input-group">
-                                    <select class="custom-select " name="tipoaccidente" >
-                                        <option selected>Seleccione...</option>
-                                        <option value="Violencia">Violencia</option>
-                                        <option value="Transito">Tránsito</option>
-                                        <option value="Deportivo">Deportivo</option>
-                                        <option value="Recreativo o cultural">Recreativo o cultural</option>
-                                        <option value="Propios del trabajo">Propios del trabajo</option>
-                                    </select>
-                                    <div class="input-group-append">
-                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
-                                    </div>
-                                  </div>
-                                @error('tipoaccidente')
+                                    <input type="number" class="form-control @error('telefono') is-invalid @enderror"  id="telefono" name='telefono'>
+                                    @error('telefono')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
-                            @enderror
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -177,21 +131,15 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label >¿Causo muerte al trabajador?</label>
-                            <br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="causaMuerte"  value="No" >
-                                <label class="form-check-label" >No</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="causaMuerte" value="Si">
-                                <label class="form-check-label" >Si</label>
-                              </div>
-                              @error('causaMuerte')
-                              <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                          @enderror
+                                <label>Fecha de Nacimiento</label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control @error('fechaNacimiento') is-invalid @enderror" id="fechaNacimiento" name='fechaNacimiento'>
+                                    @error('fechaNacimiento')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -199,24 +147,252 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Sitio</label>
+                                <label>Correo</label>
                                 <div class="input-group">
-                                    <select class=" custom-select" name="sitio_id" >
-                                       <option selected>Seleccione...</option>
-                                       @foreach ($sitios as $sitio)
-                                        <option value="{{$sitio->id}}" {{$sitio->id == $accidente->sitio_id ? "selected" : ""}}>
-                                        {{$sitio->denominacionSitio}}</option>
-                                        @endforeach
-                                        </select>
-                                    <div class="input-group-append">
-                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
-                                    </div>
+                                    <input type="email" class="form-control @error('correo') is-invalid @enderror"  id="correo" name='correo'>
+                                    @error('correo')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label >Estado</label>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="estado"  value="Activo" >
+                                    <label class="form-check-label" >Activo</label>
                                   </div>
-                                  
-                               @error('sitio_id')
-                                <p class="text-danger">
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="estado" value="Inactivo">
+                                    <label class="form-check-label" >Inactivo</label>
+                                  </div>
+                                  @error('estado')
+                                  <p class="text-danger">
                                     {{ $message }}
                                 </p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label >Sexo</label>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo"  value="Masculino" >
+                                    <label class="form-check-label" >Masculino</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" value="Femenino">
+                                    <label class="form-check-label" >Femenino</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" value="Indefinido">
+                                    <label class="form-check-label" >Indefinido</label>
+                                  </div>
+                                  @error('sexo')
+                                  <p class="text-danger">
+                                    {{ $message }}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Direccion</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control @error('direccion') is-invalid @enderror"  id="direccion" name='direccion'>
+                                    @error('direccion')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                    @enderror
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Rol</label>
+                                <div class="input-group">
+                                    <select class="custom-select @error('rol_id') is-invalid @enderror " name="rol_id" >
+                                       <option selected>Seleccione...</option>
+                                       @foreach ($rols as $rol)
+                                       <option value="{{$rol->id}}" {{$rol->id == $usuario->rol_id ? "selected" : ""}}>{{$rol->nombreRol}}</option>
+                                   @endforeach
+                                        </select>
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                    </div>
+                                  </div>
+                                @error('rol_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Cargo</label>
+                                <div class="input-group">
+                                    <select class=" custom-select" name="cargo_id" >
+                                        require intervention/image                     <option selected>Seleccione...</option>
+                                       @foreach ($cargos as $cargo)
+                                       <option value="{{$cargo->id}}" {{$cargo->id == $usuario->cargo_id ? "selected" : ""}}>{{$cargo->nombreCargo}}</option>
+                                   @endforeach
+                                        </select>
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                    </div>
+                                  </div>
+                                @error('cargo_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        <div class="card-body">
+                            
+                                <div class="form-group">
+                                    <label>Fecha de Ingreso a la Empresa</label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control @error('fechaIngreso') is-invalid @enderror" id="fechaIngreso" name='fechaIngreso'>
+                                        @error('fechaIngreso')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                        <div class="form-group">
+                            <label >Tipo vinculacion</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vinculacion"  value="Planta" >
+                                <label class="form-check-label" >Planta</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vinculacion" value="Misión">
+                                <label class="form-check-label" >Misión</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vinculacion" value="Estudiante o Aprendiz">
+                                <label class="form-check-label" >Estudiante o Aprendiz</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vinculacion" value="Independiente">
+                                <label class="form-check-label" >Independiente</label>
+                              </div>
+                              @error('vinculacion')
+                              <p class="text-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Municipio</label>
+                                <div class="input-group">
+                                    <select class=" custom-select" name="municipio_id" >
+                                       <option selected>Seleccione...</option>
+                                       @foreach ($municipios as $municipio)
+                                       <option value="{{$municipio->id}}" {{$municipio->id == $usuario->municipio_id ? "selected" : ""}}>{{$municipio->denominacionMunicipio}}</option>
+                                   @endforeach
+                                        </select>
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                    </div>
+                                  </div>
+                                @error('municipio_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Administradora de Fondo de Pensiones (AFP)</label>
+                                <div class="input-group">
+                                    <select class=" custom-select" name="afp_id" >
+                                       <option selected>Seleccione...</option>
+                                       @foreach ($afps as $afp)
+                                       <option value="{{$afp->id}}" {{$afp->id == $usuario->afp_id ? "selected" : ""}}>{{$afp->denominacionAfp}}</option>
+                                   @endforeach
+                                        </select>
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                    </div>
+                                  </div>
+                                @error('afp_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Administradora de Riesgos Profesionales (ARP)</label>
+                                <div class="input-group">
+                                    <select class=" custom-select" name="arp_id" >
+                                       <option selected>Seleccione...</option>
+                                       @foreach ($arps as $arp)
+                                       <option value="{{$arp->id}}" {{$arp->id == $usuario->arp_id ? "selected" : ""}}>{{$arp->denominacionArp}}</option>
+                                   @endforeach
+                                        </select>
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                    </div>
+                                  </div>
+                                @error('arp_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
                             @enderror
                             </div>
                         </div>
@@ -226,20 +402,19 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Agente Accidente</label>
+                                <label>EPS</label>
                                 <div class="input-group">
-                                    <select class="custom-select @error('agente_id') is-invalid @enderror " name="agente_id" >
+                                    <select class=" custom-select" name="eps_id" >
                                        <option selected>Seleccione...</option>
-                                       @foreach ($agentes as $agente)
-                                        <option value="{{$agente->id}}" {{$agente->id == $accidente->agente_id ? "selected" : ""}}>
-                                        {{$agente->denominacionAgente}}</option>
-                                        @endforeach
+                                       @foreach ($eps as $eps)
+                                       <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}}>{{$eps->denominacionEps}}</option>        
+                                   @endforeach
                                         </select>
                                     <div class="input-group-append">
                                       <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
                                     </div>
                                   </div>
-                                @error('agente_id')
+                                @error('eps_id')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -251,121 +426,148 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Mecanismo o forma de accidente</label>
-                                <div class="input-group">
-                                    <select class=" custom-select" name="mecanismo_id" >
-                                       <option selected>Seleccione...</option>
-                                       @foreach ($mecanismos as $mecanismo)
-                                        <option value="{{$mecanismo->id}}" {{$mecanismo->id == $accidente->mecanismo_id ? "selected" : ""}}>
-                                        {{$mecanismo->denominacionMecanismo}}</option>
-                                        @endforeach
-                                        </select>
-                                    <div class="input-group-append">
-                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                <label >Jornada</label>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="jornada"  value="Diurna" >
+                                    <label class="form-check-label" >Diurna</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="jornada" value="Nocturna">
+                                    <label class="form-check-label" >Nocturna</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="jornada" value="Mixta">
+                                    <label class="form-check-label" >Mixta</label>
+                                  </div>
+                                  @error('jornada')
+                                  <p class="text-danger">
+                                    {{ $message }}
+                                </p>
+                                @enderror
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div class="form-group">
+                                
+                                
+                                <div class="card-body">
+                                    <div class="form-group">
+                                      <label class="form-label">Imagen</label>
+                                      <div class="row gutters-sm">
+                                        <div class="col-6 col-sm-4">
+                                          <label class="imagecheck mb-4">
+                                            <input name="imagen" type="radio" value="storage/imagenes/avatar-1.png" class="imagecheck-input">
+                                            <figure class="imagecheck-figure">
+                                              <img src="{{asset('storage/imagenes/avatar-1.png') }}" alt="}" class="imagecheck-image">
+                                            </figure>
+                                          </label>
+                                        </div>
+                                        <div class="col-6 col-sm-4">
+                                          <label class="imagecheck mb-4">
+                                            <input name="imagen" type="radio" value="storage/imagenes/avatar-2.png" class="imagecheck-input" >
+                                            <figure class="imagecheck-figure">
+                                              <img src="{{asset('storage/imagenes/avatar-2.png') }}" alt="}" class="imagecheck-image">
+                                            </figure>
+                                          </label>
+                                        </div>
+                                        <div class="col-6 col-sm-4">
+                                          <label class="imagecheck mb-4">
+                                            <input name="imagen" type="radio" value="storage/imagenes/avatar-3.png" class="imagecheck-input">
+                                            <figure class="imagecheck-figure">
+                                              <img src="{{asset('storage/imagenes/avatar-3.png') }}" alt="}" class="imagecheck-image">
+                                            </figure>
+                                          </label>
+                                        </div>
+                                        <div class="col-6 col-sm-4">
+                                          <label class="imagecheck mb-4">
+                                            <input name="imagen" type="radio" value="storage/imagenes/avatar-4.png" class="imagecheck-input" >
+                                            <figure class="imagecheck-figure">
+                                              <img src="{{asset('storage/imagenes/avatar-4.png') }}" alt="}" class="imagecheck-image">
+                                            </figure>
+                                          </label>
+                                        </div>
+                                        <div class="col-6 col-sm-4">
+                                          <label class="imagecheck mb-4">
+                                            <input name="imagen" type="radio" value="storage/imagenes/avatar-5.png" class="imagecheck-input">
+                                            <figure class="imagecheck-figure">
+                                              <img src="{{asset('storage/imagenes/avatar-5.png') }}" alt="}" class="imagecheck-image">
+                                            </figure>
+                                          </label>
+                                        </div>
+                                        <div class="col-6 col-sm-4">
+                                          <label class="imagecheck mb-4">
+                                            <input name="imagen" type="radio" value="6" class="imagecheck-input">
+                                            <figure class="imagecheck-figure">
+                                                <figure class="avatar mr-2 avatar-xl" data-initial="UM"></figure>
+                                            </figure>
+                                          </label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="file" name="imagen"  accept="image/*">   
+                                          </div>
+                                        @error('imagen')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    </div>
+                                      
                                     </div>
                                   </div>
-                                @error('mecanismo_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                             </div>
+                            
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Empresa</label>
-                                <input type="text" id="empresa" class="form-control @error('Empresa') is-invalid @enderror" name='empresa'>
-                                @error('Empresa')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">  
-                        <div class="card-body">
-                            <div class="form-group mb-0">
-                                <label>Descripcion</label>
-                                <textarea class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name='descripcion'></textarea>
-                                @error('descripcion')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                          
-                            </div>
-                              
-                        </div>
+                        
+                       
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="d-block">lesiones</label>
-                                @foreach ($lesions as $id=> $lesionn)
-
-                                <div class="form-check form-check-inline">
-                                    <label class="label2">
-                                        <input class="form-check-input" type="checkbox" name="denominacionTipoLesion[]"
-                                            value="{{$id}}">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                </div>
-                  
-                                {{$lesionn}}
-                                 <br>
-                  
-                                 @endforeach
-                              </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">  
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="d-block">parte cuerpo</label>
-                                @foreach ($partes_cuerpo as $id=> $partes_cuerpo)
-
-                                <div class="form-check form-check-inline">
-                                    <label class="label2">
-                                        <input class="form-check-input" type="checkbox" name="denominacionParteCuerpo[]"
-                                            value="{{$id}}">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                    </label>
-                                </div>
-                  
-                                {{$partes_cuerpo}}
-                                 <br>
-                  
-                                 @endforeach
-                              </div>
-                              
-                        </div>
-                    </div>
-                </div>
-            
-
+                
+                
+                                       
                 <div class="mb-3 row">
                     <div class="col-sm-9"></div>
                     <div class="col-sm-3">
-                        <a href="/accidentes" class="btn btn-light">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="/usuarios" class="btn btn-light">Cancelar</a>
+                        <button type="submit" class="btn btn-primary confirmar">Guardar</button>
                     </div>
                 </div>
-            
-            
+              
+                
             </form>
-            </div>
         </div>
     </div>
-        
+</div>
+    
+@endsection
+@section('JS')
+<script>
+$('.confirmar').submit(function(e){
+e.preventDefault() 
+ const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Signed in successfully'
+})
+});
+
+</script>
+    
 @endsection

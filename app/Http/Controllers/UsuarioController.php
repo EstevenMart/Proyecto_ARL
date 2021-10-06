@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accidente;
 use App\Models\AFP;
 use App\Models\arp;
 use App\Models\Cargo;
@@ -14,6 +15,7 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\image;
 
 
 class UsuarioController extends Controller
@@ -81,7 +83,70 @@ class UsuarioController extends Controller
         $usuario->fechaIngreso = $request->fechaIngreso;
         $usuario->vinculacion = $request->vinculacion;
         $usuario->estado  = $request->estado;
+        
+        $imagenes=$usuario->imagen  = $request->imagen->store("public/imagenes");
+        $url = Storage::url($imagenes);
+        $usuario->imagen = $request->imagen=$url;
+        $usuario->municipio_id  = $request->municipio_id;
+        $usuario->cargo_id  = $request->cargo_id ;
+        $usuario->rol_id  = $request->rol_id ;
+        $usuario->afp_id  = $request->afp_id ;
+        $usuario->arp_id  = $request->arp_id ;
+        $usuario->eps_id  = $request->eps_id ;
+        $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
+        
+        // $url = Storage::url($imagenes);
+        
+            
+        
+        $usuario->save();
+        $message = 'Se ha creado una nuevo Usuario';
+        
+        return redirect('/usuarios')->with('messa' , $message);     
+    }
+    function save(Request $request ){
+
+
+        $request->validate([
+            'nombre' => 'required|max:50' ,
+            'apellido' => 'required|max:50',
+            'numeroDocumento' => 'required|numeric',
+            'correo' => 'required|max:50',
+            'telefono' => 'required|numeric',
+            'fechaNacimiento' => 'required|date',
+            'sexo' => 'required|max:50',
+            'sangre' => 'required|max:50',
+            'direccion' => 'required|max:50',
+            'jornada' => 'required|max:50',
+            'fechaIngreso' => 'required|date',
+            'vinculacion' => 'required|max:50',
+            'estado' => 'required|max:50',
+            'imagen' => 'required|image|max:2048',
+            'municipio_id' => 'required|max:50',
+            'cargo_id' => 'required|max:50',
+            'rol_id' => 'required|max:50',
+            'afp_id' => 'required|max:50',
+            'arp_id' => 'required|max:50',
+            'eps_id' => 'required|max:50',
+            'tipoDocumento_id' => 'required|max:50'
+        ]);
+
+        $usuario = new Usuario();
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->numeroDocumento = $request->numeroDocumento;
+        $usuario->correo = $request->correo;
+        $usuario->telefono = $request->telefono;
+        $usuario->fechaNacimiento = $request->fechaNacimiento;
+        $usuario->sexo = $request->sexo;
+        $usuario->sangre = $request->sangre;
+        $usuario->direccion = $request->direccion;
+        $usuario->jornada = $request->jornada;
+        $usuario->fechaIngreso = $request->fechaIngreso;
+        $usuario->vinculacion = $request->vinculacion;
+        $usuario->estado  = $request->estado;
         $imagenes  = $request->imagen->store("public/imagenes");
+        $usuario->imagen  = $request->imagen;
         $usuario->municipio_id  = $request->municipio_id;
         $usuario->cargo_id  = $request->cargo_id ;
         $usuario->rol_id  = $request->rol_id ;
@@ -93,8 +158,14 @@ class UsuarioController extends Controller
         $url = Storage::url($imagenes);
         $message = 'Se ha creado una nuevo Usuario';
         
+        if (intval($request->id )>0){
+            $arp = arp::findOrFail($request->id );
+            $message = 'Se ha Editado un nuevo arp';
+        }
+
         return redirect('/usuarios')->with('messa' , $message);     
-    }
+
+}
 
     function edit($id){
         $usuarios = new Usuario();
@@ -157,4 +228,11 @@ class UsuarioController extends Controller
                     return redirect('/accidentes');
             
             }
+            // como eliminar una imagen
+    //    function delete($usuario){
+    //          $usuario = Accidente::where('imagen', $usuario->first());
+    //          $url = str_replace('storage','public', $usuario->imagen);
+    //          Storage::delete([$url]);
+    //          $usuario->delete();
+    //         }     
 }

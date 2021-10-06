@@ -3010,3 +3010,17 @@ td .profile-widget .profile-widget-picture{
   font-size: 80%;
   color: #dc3545 !important;
 }
+.avatar1 {
+  background: #6777ef;
+  border-radius: 0%;
+  color: #e3eaef;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.28;
+  height: 45px;
+  width: 45px;
+}

@@ -17,11 +17,6 @@
                         <div class="form-group">
                             <label>Fecha del accidente</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fas fa-calendar"></i>
-                                </div>
-                                </div>
                                 <input type="date" class="form-control @error('fechaHora') is-invalid @enderror" id="fechaHora" name='fechaHora'>
                                 @error('fechaHora')
                             <div class="invalid-feedback">

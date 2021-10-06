@@ -57,7 +57,6 @@
     
                     <td> <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a></td>
                   
-                </tr>
             @endforeach
                 </tbody>
               </table>

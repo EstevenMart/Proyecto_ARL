@@ -71,6 +71,47 @@
             </tr>
 
 </table>
+<div class="main-card mb-3 card">
+    <div class="card-body"><h5 class="card-title">Grid Rows</h5>
+        <form class="">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Tipo Accidente</label><input class="form-control" type="text" value="{{$infoAccidente->tipoaccidente}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><label for="examplePassword11" class="">Fecha Hora</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><label for="exampleCity" class="">Labor Habitual</label><input class="form-control" type="text" value="{{$infoAccidente->laborHabitual}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group"><label for="exampleState" class="">Dia</label><input class="form-control" type="text" value="{{$infoAccidente->dia}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group"><label for="exampleZip" class="">Jornada</label><input class="form-control" type="text" value="{{$infoAccidente->jornada}}" aria-label="readonly input example" readonly></div>
+                </div>
+            </div>
+            <div class="position-relative form-group"><label for="exampleAddress" class="">Dia</label><input name="address" id="exampleAddress" placeholder="1234 Main St" type="text" class="form-control"></div>
+            <div class="position-relative form-group"><label for="exampleAddress2" class="">Jornada</label><input name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor" type="text" class="form-control">
+            </div>
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="position-relative form-group"><label for="exampleCity" class="">Labor Habitual</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="position-relative form-group"><label for="exampleState" class="">Tiempo PA</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="position-relative form-group"><label for="exampleZip" class="">Cantidad de Horas</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
+                </div>
+            </div>
+            <div class="position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Check me out</label></div>
+            <button class="mt-2 btn btn-primary">Sign in</button>
+        </form>
+    </div>
+</div>
 
 
 @endsection

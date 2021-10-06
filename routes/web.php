@@ -67,12 +67,13 @@ Route::post('/mecanismo/saveMecanismo', [MecanismoController::class, 'save'])->n
 
 
 Route::get('/usuarios', [UsuarioController::class , "show"] );
-/* Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete'); */
+//  Route::get('/usuarios',[UsuarioController::class, 'delete'])->name('usuario.delete'); 
 Route::post('/usuario/store', [UsuarioController::class, "store"])->name('usuario.store');
 Route::get('/usuario/createUsuario', [UsuarioController::class, 'create'])->name('usuario.createUsuario');
 Route::get('/usuario/editUsuario/{id?}', [UsuarioController::class, 'edit'])->name('usuario.editUsuario');
 Route::get('/usuario/infoUsuario/{id?}', [UsuarioController::class, 'find'])->name('usuario.findUsuario');
 Route::put('/usuario/{id}',[UsuarioController::class, 'update'])->name('usuario.updateUsuario');
+Route::post('/usuario/saveUsuario', [UsuarioController::class, 'save'])->name('usuario.saveUsuario');
 
 Route::get('/cargos' , [CargoController::class , "show"]);
 Route::get('/cargo/formCargo/{id?}', [CargoController::class, 'form'])->name('cargo.formCargo');

@@ -15,7 +15,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Fecha del accidente</label>
+                         <div class="section-title mt-0">Fecha del accidente</div>
                             <div class="input-group">
                                 <input type="date" class="form-control @error('fechaHora') is-invalid @enderror" id="fechaHora" name='fechaHora'>
                                 @error('fechaHora')
@@ -32,7 +32,8 @@
                     
                     <div class="card-body">
                             <div class="form-group">
-                                <label>dia de la semana que ocurrio el accidente</label>
+                
+                                <div class="section-title mt-0">Dia de la semana que ocurrio el accidente</div>
                                     <select class="form-control @error('dia') is-invalid @enderror select2" name="dia" value="{{ @old('dia') ? @old('dia') : $accidente->dia}}">
                                         <option value="{{  $accidente->dia}}">{{  $accidente->dia}}</option>
                                         <option value="Lunes">Lunes</option>
@@ -56,7 +57,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card-body">
                         <div class="form-group">
-                            <label >Jornada en que sucecdio</label>
+                        <div class="section-title mt-0">Jornada en que sucecdio</div>
                             <br>
                             <div class="form-check form-check-inline ">
                                 <input class="form-check-input jornada" type="radio" name="jornada"  value="Extra" >
@@ -78,7 +79,7 @@
                     
                     <div class="card-body">
                         <div class="form-group">
-                            <label > ¿Estaba realizando la labor habitual? Si escogio no, cual fué?</label>
+                            <div class="section-title mt-0">¿Estaba realizando la labor habitual? Si escogio no, cual fué?</div>
                             <br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="laborHabitual"  value="No" >
@@ -101,7 +102,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Tiempo Previo al Accidente</label>
+                           <div class="section-title mt-0">Tiempo Previo al Accidente</div>
                                 <input type="number" class="form-control @error('tiempoPA') is-invalid @enderror" id="tiempoPA" name='tiempoPA'>
                                 @error('tiempoPA')
                                 <div class="invalid-feedback">
@@ -116,7 +117,7 @@
                     
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Cantidad Horas</label>
+                        <div class="section-title mt-0">Cantidad Horas</div>
                                 <input type="number" class="form-control @error('cantHoras') is-invalid @enderror" id="cantHoras" name='cantHoras'>
                                 @error('cantHoras')
                                 <div class="invalid-feedback">
@@ -131,7 +132,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Cantidad Minutos</label>
+                                <div class="section-title mt-0">Cantidad Minutos</div>
                                 <input type="number" class="form-control @error('cantMinutos') is-invalid @enderror" id="cantMinutos" name='cantMinutos'>
                                 @error('cantMinutos')
                                 <div class="invalid-feedback">
@@ -145,7 +146,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Tipo Accidente</label>
+                                <div class="section-title mt-0">Tipo Accidente</div>
                                 <div class="input-group">
                                     <select class="custom-select " name="tipoaccidente" >
                                         <option selected>Seleccione...</option>
@@ -172,7 +173,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label >¿Causo muerte al trabajador?</label>
+                            <div class="section-title mt-0">¿Causo muerte al trabajador?</div>
                             <br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="causaMuerte"  value="No" >
@@ -194,7 +195,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Sitio</label>
+                                <div class="section-title mt-0">Sitio</div>
                                 <div class="input-group">
                                     <select class=" custom-select" name="sitio_id" >
                                        <option selected>Seleccione...</option>
@@ -221,7 +222,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Agente Accidente</label>
+                               <div class="section-title mt-0">Agente Accidente</div>
                                 <div class="input-group">
                                     <select class="custom-select @error('agente_id') is-invalid @enderror " name="agente_id" >
                                        <option selected>Seleccione...</option>
@@ -246,7 +247,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Mecanismo o forma de accidente</label>
+                               <div class="section-title mt-0">Mecanismo o forma de accidente</div>
                                 <div class="input-group">
                                     <select class=" custom-select" name="mecanismo_id" >
                                        <option selected>Seleccione...</option>
@@ -272,7 +273,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Empresa</label>
+                                <div class="section-title mt-0">Empresa</div>
                                 <input type="text" id="empresa" class="form-control @error('Empresa') is-invalid @enderror" name='empresa'>
                                 @error('Empresa')
                                 <div class="invalid-feedback">
@@ -285,7 +286,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">  
                         <div class="card-body">
                             <div class="form-group mb-0">
-                                <label>Descripcion</label>
+                                <div class="section-title mt-0">Descripcion</div>
                                 <textarea class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name='descripcion'></textarea>
                                 @error('descripcion')
                                 <div class="invalid-feedback">
@@ -302,7 +303,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="d-block">lesiones</label>
+                                <div class="section-title mt-0">lesiones</div>
                                 @foreach ($lesions as $id=> $lesionn)
 
                                 <div class="form-check form-check-inline">
@@ -325,7 +326,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">  
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="d-block">parte cuerpo</label>
+                                 <div class="section-title mt-0">parte cuerpo</div>
                                 @foreach ($partes_cuerpo as $id=> $partes_cuerpo)
 
                                 <div class="form-check form-check-inline">

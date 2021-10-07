@@ -107,7 +107,9 @@ return view('accidente/editAccidente',['accidente' => $accidente,'sitios'=>$siti
 
     function find($id){
 $accidenteFind = Accidente::find($id);
-return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind]);
+$parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
+$lesion = Lesion::all()->pluck('denominacionTipoLesion', 'id');
+return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion ]);
     }
 
 function update(Request $request, $id){

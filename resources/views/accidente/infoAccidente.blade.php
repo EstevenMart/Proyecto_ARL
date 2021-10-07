@@ -13,7 +13,7 @@
     <p class="text-primary">{{ Session::get('messa') }}</p>
 @endif
 
-<table class="table table-striped table-hover">
+{{-- <table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Tipo Accidente</th>
@@ -66,52 +66,128 @@
 
                 <td>
                      <a href="{{ route('accidente.editAccidente', ['id'=> $infoAccidente->id]) }}" class="btn btn-warning">Editar</a>
-                   {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
+                  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> 
                 </td>
             </tr>
 
-</table>
+</table> --}}
 <div class="main-card mb-3 card">
-    <div class="card-body"><h5 class="card-title">Grid Rows</h5>
+    <div class="card-body">
         <form class="">
             <div class="form-row">
                 <div class="col-md-6">
-                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Tipo Accidente</label><input class="form-control" type="text" value="{{$infoAccidente->tipoaccidente}}" aria-label="readonly input example" readonly></div>
+                    <div class="position-relative form-group"> <div class="section-title mt-0">Tipo Accidente</div><input class="form-control" type="text" value="{{$infoAccidente->tipoaccidente}}" aria-label="readonly input example" readonly></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="position-relative form-group"><label for="examplePassword11" class="">Fecha Hora</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
+                    <div class="position-relative form-group"> <div class="section-title mt-0">Fecha Hora</div><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
+                </div>
+            </div>
+            <div class="form-row">  
+                 <div class="col-md-3">
+                    <div class="position-relative form-group"><div class="section-title mt-0">Dia</div><input class="form-control" type="text" value="{{$infoAccidente->dia}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group"><div class="section-title mt-0">Jornada</div><input class="form-control" type="text" value="{{$infoAccidente->jornada}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><div class="section-title mt-0">Labor Habitual</div><input class="form-control" type="text" value="{{$infoAccidente->laborHabitual}}" aria-label="readonly input example" readonly></div>
+                </div>
+             
+            </div>
+            <div class="form-row">
+                
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><div class="section-title mt-0">Mecanismo</div><input class="form-control" type="text" value="{{$infoAccidente->mecanismo->denominacionMecanismo}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><div class="section-title mt-0">Agente Accidente</div><input class="form-control" type="text" value="{{$infoAccidente->agente->denominacionAgente}}" aria-label="readonly input example" readonly></div>
+                </div>
+                
+            </div>
+   
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><div class="section-title mt-0">Tiempo Previo al accidente</div><input class="form-control" type="text" value="{{$infoAccidente->tiempoPA}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group"><div class="section-title mt-0"> Horas</div><input class="form-control" type="text" value="{{$infoAccidente->cantHoras}}" aria-label="readonly input example" readonly></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group"><div class="section-title mt-0"> Minuto</div><input class="form-control" type="text" value="{{$infoAccidente->cantMinutos}}" aria-label="readonly input example" readonly></div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-6">
-                    <div class="position-relative form-group"><label for="exampleCity" class="">Labor Habitual</label><input class="form-control" type="text" value="{{$infoAccidente->laborHabitual}}" aria-label="readonly input example" readonly></div>
+                    <div class="position-relative form-group"><div class="section-title mt-0">Sitio</div><input class="form-control" type="text" value="{{$infoAccidente->sitio->denominacionSitio}}" aria-label="readonly input example" readonly></div>
                 </div>
-                <div class="col-md-3">
-                    <div class="position-relative form-group"><label for="exampleState" class="">Dia</label><input class="form-control" type="text" value="{{$infoAccidente->dia}}" aria-label="readonly input example" readonly></div>
-                </div>
-                <div class="col-md-3">
-                    <div class="position-relative form-group"><label for="exampleZip" class="">Jornada</label><input class="form-control" type="text" value="{{$infoAccidente->jornada}}" aria-label="readonly input example" readonly></div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group"><div class="section-title mt-0">Empresa</div><input class="form-control" type="text" value="{{$infoAccidente->empresa}}" aria-label="readonly input example" readonly></div>
                 </div>
             </div>
-            <div class="position-relative form-group"><label for="exampleAddress" class="">Dia</label><input name="address" id="exampleAddress" placeholder="1234 Main St" type="text" class="form-control"></div>
-            <div class="position-relative form-group"><label for="exampleAddress2" class="">Jornada</label><input name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor" type="text" class="form-control">
-            </div>
+            <div class="position-relative form-group"><div class="section-title mt-0">Descripcion</div>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"style="height: 70px;" readonly>{{$infoAccidente->descripcion}}</textarea></div>
+                
             <div class="form-row">
-                <div class="col-md-4">
-                    <div class="position-relative form-group"><label for="exampleCity" class="">Labor Habitual</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="section-title mt-0">parte cuerpo</div>
+                            @foreach ($partes_cuerpo as $id=> $partes_cuerpo)
+
+                            <div class="form-check form-check-inline">
+                                <label class="label2 ">
+                                    <input class="form-check-input " type="checkbox" name="denominacionParteCuerpo[]"
+                                    value="{{$id}}" {{$infoAccidente->partes_cuerpo->contains($id)? "checked": "" }} disabled   >
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+              
+                            {{$partes_cuerpo}}
+                             <br>
+              
+                             @endforeach
+                          </div>
+                          
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="position-relative form-group"><label for="exampleState" class="">Tiempo PA</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="position-relative form-group"><label for="exampleZip" class="">Cantidad de Horas</label><input class="form-control" type="text" value="{{$infoAccidente->fechaHora}}" aria-label="readonly input example" readonly></div>
-                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="section-title mt-0">Lesion</div>
+                            @foreach ($lesions as $id=> $lesions)
+
+                            <div class="form-check form-check-inline">
+                                <label class="label2"color="#000">
+                                    <input class="form-check-input"  type="checkbox" name="denominacionTipoLesion[]"
+                                    value="{{$id}}" {{$infoAccidente->lesions->contains($id)? "checked": "" }}  >
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+              
+                            {{$lesions}}
+                             <br>
+              
+                             @endforeach
+                          </div>
+                          
+
+                          
+                      
+                          
+                    </div>
             </div>
-            <div class="position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Check me out</label></div>
+            
             <button class="mt-2 btn btn-primary">Sign in</button>
         </form>
     </div>
 </div>
 
 
+@endsection
+@section('JS')
+<script src="{{ asset('/js/components-table.js') }}"></script>
 @endsection

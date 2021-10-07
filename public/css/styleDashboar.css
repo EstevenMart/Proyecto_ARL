@@ -3024,3 +3024,16 @@ td .profile-widget .profile-widget-picture{
   height: 45px;
   width: 45px;
 }
+.form-control:disabled, .form-control[readonly] {
+  background-color: #fff !important;
+  }
+  .form-control, .input-group-text, .custom-select, .custom-file-label {
+    border-color: #6c757d !important;
+}
+input[type=checkbox]:checked {
+ 
+}
+input:disabled {
+  color: #88c64b !important;
+  background-color: #0c8195 !important;
+}

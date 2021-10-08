@@ -60,7 +60,8 @@ class UsuarioController extends Controller
             'fechaIngreso' => 'required|date',
             'vinculacion' => 'required|max:50',
             'estado' => 'required|max:50',
-            'imagen' => 'required|image|max:2048',
+            'imagen' => 'required|max:50',
+            // 'imagen' => 'required|image|max:2048',
             'municipio_id' => 'required|max:50',
             'cargo_id' => 'required|max:50',
             'rol_id' => 'required|max:50',
@@ -84,9 +85,10 @@ class UsuarioController extends Controller
         $usuario->vinculacion = $request->vinculacion;
         $usuario->estado  = $request->estado;
         
-        $imagenes=$usuario->imagen  = $request->imagen->store("public/imagenes");
-        $url = Storage::url($imagenes);
-        $usuario->imagen = $request->imagen=$url;
+        // $imagenes=$usuario->imagen  = $request->imagen->store("public/imagenes");
+        // $url = Storage::url($imagenes);
+        // $usuario->imagen = $request->imagen=$url;
+        $usuario->imagen = $request->imagen;
         $usuario->municipio_id  = $request->municipio_id;
         $usuario->cargo_id  = $request->cargo_id ;
         $usuario->rol_id  = $request->rol_id ;

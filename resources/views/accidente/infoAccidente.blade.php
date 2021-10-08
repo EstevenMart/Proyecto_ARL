@@ -118,10 +118,10 @@
             </div>
             <div class="form-row">
                 <div class="col-md-6">
-                    <div class="position-relative form-group"><div class="section-title mt-0">Sitio</div><input class="form-control" type="text" value="{{$infoAccidente->sitio->denominacionSitio}}" aria-label="readonly input example" readonly></div>
+                    <div class="position-relative form-group"><div class="section-title mt-0">Sitio</div><input class="form-control-plaintext" type="text" value="{{$infoAccidente->sitio->denominacionSitio}}" aria-label="readonly input example" readonly></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="position-relative form-group"><div class="section-title mt-0">Empresa</div><input class="form-control" type="text" value="{{$infoAccidente->empresa}}" aria-label="readonly input example" readonly></div>
+                    <div class="position-relative form-group"><div class="section-title mt-0">Empresa</div><input class="form-control-plaintext" type="text" value="{{$infoAccidente->empresa}}" aria-label="readonly input example" readonly></div>
                 </div>
             </div>
             <div class="position-relative form-group"><div class="section-title mt-0">Descripcion</div>
@@ -181,9 +181,12 @@
                     </div>
             </div>
             
-            <button class="mt-2 btn btn-primary">Sign in</button>
+            
         </form>
-    </div>
+    </div> <center>
+        <a href="/accidentes" class="btn btn-primary btn-lg">Atras</a>
+    </center>
+    
 </div>
 
 

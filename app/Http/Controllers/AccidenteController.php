@@ -50,7 +50,9 @@ class AccidenteController extends Controller
             'mecanismo_id' => 'required|max:50',
             'agente_id' => 'required|max:50',
             'sitio_id' => 'required|max:50',
-            'sitio_id' => 'required|min:1'
+            'sitio_id' => 'required|min:1',
+            
+            
         ]);
         
         

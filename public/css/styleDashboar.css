@@ -3027,13 +3027,20 @@ td .profile-widget .profile-widget-picture{
 .form-control:disabled, .form-control[readonly] {
   background-color: #fff !important;
   }
-  .form-control, .input-group-text, .custom-select, .custom-file-label {
+  /* .form-control, .input-group-text, .custom-select, .custom-file-label {
     border-color: #6c757d !important;
+} */
+.form-control, .input-group-text, .custom-select, .custom-file-label:enabled {
+  border-color: #6c757d !important;
 }
-input[type=checkbox]:checked {
- 
+/* ::selection {
+  background: #f35b3f;
+  color: #fff;
+  text-shadow: none;
+} */
+.form-control[readonly]:hover {
+  border: #0c8195 1.5px solid!important;
+  cursor: default;
+  box-shadow: 1.5px 1.5px  #0c809546;
 }
-input:disabled {
-  color: #88c64b !important;
-  background-color: #0c8195 !important;
-}
+/* ffa426 */

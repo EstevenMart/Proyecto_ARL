@@ -16,7 +16,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Nombres</label>
+                               <div class="section-title mt-0">Nombres</div>
                                 <div class="input-group">
                                     <input type="text" class="form-control @error('nombre') is-invalid @enderror"  id="nombre" name='nombre'>
                                     @error('nombre')
@@ -33,7 +33,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Apellidos</label>
+                                <div class="section-title mt-0">Apellidos</div>
                                 <div class="input-group">
                                     <input type="text" class="form-control @error('apellido') is-invalid @enderror"  id="apellido" name='apellido'>
                                     @error('apellido')
@@ -50,7 +50,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Tipo de documento</label>
+                               <div class="section-title mt-0">Tipo de documento</div>
                                 <div class="input-group">
                                     <select class=" custom-select" name="tipoDocumento_id" >
                                        <option selected>Seleccione...</option>
@@ -73,7 +73,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Numero de Documento</label>
+                                <div class="section-title mt-0">Numero de Documento</div>
                                 <div class="input-group">
                                     <input type="number" class="form-control @error('numeroDocumento') is-invalid @enderror"  id="numeroDocumento" name='numeroDocumento'>
                                     @error('numeroDocumento')
@@ -90,7 +90,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Tipo de Sangre</label>
+                                <div class="section-title mt-0">Tipo de Sangre</div>
                                     <select class="form-control @error('sangre') is-invalid @enderror select2" name="sangre" value="{{ @old('sangre') ? @old('sangre') : $usuario->sangre}}">
                                         <option selected>Seleccione...</option>
                                         <option value="A+">A+</option>
@@ -114,7 +114,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Telefono</label>
+                                <div class="section-title mt-0">Telefono</div>
                                 <div class="input-group">
                                     <input type="number" class="form-control @error('telefono') is-invalid @enderror"  id="telefono" name='telefono'>
                                     @error('telefono')
@@ -131,7 +131,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Fecha de Nacimiento</label>
+                                <div class="section-title mt-0">Fecha de Nacimiento</div>
                                 <div class="input-group">
                                     <input type="date" class="form-control @error('fechaNacimiento') is-invalid @enderror" id="fechaNacimiento" name='fechaNacimiento'>
                                     @error('fechaNacimiento')
@@ -147,7 +147,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Correo</label>
+                               <div class="section-title mt-0">Correo</div>
                                 <div class="input-group">
                                     <input type="email" class="form-control @error('correo') is-invalid @enderror"  id="correo" name='correo'>
                                     @error('correo')
@@ -164,7 +164,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label >Estado</label>
+                                <div class="section-title mt-0">Estado</div>
                                 <br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="estado"  value="Activo" >
@@ -186,7 +186,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label >Sexo</label>
+                                <div class="section-title mt-0">Sexo</div>
                                 <br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="sexo"  value="Masculino" >
@@ -213,7 +213,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Direccion</label>
+                                <div class="section-title mt-0">Direccion</div>
                                 <div class="input-group">
                                     <input type="text" class="form-control @error('direccion') is-invalid @enderror"  id="direccion" name='direccion'>
                                     @error('direccion')
@@ -229,7 +229,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Rol</label>
+                               <div class="section-title mt-0">Rol</div>
                                 <div class="input-group">
                                     <select class="custom-select @error('rol_id') is-invalid @enderror " name="rol_id" >
                                        <option selected>Seleccione...</option>
@@ -254,7 +254,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Cargo</label>
+                                <div class="section-title mt-0">Cargo</div>
                                 <div class="input-group">
                                     <select class=" custom-select" name="cargo_id" >
                                         require intervention/image                     <option selected>Seleccione...</option>
@@ -279,7 +279,7 @@
                         <div class="card-body">
                             
                                 <div class="form-group">
-                                    <label>Fecha de Ingreso a la Empresa</label>
+                                    <div class="section-title mt-0">Fecha de Ingreso a la Empresa</div>
                                     <div class="input-group">
                                         <input type="date" class="form-control @error('fechaIngreso') is-invalid @enderror" id="fechaIngreso" name='fechaIngreso'>
                                         @error('fechaIngreso')
@@ -297,7 +297,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                         <div class="form-group">
-                            <label >Tipo vinculacion</label>
+                           <div class="section-title mt-0">Tipo vinculacion</div>
                             <br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="vinculacion"  value="Planta" >
@@ -327,7 +327,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Municipio</label>
+                                <div class="section-title mt-0">Municipio</div>
                                 <div class="input-group">
                                     <select class=" custom-select" name="municipio_id" >
                                        <option selected>Seleccione...</option>
@@ -353,7 +353,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Administradora de Fondo de Pensiones (AFP)</label>
+                                <div class="section-title mt-0">Administradora de Fondo de Pensiones (AFP)</div> 
                                 <div class="input-group">
                                     <select class=" custom-select" name="afp_id" >
                                        <option selected>Seleccione...</option>
@@ -377,7 +377,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Administradora de Riesgos Profesionales (ARP)</label>
+                                <div class="section-title mt-0">Administradora de Riesgos Profesionales (ARP)</div>
                                 <div class="input-group">
                                     <select class=" custom-select" name="arp_id" >
                                        <option selected>Seleccione...</option>
@@ -402,7 +402,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>EPS</label>
+                                <div class="section-title mt-0">EPS</div>
                                 <div class="input-group">
                                     <select class=" custom-select" name="eps_id" >
                                        <option selected>Seleccione...</option>
@@ -426,7 +426,7 @@
                         
                         <div class="card-body">
                             <div class="form-group">
-                                <label >Jornada</label>
+                                <div class="section-title mt-0">Jornada</div>
                                 <br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="jornada"  value="Diurna" >
@@ -457,7 +457,7 @@
                                 
                                 <div class="card-body">
                                     <div class="form-group">
-                                      <label class="form-label">Imagen</label>
+                                      <div class="section-title mt-0">Imagen</div>
                                       <div class="row gutters-sm">
                                         <div class="col-6 col-sm-4">
                                           <label class="imagecheck mb-4">
@@ -499,17 +499,17 @@
                                             </figure>
                                           </label>
                                         </div>
-                                        <div class="col-6 col-sm-4">
+                                        {{-- <div class="col-6 col-sm-4">
                                           <label class="imagecheck mb-4">
                                             <input name="imagen" type="radio" value="6" class="imagecheck-input">
                                             <figure class="imagecheck-figure">
                                                 <figure class="avatar mr-2 avatar-xl" data-initial="UM"></figure>
                                             </figure>
                                           </label>
-                                        </div>
-                                        <div class="input-group">
+                                        </div> --}}
+                                        {{-- <div class="input-group">
                                             <input type="file" name="imagen"  accept="image/*">   
-                                          </div>
+                                          </div> --}}
                                         @error('imagen')
                                         <div class="invalid-feedback">
                                             {{ $message }}

@@ -24,7 +24,7 @@
         <div class="card-header">
             <h4>Tabla de Accidentes</h4>
             <div class="card-header-form">
-            <a href="{{route('accidente.createAccidente')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
+            <a href="{{route('accidente.createAccidente')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Accidente</a>
             
           </div>
           </div>

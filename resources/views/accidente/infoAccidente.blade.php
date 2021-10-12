@@ -161,7 +161,7 @@
                             <div class="form-check form-check-inline">
                                 <label class="label2"color="#000">
                                     <input class="form-check-input"  type="checkbox" name="denominacionTipoLesion[]"
-                                    value="{{$id}}" {{$infoAccidente->lesions->contains($id)? "checked": "" }}  >
+                                    value="{{$id}}" {{$infoAccidente->lesions->contains($id)? "checked": "" }} disabled >
                                     <span class="form-check-sign">
                                         <span class="check"></span>
                                     </span>

@@ -23,7 +23,7 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                                 </div>
-                                <input type="text" id="decadeView"  class="form-control @error('fechaHora') is-invalid @enderror"  name='fechaHora' value="{{old('fechaHora')}}"  >
+                                <input type="text" id="decadeView"  class="form-control @error('fechaHora') is-invalid @enderror"  name='fechaHora' value="{{old('fechaHora')}}" autocomplete="off" >
                               </div>
                               @error('fechaHora')
                               <div class="text-danger">
@@ -67,11 +67,11 @@
                         <div class="section-title mt-0">Jornada en que sucecdio</div>
                             <br>
                             <div class="form-check form-check-inline ">
-                                <input class="form-check-input jornada" type="radio" name="jornada"  value=" Extra {{old('jornada')}}" >
+                                <input class="form-check-input jornada" type="radio" name="jornada"  value="Extra"  @if(old('jornada') == 'Extra') checked @endif>
                                 <label class="form-check-label" >Extra</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jornada" value="Normal {{old('jornada')}}">
+                                <input class="form-check-input" type="radio" name="jornada" value="Normal" @if(old('jornada') == 'Normal') checked @endif>
                                 <label class="form-check-label" >Normal</label>
                               </div>
                               @error('jornada')
@@ -183,11 +183,11 @@
                             <div class="section-title mt-0">¿Causo muerte al trabajador?</div>
                             <br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="causaMuerte"   @if (old('causaMuerte') == "No") {{ 'selected' }} @endif value="No"   >
+                                <input class="form-check-input" type="radio" name="causaMuerte"   value="No"  @if(old('causaMuerte') == 'No') checked @endif  >
                                 <label class="form-check-label" >No</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="causaMuerte" @if (old('causaMuerte') == "Si") {{ 'selected' }} @endif value="Si"  >
+                                <input class="form-check-input" type="radio" name="causaMuerte"  value="Si" @if(old('causaMuerte') == 'Si') checked @endif >
                                 <label class="form-check-label" >Si</label>
                               </div>
                               @error('causaMuerte')
@@ -281,21 +281,21 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="section-title mt-0">Empresa</div>
-                                <input type="text" id="empresa" class="form-control @error('empresa') is-invalid @enderror" name='empresa'>
-                            @error('empresa')
+                                <input type="text" id="empresa" class="form-control @error('empresa') is-invalid @enderror" name='empresa'  value="{{old('empresa')}}">
+                           
+                            </div>
+                             @error('empresa')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            </div>
-                            
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">  
                         <div class="card-body">
                             <div class="form-group mb-0">
                                 <div class="section-title mt-0">Descripcion</div>
-                                <textarea  class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name='descripcion' style="max-height: 100px; min-height:100px"></textarea>
+                                <textarea  class="form-control  @error('descripcion') is-invalid @enderror"   name='descripcion' style="max-height: 100px; min-height:100px"  >{{old('descripcion')}}</textarea>
                                 @error('descripcion')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -317,7 +317,7 @@
                                 <div class="form-check form-check-inline">
                                     <label class="label2">
                                         <input class="form-check-input" type="checkbox" name="denominacionTipoLesion[]"
-                                            value="{{$id}}" >
+                                            value="{{$id}}"  @if(is_array(old('denominacionTipoLesion')) && in_array($id, old('denominacionTipoLesion'))) checked @endif >
                                         <span class="form-check-sign">
                                             <span class="check"></span>
                                         </span>
@@ -340,7 +340,7 @@
                                 <div class="form-check form-check-inline">
                                     <label class="label2">
                                         <input class="form-check-input" type="checkbox" name="denominacionParteCuerpo[]"
-                                            value="{{$id}}"  >
+                                            value="{{$id}}" @if(is_array(old('denominacionParteCuerpo')) && in_array($id, old('denominacionParteCuerpo'))) checked @endif  >
                                         <span class="form-check-sign">
                                             <span class="check"></span>
                                         </span>
@@ -360,7 +360,15 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label for="clockPicker2">Simple ClockPicker with Auto Close</label>
+                    <div class="input-group clockpicker" id="clockPicker2">
+                      <input type="text" class="form-control" value="12:30">                     
+                      <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                      </div>                      
+                    </div>
+                  </div>
                 
                 <div class="mb-3 row">
                     <div class="col-sm-9"></div>

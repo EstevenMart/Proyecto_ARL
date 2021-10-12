@@ -36,7 +36,8 @@
                     <th>Apellido</th>
                     <th>Numero de documento</th>
                     <th>Estado</th>
-                    <th></th>
+                    <th>Ver más</th>
+                    <th>Acciones</th>
         
                 </tr>
                 </thead>
@@ -53,9 +54,17 @@
                       </td>
                       <td> {{$usuario->apellido}}</td>
                     <td>{{$usuario->numeroDocumento}}</td>
-                    <td><div class="badge badge-success">{{$usuario->estado}}</div></td>
-    
-                    <td> <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a></td>
+                    <td> @if($usuario->estado === "Inactivo")
+                      <div class="badge badge-danger ">Inactivo</div>
+                          @else
+                          <div class="badge badge-success ">Activo</div>
+                      @endif
+                    </td>
+                    <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></a></i></td>
+                    <td>
+                         <a href="{{-- {{ route('accidente.editAccidente', ['id'=> $accidente->id]) }}--}}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
+                         
+                    </td>
                   
             @endforeach
                 </tbody>

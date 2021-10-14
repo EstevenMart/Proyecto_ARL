@@ -62,7 +62,7 @@
                     </td>
                     <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></a></i></td>
                     <td>
-                         <a href="{{-- {{ route('accidente.editAccidente', ['id'=> $accidente->id]) }}--}}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
+                         <a href=" {{ route('usuario.editUsuario', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
                          
                     </td>
                   

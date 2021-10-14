@@ -1,6 +1,6 @@
 @extends('layout')
-@section('title' , 'Usuario')
-@section('h1' , 'Usuario')
+@section('title' , 'Información del usuario  ')
+@section('h1' , 'Información del usuario ')
 @section('Contenido')
 
 {{-- <a href=" {{route('usuario.formUsuario')}} " class="btn btn-primary">Nuevo Usuario</a> --}}
@@ -13,177 +13,225 @@
     <p class="text-primary">{{ Session::get('messa') }}</p>
 @endif
 
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>imagen</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Tipo Documento</th>
-            <th>Numero de Documento</th>
-            <th>Tipo de Sangre</th>
-            <th>Telefono</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Correo</th>
-            <th>Estado</th>
-            <th>Sexo</th>
-            <th>Direccion</th>
-            <th>Jornada</th>
-            <th>Rol</th>
-            <th>Cargo</th>
-            <th>Fecha de Ingreso a la Empresa</th>
-            <th>Tipo vinculacion</th>
-            <th>afp</th>
-            <th>Municipio</th>
-            <th>arp</th>
-            
-            <th>eps</th>
 
 
-
-
-
-        </tr>
-    </thead>
-    <tbody>
-
-
-            <tr> <td><img src="{{asset($infoUsuario->imagen) }}" alt="image" class="imagen_perfil" ></td>
-                <td>{{$infoUsuario->nombre}}</td>
-                <td>{{$infoUsuario->apellido}}</td>
-                <td>{{$infoUsuario->tipo_documento->nombreTipoDocumento}}</td>
-                <td>{{$infoUsuario->numeroDocumento}}</td>
-                <td>{{$infoUsuario->sangre}}</td>
-                <td>{{$infoUsuario->telefono}}</td>
-                <td>{{$infoUsuario->fechaNacimiento}}</td>
-                <td>{{$infoUsuario->correo}}</td>
-                <td>{{$infoUsuario->estado}}</td>
-                <td>{{$infoUsuario->sexo}}</td>
-                <td>{{$infoUsuario->direccion}}</td>
-                <td>{{$infoUsuario->jornada}}</td>
-                <td>{{$infoUsuario->rol->nombreRol}} </td>
-                <td>{{$infoUsuario->cargo->nombreCargo}}</td>
-                <td>{{$infoUsuario->fechaIngreso}}</td>
-                <td>{{$infoUsuario->vinculacion}}</td>
-                <td>{{$infoUsuario->afp->denominacionAfp}}</td>
-                <td>{{$infoUsuario->municipios->denominacionMunicipio;}}</td>
-                 <td>{{$infoUsuario->arp->denominacionArp}}</td>
-                
-                 <td>{{$infoUsuario->eps->denominacionEps}}</td>
-                <td>
-                     {{-- <a href="{{ route('usuario.formUsuario', ['id'=> $infoUsuario->id]) }}" class="btn btn-warning">Editar</a> --}}
-                   {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
-                </td>
-            </tr>
-
-</table>
-
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Edit Profile</h4>
-            <p class="card-category">Complete your profile</p>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Company (disabled)</label>
-                    <input type="text" class="form-control" disabled="">
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Username</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Email address</label>
-                    <input type="email" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Fist Name</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Last Name</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Adress</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">City</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Country</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group bmd-form-group">
-                    <label class="bmd-label-floating">Postal Code</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label>About Me</label>
-                    <div class="form-group bmd-form-group">
-                      <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                      <textarea class="form-control" rows="5"></textarea>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-              <div class="clearfix"></div>
-            </form>
+  <div class="row">
+    <div class="col-xl-4 order-xl-2">
+      <div class="card card-profile">
+        <img src="{{asset($infoUsuario->imagen) }}" alt="Image placeholder" class="card-img-top">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+              <a href="#">
+                <img src="{{asset($infoUsuario->imagen) }}" class="rounded-circle" width="134px" height="134px">
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-profile">
-          <div class="card-avatar">
-            <a href="#pablo">
-              <img class="img" src="../assets/img/faces/marc.jpg">
-            </a>
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+          <div class="d-flex justify-content-between">
+            <a href="#" class="btn btn-sm btn-info  mr-4 ">Connect</a>
+            <a href="#" class="btn btn-sm btn-default float-right">Message</a>
           </div>
-          <div class="card-body">
-            <h6 class="card-category">CEO / Co-Founder</h6>
-            <h4 class="card-title">Alec Thompson</h4>
-            <p class="card-description">
-              Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-            </p>
-            <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+        </div>
+        <div class="card-body pt-0">
+          <div class="row">
+            <div class="col">
+              <div class="card-profile-stats d-flex justify-content-center">
+                <div>
+                  <span class="heading">22</span>
+                  <span class="description">Friends</span>
+                </div>
+                <div>
+                  <span class="heading">10</span>
+                  <span class="description">Photos</span>
+                </div>
+                <div>
+                  <span class="heading">89</span>
+                  <span class="description">Comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h5 class="h3">
+              Jessica Jones<span class="font-weight-light">, 27</span>
+            </h5>
+            <div class="h5 font-weight-300">
+              <i class="ni location_pin mr-2"></i>Bucharest, Romania
+            </div>
+            <div class="h5 mt-4">
+              <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+            </div>
+            <div>
+              <i class="ni education_hat mr-2"></i>University of Computer Science
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="col-xl-8 order-xl-1">
+      <div class="card">
+        <div class="card-header">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Usuario</h3>
+            </div>
+            <div class="col-4 text-right">
+              <td> @if($infoUsuario->estado === "Inactivo")
+                <div class="badge badge-danger ">Inactivo</div>
+                    @else
+                    <div class="badge badge-success ">Activo</div>
+                @endif
+              </td>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <h6 class="heading-small text-muted mb-4"></h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Nombres</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->nombre}}" readonly>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Apellidos</label>
+                    <input type="email" class="form-control" value="{{$infoUsuario->apellido}}" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Telefono</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->telefono}}" readonly>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Correo</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->correo}}" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4">
+            <!-- Address -->
+            <h6 class="heading-small text-muted mb-4">informacion general del usuario</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating">Tipo de documento </label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->tipo_documento->nombreTipoDocumento}}" readonly>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating">Numero de Documento</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->numeroDocumento}}" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating">Tipo de Sangre</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->sangre}}" readonly>
+                  </div>
+                </div>
+               
+                <div class="col-md-3">
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating">Fecha de Nacimiento</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->fechaNacimiento}}" readonly>
+                  </div>
+                </div>
+                 <div class="col-md-6">
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating">Jornada</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->jornada}}" readonly>
+                  </div>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <label class="bmd-label-floating">Municipio</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->municipios->denominacionMunicipio}}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <label class="bmd-label-floating">Direccion</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->direccion}}" readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <label class="bmd-label-floating">Fecha de Ingreso a la Empresa</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->fechaIngreso}}" readonly>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group bmd-form-group"><label class="bmd-label-floating">Tipo vinculacion</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->vinculacion}}" readonly>
+                
+                    </div>
+                  </div>
+                  <div class="col-md-3">      <label class="bmd-label-floating">Sexo</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->sexo}}" readonly>
+                    
+                    <div class="form-group bmd-form-group">
+                     
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <label class="bmd-label-floating">AFP</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->afp->denominacionAfp}}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <label class="bmd-label-floating">ARP</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->arp->denominacionArp}}" readonly>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="row">
+                  
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                      <label class="bmd-label-floating">EPS</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->eps->denominacionEps}}" readonly>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              
+            </div>
+            
+              </div>
+            </div>
+          </form>
+        </div>
+        <center>
+          <a href="/usuarios" class="btn btn-primary btn-lg">Atras</a>
+        </center>
+        <br>
+      </div>
+    </div>
 @endsection

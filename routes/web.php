@@ -101,3 +101,5 @@ Route::get('/departamento/formDepartamento/{id?}', [DepartamentoController::clas
 Route::post('/departamento/saveDepartamento', [DepartamentoController::class, 'save'])->name('departamento.saveDepartamento');
 //dashboar
 Route::post('/Dashboard', [DashboardController::class , "show"])->name('Dashboard');
+// grafico
+Route::get( '/accidente/graficoUsuario' , [AccidenteController::class , "index"]); 

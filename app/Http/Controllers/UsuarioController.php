@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\image;
 
 
+
 class UsuarioController extends Controller
 {
     function __construct(){
@@ -25,7 +26,7 @@ class UsuarioController extends Controller
     }
 
     function show(){
-           $usuarioList = Usuario::all();
+           $usuarioList = Usuario::orderBy('id','desc')->get();
          return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
         // $usuarios = Usuario::findOrFail(1);
         // return $usuarios->municipios->denominacionMunicipio;
@@ -49,7 +50,7 @@ class UsuarioController extends Controller
         $request->validate([
             'nombre' => 'required|max:50' ,
             'apellido' => 'required|max:50',
-            'numeroDocumento' => 'required|numeric',
+            'numeroDocumento' => 'required|unique:usuarios|numeric',
             'correo' => 'required|max:50',
             'telefono' => 'required|numeric',
             'fechaNacimiento' => 'required|date',
@@ -204,7 +205,7 @@ class UsuarioController extends Controller
                 $request->validate([
                     'nombre' => 'required|max:50' ,
                     'apellido' => 'required|max:50',
-                    'numeroDocumento' => 'required|numeric',
+                    'numeroDocumento' => 'required|numeric|unique:usuarios',
                     'correo' => 'required|max:50',
                     'correo' => 'required|numeric',
                     'fechaNacimiento' => 'required|date',
@@ -237,4 +238,6 @@ class UsuarioController extends Controller
     //          Storage::delete([$url]);
     //          $usuario->delete();
     //         }     
+
+
 }

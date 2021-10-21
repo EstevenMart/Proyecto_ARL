@@ -43,7 +43,7 @@
               </th>
             <th>Tipo Accidente</th>
             <th>Fecha Hora</th>
-            <th>Sitio</th>
+            <th>Empresa</th>
             <th>Descripcion</th>
             <th>Ver más</th>
             <th>Acciones</th>
@@ -61,7 +61,7 @@
                   </td>
                 <td>{{$accidente->tipoaccidente}}</td>
                 <td>{{$accidente->fechaHora}}</td>
-                <td>{{$accidente->sitio_id}}</td>
+                <td>{{$accidente->empresa}}</td>
                 <td>{{$accidente->descripcion}}</td>
 
                 <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">  <i class="fas fa-search"></a></i></td>
@@ -78,7 +78,7 @@
         <div class="card-footer text-right">
             <nav class="d-inline-block">
             <ul class="pagination mb-0">
-                {{ $listAccidente->links() }}               
+                            
             </ul>
             </nav>
         </div>
@@ -89,8 +89,8 @@
 
 
 @section('JS')
-<script src="{{ asset('/js/components-table.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+ <script src="{{ asset('/js/components-table.js') }}"></script> 
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 <script>

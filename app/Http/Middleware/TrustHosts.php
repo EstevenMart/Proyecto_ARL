@@ -17,5 +17,5 @@ class TrustHosts extends Middleware
             $this->allSubdomainsOfApplicationUrl(),
         ];
     }
-    public $search = "tecto de prueba";
+    public $search = "texto de prueba";
 }

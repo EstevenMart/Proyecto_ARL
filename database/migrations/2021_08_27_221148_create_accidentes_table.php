@@ -16,7 +16,7 @@ class CreateAccidentesTable extends Migration
         Schema::create('accidentes', function (Blueprint $table) {
             $table->id();
             $table -> string('tipoaccidente',50);
-            $table -> date('fechaHora');
+            $table -> string('fechaHora',50);
             $table -> string('dia',50);
             $table -> string('jornada',50);
             $table -> string('laborHabitual',50);

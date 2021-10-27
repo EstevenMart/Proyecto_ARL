@@ -5,7 +5,7 @@
 
 
 @section('Contenido')
-<form action="{{ route('usuario.store') }}" method="POST" enctype="multipart/form-data"  >
+<form action="{{ route('register') }}" method="POST" >
     @csrf
    
     <div class="row">
@@ -18,8 +18,8 @@
                             <div class="form-group">
                                <div class="section-title mt-0">Nombres</div>
                                 <div class="input-group">
-                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror"  id="nombre" name='nombre'>
-                                    @error('nombre')
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"  id="name" name='name'>
+                                    @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -149,8 +149,8 @@
                             <div class="form-group">
                                <div class="section-title mt-0">Correo</div>
                                 <div class="input-group">
-                                    <input type="email" class="form-control @error('correo') is-invalid @enderror"  id="correo" name='correo'>
-                                    @error('correo')
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"  id="email" name='email'>
+                                    @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -535,7 +535,9 @@
                     <div class="col-sm-9"></div>
                     <div class="col-sm-3">
                         <a href="/usuarios" class="btn btn-light">Cancelar</a>
-                        <button type="submit" class="btn btn-primary confirmar">Guardar</button>
+                        <button type="submit" >
+                            {{ __('Registrarse') }}
+                        </button>
                     </div>
                 </div>
               

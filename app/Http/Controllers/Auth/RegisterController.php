@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+
 
 class RegisterController extends Controller
 {
@@ -36,9 +38,8 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
+    function __construct(){
+        $this->middleware('auth');
     }
 
     /**
@@ -49,10 +50,30 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'apellido' => ['required', 'max:50'],
+            'numeroDocumento' => ['required', 'unique:users', 'numeric'],
+            'telefono' => ['required', 'numeric'],
+            'fechaNacimiento' => ['required', 'max:50'],
+            'sexo' => ['required', 'max:50'],
+            'sangre' => ['required', 'max:50'],
+            'direccion' => ['required', 'max:50'],
+            'jornada' => ['required', 'max:50'],
+            'fechaIngreso' => ['required', 'max:50'],
+            'vinculacion' => ['required', 'max:50'],
+            'estado' => ['required', 'max:50'],
+            'imagen' => ['required', 'max:50'],
+            'municipio_id' => ['required', 'max:50'],
+            'cargo_id' => ['required', 'max:50'],
+            'rol_id' => ['required', 'max:50'],
+            'afp_id' => ['required', 'max:50'],
+            'arp_id' => ['required', 'max:50'],
+            'eps_id' => ['required', 'max:50'],
+            'tipoDocumento_id' => ['required', 'max:50'],
         ]);
     }
 
@@ -67,7 +88,28 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make(Str::random(64)),
+            'apellido' => $data['apellido'],
+            'numeroDocumento' => $data['numeroDocumento'],
+            'telefono' => $data['telefono'],
+            'fechaNacimiento' => $data['fechaNacimiento'],
+            'sangre' => $data['sangre'],
+            'direccion' => $data['direccion'],
+            'jornada' => $data['jornada'],
+            'sexo' => $data['sexo'],
+            'fechaIngreso' => $data['fechaIngreso'],
+            'vinculacion' => $data['vinculacion'],
+            'estado' => $data['estado'],
+            'imagen' => $data['imagen'],
+            'municipio_id' => $data['municipio_id'],
+            'cargo_id' => $data['cargo_id'],
+            'rol_id' => $data['rol_id'],
+            'afp_id' => $data['afp_id'],
+            'arp_id' => $data['arp_id'],
+            'eps_id' => $data['eps_id'],
+            'tipoDocumento_id' => $data['tipoDocumento_id']
         ]);
     }
+   
 }
+

@@ -22,7 +22,7 @@ class CreateAcciUserTable extends Migration
             $table->timestamps();
 
             $table->foreign('accidente_id')->references('id')->on('accidentes');
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->foreign('usuario_id')->references('id')->on('users');
         });
     }
 

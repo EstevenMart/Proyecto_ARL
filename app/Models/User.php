@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -8,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -21,6 +22,25 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'apellido',
+        'numeroDocumento',
+        'telefono',
+        'fechaNacimiento',
+        'sexo',
+        'sangre',
+        'direccion',
+        'jornada',
+        'fechaIngreso',
+        'vinculacion',
+        'estado',
+        'imagen',
+        'municipio_id',
+        'cargo_id',
+        'rol_id',
+        'afp_id',
+        'arp_id',
+        'eps_id',
+        'tipoDocumento_id',
     ];
 
     /**
@@ -44,3 +64,36 @@ class User extends Authenticatable
 
 
 }
+class Usuario extends Model
+{
+    protected $fillable = ["imagen"];
+    use HasFactory;
+
+    protected $table ="usuarios";
+
+    function municipios(){
+        return $this->belongsTo(Municipio::class, 'municipio_id');
+    }
+    function tipo_documento(){
+        return $this->belongsTo(TipoDocumento::class,'tipoDocumento_id');
+    }
+    function cargo(){
+        return $this->belongsTo(Cargo::class);
+        // return $this->belongsTo(Agente::class,"agenteAcci_id",);
+    }
+    function rol(){
+        return $this->belongsTo(rol::class);
+    }
+    function afp(){
+        return $this->belongsTo(AFP::class) ;
+    }
+    function arp(){
+        return $this->belongsTo(arp::class);
+    }
+    function eps(){
+        return $this->belongsTo(eps::class);
+    }
+
+
+}
+

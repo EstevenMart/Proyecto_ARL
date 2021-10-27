@@ -75,7 +75,7 @@
                       </div>
                       <div class="dropdown-item-desc">
                         <b>Kusnaedi</b>
-                        <p>hola {{Auth::user()->name }} </p>
+                        {{-- <p>hola {{Auth::user()->name }} </p> --}}
                         <div class="time">10 Hours Ago</div>
                       </div>
                     </a>

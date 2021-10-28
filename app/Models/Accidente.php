@@ -33,8 +33,8 @@ class Accidente extends Model
     function acciUser(){
         return $this->hasMany(AcciUser::class);
     }
-    function usuarios(){
-        return $this->belongsToMany(Usuario::class,"acci_user","accidente_id","usuario_id");
+    function user(){
+        return $this->belongsToMany(User::class,"acci_user","accidente_id","usuario_id");
     }
 }
 // value="{{@old('nombreRecomendacion', $recomendacion->nombreRecomendacion)}}"

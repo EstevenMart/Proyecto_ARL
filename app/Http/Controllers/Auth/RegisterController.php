@@ -9,7 +9,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-
+use Carbon\Carbon;
+use App\Mail\ContactanosMailable;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -50,15 +52,16 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        
+       
         return Validator::make($data, [
+            
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             // 'password' => ['required', 'string', 'min:8', 'confirmed'],
             'apellido' => ['required', 'max:50'],
             'numeroDocumento' => ['required', 'unique:users', 'numeric'],
             'telefono' => ['required', 'numeric'],
-            'fechaNacimiento' => ['required', 'max:50'],
+            'fechaNacimiento' => ['required', 'max:50' ],
             'sexo' => ['required', 'max:50'],
             'sangre' => ['required', 'max:50'],
             'direccion' => ['required', 'max:50'],
@@ -109,6 +112,8 @@ class RegisterController extends Controller
             'eps_id' => $data['eps_id'],
             'tipoDocumento_id' => $data['tipoDocumento_id']
         ]);
+        $correo =  new ContactanosMailable($data);
+        Mail::to('ypulido2004@gmail.com')->send($correo);
     }
    
 }

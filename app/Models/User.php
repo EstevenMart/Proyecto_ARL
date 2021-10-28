@@ -93,7 +93,9 @@ class Usuario extends Model
     function eps(){
         return $this->belongsTo(eps::class);
     }
-
+    function accidente(){
+        return $this->belongsToMany(User::class,"acci_user","usuario_id ","accidente_id");
+    }
 
 }
 

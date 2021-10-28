@@ -40,10 +40,10 @@
                   <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
                   <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                 </div>
-              </th>
+              </th> 
+              <th>Usuario</th>
             <th>Tipo Accidente</th>
-            <th>Fecha Hora</th>
-            <th>Empresa</th>
+            <th>Fecha Hora</th>         
             <th>Descripcion</th>
             <th>Ver más</th>
             <th>Acciones</th>
@@ -59,10 +59,15 @@
                       <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                     </div>
                   </td>
+                  <td>@foreach ($accidente->user as $users)
+      {{ $users->name }} {{ $users->apellido }}
+   @endforeach </td>
                 <td>{{$accidente->tipoaccidente}}</td>
                 <td>{{$accidente->fechaHora}}</td>
-                <td>{{$accidente->empresa}}</td>
-                <td>{{$accidente->descripcion}}</td>
+               
+         
+    <td>{{$accidente->descripcion}}}</td>
+    
 
                 <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">  <i class="fas fa-search"></a></i></td>
                 <td>

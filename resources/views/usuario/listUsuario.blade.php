@@ -50,7 +50,7 @@
                       </div>
               </div>
                           <td>
-                      {{$usuario->nombre}}</div>
+                      {{$usuario->name}}</div>
                       </td>
                       <td> {{$usuario->apellido}}</td>
                     <td>{{$usuario->numeroDocumento}}</td>

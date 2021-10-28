@@ -8,10 +8,11 @@ use App\Models\Lesion;
 use App\Models\Mecanismo;
 use App\Models\ParteCuerpo;
 use App\Models\Sitio;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Charts\UserChart;
+use Carbon\Carbon;
 
 class AccidenteController extends Controller
 {
@@ -21,8 +22,10 @@ class AccidenteController extends Controller
     }
 
     function show(){
-          $accidenteList = Accidente::orderBy('id','desc')->get();      
-        return view('accidente/listAccidente',['listAccidente'=>$accidenteList]);
+          $accidenteList = Accidente::orderBy('id','desc')->get();  
+          $User = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
+          $parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
+        return view('accidente/listAccidente',['listAccidente'=>$accidenteList, 'user'=>$User,'partes_cuerpo'=>$parte_cuerpo,]);
     }
     function create(){
         $accidente = new Accidente();
@@ -31,15 +34,19 @@ class AccidenteController extends Controller
         $parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
         $lesion = Lesion::all()->pluck('denominacionTipoLesion', 'id');
        
-        $usuario = Usuario::select(DB::raw("CONCAT(nombre,' ',apellido) AS name"),'id')->pluck('name', 'id');
+        $usuario = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
         $agente = Agente::orderBy('denominacionAgente')->get();
         
         return view('accidente/createAccidente', ['accidente' => $accidente,'sitios'=>$sitio, 'mecanismos'=>$mecanismo, 'agentes'=>$agente, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion, 'usuario'=>$usuario ]);
     }
     function store(Request $request){
+        $antesfecha = Carbon::now()->subDay(5);
+      $despuesfecha = Carbon::now()->addDay(5); 
         $request->validate([
             'tipoaccidente' => 'required|max:50' ,
             'fechaHora' => 'required|max:50',
+            'fechaHora' =>  ['required', 'max:50','after:'.$antesfecha,'date_format:d/m/Y','before:'.$despuesfecha],
+            
             'dia' => 'required|max:50',
             'jornada' => 'required|max:50',
             'laborHabitual' => 'required|max:50',
@@ -57,7 +64,9 @@ class AccidenteController extends Controller
             
         ]);
         
-        
+        $date = Carbon::now();
+     
+         
         $accidente = new Accidente();
         $accidente->tipoaccidente = $request->tipoaccidente;
         $accidente->fechaHora = $request->fechaHora;
@@ -111,12 +120,12 @@ return view('accidente/editAccidente',['accidente' => $accidente,'sitios'=>$siti
 //         return view('accidente/formAccidente', ['accidente' => $accidente,'sitios'=>$sitio, 'mecanismos'=>$mecanismo, 'agentes'=>$agente ]);
 //     }
 
-//     function find($id){
-// $accidenteFind = Accidente::find($id);
-// $parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
-// $lesion = Lesion::all()->pluck('denominacionTipoLesion', 'id');
-// return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion ]);
-//     }
+    function find($id){
+$accidenteFind = Accidente::find($id);
+$parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
+$lesion = Lesion::all()->pluck('denominacionTipoLesion', 'id');
+return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion ]);
+    }
 
 function update(Request $request, $id){
    

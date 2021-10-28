@@ -20,6 +20,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -106,3 +107,4 @@ Route::post('/departamento/saveDepartamento', [DepartamentoController::class, 's
 Route::post('/Dashboard', [DashboardController::class , "show"])->name('Dashboard');
 // grafico
 Route::get( '/accidente/graficoUsuario' , [AccidenteController::class , "index"]); 
+

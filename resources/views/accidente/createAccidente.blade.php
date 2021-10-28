@@ -23,7 +23,7 @@
                                     <select class=" custom-select @error('name[]') is-invalid @enderror " name="name[]" >
                                         <option value="">Seleccione...</option>
                                        @foreach ($usuario as $id=> $usuario)
-                                        <option value="{{$id}}" >
+                                        <option value="{{$id}}" {{ $id ? "selected" : ""}} {{ old('name') == $id ? 'selected' : '' }} >
                                        {{$usuario}} </option>
                                         
                                         @endforeach
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card-body">
-                        <div class="form-group" id="simple-date3">
+                        <div class="form-group" id="simple-date1">
                             <div class="section-title mt-0">Fecha del accidente</div>
                               <div class="input-group date">
                                 <div class="input-group-prepend">

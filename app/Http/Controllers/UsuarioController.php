@@ -27,6 +27,7 @@ class UsuarioController extends Controller
 
     function show(){
            $usuarioList = User::orderBy('id','desc')->get();
+           
          return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
         // $usuarios = User::findOrFail(1);
         // return $usuarios->municipios->denominacionMunicipio;
@@ -53,7 +54,7 @@ class UsuarioController extends Controller
             'numeroDocumento' => 'required|unique:usuarios|numeric',
             'correo' => 'required|max:50',
             'telefono' => 'required|numeric',
-            'fechaNacimiento' => 'required|date',
+            'fechaNacimiento' => 'required|max:50|after:tomorrow',
             'sexo' => 'required|max:50',
             'sangre' => 'required|max:50',
             'direccion' => 'required|max:50',

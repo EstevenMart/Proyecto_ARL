@@ -21,7 +21,7 @@
             <div class="card-header">
                 <h4>Tabla de Usuarios</h4>
                 <div class="card-header-form">
-                    <a href="{{route('usuario.createUsuario')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
+                    <a href="{{route('register')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
               
                 </div>
               </div>

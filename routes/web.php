@@ -19,7 +19,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
-
+use App\Http\Controllers\emailController;
 
 /*
 |--------------------------------------------------------------------------

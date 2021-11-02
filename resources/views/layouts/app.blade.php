@@ -54,8 +54,8 @@
                  <a href="#contactanos" class="nav-link smoothScroll">Contáctanos</a>
              </li>
              <li class="nav-item">
-              @if (Route::has('password.request'))
-              <a class="nav-link contact" href="{{ route('password.request') }}">
+              @if (Route::has('login'))
+              <a class="nav-link contact" href="{{ route('login') }}">
                  iniciar sesion
               </a>
           @endif

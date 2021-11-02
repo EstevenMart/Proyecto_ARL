@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuariosTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,22 @@ class CreateUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table -> string('nombre',50);
+            $table -> string('name',50);
             $table -> string('apellido',50);
-            $table -> integer('numeroDocumento')->unique();
+            $table -> bigInteger('numeroDocumento')->unique();
             $table -> string('imagen',1500);
-            $table -> string('correo',50);
-            $table -> integer('telefono');
-            $table -> date('fechaNacimiento');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table -> bigInteger('telefono');
+            $table -> string('fechaNacimiento',50);
             $table -> string('sexo',50);
             $table -> string('sangre',50);
             $table -> string('direccion',50);
             $table -> string('jornada',50);
-            $table -> date('fechaIngreso',50);
+            $table -> string('fechaIngreso',50);
             $table -> string('vinculacion',50);
             $table -> string('estado',50);
             $table->unsignedBigInteger('municipio_id');
@@ -38,6 +40,7 @@ class CreateUsuariosTable extends Migration
             $table->unsignedBigInteger('eps_id');
 
 
+             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('municipio_id')->references('id')->on('municipios');
@@ -48,6 +51,7 @@ class CreateUsuariosTable extends Migration
             $table->foreign('arp_id')->references('id')->on('arps');
             $table->foreign('eps_id')->references('id')->on('eps');
 
+           
         });
     }
 
@@ -58,6 +62,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('users');
     }
 }

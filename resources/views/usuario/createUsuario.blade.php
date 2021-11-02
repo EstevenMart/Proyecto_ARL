@@ -2,10 +2,14 @@
 @section('title' , 'Crear usuario')
 @section('h1' , 'Crear usuario')
 
+@section('CSS')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+@endsection
 
 
 @section('Contenido')
-<form action="{{ route('usuario.store') }}" method="POST" enctype="multipart/form-data"  >
+<form action="{{ route('register') }}" method="POST" >
     @csrf
    
     <div class="row">
@@ -18,8 +22,8 @@
                             <div class="form-group">
                                <div class="section-title mt-0">Nombres</div>
                                 <div class="input-group">
-                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror"  id="nombre" name='nombre'>
-                                    @error('nombre')
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"  id="name" name='name'>
+                                    @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -130,17 +134,20 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
-                            <div class="form-group">
+                            <div class="form-group" id="simple-date3">
                                 <div class="section-title mt-0">Fecha de Nacimiento</div>
-                                <div class="input-group">
-                                    <input type="date" class="form-control @error('fechaNacimiento') is-invalid @enderror" id="fechaNacimiento" name='fechaNacimiento'>
-                                    @error('fechaNacimiento')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                    @enderror
-                                </div>
-                            </div>
+                                  <div class="input-group date">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                    </div>
+                                    <input type="text" id="decadeView"  class="form-control @error('fechaNacimiento') is-invalid @enderror"  name='fechaNacimiento' value="{{old('fechaNacimiento')}}" autocomplete="off" >
+                                  </div>
+                                  @error('fechaNacimiento')
+                                  <div class="text-danger">
+                                      {{ $message }}
+                                  </div>
+                                      @enderror
+                              </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -149,8 +156,8 @@
                             <div class="form-group">
                                <div class="section-title mt-0">Correo</div>
                                 <div class="input-group">
-                                    <input type="email" class="form-control @error('correo') is-invalid @enderror"  id="correo" name='correo'>
-                                    @error('correo')
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"  id="email" name='email'>
+                                    @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -535,7 +542,9 @@
                     <div class="col-sm-9"></div>
                     <div class="col-sm-3">
                         <a href="/usuarios" class="btn btn-light">Cancelar</a>
-                        <button type="submit" class="btn btn-primary confirmar">Guardar</button>
+                        <button type="submit" >
+                            {{ __('Registrarse') }}
+                        </button>
                     </div>
                 </div>
               
@@ -571,3 +580,109 @@ Toast.fire({
 </script>
     
 @endsection
+@section('JS')
+ {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+
+<script>
+    $(document).ready(function () {
+
+
+      $('.select2-single').select2();
+
+      // Select2 Single  with Placeholder
+      $('.select2-single-placeholder').select2({
+        placeholder: "Select a Province",
+        allowClear: true
+      });      
+
+      // Select2 Multiple
+      $('.select2-multiple').select2();
+
+      // Bootstrap Date Picker
+      $('#simple-date1 .input-group.date').datepicker({
+        format: 'dd/mm/yyyy',
+        todayBtn: 'linked',
+        todayHighlight: true,
+        autoclose: true,        
+      });
+
+      $('#simple-date2 .input-group.date').datepicker({
+        startView: 1,
+        format: 'dd/mm/yyyy',        
+        autoclose: true,     
+        todayHighlight: true,   
+        todayBtn: 'linked',
+      });
+
+      $('#simple-date3 .input-group.date').datepicker({
+        startView: 2,
+        format: 'dd/mm/yyyy',        
+        autoclose: true,     
+        todayHighlight: true,   
+        todayBtn: 'linked',
+      });
+
+      $('#simple-date4 .input-daterange').datepicker({        
+        format: 'dd/mm/yyyy',        
+        autoclose: true,     
+        todayHighlight: true,   
+        todayBtn: 'linked',
+      });    
+
+      // TouchSpin
+
+      $('#touchSpin1').TouchSpin({
+        min: 0,
+        max: 100,                
+        boostat: 5,
+        maxboostedstep: 10,        
+        initval: 0
+      });
+
+      $('#touchSpin2').TouchSpin({
+        min:0,
+        max: 100,
+        decimals: 2,
+        step: 0.1,
+        postfix: '%',
+        initval: 0,
+        boostat: 5,
+        maxboostedstep: 10
+      });
+
+      $('#touchSpin3').TouchSpin({
+        min: 0,
+        max: 100,
+        initval: 0,
+        boostat: 5,
+        maxboostedstep: 10,
+        verticalbuttons: true,
+      });
+
+      $('#clockPicker1').clockpicker({
+        donetext: 'Done'
+      });
+
+      $('#clockPicker2').clockpicker({
+        autoclose: true
+      });
+
+      let input = $('#clockPicker3').clockpicker({
+        autoclose: true,
+        'default': 'now',
+        placement: 'top',
+        align: 'left',
+      });
+
+      $('#check-minutes').click(function(e){        
+        e.stopPropagation();
+        input.clockpicker('show').clockpicker('toggleView', 'minutes');
+      });
+
+    });
+  </script>
+
+@endsection
+

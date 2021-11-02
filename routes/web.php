@@ -18,6 +18,8 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
 
 Route::get('/accidentes', [AccidenteController::class , "show"] );
 /* Route::get('/accidente/delete/{id}',[ProductController::class, 'delete'])->name('accidente.delete'); */
@@ -43,7 +42,12 @@ Route::get('/accidente/infoAccidente/{id?}', [AccidenteController::class, 'find'
 Route::put('/accidente/{id}',[AccidenteController::class, 'update'])->name('accidente.updateAccidente');
 
 
-Auth::routes();
+// Auth::routes();
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -68,7 +72,7 @@ Route::post('/mecanismo/saveMecanismo', [MecanismoController::class, 'save'])->n
 
 Route::get('/usuarios', [UsuarioController::class , "show"] );
 //  Route::get('/usuarios',[UsuarioController::class, 'delete'])->name('usuario.delete'); 
-Route::post('/usuario/store', [UsuarioController::class, "store"])->name('usuario.store');
+Route::post('/usuario/store', [RegisterController::class, "__construct"])->name('usuario.store');
 Route::get('/usuario/createUsuario', [UsuarioController::class, 'create'])->name('usuario.createUsuario');
 Route::get('/usuario/editUsuario/{id?}', [UsuarioController::class, 'edit'])->name('usuario.editUsuario');
 Route::get('/usuario/infoUsuario/{id?}', [UsuarioController::class, 'find'])->name('usuario.findUsuario');
@@ -103,3 +107,7 @@ Route::post('/departamento/saveDepartamento', [DepartamentoController::class, 's
 Route::post('/Dashboard', [DashboardController::class , "show"])->name('Dashboard');
 // grafico
 Route::get( '/accidente/graficoUsuario' , [AccidenteController::class , "index"]); 
+
+  Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+ 
+  Auth::routes();

@@ -26,14 +26,15 @@ class UsuarioController extends Controller
     }
 
     function show(){
-           $usuarioList = Usuario::orderBy('id','desc')->get();
+           $usuarioList = User::orderBy('id','desc')->get();
+           
          return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
-        // $usuarios = Usuario::findOrFail(1);
+        // $usuarios = User::findOrFail(1);
         // return $usuarios->municipios->denominacionMunicipio;
     }
 
     function create(){
-        $usuarios = new Usuario();
+        $usuarios = new User();
         $cargo = Cargo::orderBy('nombreCargo')->get();
         $afp = AFP::orderBy('denominacionAfp')->get();
         $arp = arp::orderBy('denominacionArp')->get();
@@ -53,7 +54,7 @@ class UsuarioController extends Controller
             'numeroDocumento' => 'required|unique:usuarios|numeric',
             'correo' => 'required|max:50',
             'telefono' => 'required|numeric',
-            'fechaNacimiento' => 'required|date',
+            'fechaNacimiento' => 'required|max:50|after:tomorrow',
             'sexo' => 'required|max:50',
             'sangre' => 'required|max:50',
             'direccion' => 'required|max:50',
@@ -71,7 +72,7 @@ class UsuarioController extends Controller
             'eps_id' => 'required|max:50',
             'tipoDocumento_id' => 'required|max:50'
         ]);
-        $usuario = new Usuario();
+        $usuario = new User();
         $usuario->nombre = $request->nombre;
         $usuario->apellido = $request->apellido;
         $usuario->numeroDocumento = $request->numeroDocumento;
@@ -103,7 +104,7 @@ class UsuarioController extends Controller
             
         
         $usuario->save();
-        $message = 'Se ha creado una nuevo Usuario';
+        $message = 'Se ha creado una nuevo User';
         
         return redirect('/usuarios')->with('messa' , $message);     
     }
@@ -134,7 +135,7 @@ class UsuarioController extends Controller
             'tipoDocumento_id' => 'required|max:50'
         ]);
 
-        $usuario = new Usuario();
+        $usuario = new User();
         $usuario->nombre = $request->nombre;
         $usuario->apellido = $request->apellido;
         $usuario->numeroDocumento = $request->numeroDocumento;
@@ -159,7 +160,7 @@ class UsuarioController extends Controller
         $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
         $usuario->save();
         $url = Storage::url($imagenes);
-        $message = 'Se ha creado una nuevo Usuario';
+        $message = 'Se ha creado una nuevo User';
         
         if (intval($request->id )>0){
             $arp = arp::findOrFail($request->id );
@@ -171,7 +172,7 @@ class UsuarioController extends Controller
 }
 
     function edit($id){
-        $usuarios = new Usuario();
+        $usuarios = new User();
         $cargo = Cargo::orderBy('nombreCargo')->get();
         $afp = AFP::orderBy('denominacionAfp')->get();
         $arp = arp::orderBy('denominacionArp')->get();
@@ -179,11 +180,11 @@ class UsuarioController extends Controller
         $rol = rol::orderBy('nombreRol')->get();
         $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
         $municipio = Municipio::orderBy('denominacionMunicipio')->get();
-        $usuarios= Usuario::find($id);
+        $usuarios= User::find($id);
         return view('usuario/editUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
     }
     function form ($id = null){
-        $usuarios = new Usuario();
+        $usuarios = new User();
         $cargo = Cargo::orderBy('nombreCargo')->get();
         $afp = AFP::orderBy('denominacionAfp')->get();
         $arp = arp::orderBy('denominacionArp')->get();
@@ -192,12 +193,12 @@ class UsuarioController extends Controller
         $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
         $municipio = Municipio::orderBy('denominacionMunicipio')->get();
         if ($id != null ) {
-            $usuarios = Usuario::findOrFail($id);
+            $usuarios = User::findOrFail($id);
         }
         return view('usuario/formUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
     }
     function find($id){
-        $usuarioFind = Usuario::find($id);
+        $usuarioFind = User::find($id);
         return view('usuario/infoUsuario', ['infoUsuario'=>$usuarioFind]);
             }
             function update(Request $request, $id){
@@ -225,7 +226,7 @@ class UsuarioController extends Controller
                     'eps_id' => 'required|max:50',
                     'tipoDocumento_id' => 'required|max:50'
                 ]);
-                $usuarios = Usuario::find($id);
+                $usuarios = User::find($id);
                 $requestUsuario = $request->only('nombre','apellido','numeroDocumento','correo','sexo','sangre','direccion','jornada','empresa','fechaIngreso','vinculacion','estado','imagen','municipio_id','cargo_id','rol_id','afp_id','arp_id','eps_id','tipoDocumento_id');
                 $usuarios->update($requestUsuario);
                     return redirect('/accidentes');

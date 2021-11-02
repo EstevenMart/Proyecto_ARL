@@ -42,11 +42,11 @@ Route::get('/accidente/infoAccidente/{id?}', [AccidenteController::class, 'find'
 Route::put('/accidente/{id}',[AccidenteController::class, 'update'])->name('accidente.updateAccidente');
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -108,3 +108,6 @@ Route::post('/Dashboard', [DashboardController::class , "show"])->name('Dashboar
 // grafico
 Route::get( '/accidente/graficoUsuario' , [AccidenteController::class , "index"]); 
 
+  Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+ 
+  Auth::routes();

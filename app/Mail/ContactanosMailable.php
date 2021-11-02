@@ -13,7 +13,7 @@ class ContactanosMailable extends Mailable
 
     public $subject  = "Cambio de contraseña";
    
-    public $contacto;
+    public $contacto = "Esta es la información de contacto";
     /**
      * Create a new message instance.
      *

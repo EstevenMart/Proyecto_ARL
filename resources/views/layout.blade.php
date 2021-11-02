@@ -219,7 +219,7 @@
               </div>
               <ul class="sidebar-menu">
                   <li class="menu-header">Inicio</li>
-                  <li><a class="nav-link active" href="/"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
+                  <li><a class="nav-link active" href="{{ route('home') }}"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
                   <li class="menu-header">Módulo</li>
                   <li class="nav-item dropdown">
         

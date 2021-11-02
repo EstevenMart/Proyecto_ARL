@@ -210,7 +210,7 @@
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Inicio</li>
-              <li><a class="nav-link active" href="/"><i class="far fa-square"></i> <span>Inicio</span></a></li>
+              <li><a class="nav-link active" href="home"><i class="far fa-square"></i> <span>Inicio</span></a></li>
               <li class="menu-header">Modulos</li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Accidente</span></a>

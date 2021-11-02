@@ -88,10 +88,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+       
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make(Str::random(64)),
+            $password='password' => Hash::make(Str::random(64)),
             'apellido' => $data['apellido'],
             'numeroDocumento' => $data['numeroDocumento'],
             'telefono' => $data['telefono'],
@@ -111,9 +112,12 @@ class RegisterController extends Controller
             'arp_id' => $data['arp_id'],
             'eps_id' => $data['eps_id'],
             'tipoDocumento_id' => $data['tipoDocumento_id']
+            
         ]);
-        $correo =  new ContactanosMailable($data);
-        Mail::to('ypulido2004@gmail.com')->send($correo);
+         $correo =  new ContactanosMailable($password);
+        Mail::to($data['email'])->send($correo);
+  
+        
     }
    
 }

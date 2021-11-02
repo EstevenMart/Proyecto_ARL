@@ -7,10 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>holaaaaaaaaaaa</h1>
-    <p>primer correo</p>
-    <p><strong>nombre</strong>{{$contacto['name']}}</p>
-    <p><strong>correo</strong>{{$contacto['emails']}}</p>
-    <p><strong>password</strong>{{$contacto['password']}}</p>
+    <h1>Se te a creado un usuario en Arbeid</h1>
+    <p>contraseña: {{$contacto}}</p>
+
 </body>
 </html>

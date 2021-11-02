@@ -4,15 +4,14 @@
 
 @section('CSS')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
 @endsection
 
 @section('Contenido')
 <form action="{{ route('register') }}" method="POST" >
     @csrf
-   
+
     <div class="row">
-        <input type="hidden" name="id" value="{{ $usuario->id }}" >
         <div class="col-12">
             <div class="card">
                 <div class="row">
@@ -29,11 +28,11 @@
                                     @enderror
                                 </div>
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="section-title mt-0">Apellidos</div>
@@ -62,18 +61,18 @@
                                         @endforeach
                                         </select>
                                   </div>
-                                  
+
                                @error('tipoDocumento_id')
                                 <p class="text-danger">
                                     {{ $message }}
                                 </p>
                             @enderror
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="section-title mt-0">Numero de Documento</div>
@@ -105,7 +104,7 @@
                                         <option value="O+" @if (old('sangre') == "O+") {{ 'selected' }} @endif>O+</option>
                                         <option value="O-" @if (old('sangre') == "O-") {{ 'selected' }} @endif>O-</option>
                                     </select>
-                                    
+
                                   </div>
                                 @error('sangre')
                                 <div class="text-danger">
@@ -113,11 +112,11 @@
                                 </div>
                             @enderror
                             </div>
-    
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="section-title mt-0">Telefono</div>
@@ -153,7 +152,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                <div class="section-title mt-0">Correo</div>
@@ -192,7 +191,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="section-title mt-0">Sexo</div>
@@ -231,11 +230,11 @@
                                 </div>
                                     @enderror
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                <div class="section-title mt-0">Rol</div>
@@ -255,7 +254,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -284,10 +283,10 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
-                            
-                                
+
+
 
                                 <div class="form-group" id="simple-date3">
                                     <div class="section-title mt-0">Fecha de Ingreso a la Empresa</div>
@@ -303,7 +302,7 @@
                                       </div>
                                           @enderror
                                   </div>
-                          
+
                         </div>
                     </div>
                 </div>
@@ -337,7 +336,7 @@
                         </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
@@ -362,12 +361,12 @@
                     </div>
                 </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <div class="section-title mt-0">Administradora de Fondo de Pensiones (AFP)</div> 
+                                <div class="section-title mt-0">Administradora de Fondo de Pensiones (AFP)</div>
                                 <div class="input-group">
                                     <select class=" custom-select @error('afp_id') is-invalid @enderror " name="afp_id" >
                                        <option value="" >Seleccione...</option>
@@ -384,11 +383,11 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                            </div>  
+                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="section-title mt-0">Administradora de Riesgos Profesionales (ARP)</div>
@@ -421,7 +420,7 @@
                                     <select class=" custom-select @error('eps_id') is-invalid @enderror " name="eps_id" >
                                        <option value="" >Seleccione...</option>
                                        @foreach ($eps as $eps)
-                                       <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}} {{ old('eps_id') == $eps->id ? 'selected' : '' }} >{{$eps->denominacionEps}}</option>        
+                                       <option value="{{$eps->id}}" {{$eps->id == $usuario->eps_id ? "selected" : ""}} {{ old('eps_id') == $eps->id ? 'selected' : '' }} >{{$eps->denominacionEps}}</option>
                                    @endforeach
                                         </select>
                                     <div class="input-group-append">
@@ -437,7 +436,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
+
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="section-title mt-0">Jornada</div>
@@ -467,8 +466,8 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                
-                                
+
+
                                 <div class="card-body">
                                     <div class="form-group">
                                       <div class="section-title mt-0">Imagen</div>
@@ -527,7 +526,7 @@
                                           </label>
                                         </div> --}}
                                         {{-- <div class="input-group">
-                                            <input type="file" name="imagen"  accept="image/*">   
+                                            <input type="file" name="imagen"  accept="image/*">
                                           </div> --}}
                                         @error('imagen')
                                         <div class="invalid-feedback">
@@ -535,21 +534,21 @@
                                         </div>
                                     @enderror
                                     </div>
-                                      
+
                                     </div>
                                   </div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        
-                       
+
+
                     </div>
                 </div>
-                
-                
-                                       
+
+
+
                 <div class="mb-3 row">
                     <div class="col-sm-9"></div>
                     <div class="col-sm-3">
@@ -559,18 +558,18 @@
                         </button>
                     </div>
                 </div>
-              
-                
+
+
             </form>
         </div>
     </div>
 </div>
-    
+
 @endsection
 @section('JS')
  {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     $(document).ready(function () {
@@ -582,7 +581,7 @@
       $('.select2-single-placeholder').select2({
         placeholder: "Select a Province",
         allowClear: true
-      });      
+      });
 
       // Select2 Multiple
       $('.select2-multiple').select2();
@@ -592,39 +591,39 @@
         format: 'dd/mm/yyyy',
         todayBtn: 'linked',
         todayHighlight: true,
-        autoclose: true,        
+        autoclose: true,
       });
 
       $('#simple-date2 .input-group.date').datepicker({
         startView: 1,
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true,
         todayBtn: 'linked',
       });
 
       $('#simple-date3 .input-group.date').datepicker({
         startView: 2,
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true,
         todayBtn: 'linked',
       });
 
-      $('#simple-date4 .input-daterange').datepicker({        
-        format: 'dd/mm/yyyy',        
-        autoclose: true,     
-        todayHighlight: true,   
+      $('#simple-date4 .input-daterange').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true,
         todayBtn: 'linked',
-      });    
+      });
 
       // TouchSpin
 
       $('#touchSpin1').TouchSpin({
         min: 0,
-        max: 100,                
+        max: 100,
         boostat: 5,
-        maxboostedstep: 10,        
+        maxboostedstep: 10,
         initval: 0
       });
 
@@ -663,7 +662,7 @@
         align: 'left',
       });
 
-      $('#check-minutes').click(function(e){        
+      $('#check-minutes').click(function(e){
         e.stopPropagation();
         input.clockpicker('show').clockpicker('toggleView', 'minutes');
       });

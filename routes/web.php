@@ -19,7 +19,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\emailController;
+use App\Http\Controllers\ChartJSController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ Route::post('/departamento/saveDepartamento', [DepartamentoController::class, 's
 //dashboar
 Route::post('/Dashboard', [DashboardController::class , "show"])->name('Dashboard');
 // grafico
-Route::get( '/accidente/graficoUsuario' , [AccidenteController::class , "index"]); 
+Route::get('chart-js', [ChartJSController::class, 'index']);
 
   Route::post('logout', 'Auth\LoginController@logout')->name('logout');
  

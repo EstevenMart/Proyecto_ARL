@@ -87,12 +87,15 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
-       
+    { 
+        $password= Hash::make($data['numeroDocumento']);
+        $password1= $data['numeroDocumento'];
+        $correo =  new ContactanosMailable($password1);
+        Mail::to($data['email'])->send($correo);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            $password='password' => Hash::make(Str::random(64)),
+           'password' => $password,
             'apellido' => $data['apellido'],
             'numeroDocumento' => $data['numeroDocumento'],
             'telefono' => $data['telefono'],
@@ -114,8 +117,7 @@ class RegisterController extends Controller
             'tipoDocumento_id' => $data['tipoDocumento_id']
             
         ]);
-         $correo =  new ContactanosMailable($password);
-        Mail::to($data['email'])->send($correo);
+         
   
         
     }

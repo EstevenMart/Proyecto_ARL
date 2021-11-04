@@ -182,6 +182,7 @@ class UsuarioController extends Controller
         $municipio = Municipio::orderBy('denominacionMunicipio')->get();
         $usuarios= User::find($id);
         return view('usuario/editUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
+        return redirect('/usuarios');
     }
     function form ($id = null){
         $usuarios = new User();
@@ -204,11 +205,11 @@ class UsuarioController extends Controller
             function update(Request $request, $id){
    
                 $request->validate([
-                    'nombre' => 'required|max:50' ,
+                    'name' => 'required|max:50' ,
                     'apellido' => 'required|max:50',
                     'numeroDocumento' => 'required|numeric|unique:usuarios',
-                    'correo' => 'required|max:50',
-                    'correo' => 'required|numeric',
+                    'email' => 'required|max:50',
+                    'email' => 'required|numeric',
                     'fechaNacimiento' => 'required|date',
                     'sexo' => 'required|max:50',
                     'sangre' => 'required|max:50',
@@ -227,7 +228,7 @@ class UsuarioController extends Controller
                     'tipoDocumento_id' => 'required|max:50'
                 ]);
                 $usuarios = User::find($id);
-                $requestUsuario = $request->only('nombre','apellido','numeroDocumento','correo','sexo','sangre','direccion','jornada','empresa','fechaIngreso','vinculacion','estado','imagen','municipio_id','cargo_id','rol_id','afp_id','arp_id','eps_id','tipoDocumento_id');
+                $requestUsuario = $request->only('name','apellido','numeroDocumento','email','sexo','sangre','direccion','jornada','empresa','fechaIngreso','vinculacion','estado','imagen','municipio_id','cargo_id','rol_id','afp_id','arp_id','eps_id','tipoDocumento_id');
                 $usuarios->update($requestUsuario);
                     return redirect('/accidentes');
             

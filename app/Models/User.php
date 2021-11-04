@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Notifications\CambiarPassword;
-class User extends Authenticatable //implements MustVerifyEmail
+class User extends Authenticatable  //implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -65,15 +65,9 @@ class User extends Authenticatable //implements MustVerifyEmail
     {
         $this->notify(new CambiarPassword($token));
     }
+// gfsxgxd
 
 
-}
-class Usuario extends Model
-{
-    protected $fillable = ["imagen"];
-    use HasFactory;
-
-    protected $table ="usuarios";
 
     function municipios(){
         return $this->belongsTo(Municipio::class, 'municipio_id');
@@ -100,6 +94,11 @@ class Usuario extends Model
     function accidente(){
         return $this->belongsToMany(User::class,"acci_user","usuario_id ","accidente_id");
     }
+
+}
+class Usuario extends Model 
+{
+    
 
 }
 

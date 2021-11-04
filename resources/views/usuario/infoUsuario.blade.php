@@ -17,58 +17,31 @@
 
   <div class="row">
     <div class="col-xl-4 order-xl-2">
-      <div class="card card-profile">
-        <img src="{{asset($infoUsuario->imagen) }}" alt="Image placeholder" class="card-img-top">
-        <div class="row justify-content-center">
-          <div class="col-lg-3 order-lg-2">
-            <div class="card-profile-image">
-              <a href="#">
-                <img src="{{asset($infoUsuario->imagen) }}" class="rounded-circle" width="134px" height="134px">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-          <div class="d-flex justify-content-between">
-            <a href="#" class="btn btn-sm btn-info  mr-4 ">Connect</a>
-            <a href="#" class="btn btn-sm btn-default float-right">Message</a>
-          </div>
-        </div>
-        <div class="card-body pt-0">
-          <div class="row">
-            <div class="col">
-              <div class="card-profile-stats d-flex justify-content-center">
-                <div>
-                  <span class="heading">22</span>
-                  <span class="description">Friends</span>
+      <div class="padding">
+        <div class="col-md-11">
+            <!-- Column -->
+            <div class="card"> <img class="card-img-top" src="{{asset($infoUsuario->imagen) }}" alt="Card image cap">
+                <div class="card-body little-profile text-center">
+                    <div class="pro-img"><img src="{{asset($infoUsuario->imagen) }}" alt="user"></div>
+                    <h3 class="m-b-0">{{$infoUsuario->name}} {{$infoUsuario->apellido}} <br> <small>{{$infoUsuario->numeroDocumento}}</small></h3>
+                    <br>
+                    <div class="row">
+                      <div class="col-4 text-right">
+                        <td><div class="badge badge-info ">{{$infoUsuario->cargo->nombreCargo}}</div>
+                             
+                        </td>
+                      </div>
+                      <div class="col-8 text-right">
+                        <div class="badge badge-dark ">{{$infoUsuario->rol->nombreRol}}</div>
+                      </div>
+                    </div>
+                  </br>
+                    
+                   
                 </div>
-                <div>
-                  <span class="heading">10</span>
-                  <span class="description">Photos</span>
-                </div>
-                <div>
-                  <span class="heading">89</span>
-                  <span class="description">Comments</span>
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="text-center">
-            <h5 class="h3">
-              Jessica Jones<span class="font-weight-light">, 27</span>
-            </h5>
-            <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i>Bucharest, Romania
-            </div>
-            <div class="h5 mt-4">
-              <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-            </div>
-            <div>
-              <i class="ni education_hat mr-2"></i>University of Computer Science
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
     </div>
     <div class="col-xl-8 order-xl-1">
       <div class="card">
@@ -95,7 +68,7 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Nombres</label>
-                    <input type="text" class="form-control" value="{{$infoUsuario->nombre}}" readonly>
+                    <input type="text" class="form-control" value="{{$infoUsuario->name}}" readonly>
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -115,7 +88,7 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Correo</label>
-                    <input type="text" class="form-control" value="{{$infoUsuario->correo}}" readonly>
+                    <input type="text" class="form-control" value="{{$infoUsuario->email}}" readonly>
                   </div>
                 </div>
               </div>
@@ -181,19 +154,13 @@
                       
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="form-group bmd-form-group"><label class="bmd-label-floating">Tipo vinculacion</label>
-                      <input type="text" class="form-control" value="{{$infoUsuario->vinculacion}}" readonly>
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group"><label class="bmd-label-floating">Sexo</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->sexo}}" readonly>
                 
                     </div>
                   </div>
-                  <div class="col-md-3">      <label class="bmd-label-floating">Sexo</label>
-                      <input type="text" class="form-control" value="{{$infoUsuario->sexo}}" readonly>
-                    
-                    <div class="form-group bmd-form-group">
-                     
-                    </div>
-                  </div>
+                 
                 </div>
                 <div class="row">
                   <div class="col-md-6">
@@ -218,6 +185,13 @@
                       <input type="text" class="form-control" value="{{$infoUsuario->eps->denominacionEps}}" readonly>
                     </div>
                   </div>
+                  <div class="col-md-6">      <label class="bmd-label-floating"> Tipo vinculacion</label>
+                    <input type="text" class="form-control" value="{{$infoUsuario->vinculacion}}" readonly>
+                  
+                  <div class="form-group bmd-form-group">
+                   
+                  </div>
+                </div>
                 </div>
 
               </div>
@@ -234,4 +208,63 @@
         <br>
       </div>
     </div>
+
+
+    <style>
+      .card-img-top {
+    height: 300px;
+    object-fit: cover;
+      object-position: center center;
+    
+}
+
+.card-no-border .card1 {
+    border-color: #d7dfe3;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+}
+
+.pro-img {
+    margin-top: -80px;
+    margin-bottom: 20px;
+}
+
+.little-profile .pro-img img {
+    width: 128px;
+    height: 128px;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 100%
+}
+
+html body .m-b-0 {
+    margin-bottom: 0px
+}
+
+h3 {
+    line-height: 30px;
+    font-size: 21px
+}
+
+
+html body .m-t-10 {
+    margin-top: 10px
+}
+
+
+
+.btn-rounded {
+    border-radius: 60px;
+    
+}
+
+
+
+.text-center {
+    text-align: center !important
+}
+
+    </style>
 @endsection

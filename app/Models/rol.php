@@ -12,7 +12,7 @@ class rol extends Model
     protected $table ="rols";
 
     function usuarios(){
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(User::class);
     }
 
 }

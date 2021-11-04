@@ -50,7 +50,7 @@
                                                     Hola,
                                                 </h1>
                                                 <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; box-sizing: border-box; color: #3d4852; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
-                                                    Recibió este correo electrónico porque esta registrado con esta cuenta, para continuar
+                                                    Recibió este correo electrónico porque fué registrado con esta cuenta a Arveid, para continuar
                                                 </p>
                                                 <table align="center" cellpadding="0" cellspacing="0" class="action" role="presentation" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; box-sizing: border-box; margin: 30px auto; padding: 0; text-align: center; width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%;" width="100%">
                                                     <tr>
@@ -74,7 +74,7 @@
                                                     </tr>
                                                 </table>
                                                 <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; box-sizing: border-box; color: #3d4852; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
-                                                    Si no solicitó un restablecimiento de contraseña, no es necesario realizar ninguna otra acción.
+                                                    Si no solicitó un registro o no quieres estar registrado, no es necesario realizar ninguna otra acción.
                                                 </p>
                                               
                                                 <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; box-sizing: border-box; color: #3d4852; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">

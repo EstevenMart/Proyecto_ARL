@@ -12,6 +12,6 @@ class arp extends Model
     protected $table ="arps";
 
     function usuario(){
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(User::class);
     }
 }

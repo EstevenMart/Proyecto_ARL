@@ -12,7 +12,7 @@ class eps extends Model
     protected $table ="eps";
 
     function usuario(){
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(User::class);
     }
 
 }

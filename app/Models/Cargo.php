@@ -12,7 +12,7 @@ class Cargo extends Model
     protected $table ="cargos";
 
     function usuario(){
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(User::class);
     }
 
 }

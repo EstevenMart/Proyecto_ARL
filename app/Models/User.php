@@ -61,10 +61,10 @@ class User extends Authenticatable  //implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new CambiarPassword($token));
-    }
+    // public function sendPasswordResetNotification($token)
+    // {
+    //     $this->notify(new CambiarPassword($token));
+    // }
 // gfsxgxd
 
 
@@ -94,11 +94,6 @@ class User extends Authenticatable  //implements MustVerifyEmail
     function accidente(){
         return $this->belongsToMany(User::class,"acci_user","usuario_id ","accidente_id");
     }
-
-}
-class Usuario extends Model 
-{
-    
 
 }
 

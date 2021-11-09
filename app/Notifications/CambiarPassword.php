@@ -54,7 +54,7 @@ class CambiarPassword extends ResetPasswordNotification
         return (new MailMessage)
             ->subject('Solicitud de Cambio de Contraseña')
             ->line('Estás recibiendo este email porque has solicitado cambiar la contraseña.')
-            ->action('Cambiar Contraseña', url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
+            ->action('Cambiar Contraseña', url(config('http://127.0.0.1:8000/').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
             ->line('')
             ->line('Este enlace caducará en '.config('auth.passwords.users.expire').' minutos.')
             ->line('Si no has solicitado el cambio de contraseña, no tienes que hacer nada.');

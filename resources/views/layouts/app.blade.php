@@ -59,7 +59,7 @@
                  iniciar sesion
               </a>
           @endif
-          
+
           </li>
          </ul>
      </div>
@@ -80,7 +80,7 @@
 
                                   Comienza gratis <p>
 
-                                <a href="/register" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Iniciar sesión</a>
+                                <a href="{{ route('login') }}" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Iniciar sesión</a>
 
                            </div>
                      </div>
@@ -220,8 +220,8 @@
 <!-- beneficios  -->
 <div id="beneficios" class="our-services section">
   <div class="container">
-   
-      
+
+
         <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
           <h5>Arbeid te da los siguientes</h5>
          <center><h1><strong>Beneficios para tu empresa</strong> </h1></center>
@@ -375,7 +375,7 @@
                <div class="row">
 
                     <div class="col-lg-6 mx-auto col-md-7 col-12 py-5 mt-5 text-center" data-aos="fade-up">
-                      
+
                       <center><h1><strong>Contáctanos</strong> </h1></center>
                       <h1 class="mb-4">Hola quieres saber más sobre nuestro <strong>sistema de información</strong> contáctanos</h1>
 
@@ -418,7 +418,7 @@
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
      <!-- <script src="js/aos.js"></script> -->
-     
+
      <!-- <script src="js/owl.carousel.min.js"></script> -->
      <!-- <script src="js/smoothscroll.js"></script> -->
      <!-- <script src="js/custom.js"></script> -->

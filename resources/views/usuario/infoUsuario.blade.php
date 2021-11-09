@@ -39,6 +39,27 @@
                     
                    
                 </div>
+<<<<<<< HEAD
+=======
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h5 class="h3">
+                <input type="text" class="ni business_briefcase-24 mr-2" value="{{$infoUsuario->nombre}}" readonly>
+                <input type="text" class="ni business_briefcase-24 mr-2" value="{{$infoUsuario->apellido}}" readonly>
+
+                <span class="font-weight-light">, 27</span>
+            </h5>
+            <div class="h5 font-weight-300">
+              <i class="ni location_pin mr-2"></i>Bucharest, Romania
+            </div>
+            <div class="h5 mt-4">
+              <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+            </div>
+            <div>
+              <i class="ni education_hat mr-2"></i>University of Computer Science
+>>>>>>> 66177583b1d3c63d646c6f764eed88398ebe49ed
             </div>
         </div>
     </div>
@@ -74,7 +95,7 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Apellidos</label>
-                    <input type="email" class="form-control" value="{{$infoUsuario->apellido}}" readonly>
+                    <input type="text" class="form-control" value="{{$infoUsuario->apellido}}" readonly>
                   </div>
                 </div>
               </div>
@@ -82,7 +103,7 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Telefono</label>
-                    <input type="text" class="form-control" value="{{$infoUsuario->telefono}}" readonly>
+                    <input type="number" class="form-control" value="{{$infoUsuario->telefono}}" readonly>
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -107,7 +128,7 @@
                 <div class="col-md-6">
                   <div class="form-group bmd-form-group">
                     <label class="bmd-label-floating">Numero de Documento</label>
-                    <input type="text" class="form-control" value="{{$infoUsuario->numeroDocumento}}" readonly>
+                    <input type="number" class="form-control" value="{{$infoUsuario->numeroDocumento}}" readonly>
                   </div>
                 </div>
               </div>
@@ -118,7 +139,7 @@
                     <input type="text" class="form-control" value="{{$infoUsuario->sangre}}" readonly>
                   </div>
                 </div>
-               
+
                 <div class="col-md-3">
                   <div class="form-group bmd-form-group">
                     <label class="bmd-label-floating">Fecha de Nacimiento</label>
@@ -151,13 +172,20 @@
                     <div class="form-group bmd-form-group">
                       <label class="bmd-label-floating">Fecha de Ingreso a la Empresa</label>
                     <input type="text" class="form-control" value="{{$infoUsuario->fechaIngreso}}" readonly>
-                      
+
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group bmd-form-group"><label class="bmd-label-floating">Sexo</label>
+                  <div class="col-md-3">
+                    <div class="form-group bmd-form-group"><label class="bmd-label-floating">Tipo vinculacion</label>
+                      <input type="text" class="form-control" value="{{$infoUsuario->vinculacion}}" readonly>
+
+                    </div>
+                  </div>
+                  <div class="col-md-3">      <label class="bmd-label-floating">Sexo</label>
                       <input type="text" class="form-control" value="{{$infoUsuario->sexo}}" readonly>
-                
+
+                    <div class="form-group bmd-form-group">
+
                     </div>
                   </div>
                  
@@ -175,10 +203,10 @@
                       <input type="text" class="form-control" value="{{$infoUsuario->arp->denominacionArp}}" readonly>
                     </div>
                   </div>
-                  
+
                 </div>
                 <div class="row">
-                  
+
                   <div class="col-md-6">
                     <div class="form-group bmd-form-group">
                       <label class="bmd-label-floating">EPS</label>
@@ -195,9 +223,9 @@
                 </div>
 
               </div>
-              
+
             </div>
-            
+
               </div>
             </div>
           </form>

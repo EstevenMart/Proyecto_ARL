@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 use App\Models\Accidente;
 use App\Models\Agente;
 use App\Models\Lesion;
@@ -22,7 +25,7 @@ class AccidenteController extends Controller
     }
 
     function show(){
-          $accidenteList = Accidente::orderBy('id','desc')->get();  
+          $accidenteList = Accidente::orderBy('id','desc')->get();
           $User = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
           $parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
         return view('accidente/listAccidente',['listAccidente'=>$accidenteList, 'user'=>$User,'partes_cuerpo'=>$parte_cuerpo,]);
@@ -33,20 +36,22 @@ class AccidenteController extends Controller
         $mecanismo = Mecanismo::orderBy('denominacionMecanismo')->get();
         $parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
         $lesion = Lesion::all()->pluck('denominacionTipoLesion', 'id');
-       
+
         $usuario = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
         $agente = Agente::orderBy('denominacionAgente')->get();
-        
+
+
+
         return view('accidente/createAccidente', ['accidente' => $accidente,'sitios'=>$sitio, 'mecanismos'=>$mecanismo, 'agentes'=>$agente, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion, 'usuario'=>$usuario ]);
     }
     function store(Request $request){
         $antesfecha = Carbon::now()->subDay(5);
-      $despuesfecha = Carbon::now()->addDay(5); 
+      $despuesfecha = Carbon::now()->addDay(5);
         $request->validate([
             'tipoaccidente' => 'required|max:50' ,
             'fechaHora' => 'required|max:50',
             'fechaHora' =>  ['required', 'max:50','after:'.$antesfecha,'date_format:d/m/Y','before:'.$despuesfecha],
-            
+
             'dia' => 'required|max:50',
             'jornada' => 'required|max:50',
             'laborHabitual' => 'required|max:50',
@@ -60,13 +65,13 @@ class AccidenteController extends Controller
             'agente_id' => 'required|max:50',
             'sitio_id' => 'required|max:50',
             'sitio_id' => 'required|min:1',
-            
-            
+
+
         ]);
-        
+
         $date = Carbon::now();
-     
-         
+
+
         $accidente = new Accidente();
         $accidente->tipoaccidente = $request->tipoaccidente;
         $accidente->fechaHora = $request->fechaHora;
@@ -90,6 +95,12 @@ class AccidenteController extends Controller
         $usuario = $request -> input("name", []);
         $accidente->usuarios()->sync($usuario);
         $message = 'Se ha creado una nueva accidente';
+
+        // alert()->success('Aviso','<p class="font-weight-light">Registro completo con exito</p>')
+        // ->toHtml()
+        // ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
+        // ->autoClose(9000);
+
         return redirect('/accidentes')->with('messa' , $message);
     }
 
@@ -128,7 +139,7 @@ return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind, 'partes
     }
 
 function update(Request $request, $id){
-   
+
     $request->validate([
         'tipoaccidente' => 'required|max:50' ,
         'fechaHora' => 'required|date',
@@ -154,7 +165,11 @@ function update(Request $request, $id){
         $accidente->lesions()->sync($lesion);
         $usuario = $request -> input("nombre", []);
         $accidente->usuarios()->sync($usuario);
-        return redirect('/accidentes');
+        // alert()->success('Aviso','<p class="font-weight-light">Actualizacion completada con exito</p>')
+        // ->toHtml()
+        // ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
+        // ->autoClose(9000);
+        return redirect()->route('accidente.index');
 
 
 }
@@ -166,8 +181,12 @@ public function index()
         $usersChart->dataset('Users by trimester', 'line', [10, 25, 13])
             ->color("rgb(255, 99, 132)")
             ->backgroundcolor("rgb(255, 99, 132)");
-    
+
     return view('/accidente/graficoUsuario', [ 'usersChart' => $usersChart ] );
+}
+
+public function grafic(){
+
 }
 
 }

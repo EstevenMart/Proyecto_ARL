@@ -209,7 +209,6 @@ class UsuarioController extends Controller
                     'apellido' => 'required|max:50',
                     'numeroDocumento' => 'required|numeric|unique:usuarios',
                     'email' => 'required|max:50',
-                    'email' => 'required|numeric',
                     'fechaNacimiento' => 'required|date',
                     'sexo' => 'required|max:50',
                     'sangre' => 'required|max:50',

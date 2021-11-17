@@ -28,7 +28,7 @@
                     <div class="row">
                       <div class="col-4 text-right">
                         <td><div class="badge badge-info ">{{$infoUsuario->cargo->nombreCargo}}</div>
-                             
+
                         </td>
                       </div>
                       <div class="col-8 text-right">
@@ -36,11 +36,9 @@
                       </div>
                     </div>
                   </br>
-                    
-                   
+
+
                 </div>
-<<<<<<< HEAD
-=======
               </div>
             </div>
           </div>
@@ -59,7 +57,6 @@
             </div>
             <div>
               <i class="ni education_hat mr-2"></i>University of Computer Science
->>>>>>> 66177583b1d3c63d646c6f764eed88398ebe49ed
             </div>
         </div>
     </div>
@@ -188,7 +185,7 @@
 
                     </div>
                   </div>
-                 
+
                 </div>
                 <div class="row">
                   <div class="col-md-6">
@@ -215,9 +212,9 @@
                   </div>
                   <div class="col-md-6">      <label class="bmd-label-floating"> Tipo vinculacion</label>
                     <input type="text" class="form-control" value="{{$infoUsuario->vinculacion}}" readonly>
-                  
+
                   <div class="form-group bmd-form-group">
-                   
+
                   </div>
                 </div>
                 </div>
@@ -243,7 +240,7 @@
     height: 300px;
     object-fit: cover;
       object-position: center center;
-    
+
 }
 
 .card-no-border .card1 {
@@ -285,7 +282,7 @@ html body .m-t-10 {
 
 .btn-rounded {
     border-radius: 60px;
-    
+
 }
 
 

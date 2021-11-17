@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table -> string('jornada',50);
             $table -> string('fechaIngreso',50);
             $table -> string('vinculacion',50);
-            $table -> string('estado',50);
+            $table -> string('estado',50)->default('Activo');
             $table->unsignedBigInteger('municipio_id');
             $table->unsignedBigInteger('tipoDocumento_id');
             $table->unsignedBigInteger('cargo_id');
@@ -51,7 +51,7 @@ class CreateUsersTable extends Migration
             $table->foreign('arp_id')->references('id')->on('arps');
             $table->foreign('eps_id')->references('id')->on('eps');
 
-           
+
         });
     }
 

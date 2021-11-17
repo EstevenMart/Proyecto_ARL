@@ -27,7 +27,7 @@ class UsuarioController extends Controller
 
     function show(){
            $usuarioList = User::orderBy('id','desc')->get();
-           
+
          return view('usuario/listUsuario',['listUsuario'=>$usuarioList]);
         // $usuarios = User::findOrFail(1);
         // return $usuarios->municipios->denominacionMunicipio;
@@ -42,7 +42,7 @@ class UsuarioController extends Controller
         $rol = rol::orderBy('nombreRol')->get();
         $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
         $municipio = Municipio::orderBy('denominacionMunicipio')->get();
-        
+
         return view('usuario/createUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
     }
 
@@ -61,7 +61,7 @@ class UsuarioController extends Controller
             'jornada' => 'required|max:50',
             'fechaIngreso' => 'required|date',
             'vinculacion' => 'required|max:50',
-            'estado' => 'required|max:50',
+
             'imagen' => 'required|max:50',
             // 'imagen' => 'required|image|max:2048',
             'municipio_id' => 'required|max:50',
@@ -85,8 +85,7 @@ class UsuarioController extends Controller
         $usuario->jornada = $request->jornada;
         $usuario->fechaIngreso = $request->fechaIngreso;
         $usuario->vinculacion = $request->vinculacion;
-        $usuario->estado  = $request->estado;
-        
+
         // $imagenes=$usuario->imagen  = $request->imagen->store("public/imagenes");
         // $url = Storage::url($imagenes);
         // $usuario->imagen = $request->imagen=$url;
@@ -98,15 +97,15 @@ class UsuarioController extends Controller
         $usuario->arp_id  = $request->arp_id ;
         $usuario->eps_id  = $request->eps_id ;
         $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
-        
+
         // $url = Storage::url($imagenes);
-        
-            
-        
+
+
+
         $usuario->save();
         $message = 'Se ha creado una nuevo User';
-        
-        return redirect('/usuarios')->with('messa' , $message);     
+
+        return redirect('/usuarios')->with('messa' , $message);
     }
     function save(Request $request ){
 
@@ -124,7 +123,6 @@ class UsuarioController extends Controller
             'jornada' => 'required|max:50',
             'fechaIngreso' => 'required|date',
             'vinculacion' => 'required|max:50',
-            'estado' => 'required|max:50',
             'imagen' => 'required|image|max:2048',
             'municipio_id' => 'required|max:50',
             'cargo_id' => 'required|max:50',
@@ -148,7 +146,6 @@ class UsuarioController extends Controller
         $usuario->jornada = $request->jornada;
         $usuario->fechaIngreso = $request->fechaIngreso;
         $usuario->vinculacion = $request->vinculacion;
-        $usuario->estado  = $request->estado;
         $imagenes  = $request->imagen->store("public/imagenes");
         $usuario->imagen  = $request->imagen;
         $usuario->municipio_id  = $request->municipio_id;
@@ -161,13 +158,13 @@ class UsuarioController extends Controller
         $usuario->save();
         $url = Storage::url($imagenes);
         $message = 'Se ha creado una nuevo User';
-        
+
         if (intval($request->id )>0){
             $arp = arp::findOrFail($request->id );
             $message = 'Se ha Editado un nuevo arp';
         }
 
-        return redirect('/usuarios')->with('messa' , $message);     
+        return redirect('/usuarios')->with('messa' , $message);
 
 }
 
@@ -203,7 +200,7 @@ class UsuarioController extends Controller
         return view('usuario/infoUsuario', ['infoUsuario'=>$usuarioFind]);
             }
             function update(Request $request, $id){
-   
+
                 $request->validate([
                     'name' => 'required|max:50' ,
                     'apellido' => 'required|max:50',
@@ -216,7 +213,6 @@ class UsuarioController extends Controller
                     'jornada' => 'required|max:50',
                     'fechaIngreso' => 'required|date',
                     'vinculacion' => 'required|max:50',
-                    'estado' => 'required|max:50',
                     'imagen' => 'required|image|max:2048',
                     'municipio_id' => 'required|max:50',
                     'cargo_id' => 'required|max:50',
@@ -227,10 +223,10 @@ class UsuarioController extends Controller
                     'tipoDocumento_id' => 'required|max:50'
                 ]);
                 $usuarios = User::find($id);
-                $requestUsuario = $request->only('name','apellido','numeroDocumento','email','sexo','sangre','direccion','jornada','empresa','fechaIngreso','vinculacion','estado','imagen','municipio_id','cargo_id','rol_id','afp_id','arp_id','eps_id','tipoDocumento_id');
+                $requestUsuario = $request->only('name','apellido','numeroDocumento','email','sexo','sangre','direccion','jornada','empresa','fechaIngreso','vinculacion','imagen','municipio_id','cargo_id','rol_id','afp_id','arp_id','eps_id','tipoDocumento_id');
                 $usuarios->update($requestUsuario);
                     return redirect('/accidentes');
-            
+
             }
             // como eliminar una imagen
     //    function delete($usuario){
@@ -238,7 +234,7 @@ class UsuarioController extends Controller
     //          $url = str_replace('storage','public', $usuario->imagen);
     //          Storage::delete([$url]);
     //          $usuario->delete();
-    //         }     
+    //         }
 
 
 }

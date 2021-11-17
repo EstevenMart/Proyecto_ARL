@@ -96,10 +96,10 @@ class AccidenteController extends Controller
         $accidente->usuarios()->sync($usuario);
         $message = 'Se ha creado una nueva accidente';
 
-        // alert()->success('Aviso','<p class="font-weight-light">Registro completo con exito</p>')
-        // ->toHtml()
-        // ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
-        // ->autoClose(9000);
+        alert()->success('Aviso','<p class="font-weight-light">Registro completo con exito</p>')
+        ->toHtml()
+        ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
+        ->autoClose(9000);
 
         return redirect('/accidentes')->with('messa' , $message);
     }
@@ -142,7 +142,7 @@ function update(Request $request, $id){
 
     $request->validate([
         'tipoaccidente' => 'required|max:50' ,
-        'fechaHora' => 'required|date',
+        'fechaHora' => 'required|max:50',
         'dia' => 'required|max:50',
         'jornada' => 'required|max:50',
         'laborHabitual' => 'required|max:50',
@@ -165,10 +165,10 @@ function update(Request $request, $id){
         $accidente->lesions()->sync($lesion);
         $usuario = $request -> input("nombre", []);
         $accidente->usuarios()->sync($usuario);
-        // alert()->success('Aviso','<p class="font-weight-light">Actualizacion completada con exito</p>')
-        // ->toHtml()
-        // ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
-        // ->autoClose(9000);
+        alert()->success('Aviso','<p class="font-weight-light">Actualizacion completada con exito</p>')
+        ->toHtml()
+        ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
+        ->autoClose(9000);
         return redirect()->route('accidente.index');
 
 

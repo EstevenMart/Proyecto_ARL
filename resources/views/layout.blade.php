@@ -227,8 +227,8 @@
                   <li class="menu-header">Módulo</li>
                   <li class="nav-item dropdown">
 
-                    <li><a class="nav-link" href="/accidentes"><i class="fas fa-columns"></i> <span>Accientes</span></a></li>
-                    <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Análisis de Acciente</span></a></li>
+                    <li><a class="nav-link" href="/accidentes"><i class="fas fa-columns"></i> <span>Accidentes</span></a></li>
+                    <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Análisis de Accidente</span></a></li>
                     <li><a class="nav-link" href="#"><i class="far fa-file-alt"></i> <span>Planes de acción</span></a></li>
 
 

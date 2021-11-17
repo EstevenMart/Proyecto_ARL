@@ -116,20 +116,6 @@
                 @enderror
       </div>
       <div class="login-box">
-        <div class="user-box">
-            <select name="estado" value="{{ @old('estado') ? @old('estado') : $usuario->estado}}">
-                <option value="{{ @old('estado') ? @old('estado') : $usuario->estado}}">{{ @old('estado') ? @old('estado') : $usuario->estado}}</option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
-            </select>
-            <label class="label">Estado</label>
-          </div>
-          @error('estado')
-          <p class="text-danger">
-              {{ $message }}
-          </p>
-      @enderror
-
           <div class="user-box1">
             <select name="sexo" value="{{ @old('sexo') ? @old('sexo') : $usuario->sexo}}">
                 <option value="{{ @old('sexo') ? @old('sexo') : $usuario->sexo}}">{{ @old('sexo') ? @old('sexo') : $usuario->sexo}}</option>

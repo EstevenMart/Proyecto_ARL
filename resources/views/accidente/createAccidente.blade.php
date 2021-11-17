@@ -243,8 +243,9 @@
                                         {{$sitio->denominacionSitio}}</option>
                                         @endforeach
                                         </select>
+                                        
                                     <div class="input-group-append">
-                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                    <a href="   {{route('sitio.formSitio')}} " class="btn btn-primary">Otro Sitio</a>
                                     </div>
                                   </div>
                                   
@@ -296,7 +297,7 @@
                                         @endforeach
                                         </select>
                                     <div class="input-group-append">
-                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                        <a href=" {{route('mecanismo.formMecanismo')}} " class="btn btn-primary">Otro Mecanismo</a>
                                     </div>
                                   </div>
                                 @error('mecanismo_id')

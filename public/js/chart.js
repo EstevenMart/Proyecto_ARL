@@ -30,10 +30,10 @@ $(function() {
     }]
   };
   var multiLineData = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [{
-        label: 'Dataset 1',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Almacenes o depositos',
+        data: [0,0,0,0,0, 0,0, 3, 5, 2, 3],
         borderColor: [
           '#587ce4'
         ],
@@ -41,8 +41,8 @@ $(function() {
         fill: false
       },
       {
-        label: 'Dataset 2',
-        data: [5, 23, 7, 12, 42, 23],
+        label: 'Escaleras',
+        data: [0,0,0,0,0, 0,0, 12, 42, 23],
         borderColor: [
           '#ede190'
         ],
@@ -50,8 +50,8 @@ $(function() {
         fill: false
       },
       {
-        label: 'Dataset 3',
-        data: [15, 10, 21, 32, 12, 33],
+        label: 'Oficinas',
+        data: [0,0,0,0,0, 0,0, 32, 12, 33],
         borderColor: [
           '#f44252'
         ],
@@ -80,7 +80,7 @@ $(function() {
   };
   var doughnutPieData = {
     datasets: [{
-      data: _xdata,
+      data: [5,9],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.5)',
@@ -100,7 +100,7 @@ $(function() {
     }],
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels:_ydata
+    labels: ["Grave", "Leve"],
   };
   var doughnutPieOptions = {
     responsive: true,
@@ -313,9 +313,9 @@ $(function() {
   if ($("#pieChart").length) {
     var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
     var pieChart = new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: doughnutPieData,
-      options: doughnutPieOptions
+      type: 'line',
+      data: multiLineData,
+      options: options
     });
   }
 

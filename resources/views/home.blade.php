@@ -77,15 +77,15 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+              <div class="col-lg-12 grid-margin grid-margin-lg-0 stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Accidentes registrados</h4>
+                    <h4 class="card-title">Lugares donde se evidencia Accididentes</h4>
                     <canvas id="pieChart"></canvas>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 grid-margin stretch-card">
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Accidentes registrados</h4>
@@ -93,6 +93,22 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-12 grid-margin grid-margin-lg-0 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Accidentes leve/Grave</h4>
+                    <canvas id="doughnutChart"></canvas>
+                  </div>
+                </div>
+              </div>
+              {{-- <div class="col-lg-12 grid-margin grid-margin-lg-0 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Indice de alto riesgo</h4>
+                    <canvas id="doughnutChart"></canvas>
+                  </div>
+                </div>
+              </div> --}}
             </div>
           </div>
         </div>

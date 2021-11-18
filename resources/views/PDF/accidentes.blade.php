@@ -48,6 +48,7 @@
  </head>
  <body>
      <h1>Tabla de Accidente</h1>
+     <link rel="icon" type="image/jpg" href="{{ asset('./css/img/logo1.1.png') }}">
     <div class="container">
         <table class="table table-striped">
             <thead>

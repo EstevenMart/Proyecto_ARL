@@ -9,6 +9,7 @@ use App\Http\Controllers\SitioController;
 use App\Http\Controllers\OtraPersonaController;
 use App\Http\Controllers\EpsController;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\PDFController;
 
 
 
@@ -44,6 +45,9 @@ Route::put('/accidente/{id}',[AccidenteController::class, 'update'])->name('acci
 
 //Graficos
 Route::get('/graficos', [AccidenteController::class, "show"])->name('accidente.GraficosAcci');
+
+//PDF
+Route::get('/pdf',[PDFController::class,"PDF"] )->name('descargarPDF');
 
 // Auth::routes();
 

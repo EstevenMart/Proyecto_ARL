@@ -27,6 +27,8 @@
 
             <a href="{{route('accidente.createAccidente')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Accidente</a>
 
+            <a href="{{ route('descargarPDFAccidente') }}" target="_blank" class="btn btn-primary" >Imprimir PDF</a>
+
           </div>
           </div>
 

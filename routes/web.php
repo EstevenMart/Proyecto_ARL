@@ -48,6 +48,7 @@ Route::get('/graficos', [AccidenteController::class, "show"])->name('accidente.G
 
 //PDF
 Route::get('/pdf',[PDFController::class,"PDF"] )->name('descargarPDF');
+Route::get('/pdfaccidente',[PDFController::class,"PDFAccidente"] )->name('descargarPDFAccidente');
 
 // Auth::routes();
 

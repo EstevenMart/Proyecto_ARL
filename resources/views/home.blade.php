@@ -82,6 +82,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Accidentes registrados</h4>
                     <canvas id="pieChart"></canvas>
+                    <a href="{{ route('descargarPDF') }}" class="btn btn-primary" >Imprimir</a>
                   </div>
                 </div>
               </div>
@@ -99,7 +100,7 @@
         <div class="col-lg-4 col-md-12 col-12 col-sm-12">
           <div class="card">
             <div class="card-header">
-            
+
               <h4>Recent Activities</h4>
             </div>
             <div class="card-body">
@@ -142,7 +143,7 @@
                   View All
                 </a>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -311,7 +312,7 @@
               <div class="summary">
                 <div class="summary-info">
                   <h4>$1,053</h4>
-                  
+
                   <div class="text-muted">Sold 3 items on 2 customers</div>
                   <div class="d-block mt-2">
                     <a href="#">View All</a>

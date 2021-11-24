@@ -92,7 +92,9 @@ class RegisterController extends Controller
         $password1= $data['numeroDocumento'];
         $correo =  new ContactanosMailable($password1);
         Mail::to($data['email'])->send($correo);
-        return User::create([
+        
+         $user= User::create([
+
             'name' => $data['name'],
             'email' => $data['email'],
            'password' => $password,
@@ -117,7 +119,10 @@ class RegisterController extends Controller
             'tipoDocumento_id' => $data['tipoDocumento_id']
             
         ]);
-         
+        $roles= $data['roles'];
+        return $roles;
+        // return redirect('/usuarios');
+
   
         
     }

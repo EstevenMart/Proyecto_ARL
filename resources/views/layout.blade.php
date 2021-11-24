@@ -60,6 +60,7 @@
                       Crear un usuario
                     </a>
                   </div>
+                
                 </div>
               </div>
             </form>
@@ -233,7 +234,8 @@
 
 
                     <li><a href="/usuarios" class="nav-link" ><i class="far fa-user"></i> <span>Usuarios</span></a></li>
-
+                    <li><a href="/permisos" class="nav-link" ><i class="far fa-user"></i> <span>permisos</span></a></li>
+                    <li><a href="/roles" class="nav-link" ><i class="far fa-user"></i> <span>Roles</span></a></li>
                   </li>
 
                   <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

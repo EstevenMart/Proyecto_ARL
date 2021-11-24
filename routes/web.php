@@ -21,8 +21,9 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ChartJSController;
-
-/*
+use App\Http\Controllers\PermisosController;
+use App\Http\Controllers\RolesController;
+/*PermisosController
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -81,7 +82,7 @@ Route::post('/mecanismo/saveMecanismo', [MecanismoController::class, 'save'])->n
 
 Route::get('/usuarios', [UsuarioController::class , "show"] );
 //  Route::get('/usuarios',[UsuarioController::class, 'delete'])->name('usuario.delete');
-Route::post('/usuario/store', [RegisterController::class, "__construct"])->name('usuario.store');
+Route::post('/usuario/store', [UsuarioController::class, "store"])->name('usuario.store');
 Route::get('/usuario/createUsuario', [UsuarioController::class, 'create'])->name('usuario.createUsuario');
 Route::get('/usuario/editUsuario/{id?}', [UsuarioController::class, 'edit'])->name('usuario.editUsuario');
 Route::get('/usuario/infoUsuario/{id?}', [UsuarioController::class, 'find'])->name('usuario.findUsuario');
@@ -121,3 +122,8 @@ Route::get( '/accidente/graficoUsuario' , [AccidenteController::class , "index"]
   Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
   Auth::routes();
+  Route::resource('permisos', PermisosController::class);
+
+  Route::resource('roles', RolesController::class);
+ 
+ 

@@ -16,8 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\image;
-
-
+use Spatie\Permission\Models\Role;
 
 class UsuarioController extends Controller
 {
@@ -33,23 +32,23 @@ class UsuarioController extends Controller
         // return $usuarios->municipios->denominacionMunicipio;
     }
 
-    function create(){
-        $usuarios = new User();
-        $cargo = Cargo::orderBy('nombreCargo')->get();
-        $afp = AFP::orderBy('denominacionAfp')->get();
-        $arp = arp::orderBy('denominacionArp')->get();
-        $eps = eps::orderBy('denominacionEps')->get();
-        $rol = rol::orderBy('nombreRol')->get();
-        $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
-        $municipio = Municipio::orderBy('denominacionMunicipio')->get();
+    // function create(){
+    //     $usuarios = new User();
+    //     $cargo = Cargo::orderBy('nombreCargo')->get();
+    //     $afp = AFP::orderBy('denominacionAfp')->get();
+    //     $arp = arp::orderBy('denominacionArp')->get();
+    //     $eps = eps::orderBy('denominacionEps')->get();
+    //     $roles = Role::all()->pluck('name','id');
+    //     $tipo_documento = TipoDocumento::orderBy('nombreTipoDocumento')->get();
+    //     $municipio = Municipio::orderBy('denominacionMunicipio')->get();
 
-        return view('usuario/createUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'rols'=>$rol, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
-    }
+    //     return view('usuario/createUsuario', ['usuario' => $usuarios,'cargos'=>$cargo, 'afps'=>$afp, 'arps'=>$arp,'eps'=>$eps, 'roles'=>$roles, 'tipo_documentos'=>$tipo_documento, 'municipios'=>$municipio ]);
+    // }
 
     function store(Request $request){
 
         $request->validate([
-            'nombre' => 'required|max:50' ,
+            'name' => 'required|max:50' ,
             'apellido' => 'required|max:50',
             'numeroDocumento' => 'required|unique:usuarios|numeric',
             'correo' => 'required|max:50',
@@ -72,40 +71,66 @@ class UsuarioController extends Controller
             'eps_id' => 'required|max:50',
             'tipoDocumento_id' => 'required|max:50'
         ]);
-        $usuario = new User();
-        $usuario->nombre = $request->nombre;
-        $usuario->apellido = $request->apellido;
-        $usuario->numeroDocumento = $request->numeroDocumento;
-        $usuario->correo = $request->correo;
-        $usuario->telefono = $request->telefono;
-        $usuario->fechaNacimiento = $request->fechaNacimiento;
-        $usuario->sexo = $request->sexo;
-        $usuario->sangre = $request->sangre;
-        $usuario->direccion = $request->direccion;
-        $usuario->jornada = $request->jornada;
-        $usuario->fechaIngreso = $request->fechaIngreso;
-        $usuario->vinculacion = $request->vinculacion;
+        $usuario = User::create($request -> only(
+            'name',
+            'email',
+            'apellido' ,
+            'numeroDocumento' ,
+            'telefono' ,
+            'fechaNacimiento' ,
+            'sangre' ,
+            'direccion' ,
+            'jornada' ,
+            'sexo' ,         
+            'fechaIngreso' ,
+            'vinculacion' ,
+            'estado', 
+            'imagen' ,
+            'municipio_id' ,
+            'cargo_id' ,
+            'rol_id', 
+            'afp_id' ,
+            'arp_id' ,
+            'eps_id' ,
+            'tipoDocumento_id')+['password'=> bcrypt($request->input('numeroDocumento'))]);
+            $roles = $request->input('roles', []);
+        $usuario->syncRoles($roles);
+        // $usuario->nombre = $request->nombre;
+        // $usuario->apellido = $request->apellido;
+        // $usuario->numeroDocumento = $request->numeroDocumento;
+        // $usuario->correo = $request->correo;
+        // $usuario->telefono = $request->telefono;
+        // $usuario->fechaNacimiento = $request->fechaNacimiento;
+        // $usuario->sexo = $request->sexo;
+        // $usuario->sangre = $request->sangre;
+        // $usuario->direccion = $request->direccion;
+        // $usuario->jornada = $request->jornada;
+        // $usuario->fechaIngreso = $request->fechaIngreso;
+        // $usuario->vinculacion = $request->vinculacion;
 
         // $imagenes=$usuario->imagen  = $request->imagen->store("public/imagenes");
         // $url = Storage::url($imagenes);
         // $usuario->imagen = $request->imagen=$url;
-        $usuario->imagen = $request->imagen;
-        $usuario->municipio_id  = $request->municipio_id;
-        $usuario->cargo_id  = $request->cargo_id ;
-        $usuario->rol_id  = $request->rol_id ;
-        $usuario->afp_id  = $request->afp_id ;
-        $usuario->arp_id  = $request->arp_id ;
-        $usuario->eps_id  = $request->eps_id ;
-        $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
+        // $usuario->imagen = $request->imagen;
+        // $usuario->municipio_id  = $request->municipio_id;
+        // $usuario->cargo_id  = $request->cargo_id ;
+        // $usuario->rol_id  = $request->rol_id ;
+        // $usuario->afp_id  = $request->afp_id ;
+        // $usuario->arp_id  = $request->arp_id ;
+        // $usuario->eps_id  = $request->eps_id ;
+        // $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
+      
+        
 
         // $url = Storage::url($imagenes);
 
 
 
-        $usuario->save();
-        $message = 'Se ha creado una nuevo User';
+        // $usuario->save();
+        //   $roles = $request->input('roles', []);$usuario->syncRoles($roles);
+        // $message = 'Se ha creado una nuevo User';
 
-        return redirect('/usuarios')->with('messa' , $message);
+        return redirect('/usuarios');
     }
     function save(Request $request ){
 
@@ -156,6 +181,7 @@ class UsuarioController extends Controller
         $usuario->eps_id  = $request->eps_id ;
         $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
         $usuario->save();
+        $roles = $request->input('roles', []);$usuario->syncRoles($roles);
         $url = Storage::url($imagenes);
         $message = 'Se ha creado una nuevo User';
 

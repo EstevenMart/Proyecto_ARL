@@ -218,7 +218,7 @@
                             <div class="form-group">
                                <div class="section-title mt-0">Rol</div>
                                 <div class="input-group">
-                                    <select class="custom-select @error('rol_id') is-invalid @enderror " name="rol_id" >
+                                    <select class="custom-select @error('rol_id') is-invalid @enderror " name="rol_id" aria-valuemax="" >
                                        <option selected>Seleccione...</option>
                                        @foreach ($rols as $rol)
                                        <option value="{{$rol->id}}" {{$rol->id == $usuario->rol_id ? "selected" : ""}}>{{$rol->nombreRol}}</option>
@@ -237,6 +237,7 @@
                         </div>
                     </div>
                 </div>
+               
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">

@@ -523,7 +523,7 @@
                     <div class="col-sm-9"></div>
                     <div class="col-sm-3">
                         <a href="/usuarios" class="btn btn-light">Cancelar</a>
-                        <button type="submit" >
+                        <button type="submit" class="btn btn-primary" >
                             {{ __('Registrarse') }}
                         </button>
                     </div>

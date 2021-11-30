@@ -1,5 +1,6 @@
 @extends('layout')
-
+@section('title','permisos' )
+@section('h1' , 'permisos')
 @section('Contenido')
 
 <div class="content">
@@ -11,7 +12,7 @@
             <div class="card">
               <div class="card-header card-header-primary">
                 <h4 class="card-title">Permiso</h4>
-                <p class="card-category">Ingresar datos</p>
+               
               </div>
               <div class="card-body">
                 <div class="row">

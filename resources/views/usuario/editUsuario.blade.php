@@ -14,7 +14,7 @@
 
 {{-- fsfgsdhfjgf --}}
 
-<form action="{{ route('accidente.updateAccidente', $usuario->id ) }}" method="POST" >
+<form action="{{ route('usuario.updateUsuario', $usuario->id ) }}" method="POST" >
     @csrf
 @method('put')
 
@@ -181,23 +181,20 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
+                      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
                             <div class="form-group">
-                                <div class="section-title mt-0">Sexo</div>
+                                <div class="section-title mt-0">Estado</div>
                                 <br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo"  value="Masculino" {{ $usuario->sexo == 'Masculino' ? 'checked' : ''}} >
-                                    <label class="form-check-label" >Masculino</label>
+                                    <input class="form-check-input" type="radio" name="estado"  value="Activo"  {{ $usuario->estado == 'Activo' ? 'checked' : ''}}  >
+                                    <label class="form-check-label" >Activo</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" value="Femenino" {{ $usuario->sexo == 'Femenino' ? 'checked' : ''}}>
-                                    <label class="form-check-label" >Femenino</label>
+                                    <input class="form-check-input" type="radio" name="estado" value="Inactivo"  {{ $usuario->estado == 'Inactivo' ? 'checked' : ''}} >
+                                    <label class="form-check-label" >Inactivo</label>
                                   </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" value="Indefinido" {{ $usuario->sexo == 'Indefinido' ? 'checked' : ''}}>
-                                    <label class="form-check-label" >Indefinido</label>
-                                  </div>
-                                  @error('sexo')
+                                  @error('estado')
                                   <p class="text-danger">
                                     {{ $message }}
                                 </p>
@@ -205,6 +202,33 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+                      <div class="card-body">
+                          <div class="form-group">
+                              <div class="section-title mt-0">Sexo</div>
+                              <br>
+                              <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="sexo"  value="Masculino" {{ $usuario->sexo == 'Masculino' ? 'checked' : ''}} >
+                                  <label class="form-check-label" >Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="sexo" value="Femenino" {{ $usuario->sexo == 'Femenino' ? 'checked' : ''}}>
+                                  <label class="form-check-label" >Femenino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="sexo" value="Indefinido" {{ $usuario->sexo == 'Indefinido' ? 'checked' : ''}}>
+                                  <label class="form-check-label" >Indefinido</label>
+                                </div>
+                                @error('sexo')
+                                <p class="text-danger">
+                                  {{ $message }}
+                              </p>
+                              @enderror
+                          </div>
+                      </div>
+                  </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -228,25 +252,34 @@
                         <div class="card-body">
                             <div class="form-group">
                                <div class="section-title mt-0">Rol</div>
-                                <div class="input-group">
-                                    <select class="custom-select @error('rol_id') is-invalid @enderror " name="rol_id" >
-
-                                       @foreach ($rols as $rol)
-                                       <option value="{{$rol->id}}" {{$rol->id == $usuario->rol_id ? "selected" : ""}}>{{$rol->nombreRol}}</option>
-                                   @endforeach
-                                        </select>
-                                    <div class="input-group-append">
-                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
-                                    </div>
+                               
+                               @foreach ($roles as $id => $role)
+  
+                                  <div class="form-check form-check-inline">
+                                      <label class="label2">
+                                          <input class="form-check-input" type="checkbox" name="roles[]"
+                                          value="{{ $id }}" {{ $usuario->roles->contains($id) ? 'checked' : ''}} >
+                                          <span class="form-check-sign">
+                                              <span class="check"></span>
+                                          </span>
+                                      </label>
                                   </div>
-                                @error('rol_id')
+                    
+                                  {{ $role }}
+                                   <br>
+                    
+                                   @endforeach
+              
+                                   
+                                  </div>
+                                @error('roles')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

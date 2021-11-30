@@ -1,5 +1,6 @@
 @extends('layout')
-
+@section('title', 'Roles' )
+@section('h1' ,  'Roles')
 @section('Contenido')
 <div class="content">
   <div class="container-fluid">
@@ -7,8 +8,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Roles</h4>
-            <p class="card-category">Lista de roles registrados en la base de datos</p>
+            <h4 class="card-title">Lista de roles registrados en la base de datos</h4>
+           
           </div>
           <div class="card-body">
             <div class="row">

@@ -217,7 +217,7 @@
             <aside id="sidebar-wrapper">
               <div class="sidebar-brand">
                 <img class="imagen-logo" src="{{ asset('/css/img/logo1.1.png') }}" >
-                <a href="index.html" class="logo_name">Arbeid</a>
+                <a href="{{ route('home') }}" class="logo_name">Arbeid</a>
               </div>
               <div class="sidebar-brand sidebar-brand-sm">
                 <a href="index.html"><img class="imagen-logo" src="{{ asset('/css/img/logo1.1.png') }}" ></a>
@@ -228,16 +228,23 @@
                   <li class="menu-header">Módulo</li>
                   <li class="nav-item dropdown">
 
+  
+                  @can('accidente')
                     <li><a class="nav-link" href="/accidentes"><i class="fas fa-columns"></i> <span>Accidentes</span></a></li>
-                    <li><a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>Análisis de Accidente</span></a></li>
+                  @endcan
+                  @can('analisis_accidente')
+                    <li><a class="nav-link" href="/home#analisis_de_accidentes"><i class="fas fa-chart-pie"></i> <span>Análisis de Accidente</span></a></li>
+                    @endcan
                     <li><a class="nav-link" href="#"><i class="far fa-file-alt"></i> <span>Planes de acción</span></a></li>
 
 
-                    <li><a href="/usuarios" class="nav-link" ><i class="far fa-user"></i> <span>Usuarios</span></a></li>
-                    <li><a href="/permisos" class="nav-link" ><i class="far fa-user"></i> <span>permisos</span></a></li>
-                    <li><a href="/roles" class="nav-link" ><i class="far fa-user"></i> <span>Roles</span></a></li>
-                  </li>
 
+                    <li><a href="/usuarios" class="nav-link" ><i class="far fa-user"></i> <span>Usuarios</span></a></li>
+                    @can('roles')
+                    <li><a href="/roles" class="nav-link" ><i class="far fa-user"></i> <span>Roles</span></a></li>
+                    @endcan
+                  </li>
+                 
                   <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
                     <a  href="{{ route('logout') }}" class="btn btn-primary btn-lg btn-block btn-icon-split"
                     onclick="event.preventDefault();

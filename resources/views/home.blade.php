@@ -64,11 +64,126 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+      <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4>Usuarios</h4>
+            <div class="card-header-action">
+              <a href="#" class="btn btn-primary">ver todos</a>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table id="search" class="table table-striped table-md"  >
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Numero de documento</th>
+                    <th>Estado</th>
+                    <th>Ver más</th>
+                    <th>Acciones</th>
+        
+                </tr>
+                </thead>
+                <tbody>
+                  @foreach ( $listUsuario as $usuario )
+                  <tr>
+                    <td> <div class="card profile-widget">
+                      <div class="profile-widget-header">
+                          <img src="{{asset($usuario->imagen) }}" alt="perfil" class="rounded-circle profile-widget-picture"  > </td>
+                      </div>
+              </div>
+                          <td>
+                      {{$usuario->name}}</div>
+                      </td>
+                      <td> {{$usuario->apellido}}</td>
+                    <td>{{$usuario->numeroDocumento}}</td>
+                    <td> @if($usuario->estado === "Inactivo")
+                      <div class="badge badge-danger ">Inactivo</div>
+                          @else
+                          <div class="badge badge-success ">Activo</div>
+                      @endif
+                    </td>
+                    <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></a></i></td>
+                    <td>
+                         <a href=" {{ route('usuario.editUsuario', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
+                         
+                    </td>
+                  
+            @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4>Accidentes</h4>
+            <div class="card-header-action">
+              <a href="#" class="btn btn-primary">ver todos</a>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table id="search" class="table table-striped table-md"  >
+                <thead>
+                    <tr>
+                    <th>
+                        <div class="custom-checkbox custom-control">
+                          <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
+                          <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                        </div>
+                      </th>
+                      <th>Usuario</th>
+                    <th>Tipo Accidente</th>
+                    <th>Fecha Hora</th>
+                    <th>Descripcion</th>
+                    <th>Ver más</th>
+                    <th>Acciones</th>
+        
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ( $listAccidente as $accidente )
+                    <tr>
+                        <td class="p-0 text-center">
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
+                              <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                            </div>
+                          </td>
+                          <td>@foreach ($accidente->usuarios as $users)
+              {{ $users->name }} {{ $users->apellido }}
+           @endforeach </td>
+                        <td>{{$accidente->tipoaccidente}}</td>
+                        <td>{{$accidente->fechaHora}}</td>
+        
+        
+            <td>{{$accidente->descripcion}}</td>
+        
+        
+                        <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">  <i class="fas fa-search"></a></i></td>
+                        <td>
+                             <a href="{{ route('accidente.editAccidente', ['id'=> $accidente->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
+                           {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="analisis_de_accidentes">
+        <div class="col-lg-12 col-md-12 col-12 col-sm-12">
           <div class="card">
             <div class="card-header">
-              <h4>Statistics</h4>
+              <h4>Analisis de accidentes</h4>
               <div class="card-header-action">
                 <div class="btn-group">
                   <a href="#" class="btn btn-primary">Week</a>
@@ -77,14 +192,22 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-12 grid-margin grid-margin-lg-0 stretch-card">
+              <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Lugares donde se evidencia Accididentes</h4>
+                    <h4 class="card-title">Lugares donde se evidencia Accidentes</h4>
                     <canvas id="pieChart"></canvas>
                     <a href="{{ route('descargarPDF') }}" class="btn btn-primary" >Imprimir</a>
                   </div>
                 </div>
+              </div>
+              <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Accidentes leve/Grave</h4>
+                    <canvas id="doughnutChart"></canvas>
+                  </div>
+              </div>
               </div>
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -94,14 +217,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12 grid-margin grid-margin-lg-0 stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Accidentes leve/Grave</h4>
-                    <canvas id="doughnutChart"></canvas>
-                  </div>
-                </div>
-              </div>
+            
+              
               {{-- <div class="col-lg-12 grid-margin grid-margin-lg-0 stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -113,7 +230,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+
+        {{-- <div class="col-lg-4 col-md-12 col-12 col-sm-12">
           <div class="card">
             <div class="card-header">
 
@@ -162,7 +280,7 @@
 
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-12 col-sm-12">
@@ -462,133 +580,7 @@
             </div>
           </form>
         </div>
-        <div class="col-lg-7 col-md-12 col-12 col-sm-12">
-          <div class="card">
-            <div class="card-header">
-              <h4>Latest Posts</h4>
-              <div class="card-header-action">
-                <a href="#" class="btn btn-primary">View All</a>
-              </div>
-            </div>
-            <div class="card-body p-0">
-              <div class="table-responsive">
-                <table class="table table-striped mb-0">
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Author</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        Introduction Laravel 5
-                        <div class="table-links">
-                          in <a href="#">Web Development</a>
-                          <div class="bullet"></div>
-                          <a href="#">View</a>
-                        </div>
-                      </td>
-                      <td>
-                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Laravel 5 Tutorial - Installation
-                        <div class="table-links">
-                          in <a href="#">Web Development</a>
-                          <div class="bullet"></div>
-                          <a href="#">View</a>
-                        </div>
-                      </td>
-                      <td>
-                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Laravel 5 Tutorial - MVC
-                        <div class="table-links">
-                          in <a href="#">Web Development</a>
-                          <div class="bullet"></div>
-                          <a href="#">View</a>
-                        </div>
-                      </td>
-                      <td>
-                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Laravel 5 Tutorial - Migration
-                        <div class="table-links">
-                          in <a href="#">Web Development</a>
-                          <div class="bullet"></div>
-                          <a href="#">View</a>
-                        </div>
-                      </td>
-                      <td>
-                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Laravel 5 Tutorial - Deploy
-                        <div class="table-links">
-                          in <a href="#">Web Development</a>
-                          <div class="bullet"></div>
-                          <a href="#">View</a>
-                        </div>
-                      </td>
-                      <td>
-                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Laravel 5 Tutorial - Closing
-                        <div class="table-links">
-                          in <a href="#">Web Development</a>
-                          <div class="bullet"></div>
-                          <a href="#">View</a>
-                        </div>
-                      </td>
-                      <td>
-                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
 @endsection
@@ -597,6 +589,10 @@
 <script src=" {{ asset('/js/chart.js') }}"></script>
     <script>
       var _ydata=JSON.parse('{!! json_encode($months) !!}');
-      var _xdata='{!! json_encode($mounthCount) !!}';
+      var _xdata=JSON.parse('{!! json_encode($mounthCount) !!}');
+      var Sitio=JSON.parse('{!! json_encode($sitio) !!}');
+      var sitioContar=JSON.parse('{!! json_encode($sitioContar) !!}');
+      
     </script>
+    
 @endsection

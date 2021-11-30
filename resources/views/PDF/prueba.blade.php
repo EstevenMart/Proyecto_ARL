@@ -14,6 +14,7 @@
     <h4 class="card-title">Lugares donde se evidencia Accididentes</h4>
     <canvas id="pieChart"></canvas>
     <table class="table table-bordered">
+     
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -43,6 +44,7 @@
         </tr>
       </tbody>
     </table> 
+     <img src="../" alt="" srcset="">
       <img  src="https://github.com/Yeraldin28/js/blob/main/logo1.2.jpg" >
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src=" {{ asset('/js/chart.js') }}"></script>

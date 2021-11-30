@@ -15,7 +15,8 @@ class PDFController extends Controller
 
     public function PDFAccidente(){
         $accidentes = Accidente::all();
-        $pdf = PDF::loadView('./PDF/accidentes',compact('accidentes'));
+        $imagen =  asset('storage/imagenes/avatar-2.png') ;
+        $pdf = PDF::loadView('./PDF/accidentes',compact('accidentes','imagen'));
         return $pdf->stream('accidentes.pdf');
     }
 }

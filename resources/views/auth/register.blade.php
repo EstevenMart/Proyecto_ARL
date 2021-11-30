@@ -1,6 +1,6 @@
 @extends('layout')
-@section('title' , 'Crear accidente')
-@section('h1' , 'Crear accidente')
+@section('title' , 'Crear Usuario')
+@section('h1' , 'Crear Usuario')
 
 @section('CSS')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -233,32 +233,38 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                   
 
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">  
                         <div class="card-body">
                             <div class="form-group">
-                               <div class="section-title mt-0">Rol</div>
-                                <div class="input-group">
-                                    <select class="custom-select  @error('rol_id') is-invalid @enderror " name="rol_id" >
-                                       <option value="" >Seleccione...</option>
-                                       @foreach ($rols as $rol)
-                                       <option value="{{$rol->id}}" {{$rol->id == $usuario->rol_id ? "selected" : ""}} {{ old('rol_id') == $rol->id ? 'selected' : '' }} >{{$rol->nombreRol}}</option>
-                                   @endforeach
-                                        </select>
-                                    <div class="input-group-append">
-                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
-                                    </div>
-                                  </div>
-                                @error('rol_id')
-                                <div class="invalid-feedback">
+                                 <div class="section-title mt-0">Roles</div>
+                                 @foreach ($roles as $id => $role)
+      
+                                <div class="form-check form-check-inline">
+                                    <label class="label2">
+                                        <input class="form-check-input" type="checkbox" name="roles[]"
+                                            value="{{$id}}" >
+                                        <span class="form-check-sign">
+                                            <span class="check"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                  
+                                {{$role}}
+                                 <br>
+                  
+                                 @endforeach
+                              </div>
+                              @error('roles[]')
+                                <div class="text-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            </div>
                         </div>
                     </div>
                 </div>
-                /////////////////
+              
 {{-- 
                 <div class="row">
                   <label for="roles" class="col-sm-2 col-form-label">Roles</label>
@@ -295,36 +301,7 @@
                   </div>
               </div>
                --}}
-                //////////////////
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">  
-                  <div class="card-body">
-                      <div class="form-group">
-                           <div class="section-title mt-0">parte cuerpo</div>
-                           @foreach ($roles as $id => $role)
-
-                          <div class="form-check form-check-inline">
-                              <label class="label2">
-                                  <input class="form-check-input" type="checkbox" name="roles[]"
-                                      value="{{$id}}" >
-                                  <span class="form-check-sign">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
-            
-                          {{$role}}
-                           <br>
-            
-                           @endforeach
-                        </div>
-                        @error('roles[]')
-                          <div class="text-danger">
-                              {{ $message }}
-                          </div>
-                      @enderror
-                  </div>
-              </div>
-                ////////////
+           
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="card-body">
@@ -620,7 +597,7 @@
                     <div class="col-sm-9"></div>
                     <div class="col-sm-3">
                         <a href="/usuarios" class="btn btn-light">Cancelar</a>
-                        <button type="submit" >
+                        <button type="submit" class="btn btn-primary" >
                             {{ __('Registrarse') }}
                         </button>
                     </div>

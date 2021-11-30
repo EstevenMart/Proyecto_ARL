@@ -1,20 +1,30 @@
 @extends('layout')
-@section('title' , 'Sitio')
-@section('h1' , 'Sitio')
+@section('title','permisos' )
+@section('h1' , 'permisos')
 @section('Contenido')
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Permisos</h4>
+              <div class="card-header-form">
+                <a href=" {{route('permisos.create')}} " class="btn btn-primary">Nuevo perimisos</a>
+              </div>
+              </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12 text-right">
 
-<a href=" {{route('permisos.create')}} " class="btn btn-primary">Nuevo perimisos</a>
 
 
-@if(Session::has('message'))
-    <p class="text-danger">{{ Session::get('message') }}</p>
-@endif
-@if(Session::has('messa'))
-    <p class="text-primary">{{ Session::get('messa') }}</p>
-@endif
+ </div>
+            </div>
+            <div class="card-body p-0">
+            <div class="table-responsive">
 
-
-<table class="table table-striped table-hover">
+<table class="table table-striped table-md"  id="search">
     <thead>
         <tr>
             <th>id</th>
@@ -46,10 +56,33 @@
                                 </button>
                               </form>
                    </td>
-                 
+                      @endforeach
+                      
             </tr>
-        @endforeach 
+    
     </tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+@endsection
+@section('JS')
+<script src="{{ asset('/js/components-table.js') }}"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready( function () {
+  var table = $('#search').DataTable({
+    language: {
+      url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json'
+    },
+  });
+} );
+</script>
 @endsection
 

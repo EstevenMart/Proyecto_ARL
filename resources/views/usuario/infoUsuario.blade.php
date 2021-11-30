@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-xl-4 order-xl-2">
       <div class="padding">
-        <div class="col-md-11">
+        <div class="col-md-">
             <!-- Column -->
             <div class="card"> <img class="card-img-top" src="{{asset($infoUsuario->imagen) }}" alt="Card image cap">
                 <div class="card-body little-profile text-center">
@@ -32,7 +32,8 @@
                         </td>
                       </div>
                       <div class="col-8 text-right">
-                        <div class="badge badge-dark ">{{$infoUsuario->rol->nombreRol}}</div>
+                        <div class="badge badge-info ">{{$infoUsuario->cargo->nombreCargo}}</div>
+                        {{-- <div class="badge badge-dark ">{{$infoUsuario->rol->nombreRol}}</div> --}}
                       </div>
                     </div>
                   </br>
@@ -42,25 +43,9 @@
               </div>
             </div>
           </div>
-          <div class="text-center">
-            <h5 class="h3">
-                <input type="text" class="ni business_briefcase-24 mr-2" value="{{$infoUsuario->nombre}}" readonly>
-                <input type="text" class="ni business_briefcase-24 mr-2" value="{{$infoUsuario->apellido}}" readonly>
-
-                <span class="font-weight-light">, 27</span>
-            </h5>
-            <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i>Bucharest, Romania
-            </div>
-            <div class="h5 mt-4">
-              <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-            </div>
-            <div>
-              <i class="ni education_hat mr-2"></i>University of Computer Science
-            </div>
-        </div>
+         
     </div>
-    </div>
+    
     <div class="col-xl-8 order-xl-1">
       <div class="card">
         <div class="card-header">
@@ -227,6 +212,8 @@
             </div>
           </form>
         </div>
+        
+      </div>
         <center>
           <a href="/usuarios" class="btn btn-primary btn-lg">Atras</a>
         </center>

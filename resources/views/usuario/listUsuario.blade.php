@@ -21,7 +21,10 @@
             <div class="card-header">
                 <h4>Tabla de Usuarios</h4>
                 <div class="card-header-form">
+                  @can('usuario_crear')
                     <a href="{{route('register')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
+                  @endcan
+                    
               
                 </div>
               </div>
@@ -35,10 +38,13 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Numero de documento</th>
+                    @can('usuario_inactivar')
                     <th>Estado</th>
+                    @endcan
                     <th>Ver más</th>
+                    @can('usuario_edit')
                     <th>Acciones</th>
-        
+                    @endcan
                 </tr>
                 </thead>
                 <tbody>
@@ -54,17 +60,23 @@
                       </td>
                       <td> {{$usuario->apellido}}</td>
                     <td>{{$usuario->numeroDocumento}}</td>
+                    @can('usuario_inactivar')
                     <td> @if($usuario->estado === "Inactivo")
                       <div class="badge badge-danger ">Inactivo</div>
                           @else
                           <div class="badge badge-success ">Activo</div>
                       @endif
                     </td>
+                    @endcan
                     <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></a></i></td>
-                    <td>
+                    @can('usuario_edit')
+                      <td>
                          <a href=" {{ route('usuario.editUsuario', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
                          
                     </td>
+                    @endcan
+                    
+                    
                   
             @endforeach
                 </tbody>

@@ -12,10 +12,15 @@ class PermisosController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
-    public function index()
+   
+    function __construct(){
+        $this->middleware('auth');
+    }
+     public function index()
     {
-       $permisos= ModelsPermission::paginate(5);
+       $permisos= ModelsPermission::orderBy('id','desc')->get();
        return view('permisos.index',['permisos'=>$permisos]);
     }
 

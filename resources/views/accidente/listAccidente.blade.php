@@ -24,11 +24,13 @@
         <div class="card-header">
             <h4>Tabla de Accidentes</h4>
             <div class="card-header-form">
+@can('accidente_crear')
+   <a href="{{route('accidente.createAccidente')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Accidente</a>
 
-            <a href="{{route('accidente.createAccidente')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Accidente</a>
-
+@endcan
+@can('accidente_pdf')
             <a href="{{ route('descargarPDFAccidente') }}" target="_blank" class="btn btn-primary" >Imprimir PDF</a>
-
+            @endcan
           </div>
           </div>
 
@@ -49,8 +51,9 @@
             <th>Fecha Hora</th>
             <th>Descripcion</th>
             <th>Ver más</th>
+            @can('accidente_editar')
             <th>Acciones</th>
-
+            @endcan
         </tr>
     </thead>
     <tbody>
@@ -74,9 +77,11 @@
 
                 <td>  <a href="{{route('accidente.findAccidente', ['id'=> $accidente->id])}}">  <i class="fas fa-search"></a></i></td>
                 <td>
+                  @can('accidente_editar')
                      <a href="{{ route('accidente.editAccidente', ['id'=> $accidente->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
-                </td>
+                   @endcan
+                  </td>
             </tr>
         @endforeach
     </tbody>

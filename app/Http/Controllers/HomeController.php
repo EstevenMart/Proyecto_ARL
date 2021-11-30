@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accidente;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,13 +28,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+         
         return view('home');
        
 
     }
     public function graficos()
 {
-   $data=User::select('id','created_at')->get()->groupBy(function($data){
+   $data=Accidente::select('id','created_at')->get()->groupBy(function($data){
 return Carbon::parse($data->created_at)->format('M');
    });
    $months=[];
@@ -40,6 +44,19 @@ return Carbon::parse($data->created_at)->format('M');
        $months[]=$month;
        $mounthCount[]=count($values);
    }
-   return view('home',['data'=>$data, 'months'=>$months, 'mounthCount'=>$mounthCount]);
+    $sitios=Accidente::select('id','sitio_id')->get()->groupBy(function($sitios){
+        return ($sitios->sitio->denominacionSitio); });
+       $sitio=[];
+       $sitioContar=[];
+       foreach ($sitios as $sit  => $values ) {
+        $sitio[]=$sit;
+        $sitioContar[]=count($values);
+    }
+    $accidenteList = Accidente::orderBy('id','desc')->paginate(5);
+    $User = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
+    $usuarioList = User::orderBy('id','desc')->paginate(5);
+
+    
+   return view('home',[ 'months'=>$months, 'listUsuario'=>$usuarioList,'listAccidente'=>$accidenteList, 'user'=>$User, 'sitio'=>$sitio, 'sitioContar'=>$sitioContar, 'mounthCount'=>$mounthCount]);
 }
 }

@@ -38,7 +38,7 @@ class User extends Authenticatable  //implements MustVerifyEmail
         'imagen',
         'municipio_id',
         'cargo_id',
-        'rol_id',
+        
         'afp_id',
         'arp_id',
         'eps_id',
@@ -81,9 +81,9 @@ class User extends Authenticatable  //implements MustVerifyEmail
         return $this->belongsTo(Cargo::class);
         // return $this->belongsTo(Agente::class,"agenteAcci_id",);
     }
-    function rol(){
-        return $this->belongsTo(rol::class);
-    }
+    // function rol(){
+    //     return $this->belongsTo(rol::class);
+    // }
     function afp(){
         return $this->belongsTo(AFP::class) ;
     }

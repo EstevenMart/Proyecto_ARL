@@ -7,7 +7,7 @@ $(function() {
   var data = {
     labels: _ydata,
     datasets: [{
-      label: '# of Votes',
+      label: 'Accidentes',
       data: _xdata,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -29,35 +29,33 @@ $(function() {
       fill: false
     }]
   };
+
+
   var multiLineData = {
-    labels: ["Ene", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: Sitio,
     datasets: [{
-        label: 'Almacenes o depositos',
-        data: [0,0,0,0,0, 0,0, 3, 5, 2, 3],
+        label: "Sitio",
+        data: sitioContar,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
         borderColor: [
-          '#587ce4'
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
         ],
         borderWidth: 2,
         fill: false
       },
-      {
-        label: 'Escaleras',
-        data: [0,0,0,0,0, 0,0, 12, 42, 23],
-        borderColor: [
-          '#ede190'
-        ],
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Oficinas',
-        data: [0,0,0,0,0, 0,0, 32, 12, 33],
-        borderColor: [
-          '#f44252'
-        ],
-        borderWidth: 2,
-        fill: false
-      }
+      
     ]
   };
   var options = {
@@ -313,7 +311,7 @@ $(function() {
   if ($("#pieChart").length) {
     var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
     var pieChart = new Chart(pieChartCanvas, {
-      type: 'line',
+      type: 'polarArea',
       data: multiLineData,
       options: options
     });
@@ -322,9 +320,21 @@ $(function() {
   if ($("#areaChart").length) {
     var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
     var areaChart = new Chart(areaChartCanvas, {
-      type: 'line',
-      data: areaData,
-      options: areaOptions
+      type: 'bar',
+      data: data,
+      options: {
+        responsive: true,
+        interaction: {
+          intersect: false,
+          axis: 'x'
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: (ctx) => 'Step ' + ctx.chart.data.datasets[0].stepped + ' Interpolation',
+          }
+        }
+      }
     });
   }
 

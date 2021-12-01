@@ -178,7 +178,7 @@
                     </div>
                 </div>
                 <div class="row">
-
+                  @can('usuario_inactivar')
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
                       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -203,6 +203,7 @@
                         </div>
                     </div>
                     </div>
+                    @endcan
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
                       <div class="card-body">

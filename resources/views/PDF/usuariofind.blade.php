@@ -32,7 +32,7 @@
     </a>
   </nav>
   <br><br><hr width="90%"><br><br>
-   <center> <h1 >Accidentes</h1></center>
+   <center> <h1 >Usuario</h1></center>
    {{-- <div class="main-card mb-3 card">
     <div class="card-body">
    <div class="form-row">
@@ -41,66 +41,63 @@
    </div>
   </div>
    </div> --}}
-
-    <table >
-            @foreach ( $accidentes as $accidente )
-                  @foreach ($accidente->usuarios as $users)
-                <tr>
-                    <th class="col margen">Usuario</th>
-                    <th > {{ $users->name }} {{ $users->apellido }}</th>
-                     </tr>
-                     <tr>
-                        <th class="col">Tipo Accidente</th>
-                     <th >{{$accidente->tipoaccidente}}</th>
-                     <th class="col">Sitio</th>
-                     <th >{{$accidente->sitio->denominacionSitio}}</th>
-                     </tr>
-                     <tr>
-                      <th class="col">Fecha Hora</th>
-                   <th >{{$accidente->fechaHora}}</th>
-                   
-                    <th class="col">Dia</th>
-                 <th >{{$accidente->dia}}</th>
+   <table >
         
-                  <th class="col">Jornada</th>
-               <th >{{$accidente->jornada}}</th>
-               </tr>
-               <tr>
-                <th class="col">Labor Habitual</th>
-             <th >{{$accidente->laborHabitual}}</th>
-             <th class="col">Empresa</th>
-             <th >{{$accidente->empresa}}</th>
-             <th class="col">Causa de Muerte</th>
-             <th >{{$accidente->empresa}}</th>
-            <tr>
-              <th class="col">Tiempo PA</th>
-           <th >{{$accidente->tiempoPA}}</th>
-           <th class="col">Cantidad de Horas</th>
-           <th >{{$accidente->cantHoras}}</th>
-           <th class="col">Cantidad de Minuto</th>
-           <th >{{$accidente->cantMinutos}}</th>
-           </tr>
-           <tr>
-            <th class="col">Mecanismo</th>
-         <th >{{$accidente->mecanismo->denominacionMecanismo}}</th>
-         <th class="col">Agente Accidente</th>
-         <th >{{$accidente->agente->denominacionAgente}}</th>
-         </tr>
-         <tr>
-           <th  class="col">Descripción;</th>
-          <th>{{$accidente->descripcion}}</p> 
-        </tr>
-        
+        <tr>
+            <th class="col ">Nombre</th>
+            <th class="" > {{ $usuarioFind->name }} {{ $usuarioFind->apellido }}</th>
+             </tr>
+             <tr>
+                <th class="col margen">Tipo de documento</th>
+             <th class="margen" >{{$usuarioFind->tipo_documento->nombreTipoDocumento}}</th>
+             <th class="col margen">Numero de Documento</th>
+             <th class="margen" >{{$usuarioFind->numeroDocumento}}</th>
+             </tr>
+             <tr>
+              <th class="col margen">Telefono</th>
+           <th class="margen" >{{$usuarioFind->telefono}}</th>
+           
+            <th class="col margen">Correo</th>
+         <th class="margen" >{{$usuarioFind->email}}</th>
 
-        <hr class="hr" width="90%">  
+          <th class="col margen">Tipo de Sangre</th>
+       <th class="margen" >{{$usuarioFind->sangre}}</th>
+       </tr>
+       <tr>
+        <th class="col margen">Fecha de Nacimiento</th>
+     <th class="margen" >{{$usuarioFind->fechaNacimiento}}</th>
+     <th class="col margen">Jornada</th>
+     <th class="margen" >{{$usuarioFind->jornada}}</th>
+     <th class="col margen">Municipio</th>
+     <th class="margen" >{{$usuarioFind->municipios->denominacionMunicipio}}</th>
+    <tr>
+      <th class="col margen">Direccion</th>
+   <th class="margen" >{{$usuarioFind->direccion}}</th>
+   <th class="col margen">Fecha de Ingreso a la Empresa</th>
+   <th class="margen" >{{$usuarioFind->fechaIngreso}}</th>
+   <th class="col margen">Tipo vinculacion</th>
+   <th class="margen" >{{$usuarioFind->vinculacion}}</th>
+   </tr>
+   <tr>
+    <th class="col margen">Sexo</th>
+ <th class="margen" >{{$usuarioFind->sexo}}</th>
+ <th class="col margen">AFP</th>
+ <th class="margen" >{{$usuarioFind->afp->denominacionAfp}}</th>
+ </tr>
+ <tr>
+   <th  class="col margen">ARP</th>
+  <th class="margen">{{$usuarioFind->arp->denominacionArp}}</p> 
+    <th  class="col margen">EPS</th>
+    <th class="margen">{{$usuarioFind->eps->denominacionEps}}</p> 
+</tr>
+
+
+
+   
+  
+           
        
-           
-           
-                   @endforeach 
-                   
-                @endforeach
-            </table>
-            
+    </table>
         
                                
                             

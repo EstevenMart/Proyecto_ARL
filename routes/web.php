@@ -50,6 +50,9 @@ Route::get('/graficos', [AccidenteController::class, "show"])->name('accidente.G
 //PDF
 Route::get('/pdf',[PDFController::class,"PDF"] )->name('descargarPDF');
 Route::get('/pdfaccidente',[PDFController::class,"PDFAccidente"] )->name('descargarPDFAccidente');
+Route::get('/pdfusuario',[PDFController::class,"PDFUsuario"] )->name('descargarPDFUsuario');
+Route::get('/pdfaccidente/{id?}',[PDFController::class,"PDFAccidenteInfo"] )->name('descargarPDFAccidente.id');
+Route::get('/pdfusuario/{id?}',[PDFController::class,"PDFUsuarioInfo"] )->name('descargarPDFUsuario.id');
 
 // Auth::routes();
 

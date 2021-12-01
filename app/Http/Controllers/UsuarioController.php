@@ -235,7 +235,7 @@ class UsuarioController extends Controller
                    'afp_id' ,
                    'arp_id' ,
                    'eps_id' ,
-                   'tipoDocumento_id')+['password'=> bcrypt($request->input('numeroDocumento'))];
+                   'tipoDocumento_id');
                     $usuario->update($data); 
                       $roles = $request->input('roles', []);
                $usuario->syncRoles($roles);

@@ -29,8 +29,9 @@
 
 @endcan
 @can('accidente_pdf')
-            <a href="{{ route('descargarPDFAccidente') }}" target="_blank" class="btn btn-primary" >Imprimir PDF</a>
+            <a href="{{ route('descargarPDFAccidente') }}" target="_blank" class="btn btn-primary" ><i class="fas fa-file-import"></i> Imprimir todos los Accidentes</a>
             @endcan
+            
           </div>
           </div>
 
@@ -53,6 +54,9 @@
             <th>Ver más</th>
             @can('accidente_editar')
             <th>Acciones</th>
+            @endcan
+            @can('accidente_pdf')
+            <th>PDF</th>
             @endcan
         </tr>
     </thead>
@@ -82,6 +86,12 @@
                    {{--  <a href="{{ route('product.delete' , ['id'=> $product->id]) }}" class="btn btn-danger">Borrar</a> --}}
                    @endcan
                   </td>
+                  <td>
+                    @can('accidente_pdf')
+                       <a href="{{ route('descargarPDFAccidente.id', ['id'=> $accidente->id]) }}" target="_blank" class="btn btn-outline-primary" ><i class="fas fa-file-import"></i></a>
+                     
+                     @endcan
+                    </td>
             </tr>
         @endforeach
     </tbody>

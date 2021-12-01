@@ -41,66 +41,65 @@
    </div>
   </div>
    </div> --}}
+   <table >
+          @foreach ($accidenteFind->usuarios as $users)
+        <tr class="">
+            <th class="col ">Usuario</th>
+            <th class="" > {{ $users->name }} {{ $users->apellido }}</th>
+             </tr>
+             
+           @endforeach 
+             <tr>
+                <th class="col margen">Tipo Accidente</th>
+             <th class="margen" >{{$accidenteFind->tipoaccidente}}</th>
+             <th class="col margen">Sitio</th>
+             <th class="margen" >{{$accidenteFind->sitio->denominacionSitio}}</th>
+             </tr>
+             <tr>
+              <th class="col margen">Fecha Hora</th>
+           <th class="margen" >{{$accidenteFind->fechaHora}}</th>
+           
+            <th class="col margen">Dia</th>
+         <th class="margen" >{{$accidenteFind->dia}}</th>
 
-    <table >
-            @foreach ( $accidentes as $accidente )
-                  @foreach ($accidente->usuarios as $users)
-                <tr>
-                    <th class="col margen">Usuario</th>
-                    <th > {{ $users->name }} {{ $users->apellido }}</th>
-                     </tr>
-                     <tr>
-                        <th class="col">Tipo Accidente</th>
-                     <th >{{$accidente->tipoaccidente}}</th>
-                     <th class="col">Sitio</th>
-                     <th >{{$accidente->sitio->denominacionSitio}}</th>
-                     </tr>
-                     <tr>
-                      <th class="col">Fecha Hora</th>
-                   <th >{{$accidente->fechaHora}}</th>
-                   
-                    <th class="col">Dia</th>
-                 <th >{{$accidente->dia}}</th>
-        
-                  <th class="col">Jornada</th>
-               <th >{{$accidente->jornada}}</th>
-               </tr>
-               <tr>
-                <th class="col">Labor Habitual</th>
-             <th >{{$accidente->laborHabitual}}</th>
-             <th class="col">Empresa</th>
-             <th >{{$accidente->empresa}}</th>
-             <th class="col">Causa de Muerte</th>
-             <th >{{$accidente->empresa}}</th>
-            <tr>
-              <th class="col">Tiempo PA</th>
-           <th >{{$accidente->tiempoPA}}</th>
-           <th class="col">Cantidad de Horas</th>
-           <th >{{$accidente->cantHoras}}</th>
-           <th class="col">Cantidad de Minuto</th>
-           <th >{{$accidente->cantMinutos}}</th>
-           </tr>
-           <tr>
-            <th class="col">Mecanismo</th>
-         <th >{{$accidente->mecanismo->denominacionMecanismo}}</th>
-         <th class="col">Agente Accidente</th>
-         <th >{{$accidente->agente->denominacionAgente}}</th>
-         </tr>
-         <tr>
-           <th  class="col">Descripción;</th>
-          <th>{{$accidente->descripcion}}</p> 
-        </tr>
-        
+          <th class="col margen">Jornada</th>
+       <th class="margen" >{{$accidenteFind->jornada}}</th>
+       </tr>
+       <tr>
+        <th class="col margen">Labor Habitual</th>
+     <th class="margen" >{{$accidenteFind->laborHabitual}}</th>
+     <th class="col margen">Empresa</th>
+     <th class="margen" >{{$accidenteFind->empresa}}</th>
+     <th class="col margen">Causa de Muerte</th>
+     <th class="margen" >{{$accidenteFind->causaMuerte}}</th>
+    <tr>
+      <th class="col margen">Tiempo PA</th>
+   <th class="margen" >{{$accidenteFind->tiempoPA}}</th>
+   <th class="col margen">Cantidad de Horas</th>
+   <th class="margen" >{{$accidenteFind->cantHoras}}</th>
+   <th class="col margen">Cantidad de Minuto</th>
+   <th class="margen" >{{$accidenteFind->cantMinutos}}</th>
+   </tr>
+   <tr>
+    <th class="col margen">Mecanismo</th>
+ <th class="margen" >{{$accidenteFind->mecanismo->denominacionMecanismo}}</th>
+ <th class="col margen">Agente Accidente</th>
+ <th class="margen" >{{$accidenteFind->agente->denominacionAgente}}</th>
+ </tr>
 
-        <hr class="hr" width="90%">  
+ <tr>
+   <th  class="col margen">Descripción;</th>
+  <th>{{$accidenteFind->descripcion}}</p> 
+</tr>
+
+
+
+
+   
+   
        
-           
-           
-                   @endforeach 
-                   
-                @endforeach
-            </table>
-            
+    </table>
+    
         
                                
                             

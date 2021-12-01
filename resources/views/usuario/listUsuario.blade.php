@@ -24,7 +24,9 @@
                   @can('usuario_crear')
                     <a href="{{route('register')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
                   @endcan
-                    
+                  @can('usuario_pdf')
+                  <a href="{{ route('descargarPDFUsuario') }}" target="_blank" class="btn btn-primary" ><i class="fas fa-file-import"></i> Imprimir todos los usuarios</a>
+                  @endcan
               
                 </div>
               </div>
@@ -44,6 +46,9 @@
                     <th>Ver más</th>
                     @can('usuario_edit')
                     <th>Acciones</th>
+                    @endcan
+                    @can('usuario_pdf')
+                    <th>PDF</th>
                     @endcan
                 </tr>
                 </thead>
@@ -74,6 +79,10 @@
                          <a href=" {{ route('usuario.editUsuario', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
                          
                     </td>
+                    <td>
+                      <a href=" {{ route('descargarPDFUsuario.id', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" target="_blank" ><i class="fas fa-file-import"></i></a>
+                      
+                 </td>
                     @endcan
                     
                     

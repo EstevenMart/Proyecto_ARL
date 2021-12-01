@@ -56,7 +56,16 @@ return Carbon::parse($data->created_at)->format('M');
     $User = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
     $usuarioList = User::orderBy('id','desc')->paginate(5);
 
-    
+    $causaMuerte=Accidente::select('id','causaMuerte')->get()->groupBy(function($causaMuerte){
+        return ($causaMuerte->causaMuerte); });
+    $causa=[];
+       $Muerte=[];
+       foreach ($causaMuerte as $sit  => $values ) {
+        $causa[]=$sit;
+        
+        $Muerte[]=count($values);
+    }
+   
    return view('home',[ 'months'=>$months, 'listUsuario'=>$usuarioList,'listAccidente'=>$accidenteList, 'user'=>$User, 'sitio'=>$sitio, 'sitioContar'=>$sitioContar, 'mounthCount'=>$mounthCount]);
 }
 }

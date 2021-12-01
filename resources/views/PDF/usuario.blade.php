@@ -32,7 +32,7 @@
     </a>
   </nav>
   <br><br><hr width="90%"><br><br>
-   <center> <h1 >Accidentes</h1></center>
+   <center> <h1 >usuarios</h1></center>
    {{-- <div class="main-card mb-3 card">
     <div class="card-body">
    <div class="form-row">
@@ -43,52 +43,54 @@
    </div> --}}
 
     <table >
-            @foreach ( $accidentes as $accidente )
-                  @foreach ($accidente->usuarios as $users)
+            @foreach ( $usuario as $usuarios )
+                
                 <tr>
-                    <th class="col margen">Usuario</th>
-                    <th > {{ $users->name }} {{ $users->apellido }}</th>
+                    <th class="col margen">Nombre</th>
+                    <th > {{ $usuarios->name }} {{ $usuarios->apellido }}</th>
                      </tr>
                      <tr>
-                        <th class="col">Tipo Accidente</th>
-                     <th >{{$accidente->tipoaccidente}}</th>
-                     <th class="col">Sitio</th>
-                     <th >{{$accidente->sitio->denominacionSitio}}</th>
+                        <th class="col">Tipo de documento</th>
+                     <th >{{$usuarios->tipo_documento->nombreTipoDocumento}}</th>
+                     <th class="col">Numero de Documento</th>
+                     <th >{{$usuarios->numeroDocumento}}</th>
                      </tr>
                      <tr>
-                      <th class="col">Fecha Hora</th>
-                   <th >{{$accidente->fechaHora}}</th>
+                      <th class="col">Telefono</th>
+                   <th >{{$usuarios->telefono}}</th>
                    
-                    <th class="col">Dia</th>
-                 <th >{{$accidente->dia}}</th>
+                    <th class="col">Correo</th>
+                 <th >{{$usuarios->email}}</th>
         
-                  <th class="col">Jornada</th>
-               <th >{{$accidente->jornada}}</th>
+                  <th class="col">Tipo de Sangre</th>
+               <th >{{$usuarios->sangre}}</th>
                </tr>
                <tr>
-                <th class="col">Labor Habitual</th>
-             <th >{{$accidente->laborHabitual}}</th>
-             <th class="col">Empresa</th>
-             <th >{{$accidente->empresa}}</th>
-             <th class="col">Causa de Muerte</th>
-             <th >{{$accidente->empresa}}</th>
+                <th class="col">Fecha de Nacimiento</th>
+             <th >{{$usuarios->fechaNacimiento}}</th>
+             <th class="col">Jornada</th>
+             <th >{{$usuarios->jornada}}</th>
+             <th class="col">Municipio</th>
+             <th >{{$usuarios->municipios->denominacionMunicipio}}</th>
             <tr>
-              <th class="col">Tiempo PA</th>
-           <th >{{$accidente->tiempoPA}}</th>
-           <th class="col">Cantidad de Horas</th>
-           <th >{{$accidente->cantHoras}}</th>
-           <th class="col">Cantidad de Minuto</th>
-           <th >{{$accidente->cantMinutos}}</th>
+              <th class="col">Direccion</th>
+           <th >{{$usuarios->direccion}}</th>
+           <th class="col">Fecha de Ingreso a la Empresa</th>
+           <th >{{$usuarios->fechaIngreso}}</th>
+           <th class="col">Tipo vinculacion</th>
+           <th >{{$usuarios->vinculacion}}</th>
            </tr>
            <tr>
-            <th class="col">Mecanismo</th>
-         <th >{{$accidente->mecanismo->denominacionMecanismo}}</th>
-         <th class="col">Agente Accidente</th>
-         <th >{{$accidente->agente->denominacionAgente}}</th>
+            <th class="col">Sexo</th>
+         <th >{{$usuarios->sexo}}</th>
+         <th class="col">AFP</th>
+         <th >{{$usuarios->afp->denominacionAfp}}</th>
          </tr>
          <tr>
-           <th  class="col">Descripción;</th>
-          <th>{{$accidente->descripcion}}</p> 
+           <th  class="col">ARP</th>
+          <th>{{$usuarios->arp->denominacionArp}}</p> 
+            <th  class="col">EPS</th>
+            <th>{{$usuarios->eps->denominacionEps}}</p> 
         </tr>
         
 
@@ -98,7 +100,7 @@
            
                    @endforeach 
                    
-                @endforeach
+               
             </table>
             
         

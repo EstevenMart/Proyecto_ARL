@@ -47,7 +47,7 @@ class UsuarioController extends Controller
 
     function store(Request $request){
 
-        $request->validate([
+        /* $request->validate([
             'name' => 'required|max:50' ,
             'apellido' => 'required|max:50',
             'numeroDocumento' => 'required|unique:usuarios|numeric',
@@ -70,7 +70,7 @@ class UsuarioController extends Controller
             'arp_id' => 'required|max:50',
             'eps_id' => 'required|max:50',
             'tipoDocumento_id' => 'required|max:50'
-        ]);
+        ]); */
         $usuario = User::create($request -> only(
             'name',
             'email',
@@ -81,14 +81,14 @@ class UsuarioController extends Controller
             'sangre' ,
             'direccion' ,
             'jornada' ,
-            'sexo' ,         
+            'sexo' ,
             'fechaIngreso' ,
             'vinculacion' ,
-            'estado', 
+            'estado',
             'imagen' ,
             'municipio_id' ,
             'cargo_id' ,
-            'rol_id', 
+            'rol_id',
             'afp_id' ,
             'arp_id' ,
             'eps_id' ,
@@ -119,8 +119,8 @@ class UsuarioController extends Controller
         // $usuario->arp_id  = $request->arp_id ;
         // $usuario->eps_id  = $request->eps_id ;
         // $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
-      
-        
+
+
 
         // $url = Storage::url($imagenes);
 
@@ -254,6 +254,24 @@ class UsuarioController extends Controller
                     return redirect('/accidentes');
 
             }
+            //Estado del usuario
+            public function statusUser($id){
+               $usuarios = User::find($id);
+
+               if($usuarios->estado=='Activo'){
+                   $estado = 'Inactivo';
+               }else{
+                   $estado = 'Activo';
+               }
+
+               $values = array('estado' => $estado);
+               User::where('id',$id)->update($values);
+
+
+
+               return redirect()->route('home');
+            }
+
             // como eliminar una imagen
     //    function delete($usuario){
     //          $usuario = Accidente::where('imagen', $usuario->first());

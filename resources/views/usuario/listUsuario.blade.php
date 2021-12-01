@@ -4,7 +4,7 @@
 @section('Contenido')
 @section('CSS')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css"> 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 
 @endsection
 
@@ -22,12 +22,12 @@
                 <h4>Tabla de Usuarios</h4>
                 <div class="card-header-form">
                     <a href="{{route('register')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
-              
+
                 </div>
               </div>
               <div class="card-body p-0">
                 <div class="table-responsive">
-        
+
                   <table id="search" class="table table-striped table-md"  >
                 <thead>
                   <tr>
@@ -38,7 +38,7 @@
                     <th>Estado</th>
                     <th>Ver más</th>
                     <th>Acciones</th>
-        
+
                 </tr>
                 </thead>
                 <tbody>
@@ -54,22 +54,26 @@
                       </td>
                       <td> {{$usuario->apellido}}</td>
                     <td>{{$usuario->numeroDocumento}}</td>
-                    <td> @if($usuario->estado === "Inactivo")
-                      <div class="badge badge-danger ">Inactivo</div>
-                          @else
-                          <div class="badge badge-success ">Activo</div>
-                      @endif
+                    <td>
+                        <form action="{{route('status',$usuario->id)}}" method="POST" >
+                            @csrf
+                            @if($usuario->estado === "Inactivo")
+                            <button type="submit" class="badge badge-danger ">Inactivo</button>
+                            @else
+                            <button type="submit" class="badge badge-success ">Activo</button>
+                            @endif
+                        </form>
                     </td>
                     <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></a></i></td>
                     <td>
                          <a href=" {{ route('usuario.editUsuario', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
-                         
+
                     </td>
-                  
+
             @endforeach
                 </tbody>
               </table>
-                     
+
 
 @endsection
 @section('JS')

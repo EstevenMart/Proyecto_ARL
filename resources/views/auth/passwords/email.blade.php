@@ -42,6 +42,9 @@
                 </div>
             </div>
         </div>
+
     </div>
-</div>
+</div>        <a class="read_more" href="/login">
+<i class='bx bx-log-out'></i>
+<span class="links_name">Atrás</span></a>
 @endsection

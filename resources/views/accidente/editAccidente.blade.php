@@ -17,6 +17,38 @@
     <div class="col-12">
         <div class="card">
             <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card-body">
+                            <div class="form-group">
+                                <div class="section-title mt-0">Usuario del accidente</div>
+                                <div class="input-group">
+                                    <select class=" custom-select @error('name[]') is-invalid @enderror " name="name[]" >
+                                        <option value="">Seleccione...</option>
+                                       @foreach ($usuario as $id=> $usuario)
+                                        <option value="{{$id}}" {{ $id ? "selected" : ""}} {{ old('name') == $id ? 'selected' : '' }} >
+                                       {{$usuario}} </option>
+                                        
+                                        @endforeach
+                                        </select>
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary btn-lg btn-block btn-icon-split" type="button">Otro</button>
+                                    </div>
+                                  </div>
+                                  
+                               @error('name[]')
+                                <p class="text-danger">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                            </div>
+                         </div>
+
+                    
+                  
+                </div>
+                
+            </div>
+            <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card-body">
                         <div class="form-group" id="simple-date3">

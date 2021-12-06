@@ -197,7 +197,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Lugares donde se evidencia Accidentes</h4>
                     <canvas id="pieChart"></canvas>
-                    <a href="{{ route('descargarPDF') }}" class="btn btn-primary" >Imprimir</a>
+                
                   </div>
                 </div>
               </div>

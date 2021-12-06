@@ -43,6 +43,13 @@ Route::get('/accidente/editAccidente/{id?}', [AccidenteController::class, 'edit'
 Route::get('/accidente/infoAccidente/{id?}', [AccidenteController::class, 'find'])->name('accidente.findAccidente');
 Route::put('/accidente/{id}',[AccidenteController::class, 'update'])->name('accidente.updateAccidente');
 
+//Chat
+Route::get('/chat-form', function () {
+    return view('Chat.chat');
+});
+
+//roles
+Route::post('/cambiarStatus/{id}',[UsuarioController::class,"statusUser"])->name('status');
 
 //Graficos
 Route::get('/graficos', [AccidenteController::class, "show"])->name('accidente.GraficosAcci');
@@ -128,5 +135,5 @@ Route::get( '/accidente/graficoUsuario' , [AccidenteController::class , "index"]
   Route::resource('permisos', PermisosController::class);
 
   Route::resource('roles', RolesController::class);
- 
- 
+
+

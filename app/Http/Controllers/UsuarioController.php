@@ -75,10 +75,10 @@ class UsuarioController extends Controller
             'sangre' ,
             'direccion' ,
             'jornada' ,
-            'sexo' ,         
+            'sexo' ,
             'fechaIngreso' ,
             'vinculacion' ,
-            'estado', 
+            'estado',
             'imagen' ,
             'municipio_id' ,
             'cargo_id' , 
@@ -87,8 +87,46 @@ class UsuarioController extends Controller
             'eps_id' ,
             'tipoDocumento_id')+['password'=> bcrypt($request->input('numeroDocumento'))]);
             $roles = $request->input('roles', []);
+            alert()->success('Aviso','<p class="font-weight-light">Registro completo con exito</p>')
+            ->toHtml()
+            ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
+            ->autoClose(9000);
            
         $usuario->syncRoles($roles);
+        // $usuario->nombre = $request->nombre;
+        // $usuario->apellido = $request->apellido;
+        // $usuario->numeroDocumento = $request->numeroDocumento;
+        // $usuario->correo = $request->correo;
+        // $usuario->telefono = $request->telefono;
+        // $usuario->fechaNacimiento = $request->fechaNacimiento;
+        // $usuario->sexo = $request->sexo;
+        // $usuario->sangre = $request->sangre;
+        // $usuario->direccion = $request->direccion;
+        // $usuario->jornada = $request->jornada;
+        // $usuario->fechaIngreso = $request->fechaIngreso;
+        // $usuario->vinculacion = $request->vinculacion;
+
+        // $imagenes=$usuario->imagen  = $request->imagen->store("public/imagenes");
+        // $url = Storage::url($imagenes);
+        // $usuario->imagen = $request->imagen=$url;
+        // $usuario->imagen = $request->imagen;
+        // $usuario->municipio_id  = $request->municipio_id;
+        // $usuario->cargo_id  = $request->cargo_id ;
+        // $usuario->rol_id  = $request->rol_id ;
+        // $usuario->afp_id  = $request->afp_id ;
+        // $usuario->arp_id  = $request->arp_id ;
+        // $usuario->eps_id  = $request->eps_id ;
+        // $usuario->tipoDocumento_id  = $request->tipoDocumento_id ;
+
+
+
+        // $url = Storage::url($imagenes);
+
+
+
+        // $usuario->save();
+        //   $roles = $request->input('roles', []);$usuario->syncRoles($roles);
+        // $message = 'Se ha creado una nuevo User';
 
         return redirect('/usuarios');
     }
@@ -240,10 +278,32 @@ class UsuarioController extends Controller
                       $roles = $request->input('roles', []);
                $usuario->syncRoles($roles);
                $message = 'Se ha editado una nuevo usuario';
+               alert()->success('Aviso','<p class="font-weight-light">Actualizacion completada con exito</p>')
+               ->toHtml()
+               ->showConfirmButton('<i class="anticon anticon-like text-white"></i> OK', '#00c9a7')
+               ->autoClose(9000);
                return redirect('/usuarios')->with('messa' , $message);
        
 
             }
+            //Estado del usuario
+            public function statusUser($id){
+               $usuarios = User::find($id);
+
+               if($usuarios->estado=='Activo'){
+                   $estado = 'Inactivo';
+               }else{
+                   $estado = 'Activo';
+               }
+
+               $values = array('estado' => $estado);
+               User::where('id',$id)->update($values);
+
+
+
+               return redirect()->route('home');
+            }
+
             // como eliminar una imagen
     //    function delete($usuario){
     //          $usuario = Accidente::where('imagen', $usuario->first());

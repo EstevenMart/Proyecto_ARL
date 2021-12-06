@@ -4,7 +4,7 @@
 @section('Contenido')
 @section('CSS')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css"> 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 
 @endsection
 
@@ -32,7 +32,7 @@
               </div>
               <div class="card-body p-0">
                 <div class="table-responsive">
-        
+
                   <table id="search" class="table table-striped table-md"  >
                 <thead>
                   <tr>
@@ -65,19 +65,22 @@
                       </td>
                       <td> {{$usuario->apellido}}</td>
                     <td>{{$usuario->numeroDocumento}}</td>
-                    @can('usuario_inactivar')
-                    <td> @if($usuario->estado === "Inactivo")
-                      <div class="badge badge-danger ">Inactivo</div>
-                          @else
-                          <div class="badge badge-success ">Activo</div>
-                      @endif
+                    <td>
+                        <form action="{{route('status',$usuario->id)}}" method="POST" >
+                            @csrf
+                            @if($usuario->estado === "Inactivo")
+                            <button type="submit" class="badge badge-danger ">Inactivo</button>
+                            @else
+                            <button type="submit" class="badge badge-success ">Activo</button>
+                            @endif
+                        </form>
                     </td>
-                    @endcan
+                  
                     <td>  <a href="{{route('usuario.findUsuario', ['id'=> $usuario->id])}}">  <i class="fas fa-search"></a></i></td>
                     @can('usuario_edit')
                       <td>
                          <a href=" {{ route('usuario.editUsuario', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" ><i class="far fa-edit"></i></a>
-                         
+
                     </td>
                     <td>
                       <a href=" {{ route('descargarPDFUsuario.id', ['id'=> $usuario->id]) }}" class="btn btn-outline-primary" target="_blank" ><i class="fas fa-file-import"></i></a>
@@ -90,7 +93,7 @@
             @endforeach
                 </tbody>
               </table>
-                     
+
 
 @endsection
 @section('JS')

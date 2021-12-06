@@ -116,8 +116,9 @@ class AccidenteController extends Controller
         $agente = Agente::orderBy('denominacionAgente')->get();
         $parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
         $lesion = Lesion::all()->pluck('denominacionTipoLesion', 'id');
+        $usuario = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
         $accidente= Accidente::find($id);
-return view('accidente/editAccidente',['accidente' => $accidente,'sitios'=>$sitio, 'mecanismos'=>$mecanismo, 'agentes'=>$agente, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion  ]);
+return view('accidente/editAccidente',['accidente' => $accidente,'sitios'=>$sitio,'usuario'=>$usuario, 'mecanismos'=>$mecanismo, 'agentes'=>$agente, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion  ]);
     }
 
 //     function form ($id = null){
@@ -135,7 +136,8 @@ return view('accidente/editAccidente',['accidente' => $accidente,'sitios'=>$siti
 $accidenteFind = Accidente::find($id);
 $parte_cuerpo = ParteCuerpo::all()->pluck('denominacionParteCuerpo', 'id');
 $lesion = Lesion::all()->pluck('denominacionTipoLesion', 'id');
-return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion ]);
+$usuario = User::select(DB::raw("CONCAT(name,' ',apellido) AS name"),'id')->pluck('name', 'id');
+return view('accidente/infoAccidente', ['infoAccidente'=>$accidenteFind,'usuario'=>$usuario, 'partes_cuerpo'=>$parte_cuerpo, 'lesions'=>$lesion ]);
     }
 
 function update(Request $request, $id){
@@ -163,7 +165,7 @@ function update(Request $request, $id){
         $accidente->partes_cuerpo()->sync($parte_cuerpo);
         $lesion = $request -> input("denominacionTipoLesion", []);
         $accidente->lesions()->sync($lesion);
-        $usuario = $request -> input("nombre", []);
+        $usuario = $request -> input("name", []);
         $accidente->usuarios()->sync($usuario);
         alert()->success('Aviso','<p class="font-weight-light">Actualizacion completada con exito</p>')
         ->toHtml()

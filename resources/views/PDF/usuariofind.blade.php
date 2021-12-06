@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <title>Tabla de Accidentes</title>
+    <title>Tabla de Usuario</title>
 </head>
 <body>
   

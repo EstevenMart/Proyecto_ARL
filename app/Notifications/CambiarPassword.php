@@ -19,7 +19,7 @@ class CambiarPassword extends ResetPasswordNotification
      *
      * @var string
      */
-    public $token;
+    protected $token;
 
     /**
      * Create a notification instance.

@@ -22,7 +22,7 @@
                 <h4>Tabla de Usuarios</h4>
                 <div class="card-header-form">
                   @can('usuario_crear')
-                    <a href="{{route('register')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
+                    <a href="{{route('usuario.createUsuario')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i>Nueva Usuario</a>
                   @endcan
                   @can('usuario_pdf')
                   <a href="{{ route('descargarPDFUsuario') }}" target="_blank" class="btn btn-primary" ><i class="fas fa-file-import"></i> Imprimir todos los usuarios</a>
